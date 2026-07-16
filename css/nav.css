@@ -4,16 +4,21 @@
 
 .nav {
   position: sticky;
-  top: 0;
+  top: 16px;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px var(--page-pad);
-  background: rgba(243,239,231,0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--light-border);
+  padding: 12px 28px;
+  margin: 16px auto 32px;
+  max-width: 1100px;
+  width: calc(100% - 32px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 32px rgba(23, 17, 28, 0.06);
+  border-radius: 100px;
 }
 
 .nav-logo {
