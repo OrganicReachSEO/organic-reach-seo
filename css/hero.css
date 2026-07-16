@@ -205,6 +205,10 @@
   margin-bottom: 28px;
 }
 
+.home-hero-text .hero-actions {
+  justify-content: center;
+}
+
 .home-hero-stats {
   display: flex;
   justify-content: center;
