@@ -95,7 +95,7 @@
 
 /* ---------- Home hero (special) ---------- */
 .home-hero {
-  padding: 0 var(--page-pad);
+  padding: 96px var(--page-pad) 0;
   border-bottom: 1px solid var(--light-border);
   position: relative;
   overflow: hidden;
