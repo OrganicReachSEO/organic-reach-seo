@@ -71,26 +71,26 @@
     <!-- FORM + INFO -->
     <section class="contact-section">
       <div class="contact-inner">
-        <form class="contact-form">
+        <form class="contact-form" action="contact.php" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">FULL NAME</label>
-              <input type="text" class="form-input" placeholder="Jane Doe" required>
+              <input type="text" name="fullname" class="form-input" placeholder="Jane Doe" required>
             </div>
             <div class="form-group">
               <label class="form-label">PHONE</label>
-              <input type="tel" class="form-input" placeholder="+1 (___) ___-____">
+              <input type="tel" name="phone" class="form-input" placeholder="+1 (___) ___-____">
             </div>
           </div>
           
           <div class="form-group">
             <label class="form-label">EMAIL</label>
-            <input type="email" class="form-input" placeholder="jane@company.com" required>
+            <input type="email" name="email" class="form-input" placeholder="jane@company.com" required>
           </div>
           
           <div class="form-group">
             <label class="form-label">I'M INTERESTED IN</label>
-            <select class="form-input">
+            <select name="interest" class="form-input">
               <option>SEO Optimization</option>
               <option>Website Redesign</option>
               <option>Reputation Management</option>
@@ -100,7 +100,7 @@
           
           <div class="form-group">
             <label class="form-label">TELL US ABOUT YOUR BUSINESS</label>
-            <textarea class="form-input" rows="4" placeholder="What are you hoping to achieve?" required></textarea>
+            <textarea name="message" class="form-input" rows="4" placeholder="What are you hoping to achieve?" required></textarea>
           </div>
           
           <div>
