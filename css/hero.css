@@ -1,0 +1,307 @@
+/* ============================================================
+   HERO.CSS — Hero section patterns
+   ============================================================ */
+
+/* ---------- Standard 2-col hero (services, about pages) ---------- */
+.hero {
+  padding: 96px var(--page-pad) 80px;
+  border-bottom: 1px solid var(--light-border);
+}
+
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.hero-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--purple);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.05s both;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 5.6vw, 88px);
+  line-height: 0.98;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.15s both;
+}
+
+.hero h1 em { color: var(--purple); font-style: italic; }
+
+.hero-body {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.28s both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.4s both;
+}
+
+/* Hero image placeholder box */
+.hero-visual {
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.45s both;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Full-width hero (Home, Services hub, Contact) ---------- */
+.hero-full {
+  padding: 96px var(--page-pad) 72px;
+  border-bottom: 1px solid var(--light-border);
+}
+
+.hero-full-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.hero-full h1 {
+  font-size: clamp(52px, 6.6vw, 100px);
+  line-height: 0.98;
+  margin-bottom: 32px;
+  max-width: 1100px;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.15s both;
+}
+
+.hero-full h1 em { color: var(--purple); font-style: italic; }
+
+/* ---------- Home hero (special) ---------- */
+.home-hero {
+  padding: 0 var(--page-pad);
+  border-bottom: 1px solid var(--light-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.home-hero-top-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--light-border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.05s both;
+}
+
+.home-hero h1 {
+  font-size: clamp(64px, 8.2vw, 128px);
+  line-height: 0.98;
+  margin: 0;
+  text-align: center;
+}
+
+.home-hero-heading-wrap {
+  padding: 72px 0 56px;
+}
+
+/* Hero animated inline elements */
+.hero-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.08em;
+  height: 0.68em;
+  margin: 0 0.05em;
+  vertical-align: 0;
+  animation: chipPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.7s both;
+}
+
+.hero-bar {
+  width: 0.13em;
+  border-radius: 100px;
+  transform-origin: bottom;
+}
+
+.hero-dots-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.09em;
+  width: 1.3em;
+  height: 0.52em;
+  border-radius: 100px;
+  border-bottom-left-radius: 0.08em;
+  vertical-align: middle;
+  margin: 0 0.05em;
+  background: var(--ink);
+  animation: chipPop 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.95s both;
+}
+
+.hero-dot {
+  width: 0.11em;
+  height: 0.11em;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+.heading-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.heading-line-inner {
+  display: block;
+}
+
+.home-hero-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.home-hero-text {
+  max-width: 560px;
+  text-align: center;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.3s both;
+}
+
+.home-hero-text p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.home-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 56px;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.45s both;
+}
+
+.stat { text-align: center; }
+
+.stat + .stat {
+  border-left: 1px solid var(--light-border);
+  padding-left: 48px;
+}
+
+.stat-number {
+  font-family: var(--ff-serif);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* About hero with portrait */
+.hero-portrait-wrap {
+  position: relative;
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) 0.45s both;
+}
+
+.hero-portrait {
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  position: relative;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-quote-card {
+  position: absolute;
+  bottom: -24px;
+  left: -24px;
+  background: var(--purple);
+  color: var(--bg);
+  padding: 26px 28px;
+  max-width: 250px;
+}
+
+.hero-quote-card p {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .home-hero-stats { gap: 32px; }
+  .stat + .stat { padding-left: 32px; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 64px var(--page-pad) 56px; }
+  .hero h1 { font-size: clamp(36px, 8vw, 52px); }
+  .hero-full h1 { font-size: clamp(36px, 8vw, 56px); }
+  .home-hero h1 { font-size: clamp(40px, 10vw, 72px); }
+  .home-hero-stats {
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+  }
+  .stat + .stat {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--light-border);
+    padding-top: 28px;
+  }
+  .hero-quote-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,85 @@
+/* ============================================================
+   ANIMATIONS.CSS — Keyframes & animation utilities
+   ============================================================ */
+
+/* ---------- Hero entrance ---------- */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Home headline line-up ---------- */
+@keyframes lineUp {
+  from { transform: translateY(112%); }
+  to   { transform: none; }
+}
+
+/* ---------- Chip pop-in ---------- */
+@keyframes chipPop {
+  from { transform: scale(0) rotate(-12deg); }
+  to   { transform: scale(1) rotate(0deg); }
+}
+
+/* ---------- Bouncing dots ---------- */
+@keyframes dotBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-0.14em); }
+}
+
+/* ---------- Gradient shift ---------- */
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ---------- Bar loop (ranking bars) ---------- */
+@keyframes barLoop {
+  0%, 100% { transform: scaleY(0.5); }
+  50%      { transform: scaleY(1); }
+}
+
+/* ---------- Floating drift ---------- */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(12px, -18px) rotate(10deg); }
+}
+
+/* ---------- Slow spin ---------- */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---------- Custom cursor elements ---------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  z-index: 9998;
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring { display: none; }
+}
