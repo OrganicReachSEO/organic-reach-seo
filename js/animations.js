@@ -45,18 +45,24 @@ function initReveal() {
     groups.forEach(function(group) {
       var items = group.querySelectorAll('[data-reveal]');
       if (!items.length) return;
+      items.forEach(function(el) {
+        gsap.set(el, { opacity: 0, y: 32, scale: 0.97 });
+      });
       ScrollTrigger.batch(items, {
-        start: 'top 88%',
+        start: 'top 92%',
         once: true,
         onEnter: function(batch) {
           gsap.to(batch, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.9,
+            duration: 0.8,
             ease: 'power3.out',
-            stagger: 0.1,
+            stagger: 0.12,
             overwrite: true,
+            onComplete: function() {
+              batch.forEach(function(el) { el.classList.add('is-visible'); });
+            }
           });
         },
       });
@@ -64,12 +70,21 @@ function initReveal() {
 
     // Standalone data-reveal elements not part of a group
     document.querySelectorAll('[data-reveal]:not([data-reveal-group] [data-reveal])').forEach(function(el) {
+      gsap.set(el, { opacity: 0, y: 32, scale: 0.97 });
       ScrollTrigger.create({
         trigger: el,
-        start: 'top 88%',
+        start: 'top 92%',
         once: true,
         onEnter: function() {
-          gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', overwrite: true });
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            overwrite: true,
+            onComplete: function() { el.classList.add('is-visible'); }
+          });
         },
       });
     });
@@ -197,23 +212,24 @@ function initScrollCascade() {
   whenScrollReady(function() {
     document.querySelectorAll('[data-cascade]').forEach(function(row) {
       var items = row.querySelectorAll('[data-cascade-item]');
-      items.forEach(function(item, i) {
-        var distance = (i + 1) * 36;
-        gsap.fromTo(
-          item,
-          { x: distance, opacity: 0.4 },
-          {
-            x: -distance,
+      if (!items.length) return;
+      items.forEach(function(item) {
+        gsap.set(item, { opacity: 0, y: 35 });
+      });
+      ScrollTrigger.create({
+        trigger: row,
+        start: 'top 88%',
+        once: true,
+        onEnter: function() {
+          gsap.to(items, {
             opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: row,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 0.6,
-            },
-          }
-        );
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            stagger: 0.14,
+            overwrite: true,
+          });
+        },
       });
     });
   });
@@ -276,9 +292,9 @@ function initWordReveal() {
       });
       gsap.to(el.children, {
         opacity: 1,
-        stagger: 0.05,
-        ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top 82%', end: 'top 38%', scrub: 0.4 },
+        stagger: 0.04,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 95%', end: 'top 60%', scrub: 0.3 },
       });
     });
   });

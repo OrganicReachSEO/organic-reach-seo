@@ -42,10 +42,6 @@
   padding: 40px 0;
   border-top: 1px solid var(--light-border);
   align-items: start;
-  /* Reveal animation initial state */
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .feature-row:last-child {
@@ -171,11 +167,8 @@
   align-items: center;
   padding: 44px 12px;
   border-top: 1px solid var(--light-border);
+  /* Reveal handled by GSAP */
   transition: background 0.3s ease, padding-left 0.3s ease;
-  /* Reveal */
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease, padding-left 0.3s ease;
 }
 
 .service-row:last-child {
@@ -395,10 +388,6 @@
 details {
   border-top: 1px solid var(--light-border);
   padding: 24px 0;
-  /* Reveal */
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 details.is-visible {
@@ -471,10 +460,6 @@ details p {
 
 .testimonial {
   padding: 8px 40px;
-  /* Reveal */
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .testimonial.is-visible {
