@@ -2,6 +2,13 @@
    ANIMATIONS.CSS — Keyframes & animation utilities
    ============================================================ */
 
+/* ---------- Scroll-reveal initial state ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+  will-change: opacity, transform;
+}
+
 /* ---------- Hero entrance ---------- */
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(30px); }
