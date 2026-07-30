@@ -2,7 +2,26 @@
 // and Draggable interactions (marquee + before/after slider).
 // GSAP, ScrollTrigger and Draggable are loaded via <script> tags in each page's <head>.
 
-function whenReady(fn) {
+// Most animations only need GSAP + ScrollTrigger. Don't gate them on Draggable.
+function whenScrollReady(fn) {
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    fn();
+  } else {
+    var tries = 0;
+    var iv = setInterval(function() {
+      tries++;
+      if (window.gsap && window.ScrollTrigger) {
+        clearInterval(iv);
+        gsap.registerPlugin(ScrollTrigger);
+        fn();
+      } else if (tries > 200) clearInterval(iv);
+    }, 25);
+  }
+}
+
+// Only marquee + before/after slider need Draggable.
+function whenDraggableReady(fn) {
   if (window.gsap && window.ScrollTrigger && window.Draggable) {
     gsap.registerPlugin(ScrollTrigger, Draggable);
     fn();
@@ -19,8 +38,9 @@ function whenReady(fn) {
   }
 }
 
+
 function initReveal() {
-  whenReady(function() {
+  whenScrollReady(function() {
     var groups = document.querySelectorAll('[data-reveal-group]');
     groups.forEach(function(group) {
       var items = group.querySelectorAll('[data-reveal]');
@@ -59,7 +79,7 @@ function initReveal() {
 }
 
 function initCounters() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-count-to]').forEach(function(el) {
       var raw = el.getAttribute('data-count-to');
       var target = parseFloat(raw);
@@ -84,7 +104,7 @@ function initCounters() {
 }
 
 function initMagnetic() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-magnetic]').forEach(function(btn) {
       // Disable on touch devices
       if (window.matchMedia('(pointer: coarse)').matches) return;
@@ -106,7 +126,7 @@ function initMagnetic() {
 
 // Draggable, infinite-loop marquee: auto-scrolls, user can grab and fling it.
 function initDraggableMarquee() {
-  whenReady(function() {
+  whenDraggableReady(function() {
     document.querySelectorAll('[data-marquee]').forEach(function(track) {
       var halfWidth = track.scrollWidth / 2;
       gsap.set(track, { x: 0 });
@@ -134,7 +154,7 @@ function initDraggableMarquee() {
 
 // Draggable before/after comparison slider
 function initBeforeAfterSlider() {
-  whenReady(function() {
+  whenDraggableReady(function() {
     document.querySelectorAll('[data-baf]').forEach(function(container) {
       var after = container.querySelector('[data-baf-after]');
       var handle = container.querySelector('[data-baf-handle]');
@@ -174,7 +194,7 @@ function initBeforeAfterSlider() {
 }
 
 function initScrollCascade() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-cascade]').forEach(function(row) {
       var items = row.querySelectorAll('[data-cascade-item]');
       items.forEach(function(item, i) {
@@ -210,7 +230,7 @@ function initCursor() {
   styleTag.textContent = '@media (pointer: fine) and (hover: hover) { * { cursor: none !important; } }';
   document.head.appendChild(styleTag);
 
-  whenReady(function() {
+  whenScrollReady(function() {
     gsap.set([dot, ring], { opacity: 0 });
     var started = false;
     var dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
@@ -241,7 +261,7 @@ function initCursor() {
 
 // Scrub-reveals a headline word by word as it scrolls into view.
 function initWordReveal() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-word-reveal]').forEach(function(el) {
       if (el.getAttribute('data-word-done')) return;
       el.setAttribute('data-word-done', '1');
@@ -266,7 +286,7 @@ function initWordReveal() {
 
 // Gentle vertical parallax for oversized media inside clipped bands.
 function initParallax() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-parallax]').forEach(function(el) {
       var speed = parseFloat(el.getAttribute('data-parallax')) || 10;
       gsap.fromTo(
@@ -284,7 +304,7 @@ function initParallax() {
 
 // Floating preview card that follows the cursor over [data-preview] rows.
 function initHoverPreview() {
-  whenReady(function() {
+  whenScrollReady(function() {
     var rows = document.querySelectorAll('[data-preview]');
     if (!rows.length || document.querySelector('[data-preview-float]')) return;
     var el = document.createElement('div');
@@ -318,7 +338,7 @@ function initHoverPreview() {
 // Each trail point renders as a shaded "dent" (dark edge below, light catch above)
 // in tones of the page background, with a slight liquid wobble as it dissipates.
 function initRipple() {
-  whenReady(function() {
+  whenScrollReady(function() {
     document.querySelectorAll('[data-ripple]').forEach(function(zone) {
       if (zone.getAttribute('data-ripple-done')) return;
       zone.setAttribute('data-ripple-done', '1');

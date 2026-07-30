@@ -10,26 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 1c. Deferred ScrollTrigger refresh — the SERP Climb pin adds virtual
-  //     scroll height that shifts every trigger below it. We wait for fonts
-  //     + a tick so all pins are registered, then recalculate positions.
-  if (window.ScrollTrigger) {
-    document.fonts.ready.then(function () {
-      requestAnimationFrame(function () {
-        ScrollTrigger.refresh();
-      });
-    });
-  } else {
-    var waitST = setInterval(function () {
-      if (window.ScrollTrigger) {
-        clearInterval(waitST);
-        document.fonts.ready.then(function () {
-          requestAnimationFrame(function () {
-            ScrollTrigger.refresh();
-          });
-        });
-      }
-    }, 50);
-  }
+  //     scroll height that shifts every trigger below it. Multiple refreshes
+  //     ensure positions are correct regardless of load timing.
+  var doRefresh = function () {
+    if (window.ScrollTrigger) {
+      ScrollTrigger.refresh();
+    }
+  };
+  document.fonts.ready.then(function () {
+    requestAnimationFrame(doRefresh);
+  });
+  // Fallback: absolute guarantee after everything has settled
+  setTimeout(doRefresh, 800);
+  setTimeout(doRefresh, 2000);
 
   // 2. Mobile hamburger menu toggle
   const hamburger = document.querySelector('.nav-hamburger');
