@@ -1,37 +1,37 @@
 // Animations are loaded globally via script tag
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize all GSAP animations
-  initAll();
-
-  // 1b. Initialize WebGL liquid hero effect
+  // 1b. Initialize WebGL liquid hero effect (doesn't depend on scroll positions)
   if (typeof initLiquidHero === 'function') {
     initLiquidHero();
   }
 
-  // 1c. Deferred ScrollTrigger refresh — the SERP Climb pin adds virtual
-  //     scroll height that shifts every trigger below it. Multiple refreshes
-  //     ensure positions are correct regardless of load timing.
-  var doRefresh = function () {
-    if (window.ScrollTrigger) {
-      ScrollTrigger.refresh();
-    }
-  };
-  // After fonts are ready (layout shifts affect trigger positions)
+  // 1. Initialize all GSAP scroll animations AFTER fonts are ready.
+  //    hero-v2.js registers its fonts.ready callback first (loaded earlier
+  //    in the HTML) so the SERP pin section is created before this runs.
+  //    Without this deferral, triggers calculate positions before the pin's
+  //    ~1400px virtual height exists, fire immediately, and self-destruct
+  //    via once:true — making sections appear static/already loaded.
   document.fonts.ready.then(function () {
-    requestAnimationFrame(doRefresh);
-  });
-  // After all resources (images, iframes, etc.) have loaded
-  window.addEventListener('load', function () {
-    // Double-rAF ensures the browser has painted after load
+    // One rAF to let hero-v2's fonts.ready callback (SERP pin) execute first
     requestAnimationFrame(function () {
-      requestAnimationFrame(doRefresh);
+      initAll();
+
+      // Refresh after a frame to ensure all pin spacers are measured
+      requestAnimationFrame(function () {
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      });
     });
   });
-  // Fallback timers — guarantee correctness even if events fire out of order
-  setTimeout(doRefresh, 800);
-  setTimeout(doRefresh, 2000);
-  setTimeout(doRefresh, 3500);
+
+  // Safety net: refresh again after all resources have loaded
+  window.addEventListener('load', function () {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      });
+    });
+  });
 
   // 2. Mobile hamburger menu toggle
   const hamburger = document.querySelector('.nav-hamburger');
