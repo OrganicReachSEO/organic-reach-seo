@@ -279,27 +279,57 @@ function initCursor() {
   });
 }
 
-// Scrub-reveals a headline word by word as it scrolls into view.
+// Scrub-reveals a headline word by word as it scrolls into view, preserving child HTML tags & styles (e.g. <em>).
 function initWordReveal() {
   whenScrollReady(function() {
     document.querySelectorAll('[data-word-reveal]').forEach(function(el) {
       if (el.getAttribute('data-word-done')) return;
       el.setAttribute('data-word-done', '1');
-      var words = el.textContent.trim().split(/\s+/);
+
+      var wordSpans = [];
+
+      function processNode(node, container) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          var text = node.textContent;
+          if (!text) return;
+          var parts = text.split(/(\s+)/);
+          parts.forEach(function(part) {
+            if (/^\s+$/.test(part)) {
+              container.appendChild(document.createTextNode(part));
+            } else if (part.length > 0) {
+              var s = document.createElement('span');
+              s.textContent = part;
+              s.style.display = 'inline-block';
+              s.style.opacity = '0.14';
+              container.appendChild(s);
+              wordSpans.push(s);
+            }
+          });
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          var clone = node.cloneNode(false);
+          container.appendChild(clone);
+          Array.from(node.childNodes).forEach(function(child) {
+            processNode(child, clone);
+          });
+        }
+      }
+
+      var fragment = document.createDocumentFragment();
+      Array.from(el.childNodes).forEach(function(child) {
+        processNode(child, fragment);
+      });
+
       el.textContent = '';
-      words.forEach(function(w) {
-        var s = document.createElement('span');
-        s.textContent = w + '\u00A0';
-        s.style.display = 'inline-block';
-        s.style.opacity = '0.14';
-        el.appendChild(s);
-      });
-      gsap.to(el.children, {
-        opacity: 1,
-        stagger: 0.04,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 55%', scrub: 0.3, invalidateOnRefresh: true },
-      });
+      el.appendChild(fragment);
+
+      if (wordSpans.length) {
+        gsap.to(wordSpans, {
+          opacity: 1,
+          stagger: 0.04,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 55%', scrub: 0.3, invalidateOnRefresh: true },
+        });
+      }
     });
   });
 }
