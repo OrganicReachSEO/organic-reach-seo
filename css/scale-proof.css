@@ -1,0 +1,73 @@
+/* SCALE-PROOF.CSS — "Built for Real Complexity" stat card + dot grid */
+
+.scale-proof-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.scale-proof-copy {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.scale-card {
+  border: 1px solid var(--light-border);
+  border-radius: 20px;
+  padding: 32px;
+  background: rgba(23,17,28,0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.scale-number {
+  font-family: var(--ff-serif);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--purple);
+}
+
+.scale-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin: 10px 0 24px;
+  max-width: 160px;
+}
+
+.scale-dots {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  position: relative;
+}
+
+.scale-dot {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sand);
+  transform: scale(0);
+}
+
+.scale-dot.is-accent {
+  background: var(--purple);
+}
+
+.scale-sweep {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  left: -40%;
+  background: linear-gradient(90deg, transparent, rgba(108,60,224,0.14), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .scale-proof-grid { grid-template-columns: 1fr; gap: 48px; }
+}
