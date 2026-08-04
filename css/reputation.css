@@ -131,7 +131,7 @@
 .timeline-step { display: flex; gap: 18px; }
 .timeline-dotcol { display: flex; flex-direction: column; align-items: center; }
 .timeline-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-.timeline-line { width: 1px; flex: 1; background: var(--light-border); margin: 4px 0; }
+.timeline-line { width: 1px; flex: 1; background: var(--light-border); margin: 4px 0; transform-origin: top center; }
 .section-dark .timeline-line { background: var(--dark-border); }
 
 .timeline-body { padding-bottom: 28px; }
