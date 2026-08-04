@@ -192,7 +192,7 @@
 }
 
 .home-hero-text {
-  max-width: 560px;
+  max-width: 620px;
   text-align: center;
   opacity: 0;
   animation: heroIn 0.9s var(--ease-out) 0.3s both;
@@ -237,6 +237,15 @@
   letter-spacing: 0.14em;
   color: var(--muted);
   margin-top: 8px;
+  max-width: 160px;
+}
+
+/* Text-based stat values (client names, etc.) */
+.stat-number-text {
+  font-family: var(--ff-serif);
+  font-size: 22px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* About hero with portrait */
