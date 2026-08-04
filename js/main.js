@@ -17,12 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
       ScrollTrigger.refresh();
     }
   };
+  // After fonts are ready (layout shifts affect trigger positions)
   document.fonts.ready.then(function () {
     requestAnimationFrame(doRefresh);
   });
-  // Fallback: absolute guarantee after everything has settled
+  // After all resources (images, iframes, etc.) have loaded
+  window.addEventListener('load', function () {
+    // Double-rAF ensures the browser has painted after load
+    requestAnimationFrame(function () {
+      requestAnimationFrame(doRefresh);
+    });
+  });
+  // Fallback timers — guarantee correctness even if events fire out of order
   setTimeout(doRefresh, 800);
   setTimeout(doRefresh, 2000);
+  setTimeout(doRefresh, 3500);
 
   // 2. Mobile hamburger menu toggle
   const hamburger = document.querySelector('.nav-hamburger');

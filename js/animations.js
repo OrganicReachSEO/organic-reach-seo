@@ -49,7 +49,8 @@ function initReveal() {
         gsap.set(el, { opacity: 0, y: 32, scale: 0.97 });
       });
       ScrollTrigger.batch(items, {
-        start: 'top 92%',
+        start: 'top 82%',
+        invalidateOnRefresh: true,
         once: true,
         onEnter: function(batch) {
           gsap.to(batch, {
@@ -73,7 +74,8 @@ function initReveal() {
       gsap.set(el, { opacity: 0, y: 32, scale: 0.97 });
       ScrollTrigger.create({
         trigger: el,
-        start: 'top 92%',
+        start: 'top 82%',
+        invalidateOnRefresh: true,
         once: true,
         onEnter: function() {
           gsap.to(el, {
@@ -103,7 +105,8 @@ function initCounters() {
       var obj = { val: 0 };
       ScrollTrigger.create({
         trigger: el,
-        start: 'top 92%',
+        start: 'top 82%',
+        invalidateOnRefresh: true,
         once: true,
         onEnter: function() {
           gsap.to(obj, {
@@ -218,7 +221,8 @@ function initScrollCascade() {
       });
       ScrollTrigger.create({
         trigger: row,
-        start: 'top 88%',
+        start: 'top 82%',
+        invalidateOnRefresh: true,
         once: true,
         onEnter: function() {
           gsap.to(items, {
@@ -294,7 +298,7 @@ function initWordReveal() {
         opacity: 1,
         stagger: 0.04,
         ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 95%', end: 'top 60%', scrub: 0.3 },
+        scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 55%', scrub: 0.3, invalidateOnRefresh: true },
       });
     });
   });
