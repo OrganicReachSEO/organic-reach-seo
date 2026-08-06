@@ -477,31 +477,51 @@
 
   // ─── Custom cursor ──────────────────────────────────────────
   function initCursor() {
-    if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-    var c = document.querySelector('[data-home-cursor]');
-    if (!c) return;
+    if (!window.matchMedia || !window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
+    var dot = document.querySelector('[data-cursor-dot]');
+    var ring = document.querySelector('[data-cursor-ring]');
+    if (!dot || !ring) return;
 
-    var xTo = gsap.quickTo(c, 'x', { duration: 0.35, ease: 'power3.out' });
-    var yTo = gsap.quickTo(c, 'y', { duration: 0.35, ease: 'power3.out' });
+    document.documentElement.style.cursor = 'none';
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@media (pointer: fine) and (hover: hover) { * { cursor: none !important; } }';
+    document.head.appendChild(styleTag);
 
-    var move = function (e) {
-      xTo(e.clientX); yTo(e.clientY);
-      gsap.to(c, { opacity: 1, duration: 0.3, overwrite: 'auto' });
+    gsap.set([dot, ring], { opacity: 0 });
+    var started = false;
+    var dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
+    var dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
+    var ringX = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
+    var ringY = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
+
+    var onMouseMove = function (e) {
+      if (!started) {
+        started = true;
+        gsap.set([dot, ring], { x: e.clientX, y: e.clientY });
+        gsap.to([dot, ring], { opacity: 1, duration: 0.25 });
+      }
+      dotX(e.clientX); dotY(e.clientY);
+      ringX(e.clientX); ringY(e.clientY);
     };
-    var over = function (e) {
-      var t = e.target.closest && e.target.closest('a, button');
-      gsap.to(c, {
-        scale: t ? 2.1 : 1,
-        backgroundColor: t ? 'rgba(108,60,224,0.22)' : 'rgba(0,0,0,0)',
-        duration: 0.35, ease: 'power3.out'
-      });
+
+    var grow = function () { gsap.to(ring, { scale: 2.2, opacity: 0.5, duration: 0.35, ease: 'power3.out' }); };
+    var shrink = function () { gsap.to(ring, { scale: 1, opacity: 1, duration: 0.35, ease: 'power3.out' }); };
+
+    var onMouseOver = function (e) {
+      if (e.target.closest('a, button, [data-magnetic], [data-marquee-track]')) grow();
+    };
+    var onMouseOut = function (e) {
+      if (e.target.closest('a, button, [data-magnetic], [data-marquee-track]')) shrink();
     };
 
-    window.addEventListener('pointermove', move, { passive: true });
-    window.addEventListener('pointerover', over, { passive: true });
+    window.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseover', onMouseOver);
+    document.addEventListener('mouseout', onMouseOut);
+
     cleanups.push(function () {
-      window.removeEventListener('pointermove', move);
-      window.removeEventListener('pointerover', over);
+      window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseover', onMouseOver);
+      document.removeEventListener('mouseout', onMouseOut);
     });
   }
 
