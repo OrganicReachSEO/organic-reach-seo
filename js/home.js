@@ -97,8 +97,13 @@
         inner.style.cssText = 'display:inline-block;will-change:transform;' + (tok.style || '');
         inner.textContent = tok.word;
         if (tok.isEm) {
+          mask.classList.add('is-em');
+          inner.classList.add('is-em');
+          inner.style.fontStyle = 'italic';
+          inner.style.color = '#6C3CE0';
           var em = document.createElement('em');
-          em.style.cssText = tok.style || 'font-style:italic;color:#6C3CE0;';
+          em.className = 'is-em';
+          em.style.cssText = 'font-style:italic !important;color:#6C3CE0 !important;' + (tok.style || '');
           em.appendChild(inner);
           mask.appendChild(em);
         } else {

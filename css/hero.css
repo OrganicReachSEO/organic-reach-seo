@@ -162,9 +162,13 @@
   text-align: left;
 }
 
-.home-hero h1 em {
-  font-style: italic;
-  color: var(--purple);
+.home-hero h1 em,
+.home-hero h1 .is-em,
+.home-hero h1 em span,
+.home-hero h1 span.is-em {
+  font-family: 'Instrument Serif', serif !important;
+  font-style: italic !important;
+  color: #6C3CE0 !important;
 }
 
 .home-hero-copy {
