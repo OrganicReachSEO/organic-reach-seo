@@ -341,6 +341,7 @@
 
 .statement-text span {
   display: inline-block;
+  margin-right: 0.28em;
 }
 
 /* ---------- Services horizontal scroll (Home) ---------- */

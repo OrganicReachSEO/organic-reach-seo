@@ -128,13 +128,14 @@
   function buildStatementWords() {
     var p = document.querySelector('[data-statement]');
     if (!p) return;
+    p.innerHTML = '';
     var text = "We build growth the honest way — rankings earned, reputations repaired, and websites that pull their weight. No shortcuts, no jargon, no lock-in contracts.";
     var words = text.split(' ');
     words.forEach(function (word) {
       var span = document.createElement('span');
       span.setAttribute('data-sw', '1');
-      span.style.display = 'inline-block';
-      span.textContent = word + ' ';
+      span.style.cssText = 'display:inline-block;margin-right:0.28em;';
+      span.textContent = word;
       p.appendChild(span);
     });
   }
