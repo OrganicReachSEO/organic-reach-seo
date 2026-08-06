@@ -4,22 +4,22 @@
 
 .nav {
   position: fixed;
-  top: 16px;
+  top: 18px;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 400;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 28px;
+  padding: 11px 14px 11px 26px;
   margin: 0 auto;
-  max-width: 1100px;
-  width: calc(100% - 32px);
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 12px 32px rgba(23, 17, 28, 0.06);
+  max-width: 1180px;
+  width: calc(100% - 36px);
+  background: rgba(243,239,231,0.72);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(23,17,28,0.08);
+  box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18);
   border-radius: 100px;
 }
 

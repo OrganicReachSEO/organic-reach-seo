@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OrganicReachSEO | Search, Sites, & Reputation</title>
+  <title>OrganicReachSEO | Search, Sites, &amp; Reputation</title>
   <meta name="description"
     content="OrganicReachSEO is a boutique studio built on one idea: every dollar you spend should show up as more customers. When you call, you get us — not an account manager.">
 
@@ -14,415 +14,521 @@
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/global.css?v=4">
-  <link rel="stylesheet" href="css/nav.css?v=4">
-  <link rel="stylesheet" href="css/hero.css?v=4">
-  <link rel="stylesheet" href="css/sections.css?v=4">
-  <link rel="stylesheet" href="css/footer.css?v=4">
-  <link rel="stylesheet" href="css/animations.css?v=4">
+  <link rel="stylesheet" href="css/global.css?v=5">
+  <link rel="stylesheet" href="css/nav.css?v=5">
+  <link rel="stylesheet" href="css/hero.css?v=5">
+  <link rel="stylesheet" href="css/sections.css?v=5">
+  <link rel="stylesheet" href="css/footer.css?v=5">
+  <link rel="stylesheet" href="css/animations.css?v=5">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="js/animations.js?v=4"></script>
-  <script src="js/hero-v2.js?v=4"></script>
-  <script src="js/liquid-shaders.js"></script>
-  <script src="js/liquid-input.js"></script>
-  <script src="js/liquid-engine.js"></script>
-  <script src="js/main.js?v=4"></script>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/home.js?v=5" defer></script>
 </head>
 
 <body>
-  <!-- Custom Cursor -->
-  <div data-cursor-dot class="cursor-dot"></div>
-  <div data-cursor-ring class="cursor-ring"></div>
-
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">OrganicReachSEO</span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link" aria-current="page">HOME</a>
-      <a href="services.html" class="nav-link">SERVICES</a>
-      <a href="about.html" class="nav-link">ABOUT</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
+  <!-- PRELOADER -->
+  <div class="home-preloader" data-preloader>
+    <div class="home-preloader-row">
+      <div class="home-preloader-word">
+        <div class="home-preloader-word-inner" data-preloader-word>OrganicReach<span style="color: #CDB9F6;">*</span></div>
+      </div>
+      <div class="home-preloader-num" data-preloader-num>0</div>
     </div>
-    <a href="contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
-    <button class="nav-hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="nav-mobile-overlay">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="contact.html" class="btn btn-primary">Start a project ↗</a>
+    <div class="home-preloader-track">
+      <div class="home-preloader-bar" data-preloader-bar></div>
+    </div>
   </div>
 
-  <main>
-    <!-- HERO -->
-    <section class="home-hero" data-liquid-hero>
-      <div class="home-hero-inner">
-        <div class="home-hero-top-bar">
-          <span>(SEARCH · SITES · REPUTATION)</span>
-          <span>FOR BUSINESSES THAT WANT TO BE FOUND</span>
-        </div>
-        <div class="home-hero-heading-wrap">
-          <h1>
-            <span class="heading-line"><span class="heading-line-inner"
-                style="animation: lineUp 1s var(--ease-out) 0.1s both;">Your<span class="hero-bars">
-                  <span class="hero-bar"
-                    style="height: 45%; background: var(--lavender); animation: barLoop 2.8s ease-in-out 0s infinite;"></span>
-                  <span class="hero-bar"
-                    style="height: 72%; background: var(--orange); animation: barLoop 2.8s ease-in-out 0.35s infinite;"></span>
-                  <span class="hero-bar"
-                    style="height: 100%; background: var(--purple); animation: barLoop 2.8s ease-in-out 0.7s infinite;"></span>
-                </span>growth<span style="color: var(--purple);">,</span></span></span>
-            <span class="heading-line"><span class="heading-line-inner"
-                style="animation: lineUp 1s var(--ease-out) 0.22s both;">not someone else's</span></span>
-            <span class="heading-line"><span class="heading-line-inner"
-                style="animation: lineUp 1s var(--ease-out) 0.34s both;"><span data-hero-swap
-                    style="display: inline-block; position: relative; height: 1.08em; overflow: hidden; vertical-align: -0.26em; white-space: nowrap;"><em
-                      data-swap-word
-                      style="display: inline-block; line-height: 1.08; color: var(--purple);">rankings report.</em><span
-                      data-swap-strike
-                      style="position: absolute; left: 0; right: 0.04em; top: 0.42em; height: 0.055em; background: var(--orange); transform: scaleX(0); transform-origin: left center; border-radius: 100px;"></span></span></span></span>
-          </h1>
-          <div class="home-hero-center">
-            <div class="home-hero-text">
-              <p>OrganicReachSEO is a boutique studio built on one idea: every dollar you spend should show up as more customers. We keep a deliberately small roster — so when you call, you get us. Not an account manager. Not a support ticket.</p>
-              <div class="hero-actions">
-                <a href="contact.html" class="btn btn-primary" data-magnetic>Get a free consultation</a>
-                <a href="services.html" class="link-underline">See the services ↗</a>
-              </div>
-            </div>
-            <div class="home-hero-stats">
-              <div class="stat">
-                <div class="stat-number">31</div>
-                <div class="stat-label">LOCATIONS MANAGED UNDER ONE PROGRAM</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number-text">Ranch Realty</div>
-                <div class="stat-label">CLIENT SINCE MARCH 2024</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number-text">Enterprise Healthcare</div>
-                <div class="stat-label">CLIENT SINCE OCTOBER 2025</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- CURSOR -->
+  <div class="home-cursor" data-home-cursor></div>
 
-    <!-- SERP CLIMB (pinned scroll section) -->
-    <section data-serp
-      style="background: var(--dark-bg); color: var(--bg); min-height: 100vh; display: flex; align-items: center; padding: 80px var(--page-pad); position: relative; overflow: hidden;">
-      <div
-        style="max-width: var(--max-w); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: center;">
-        <div>
-          <div class="section-tag" style="color: var(--lavender); margin-bottom: 20px;">(KEEP SCROLLING) — THIS IS THE
-            REPORT THAT MATTERS</div>
-          <h2 style="color: var(--bg); margin: 0 0 20px; font-size: clamp(44px, 5vw, 72px);">From page two<br>to <em
-              style="color: var(--lavender); font-style: italic;">position one.</em></h2>
-          <p style="font-size: 16px; line-height: 1.65; color: var(--dark-muted); max-width: 420px; margin: 0 0 40px;">
-            No vanity dashboards. Watch what our work actually does — your business climbing the results your customers
-            search every day.</p>
-          <div style="display: flex; align-items: baseline; gap: 16px;">
-            <span data-serp-pos style="font-family: var(--ff-serif); font-size: 96px; line-height: 1;">#5</span>
-            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--dark-muted);">CURRENT
-              POSITION</span>
-          </div>
-        </div>
-        <div style="background: var(--bg); color: var(--ink); padding: 28px; box-shadow: 0 30px 80px rgba(0,0,0,0.35);">
-          <div
-            style="display: flex; align-items: center; gap: 12px; border: 1px solid var(--light-border); border-radius: 100px; padding: 14px 22px; margin-bottom: 26px;">
-            <svg width="16" height="16" viewBox="0 0 16 16" style="flex-shrink: 0;">
-              <circle cx="6.5" cy="6.5" r="5" fill="none" stroke="#5A5163" stroke-width="1.6"></circle>
-              <line x1="10.5" y1="10.5" x2="15" y2="15" stroke="#5A5163" stroke-width="1.6"></line>
-            </svg>
-            <span style="font-size: 15px; font-weight: 500;">best bakery near me</span>
-            <span
-              style="margin-left: auto; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); font-weight: 600;">SEARCH</span>
-          </div>
-          <div style="display: flex; gap: 18px;">
-            <div style="display: flex; flex-direction: column; width: 28px; flex-shrink: 0;">
-              <span style="height: 74px; font-size: 13px; font-weight: 600; color: var(--muted);">1</span>
-              <span style="height: 74px; font-size: 13px; font-weight: 600; color: var(--muted);">2</span>
-              <span style="height: 74px; font-size: 13px; font-weight: 600; color: var(--muted);">3</span>
-              <span style="height: 74px; font-size: 13px; font-weight: 600; color: var(--muted);">4</span>
-              <span style="height: 74px; font-size: 13px; font-weight: 600; color: var(--muted);">5</span>
-            </div>
-            <div style="position: relative; flex: 1; height: 360px;">
-              <div data-serp-row
-                style="position: absolute; left: 0; right: 0; top: 0; height: 64px; background: #FBF9F4; border: 1px solid var(--light-border); display: flex; align-items: center; gap: 14px; padding: 0 18px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sand); flex-shrink: 0;"></span>
-                <span style="display: flex; flex-direction: column;"><span
-                    style="font-size: 15px; font-weight: 600;">Citywide Listings</span><span
-                    style="font-size: 12px; color: var(--muted);">citywidelistings.com</span></span>
-              </div>
-              <div data-serp-row
-                style="position: absolute; left: 0; right: 0; top: 74px; height: 64px; background: #FBF9F4; border: 1px solid var(--light-border); display: flex; align-items: center; gap: 14px; padding: 0 18px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sand); flex-shrink: 0;"></span>
-                <span style="display: flex; flex-direction: column;"><span
-                    style="font-size: 15px; font-weight: 600;">MegaDirectory</span><span
-                    style="font-size: 12px; color: var(--muted);">megadirectory.com</span></span>
-              </div>
-              <div data-serp-row
-                style="position: absolute; left: 0; right: 0; top: 148px; height: 64px; background: #FBF9F4; border: 1px solid var(--light-border); display: flex; align-items: center; gap: 14px; padding: 0 18px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sand); flex-shrink: 0;"></span>
-                <span style="display: flex; flex-direction: column;"><span
-                    style="font-size: 15px; font-weight: 600;">The Big Chain Co.</span><span
-                    style="font-size: 12px; color: var(--muted);">bigchainco.com</span></span>
-              </div>
-              <div data-serp-row
-                style="position: absolute; left: 0; right: 0; top: 222px; height: 64px; background: #FBF9F4; border: 1px solid var(--light-border); display: flex; align-items: center; gap: 14px; padding: 0 18px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sand); flex-shrink: 0;"></span>
-                <span style="display: flex; flex-direction: column;"><span
-                    style="font-size: 15px; font-weight: 600;">Review Aggregator</span><span
-                    style="font-size: 12px; color: var(--muted);">reviewaggregator.com</span></span>
-              </div>
-              <div data-serp-mine
-                style="position: absolute; left: 0; right: 0; top: 296px; height: 64px; background: var(--purple); color: #fff; display: flex; align-items: center; gap: 14px; padding: 0 18px; z-index: 2; box-shadow: 0 12px 30px rgba(108,60,224,0.35);">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--lavender); flex-shrink: 0;"></span>
-                <span style="display: flex; flex-direction: column;"><span
-                    style="font-size: 15px; font-weight: 700;">Your Business</span><span
-                    style="font-size: 12px; color: var(--lavender);">yourbusiness.com</span></span>
-                <span
-                  style="margin-left: auto; font-size: 12px; font-weight: 600; color: var(--lavender); letter-spacing: 0.06em;">★
-                  4.9 · 212 reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- SCROLL RAIL -->
+  <div class="scroll-rail" data-scroll-rail>
+    <a href="#top"><span class="scroll-rail-label">INTRO</span><span class="scroll-rail-mark"></span></a>
+    <a href="#top"><span class="scroll-rail-label">RANK</span><span class="scroll-rail-mark"></span></a>
+    <a href="#top"><span class="scroll-rail-label">ETHOS</span><span class="scroll-rail-mark"></span></a>
+    <a href="#services"><span class="scroll-rail-label">SERVICES</span><span class="scroll-rail-mark"></span></a>
+    <a href="#process"><span class="scroll-rail-label">PROOF</span><span class="scroll-rail-mark"></span></a>
+    <a href="#process"><span class="scroll-rail-label">PROCESS</span><span class="scroll-rail-mark"></span></a>
+    <a href="#contact"><span class="scroll-rail-label">CLIENTS</span><span class="scroll-rail-mark"></span></a>
+    <a href="#contact"><span class="scroll-rail-label">CONTACT</span><span class="scroll-rail-mark"></span></a>
+  </div>
 
-    <!-- IMAGE BAND -->
-    <section class="image-band">
-      <div data-parallax="10"
-        style="position: absolute; inset: -12% 0; background: repeating-linear-gradient(135deg, #E7E0D1, #E7E0D1 14px, #DFD6C2 14px, #DFD6C2 28px); display: flex; align-items: center; justify-content: center;">
-        <span
-          style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px;">proof-of-work
-          dashboard</span>
+  <div data-home-root>
+    <!-- NAV -->
+    <nav class="nav" data-home-nav>
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-name">OrganicReach<span style="color: #6C3CE0;">*</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" aria-current="page" style="color: #6C3CE0; font-weight: 700;">HOME</a>
+        <a href="services.html" class="nav-link">SERVICES</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="contact.html" class="nav-link">CONTACT</a>
       </div>
-      <div class="image-band-stat">
-        <div class="stat-number">+186%</div>
-        <p>organic traffic in 6 months — Riverside Café Co.</p>
-      </div>
-      <div class="spin-badge">
-        <svg width="92" height="92" viewBox="0 0 92 92">
-          <circle cx="46" cy="46" r="44" fill="none" stroke="#17111C" stroke-width="1"></circle>
-          <text
-            style="font-size: 10.5px; letter-spacing: 2.5px; font-family: 'Schibsted Grotesk', sans-serif; font-weight: 600;"
-            fill="#17111C">
-            <textPath href="#homeCirclePath">RANK · CONVERT · REPEAT · RANK · CONVERT ·</textPath>
-          </text>
-          <defs>
-            <path id="homeCirclePath" d="M 46,46 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"></path>
-          </defs>
-        </svg>
-      </div>
-    </section>
+      <a href="contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
 
-
-    <!-- SERVICES OVERVIEW -->
-    <section class="section" style="padding-top: 110px;">
-      <div class="container">
-        <div
-          style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap;">
-          <div>
-            <div class="section-tag" style="color: var(--purple); margin-bottom: 16px;">(01) — WHAT WE DO</div>
-            <h2 data-word-reveal style="margin: 0; max-width: 720px;">Three services. One goal — more customers finding
-              you.</h2>
-          </div>
-          <a href="services.html" class="link-underline-caps">ALL SERVICES ↗</a>
-        </div>
-
-        <div data-reveal-group>
-          <a href="seo.html" class="service-row" data-reveal>
-            <span class="service-row-num">(S.01)</span>
-            <span class="service-row-title">SEO Optimization</span>
-            <span class="service-row-body">
-              <p>Technical SEO, content strategy, and local search dominance — rank for searches that turn into revenue.
-              </p>
-              <span style="display: inline-flex; gap: 8px; flex-wrap: wrap;">
-                <span class="tag">TECHNICAL</span>
-                <span class="tag">LOCAL &amp; MAPS</span>
-                <span class="tag">CONTENT</span>
-              </span>
-            </span>
-            <span class="service-row-arrow">↗</span>
-          </a>
-
-          <a href="website-redesign.html" class="service-row" data-reveal>
-            <span class="service-row-num">(S.02)</span>
-            <span class="service-row-title">Website Development </span>
-            <span class="service-row-body">
-              <p>Fast, modern, conversion-first websites built on a foundation that's SEO-ready from day one.</p>
-              <span style="display: inline-flex; gap: 8px; flex-wrap: wrap;">
-                <span class="tag">DESIGN</span>
-                <span class="tag">BUILD</span>
-                <span class="tag">CONVERSION</span>
-              </span>
-            </span>
-            <span class="service-row-arrow">↗</span>
-          </a>
-
-          <a href="reputation-management.html" class="service-row" data-reveal>
-            <span class="service-row-num">(S.03)</span>
-            <span class="service-row-title">Reputation Management</span>
-            <span class="service-row-body">
-              <p>Fight fake reviews, grow genuine 5-star feedback, and protect the reputation you've earned.</p>
-              <span style="display: inline-flex; gap: 8px; flex-wrap: wrap;">
-                <span class="tag">REVIEWS</span>
-                <span class="tag">MONITORING</span>
-                <span class="tag">RECOVERY</span>
-              </span>
-            </span>
-            <span class="service-row-arrow">↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATEMENT -->
-    <section style="padding: 150px var(--page-pad);">
-      <div class="container-sm">
-        <div class="section-tag" style="color: var(--orange); margin-bottom: 24px;">(02) — THE POINT</div>
-        <p data-word-reveal class="ff-serif" style="font-size: clamp(36px, 4.2vw, 60px); line-height: 1.14; margin: 0;">
-          We build growth the honest way — rankings earned, reputations repaired, and websites that pull their weight.
-          No shortcuts, no jargon, no lock-in contracts.</p>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section-dark">
-      <div class="container">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 20px;">(03) — HOW WE WORK</div>
-        <h2>A straightforward process, built for <em>real results.</em></h2>
-
-        <div class="process-grid" data-cascade>
-          <div class="process-card" data-cascade-item>
-            <div class="process-num">01</div>
-            <h4>Audit</h4>
-            <p>We analyze your site, rankings, reviews, and competitors to find the fastest wins.</p>
-          </div>
-          <div class="process-card" data-cascade-item>
-            <div class="process-num">02</div>
-            <h4>Strategy</h4>
-            <p>A tailored roadmap across SEO, design, and reputation — no generic templates.</p>
-          </div>
-          <div class="process-card" data-cascade-item>
-            <div class="process-num">03</div>
-            <h4>Execute</h4>
-            <p>Our team ships the work — content, code, and outreach — on a clear timeline.</p>
-          </div>
-          <div class="process-card accent" data-cascade-item>
-            <div class="process-num">04</div>
-            <h4>Report &amp; grow</h4>
-            <p>Monthly reporting in plain English, plus ongoing optimization as you scale.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLACEHOLDER: fictional testimonials, replace with real client quotes before launch -->
-    <section class="section">
-      <div class="container">
-        <div class="section-tag" style="color: var(--purple); margin-bottom: 56px;">(04) — WHAT CLIENTS SAY</div>
-        <div class="testimonials-grid" data-reveal-group>
-          <div class="testimonial" data-reveal>
-            <div class="testimonial-quote">"</div>
-            <blockquote>Our booking calls doubled within two months of the SEO overhaul. The reporting is refreshingly
-              honest.</blockquote>
-            <div class="testimonial-name">Rachel Kaplan</div>
-            <div class="testimonial-title">OWNER, LUMEN DENTAL</div>
-          </div>
-          <div class="testimonial" data-reveal>
-            <div class="testimonial-quote">"</div>
-            <blockquote>They rebuilt our site in three weeks and it finally converts. Cleaner, faster, and it actually
-              ranks now.</blockquote>
-            <div class="testimonial-name">Andrew Mitchell</div>
-            <div class="testimonial-title">FOUNDER, VANTAGE REALTY</div>
-          </div>
-          <div class="testimonial" data-reveal>
-            <div class="testimonial-quote">"</div>
-            <blockquote>Fake reviews were killing us. Within weeks they were handled and our rating climbed to 4.8.
-            </blockquote>
-            <div class="testimonial-name">Nina Jacobs</div>
-            <div class="testimonial-title">MANAGER, NORTHSIDE FITNESS</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-asterisk cta-asterisk-1">*</div>
-      <div class="cta-asterisk cta-asterisk-2">*</div>
-      <div class="cta-band-inner">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 28px;">FREE 30-MINUTE CONSULTATION — NO
-          PRESSURE, JUST A PLAN</div>
-        <h2>Ready to get found —<br>and get <em>chosen?</em><span class="accent">*</span></h2>
-        <a href="contact.html" class="btn btn-dark-invert" data-magnetic>Book your free call ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="footer-brand-logo">
-            <span class="footer-brand-name">OrganicReachSEO</span>
-          </a>
-          <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
-          <div class="footer-social">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">LINKEDIN</a>
-            <a href="#">X</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">SERVICES</div>
-          <div class="footer-col-links">
-            <a href="seo.html">SEO Optimization</a>
-            <a href="website-redesign.html">Website Redesign</a>
-            <a href="reputation-management.html">Reputation Management</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">COMPANY</div>
-          <div class="footer-col-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">STAY IN THE LOOP</div>
-          <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
-          <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
-            <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
-            <button type="submit" class="footer-newsletter-btn">Join</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-big-logo" data-reveal>
-        <div class="footer-big-logo-text">OrganicReachSEO</div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
-        <span>info@organicreachseo.com · +1 (218) 542-3683</span>
-      </div>
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-mobile-overlay">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Start a project ↗</a>
     </div>
-  </footer>
+
+    <main>
+      <!-- HERO -->
+      <section id="top" class="home-hero" data-sec data-screen-label="Hero">
+        <div class="home-hero-grid-bg">
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+
+        <div class="home-hero-inner">
+          <div class="home-hero-meta" data-hero-meta>
+            <span>(SEARCH · SITES · REPUTATION)</span>
+            <span style="display: flex; align-items: center; gap: 9px;">
+              <span class="live-dot"></span>TAKING 2 CLIENTS THIS QUARTER
+            </span>
+          </div>
+
+          <div class="home-hero-cols">
+            <div>
+              <h1 data-split>Your growth<span style="color: #6C3CE0;">,</span> not someone else's <em>rankings report.</em></h1>
+              <div class="home-hero-copy" data-hero-copy>
+                <p>A boutique studio built on one idea: every dollar you spend should show up as more customers. Keep the roster small, and when you call, you get us — not an account manager.</p>
+                <div class="hero-actions">
+                  <a href="contact.html" class="btn btn-dark" data-magnetic>Get a free consultation <span style="font-size: 13px;">↗</span></a>
+                  <a href="services.html" class="link-underline">See the services</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-analytics-frame" data-hero-frame>
+              <div class="hero-analytics-card" data-hero-img>
+                <div class="hero-analytics-header">
+                  <span class="label">ORGANIC SESSIONS</span>
+                  <span class="live-tag"><span class="dot"></span>LIVE</span>
+                </div>
+                <div class="hero-chart-wrap">
+                  <svg viewBox="0 0 460 300" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="hpFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#6C3CE0" stop-opacity="0.24"></stop>
+                        <stop offset="100%" stop-color="#6C3CE0" stop-opacity="0"></stop>
+                      </linearGradient>
+                    </defs>
+                    <line x1="0" y1="75" x2="460" y2="75" stroke="rgba(23,17,28,0.08)" stroke-width="1"></line>
+                    <line x1="0" y1="150" x2="460" y2="150" stroke="rgba(23,17,28,0.08)" stroke-width="1"></line>
+                    <line x1="0" y1="225" x2="460" y2="225" stroke="rgba(23,17,28,0.08)" stroke-width="1"></line>
+                    <path data-chart-area d="M0,258 C60,248 92,220 130,226 S200,182 244,150 S318,120 360,84 S430,38 460,24 L460,300 L0,300 Z" fill="url(#hpFill)"></path>
+                    <path data-chart-path d="M0,258 C60,248 92,220 130,226 S200,182 244,150 S318,120 360,84 S430,38 460,24" fill="none" stroke="#6C3CE0" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
+                  </svg>
+                  <div class="hero-chart-dot" data-chart-dot></div>
+                </div>
+                <div class="hero-keywords" data-kw-wrap>
+                  <div class="hero-keyword-row" data-kw>
+                    <span class="term">best bakery near me</span>
+                    <span class="meta">
+                      <span class="delta">+8</span>
+                      <span class="rank-chip" data-kw-rank data-to="1" data-from="9">#9</span>
+                    </span>
+                  </div>
+                  <div class="hero-keyword-row" data-kw>
+                    <span class="term">custom cakes austin</span>
+                    <span class="meta">
+                      <span class="delta">+5</span>
+                      <span class="rank-chip" data-kw-rank data-to="2" data-from="7">#7</span>
+                    </span>
+                  </div>
+                  <div class="hero-keyword-row" data-kw>
+                    <span class="term">wedding cake tasting</span>
+                    <span class="meta">
+                      <span class="delta">+11</span>
+                      <span class="rank-chip" data-kw-rank data-to="1" data-from="12">#12</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-seal" data-seal>
+                <div class="hero-seal-spin">
+                  <svg width="96" height="96" viewBox="0 0 92 92">
+                    <defs><path id="hpSeal" d="M 46,46 m -33,0 a 33,33 0 1,1 66,0 a 33,33 0 1,1 -66,0"></path></defs>
+                    <text style="font-size: 9.4px; letter-spacing: 2.5px; font-family: 'Schibsted Grotesk', sans-serif; font-weight: 700;" fill="#17111C"><textPath href="#hpSeal">RANK · CONVERT · REPEAT · RANK · CONVERT ·</textPath></text>
+                  </svg>
+                </div>
+                <div class="hero-seal-bars">
+                  <span style="height: 42%; background: #CDB9F6; animation: barLoop 2.6s ease-in-out infinite;"></span>
+                  <span style="height: 70%; background: #DC5427; animation: barLoop 2.6s ease-in-out 0.3s infinite;"></span>
+                  <span style="height: 100%; background: #6C3CE0; animation: barLoop 2.6s ease-in-out 0.6s infinite;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-hero-stats" data-hero-stats>
+            <div class="home-hero-stat">
+              <span class="value" style="color: #17111C;">31</span>
+              <span class="label">LOCATIONS UNDER ONE PROGRAM</span>
+            </div>
+            <div class="home-hero-stat">
+              <span class="value" style="color: #6C3CE0;">6</span>
+              <span class="label">CLIENTS — DELIBERATELY SMALL</span>
+            </div>
+            <div class="home-hero-stat">
+              <span class="value" style="color: #DC5427;">4.9</span>
+              <span class="label">AVERAGE CLIENT RATING</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee-band">
+        <div class="marquee-band-track" data-marquee-track>
+          <span>Direct access, always<span class="sep">✳</span></span>
+          <span>No account managers<span class="sep">✳</span></span>
+          <span>Rankings earned, not bought<span class="sep">✳</span></span>
+          <span>Websites you own outright<span class="sep">✳</span></span>
+          <span>Policy-violation removals<span class="sep">✳</span></span>
+          <span>No lock-in contracts<span class="sep">✳</span></span>
+          <span>31 locations under one program<span class="sep">✳</span></span>
+          <span>Direct access, always<span class="sep">✳</span></span>
+          <span>No account managers<span class="sep">✳</span></span>
+          <span>Rankings earned, not bought<span class="sep">✳</span></span>
+          <span>Websites you own outright<span class="sep">✳</span></span>
+          <span>Policy-violation removals<span class="sep">✳</span></span>
+          <span>No lock-in contracts<span class="sep">✳</span></span>
+          <span>31 locations under one program<span class="sep">✳</span></span>
+        </div>
+      </div>
+
+      <!-- SERP CLIMB -->
+      <section class="serp-section" data-sec data-screen-label="Rank climb" data-serp-section>
+        <div class="serp-inner">
+          <div class="serp-left">
+            <div class="section-tag">(01) — THE ONLY REPORT THAT MATTERS</div>
+            <h2 data-split>From page two to <em>position one.</em></h2>
+            <p>No vanity dashboards. Watch what the work actually does — your business climbing the results your customers search every day.</p>
+            <div class="serp-pos-wrap">
+              <span class="serp-pos-num" data-serp-pos>#5</span>
+              <span class="serp-pos-label">CURRENT<br/>POSITION</span>
+            </div>
+          </div>
+
+          <div class="serp-card">
+            <div class="serp-search-bar">
+              <svg width="15" height="15" viewBox="0 0 16 16" style="flex-shrink: 0;">
+                <circle cx="6.5" cy="6.5" r="5" fill="none" stroke="#5A5163" stroke-width="1.6"></circle>
+                <line x1="10.5" y1="10.5" x2="15" y2="15" stroke="#5A5163" stroke-width="1.6"></line>
+              </svg>
+              <span class="query">best bakery near me</span>
+              <span class="tag">SEARCH</span>
+            </div>
+            <div class="serp-board">
+              <div class="serp-ranks">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <div class="serp-list" data-serp-board>
+                <div class="serp-row" data-serp-row style="top: 0px;">
+                  <span class="dot"></span>
+                  <span class="info"><span class="name">Citywide Listings</span><span class="url">citywidelistings.com</span></span>
+                </div>
+                <div class="serp-row" data-serp-row style="top: 74px;">
+                  <span class="dot"></span>
+                  <span class="info"><span class="name">MegaDirectory</span><span class="url">megadirectory.com</span></span>
+                </div>
+                <div class="serp-row" data-serp-row style="top: 148px;">
+                  <span class="dot"></span>
+                  <span class="info"><span class="name">The Big Chain Co.</span><span class="url">bigchainco.com</span></span>
+                </div>
+                <div class="serp-row" data-serp-row style="top: 222px;">
+                  <span class="dot"></span>
+                  <span class="info"><span class="name">Review Aggregator</span><span class="url">reviewaggregator.com</span></span>
+                </div>
+                <div class="serp-mine" data-serp-mine>
+                  <span class="dot"></span>
+                  <span class="info"><span class="name">Your Business</span><span class="url">yourbusiness.com</span></span>
+                  <span class="rating">★ 4.9 · 212 reviews</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT -->
+      <section class="statement-section" data-sec data-screen-label="Statement">
+        <div class="statement-inner">
+          <div class="section-tag">(02) — THE POINT</div>
+          <p class="statement-text" data-statement></p>
+        </div>
+      </section>
+
+      <!-- SERVICES — pinned horizontal -->
+      <section id="services" class="services-hscroll" data-sec data-screen-label="Services" data-svc-section>
+        <div class="services-hscroll-header">
+          <div>
+            <div class="section-tag">(03) — WHAT WE DO</div>
+            <h2 data-split>Three services. One goal — more customers finding you.</h2>
+          </div>
+          <span class="services-hscroll-hint">SCROLL →</span>
+        </div>
+
+        <div class="services-hscroll-track" data-svc-track>
+          <!-- SEO Card -->
+          <a href="seo.html" class="svc-card">
+            <div class="svc-card-visual seo-viz">
+              <span class="viz-label">KEYWORD POSITIONS</span>
+              <div class="viz-bar" style="height: 26%; background: rgba(205,185,246,0.35); animation: barLoop 3s ease-in-out infinite;"></div>
+              <div class="viz-bar" style="height: 40%; background: rgba(205,185,246,0.5); animation: barLoop 3s ease-in-out 0.2s infinite;"></div>
+              <div class="viz-bar" style="height: 34%; background: rgba(205,185,246,0.4); animation: barLoop 3s ease-in-out 0.4s infinite;"></div>
+              <div class="viz-bar" style="height: 58%; background: #CDB9F6; animation: barLoop 3s ease-in-out 0.6s infinite;"></div>
+              <div class="viz-bar" style="height: 72%; background: #8E63EA; animation: barLoop 3s ease-in-out 0.8s infinite;"></div>
+              <div class="viz-bar" style="height: 100%; background: #6C3CE0; animation: barLoop 3s ease-in-out 1s infinite;"></div>
+            </div>
+            <div class="svc-card-body">
+              <div class="svc-card-body-header"><span class="num">(S.01)</span><span class="arrow">↗</span></div>
+              <h3>SEO Optimization</h3>
+              <p>Technical SEO, content strategy, and local search dominance — rank for searches that turn into revenue.</p>
+              <div class="svc-card-tags">
+                <span>TECHNICAL</span><span>LOCAL &amp; MAPS</span><span>CONTENT</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Web Development Card -->
+          <a href="website-redesign.html" class="svc-card">
+            <div class="svc-card-visual web-viz">
+              <div class="web-viz-dots">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="bar"></span>
+              </div>
+              <div class="web-viz-layout">
+                <div class="panel"></div>
+                <div class="lines">
+                  <div></div>
+                  <div style="width: 78%;"></div>
+                  <div style="width: 54%;"></div>
+                  <div class="speed-badge">98 PAGESPEED</div>
+                </div>
+              </div>
+            </div>
+            <div class="svc-card-body">
+              <div class="svc-card-body-header"><span class="num">(S.02)</span><span class="arrow">↗</span></div>
+              <h3>Website Development</h3>
+              <p>Fast, modern, conversion-first websites you own outright — built on a foundation that's SEO-ready from day one.</p>
+              <div class="svc-card-tags">
+                <span>DESIGN</span><span>BUILD</span><span>CONVERSION</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Reputation Card -->
+          <a href="reputation-management.html" class="svc-card">
+            <div class="svc-card-visual rep-viz">
+              <span class="viz-label">RATING RECOVERY</span>
+              <div class="rep-viz-rating">
+                <span class="number">4.9</span>
+                <span class="stars">★★★★★</span>
+              </div>
+              <div class="rep-viz-bar"><div class="rep-viz-bar-fill" data-fill></div></div>
+              <div class="rep-viz-stats">
+                <span>212 REVIEWS</span>
+                <span style="color: #DC5427;">14 VIOLATIONS REMOVED</span>
+              </div>
+            </div>
+            <div class="svc-card-body">
+              <div class="svc-card-body-header"><span class="num">(S.03)</span><span class="arrow">↗</span></div>
+              <h3>Reputation Management</h3>
+              <p>Remove policy-violating reviews, grow genuine feedback, and protect the reputation you've earned.</p>
+              <div class="svc-card-tags">
+                <span>REVIEWS</span><span>MONITORING</span><span>RECOVERY</span>
+              </div>
+            </div>
+          </a>
+
+          <div class="services-hscroll-cta">
+            <a href="contact.html" class="btn btn-dark" data-magnetic>Start a project ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROOF -->
+      <section class="proof-section" data-sec data-screen-label="Proof">
+        <div class="proof-bg-num" data-parallax-el>312</div>
+        <div class="proof-inner">
+          <div class="proof-left">
+            <div class="section-tag">(CASE) — RIVERSIDE CAFÉ CO.</div>
+            <div class="proof-number" data-proof-num>+0%</div>
+            <p>organic traffic in six months — no ad spend, no directory buys. <span style="color: #8B8194;">(placeholder — swap in real client data)</span></p>
+          </div>
+          <div class="proof-chart" data-proof-chart>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>1.2k</span>
+              <div class="bar" data-bar style="height: 18%; background: rgba(23,17,28,0.22);"></div>
+              <span class="bar-month">MAR</span>
+            </div>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>1.9k</span>
+              <div class="bar" data-bar style="height: 28%; background: rgba(23,17,28,0.3);"></div>
+              <span class="bar-month">APR</span>
+            </div>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>2.4k</span>
+              <div class="bar" data-bar style="height: 37%; background: rgba(108,60,224,0.45);"></div>
+              <span class="bar-month">MAY</span>
+            </div>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>3.1k</span>
+              <div class="bar" data-bar style="height: 52%; background: rgba(108,60,224,0.65);"></div>
+              <span class="bar-month">JUN</span>
+            </div>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>4.0k</span>
+              <div class="bar" data-bar style="height: 74%; background: #6C3CE0;"></div>
+              <span class="bar-month">JUL</span>
+            </div>
+            <div class="proof-bar-col">
+              <span class="bar-val" data-bar-val>4.9k</span>
+              <div class="bar" data-bar style="height: 94%; background: #DC5427;"></div>
+              <span class="bar-month">AUG</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" class="section-dark" data-sec data-screen-label="Process" style="padding: 140px 44px;">
+        <div class="container">
+          <div class="section-tag" style="color: var(--lavender); margin-bottom: 22px;">(04) — HOW WE WORK</div>
+          <h2 data-split style="max-width: 800px;">A straightforward process, built for <em>real results.</em></h2>
+
+          <div class="process-grid" data-steps-wrap style="gap: 1px; background: rgba(243,239,231,0.14);">
+            <div data-reveal style="background: #17111C; padding: 40px 30px 46px;">
+              <div class="process-num" style="color: #CDB9F6; font-size: 58px; margin-bottom: 26px;">01</div>
+              <h4 style="margin: 0 0 13px;">Audit</h4>
+              <p>We analyze your site, rankings, reviews, and competitors to find the fastest wins.</p>
+            </div>
+            <div data-reveal style="background: #17111C; padding: 40px 30px 46px;">
+              <div class="process-num" style="color: #CDB9F6; font-size: 58px; margin-bottom: 26px;">02</div>
+              <h4 style="margin: 0 0 13px;">Strategy</h4>
+              <p>A tailored roadmap across SEO, design, and reputation — no generic templates.</p>
+            </div>
+            <div data-reveal style="background: #17111C; padding: 40px 30px 46px;">
+              <div class="process-num" style="color: #CDB9F6; font-size: 58px; margin-bottom: 26px;">03</div>
+              <h4 style="margin: 0 0 13px;">Execute</h4>
+              <p>We ship the work — content, code, and outreach — on a clear timeline.</p>
+            </div>
+            <div data-reveal style="background: #17111C; padding: 40px 30px 46px;">
+              <div class="process-num" style="color: #DC5427; font-size: 58px; margin-bottom: 26px;">04</div>
+              <h4 style="margin: 0 0 13px;">Report &amp; grow</h4>
+              <p>Monthly reporting in plain English, plus ongoing optimization as you scale.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" data-sec data-screen-label="Testimonials" style="padding: 140px 44px;">
+        <div class="container">
+          <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 68px; flex-wrap: wrap;">
+            <div class="section-tag" style="color: var(--purple);">(05) — WHAT CLIENTS SAY</div>
+            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: #8B8194; border: 1px dashed rgba(23,17,28,0.28); padding: 5px 11px; border-radius: 100px;">PLACEHOLDER COPY — AWAITING REAL QUOTES</span>
+          </div>
+
+          <div class="testimonials-grid" data-reveal-group style="gap: 1px; background: rgba(23,17,28,0.14); border-top: 1px solid rgba(23,17,28,0.14); border-bottom: 1px solid rgba(23,17,28,0.14);">
+            <div class="testimonial" data-reveal style="background: #F3EFE7; padding: 44px 34px 40px;">
+              <div class="testimonial-quote" style="color: var(--lavender);">"</div>
+              <blockquote>Our booking calls doubled within two months of the SEO overhaul. The reporting is refreshingly honest.</blockquote>
+              <div class="testimonial-name" style="font-size: 14px;">Rachel Kaplan</div>
+              <div class="testimonial-title" style="font-size: 9.5px; letter-spacing: 0.13em;">OWNER, LUMEN DENTAL</div>
+            </div>
+            <div class="testimonial" data-reveal style="background: #F3EFE7; padding: 44px 34px 40px;">
+              <div class="testimonial-quote" style="color: var(--lavender);">"</div>
+              <blockquote>They rebuilt our site in three weeks and it finally converts. Cleaner, faster, and it actually ranks now.</blockquote>
+              <div class="testimonial-name" style="font-size: 14px;">Andrew Mitchell</div>
+              <div class="testimonial-title" style="font-size: 9.5px; letter-spacing: 0.13em;">FOUNDER, VANTAGE REALTY</div>
+            </div>
+            <div class="testimonial" data-reveal style="background: #F3EFE7; padding: 44px 34px 40px;">
+              <div class="testimonial-quote" style="color: var(--lavender);">"</div>
+              <blockquote>Fake reviews were killing us. Within weeks they were handled and our rating climbed to 4.8.</blockquote>
+              <div class="testimonial-name" style="font-size: 14px;">Nina Jacobs</div>
+              <div class="testimonial-title" style="font-size: 9.5px; letter-spacing: 0.13em;">MANAGER, NORTHSIDE FITNESS</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="contact" class="cta-band" data-sec data-screen-label="CTA" style="padding: 165px 44px;">
+        <div style="position: absolute; left: -3%; top: -14%; font-family: 'Instrument Serif', serif; font-size: 340px; line-height: 1; color: rgba(243,239,231,0.09); pointer-events: none;">✳</div>
+        <div style="position: absolute; right: -2%; bottom: -22%; font-family: 'Instrument Serif', serif; font-size: 300px; line-height: 1; color: rgba(243,239,231,0.09); pointer-events: none;">✳</div>
+        <div class="cta-band-inner">
+          <div class="section-tag" style="color: #E4D8FB; margin-bottom: 34px;">FREE 30-MINUTE CONSULTATION — NO PRESSURE, JUST A PLAN</div>
+          <h2 data-split>Ready to get found — and get <em>chosen?</em></h2>
+          <a href="contact.html" class="btn btn-dark-invert" data-magnetic>Book your free call <span style="font-size: 13px;">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="footer-brand-logo">
+              <span class="footer-brand-name">OrganicReach<span style="color: var(--lavender);">*</span></span>
+            </a>
+            <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
+            <div class="footer-social">
+              <a href="#">INSTAGRAM</a>
+              <a href="#">LINKEDIN</a>
+              <a href="#">X</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">SERVICES</div>
+            <div class="footer-col-links">
+              <a href="seo.html">SEO Optimization</a>
+              <a href="website-redesign.html">Website Development</a>
+              <a href="reputation-management.html">Reputation Management</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">COMPANY</div>
+            <div class="footer-col-links">
+              <a href="about.html">About</a>
+              <a href="services.html">Services</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">STAY IN THE LOOP</div>
+            <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
+            <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
+              <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
+              <button type="submit" class="footer-newsletter-btn">Join</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-big-logo">
+          <div class="footer-big-logo-text" data-foot-word>OrganicReach<span style="color: #2E2340;">*</span></div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
+          <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>

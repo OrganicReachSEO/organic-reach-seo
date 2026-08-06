@@ -40,7 +40,7 @@
 
 /* ---------- Bar loop (ranking bars) ---------- */
 @keyframes barLoop {
-  0%, 100% { transform: scaleY(0.5); }
+  0%, 100% { transform: scaleY(0.42); }
   50%      { transform: scaleY(1); }
 }
 
@@ -54,6 +54,12 @@
 @keyframes spinSlow {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+
+/* ---------- Blink (live indicator) ---------- */
+@keyframes blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0.15; }
 }
 
 /* ---------- Custom cursor elements ---------- */
@@ -84,8 +90,119 @@
   z-index: 9998;
 }
 
+/* ---------- Home preloader ---------- */
+.home-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #17111C;
+  color: #F3EFE7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 44px;
+}
+
+.home-preloader-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.home-preloader-word {
+  overflow: hidden;
+}
+
+.home-preloader-word-inner {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.home-preloader-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #6C3CE0;
+}
+
+.home-preloader-track {
+  height: 1px;
+  background: rgba(243,239,231,0.2);
+  margin-top: 26px;
+}
+
+.home-preloader-bar {
+  height: 1px;
+  width: 0%;
+  background: #CDB9F6;
+}
+
+/* ---------- Scroll rail ---------- */
+.scroll-rail {
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+  opacity: 0;
+}
+
+.scroll-rail a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8B8194;
+}
+
+.scroll-rail-label {
+  opacity: 0.35;
+}
+
+.scroll-rail-mark {
+  width: 18px;
+  height: 1px;
+  background: #17111C;
+  opacity: 0.25;
+  display: block;
+}
+
+/* ---------- Home custom cursor (single ring style) ---------- */
+.home-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid rgba(23,17,28,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+
 /* Hide custom cursor on touch devices */
 @media (pointer: coarse) {
   .cursor-dot,
-  .cursor-ring { display: none; }
+  .cursor-ring,
+  .home-cursor { display: none; }
+}
+
+/* Hide scroll rail on narrow screens */
+@media (max-width: 1024px) {
+  .scroll-rail { display: none; }
 }

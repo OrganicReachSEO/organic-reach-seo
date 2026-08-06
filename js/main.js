@@ -1,23 +1,21 @@
 // Animations are loaded globally via script tag
+// On the home page (index.html), home.js handles all animations.
+// On other pages, this file drives the animation system.
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
+  // Skip on home page — home.js has its own controller
+  if (document.querySelector('[data-home-root]')) return;
+
   // 1b. Initialize WebGL liquid hero effect (doesn't depend on scroll positions)
   if (typeof initLiquidHero === 'function') {
     initLiquidHero();
   }
 
   // 1. Initialize all GSAP scroll animations AFTER fonts are ready.
-  //    hero-v2.js registers its fonts.ready callback first (loaded earlier
-  //    in the HTML) so the SERP pin section is created before this runs.
-  //    Without this deferral, triggers calculate positions before the pin's
-  //    ~1400px virtual height exists, fire immediately, and self-destruct
-  //    via once:true — making sections appear static/already loaded.
   document.fonts.ready.then(function () {
-    // One rAF to let hero-v2's fonts.ready callback (SERP pin) execute first
     requestAnimationFrame(function () {
-      initAll();
+      if (typeof initAll === 'function') initAll();
 
-      // Refresh after a frame to ensure all pin spacers are measured
       requestAnimationFrame(function () {
         if (window.ScrollTrigger) ScrollTrigger.refresh();
       });
@@ -34,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. Mobile hamburger menu toggle
-  const hamburger = document.querySelector('.nav-hamburger');
-  const mobileMenu = document.querySelector('.nav-mobile-overlay');
-  
+  var hamburger = document.querySelector('.nav-hamburger');
+  var mobileMenu = document.querySelector('.nav-mobile-overlay');
+
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.contains('is-open');
-      
+    hamburger.addEventListener('click', function () {
+      var isOpen = hamburger.classList.contains('is-open');
+
       if (isOpen) {
         hamburger.classList.remove('is-open');
         mobileMenu.classList.remove('is-open');
@@ -48,14 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         hamburger.classList.add('is-open');
         mobileMenu.classList.add('is-open');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden';
       }
     });
 
-    // Close menu when clicking a link
-    const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
+    var mobileLinks = mobileMenu.querySelectorAll('.nav-link');
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
         hamburger.classList.remove('is-open');
         mobileMenu.classList.remove('is-open');
         document.body.style.overflow = '';
@@ -64,13 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Contact Form handling
-  const contactForm = document.querySelector('.contact-form');
+  var contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      // In a real app, send data to backend here.
-      // For now, show success message.
-      const successMsg = contactForm.querySelector('.form-success');
+      var successMsg = contactForm.querySelector('.form-success');
       if (successMsg) {
         successMsg.classList.add('is-visible');
         contactForm.reset();
