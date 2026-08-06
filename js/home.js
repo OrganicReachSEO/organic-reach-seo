@@ -70,10 +70,19 @@
           if (child.nodeType === 3) {
             child.textContent.split(/(\s+)/).forEach(function (tok) {
               if (!tok.trim()) { out.push({ space: true }); return; }
-              out.push({ word: tok, style: inheritStyle });
+              out.push({ word: tok, style: inheritStyle, isEm: parent.tagName === 'EM' });
             });
           } else if (child.nodeType === 1) {
-            walk(child, child.getAttribute('style') || inheritStyle);
+            var style = child.getAttribute('style') || '';
+            if (child.tagName === 'EM') {
+              if (!/font-style/.test(style)) style += ';font-style:italic;';
+              if (!/color/.test(style)) {
+                var isDark = !!child.closest('.section-dark, .serp-section');
+                style += ';color:' + (isDark ? '#CDB9F6' : '#6C3CE0') + ';';
+              }
+            }
+            var combinedStyle = inheritStyle + (inheritStyle && !inheritStyle.endsWith(';') ? ';' : '') + style;
+            walk(child, combinedStyle);
           }
         }
       };
@@ -87,7 +96,14 @@
         var inner = document.createElement('span');
         inner.style.cssText = 'display:inline-block;will-change:transform;' + (tok.style || '');
         inner.textContent = tok.word;
-        mask.appendChild(inner);
+        if (tok.isEm) {
+          var em = document.createElement('em');
+          em.style.cssText = tok.style || 'font-style:italic;color:#6C3CE0;';
+          em.appendChild(inner);
+          mask.appendChild(em);
+        } else {
+          mask.appendChild(inner);
+        }
         node.appendChild(mask);
         inners.push(inner);
       });
