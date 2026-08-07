@@ -1,246 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Website Redesign | OrganicReachSEO</title>
-  <meta name="description" content="Own your website outright — designed for conversion and SEO from day one, with no recurring fee required just to stay online.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Development — OrganicReachSEO</title>
+<meta name="description" content="Fast, modern, conversion-ready websites you own outright — your domain, your hosting, no monthly fee just to stay online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE7;
+    --sand: #DFD6C2;
+    --ink: #17111C;
+    --ink-70: #4A4253;
+    --mute: #8B8194;
+    --violet: #6C3CE0;
+    --violet-lt: #CDB9F6;
+    --rust: #DC5427;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Schibsted Grotesk', system-ui, sans-serif;
+    --pad: 44px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--violet); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--violet); }
+  h1, h2, h3, h4, p { margin: 0; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
+  .display em { font-style: italic; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
+  section { padding-left: var(--pad); padding-right: var(--pad); }
 
-  <link rel="stylesheet" href="css/global.css?v=4">
-  <link rel="stylesheet" href="css/nav.css?v=4">
-  <link rel="stylesheet" href="css/hero.css?v=4">
-  <link rel="stylesheet" href="css/sections.css?v=4">
-  <link rel="stylesheet" href="css/footer.css?v=4">
-  <link rel="stylesheet" href="css/animations.css?v=4">
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; background: var(--ink); color: var(--paper); white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; }
+  .btn:hover { color: var(--paper); background: #241B31; }
+  .btn-sm { padding: 13px 24px; font-size: 12px; letter-spacing: 0.04em; }
+  .btn-lg { padding: 19px 40px; font-size: 15.5px; background: var(--violet-lt); color: var(--ink); }
+  .btn-lg:hover { background: #DCCDFA; color: var(--ink); }
+  .link-under { font-size: 14px; font-weight: 600; border-bottom: 1px solid rgba(23,17,28,0.35); padding-bottom: 3px; white-space: nowrap; }
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="js/animations.js?v=4"></script>
-  <script src="js/liquid-shaders.js"></script>
-  <script src="js/liquid-input.js"></script>
-  <script src="js/liquid-engine.js"></script>
-  <script src="js/main.js?v=4"></script>
+  /* nav */
+  #nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 400; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 11px 14px 11px 26px; margin: 0 auto; max-width: 1180px; width: calc(100% - 36px); background: rgba(243,239,231,0.72); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(23,17,28,0.08); box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18); border-radius: 100px; }
+  #nav .brand { font-family: var(--serif); font-size: 23px; letter-spacing: -0.01em; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; }
+  #nav .links a.on { font-weight: 700; color: var(--violet); }
+
+  /* hamburger & mobile menu */
+  #navHamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 401;
+  }
+  #navHamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navHamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #navHamburger.open span:nth-child(2) { opacity: 0; }
+  #navHamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #navMobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  #navMobileOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #navMobileOverlay .mob-link {
+    font-family: var(--serif);
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  #navMobileOverlay .mob-subpages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    max-width: 320px;
+  }
+  #navMobileOverlay .mob-subpages a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-70);
+    padding: 6px 14px;
+    border: 1px solid rgba(23,17,28,0.15);
+    border-radius: 100px;
+  }
+
+  /* hero */
+  #hero { padding-top: 138px; padding-bottom: 110px; position: relative; overflow: hidden; }
+  #heroGrid { position: absolute; top: 0; left: var(--pad); right: var(--pad); height: 100%; display: grid; grid-template-columns: repeat(12, 1fr); pointer-events: none; }
+  #heroGrid div { border-left: 1px solid rgba(23,17,28,0.045); }
+  #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 50px; }
+  .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
+  .hero-cols { display: grid; grid-template-columns: minmax(430px, 1.3fr) minmax(320px, 0.7fr); gap: 64px; align-items: end; }
+  #hero h1 { font-size: clamp(46px, 6.6vw, 114px); line-height: 0.9; letter-spacing: -0.038em; margin-bottom: 34px; }
+  #heroCopy { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); }
+  #heroCopy p { flex: 1 1 340px; min-width: 0; max-width: 560px; font-size: 16.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
+  #heroCopy .ctas { flex: 0 1 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  /* ownership panel */
+  #own { background: var(--ink); border: 1px solid rgba(23,17,28,0.14); display: flex; flex-direction: column; }
+  #own .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
+  #own .head .mo { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
+  #own .head .mo i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
+  #own .body { display: flex; flex-direction: column; gap: 30px; padding: 28px 24px 30px; }
+  #own .group { display: flex; flex-direction: column; gap: 14px; }
+  #own .label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+  #own .track { display: flex; align-items: flex-end; gap: 5px; height: 46px; }
+  #own .track .sub-bar { flex: 1; height: 100%; background: rgba(220,84,39,0.55); transform-origin: bottom; transform: scaleY(0); }
+  #own .track .arrow { font-size: 16px; color: var(--rust); padding-left: 4px; line-height: 1; }
+  #ownBar { width: 30px; height: 100%; background: var(--violet); transform-origin: bottom; transform: scaleY(0); }
+  #ownLine { flex: 1; height: 3px; background: rgba(205,185,246,0.45); transform-origin: left; transform: scaleX(0); }
+  #own .note { font-size: 13px; line-height: 1.5; }
+  #own .divider { height: 1px; background: rgba(243,239,231,0.15); }
+
+  /* before / after */
+  #baf { padding-bottom: 140px; }
+  #baf .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 46px; }
+  #baf h2 { font-size: clamp(36px, 4.2vw, 62px); line-height: 0.98; max-width: 720px; }
+  #bafBox { position: relative; aspect-ratio: 16/9; overflow: hidden; user-select: none; border: 1px solid rgba(23,17,28,0.16); cursor: ew-resize; background: #D8CDB8; max-width: 1240px; margin: 0 auto; }
+  .baf-pane { position: absolute; inset: 0; padding: 5% 6%; display: flex; flex-direction: column; gap: 3%; }
+  #bafAfter { position: absolute; inset: 0; background: var(--ink); clip-path: inset(0 50% 0 0); }
+  #bafHandle { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); pointer-events: none; left: 50%; }
+  #bafHandle .knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: var(--violet); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 10px 30px rgba(23,17,28,0.35); }
+  .baf-stamp { position: absolute; bottom: 5%; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+
+  /* features */
+  #included { padding-bottom: 140px; }
+  #included h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 58px; }
+  .feature { display: grid; grid-template-columns: 90px 1fr 1.4fr; gap: 44px; padding: 42px 0; border-top: 1px solid rgba(23,17,28,0.18); align-items: start; }
+  .feature .n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: #C9BFA9; }
+  .feature:nth-child(3) .n { color: var(--violet); }
+  .feature:nth-child(4) .n { color: var(--rust); }
+  .feature h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.02em; }
+  .feature p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 560px; text-wrap: pretty; }
+
+  /* who */
+  #who { background: var(--ink); color: var(--paper); padding-top: 140px; padding-bottom: 140px; }
+  #who .cols { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+  #who h2 { font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin-bottom: 30px; text-wrap: pretty; }
+  #who p.lede { font-size: 16.5px; line-height: 1.68; color: #9A90A6; max-width: 620px; text-wrap: pretty; }
+  #compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(243,239,231,0.16); border: 1px solid rgba(243,239,231,0.16); }
+  #compare .col { background: var(--ink); padding: 30px 26px 34px; display: flex; flex-direction: column; gap: 18px; }
+  #compare .label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; }
+  #compare .row { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.5; }
+
+  /* how */
+  #how { padding-top: 140px; padding-bottom: 140px; }
+  #how h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 62px; }
+  #steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(23,17,28,0.18); border-top: 1px solid rgba(23,17,28,0.18); border-bottom: 1px solid rgba(23,17,28,0.18); }
+  #steps .step { background: var(--paper); padding: 40px 32px 46px; }
+  #steps .n { font-family: var(--serif); font-size: 56px; line-height: 0.9; color: #C9BFA9; margin-bottom: 26px; }
+  #steps .step:nth-child(3) .n { color: var(--violet); }
+  #steps .step:nth-child(4) .n { color: var(--rust); }
+  #steps h4 { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: -0.02em; margin-bottom: 13px; }
+  #steps p { font-size: 14.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
+
+  /* result */
+  #result { background: var(--sand); padding-top: 140px; padding-bottom: 140px; }
+  #result .cols { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center; }
+  #resultName { font-family: var(--serif); font-size: clamp(52px, 6.4vw, 104px); line-height: 0.9; letter-spacing: -0.035em; }
+  #result .stamp { display: flex; align-items: center; gap: 12px; margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(23,17,28,0.25); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #7A7060; }
+  #result .stamp i { width: 7px; height: 7px; border-radius: 50%; background: var(--rust); }
+  #result p { font-size: 17px; line-height: 1.68; color: #3E3648; max-width: 620px; text-wrap: pretty; }
+
+  /* cta */
+  #audit { background: var(--violet); padding-top: 160px; padding-bottom: 160px; text-align: center; position: relative; overflow: hidden; }
+  #audit .glyph { position: absolute; font-family: var(--serif); line-height: 1; color: rgba(243,239,231,0.09); pointer-events: none; }
+  #audit h2 { font-size: clamp(46px, 6vw, 100px); line-height: 0.94; color: var(--paper); margin-bottom: 46px; }
+
+  footer { background: var(--ink); color: #9A90A6; padding: 0 var(--pad); }
+  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 52px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
+  footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
+  footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+  footer form { display: flex; gap: 8px; }
+  footer input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(243,239,231,0.25); border-radius: 100px; padding: 13px 19px; color: var(--paper); font: inherit; font-size: 13px; outline: none; }
+  footer button { background: var(--violet-lt); color: var(--ink); border: none; border-radius: 100px; padding: 13px 22px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+  #footWord { font-family: var(--serif); font-size: clamp(84px, 13vw, 232px); line-height: 0.8; letter-spacing: -0.04em; color: #241B31; text-align: center; white-space: nowrap; }
+  footer .legal { display: flex; justify-content: space-between; padding: 32px 0; font-size: 11.5px; letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
+
+  [data-reveal], [data-hero] { opacity: 0; }
+
+  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.15; } }
+
+  @media (max-width: 1080px) {
+    :root { --pad: 28px; }
+    #nav .links { display: none; }
+    #navHamburger { display: flex; }
+    .hero-cols { grid-template-columns: 1fr; gap: 44px; }
+    #who .cols { grid-template-columns: 1fr; gap: 48px; }
+    #result .cols { grid-template-columns: 1fr; gap: 40px; }
+    #steps { grid-template-columns: repeat(2, 1fr); }
+    .feature { grid-template-columns: 60px 1fr; gap: 24px; }
+    .feature p { grid-column: 2; }
+    footer .top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    #steps { grid-template-columns: 1fr; }
+    #compare { grid-template-columns: 1fr; }
+    footer .top { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    [data-reveal], [data-hero] { opacity: 1 !important; }
+  }
+</style>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div data-cursor-dot class="cursor-dot"></div>
-  <div data-cursor-ring class="cursor-ring"></div>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="../index.html" class="nav-logo">
-      <span class="nav-logo-name">OrganicReachSEO</span>
-    </a>
-    <div class="nav-links">
-      <a href="../index.html" class="nav-link">HOME</a>
-      <a href="../services.html" class="nav-link" aria-current="page">SERVICES</a>
-      <a href="../about.html" class="nav-link">ABOUT</a>
-      <a href="../contact.html" class="nav-link">CONTACT</a>
-    </div>
-    <a href="../contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
-    <button class="nav-hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="nav-mobile-overlay">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="../services.html" class="nav-link">Services</a>
-    <a href="../about.html" class="nav-link">About</a>
-    <a href="../contact.html" class="nav-link">Contact</a>
-    <a href="../contact.html" class="btn btn-primary">Start a project ↗</a>
+<nav id="nav">
+  <a href="../index.html" class="brand">OrganicReach<span style="color:var(--violet)">*</span></a>
+  <div class="links">
+    <a href="../index.html">HOME</a>
+    <a href="../services.html" class="on">SERVICES</a>
+    <a href="../about.html">ABOUT</a>
+    <a href="../contact.html">CONTACT</a>
   </div>
+  <a href="../contact.html" class="btn btn-sm" data-magnetic>Free website audit ↗</a>
+  <button id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">(S.02) — WEBSITE REDESIGN</div>
-          <h1>Your Website. <em>Actually Yours.</em></h1>
-          <p class="hero-body">Platforms like these lock your business into paying every month just to keep your own website turned on. Cancel, and your site — and everything you built — disappears with it. We build websites the way a real business asset should work: designed for conversion and SEO from the ground up, handed over fully owned, with no recurring fee required just to exist online.</p>
-          <div class="hero-actions">
-            <a href="contact.html" class="btn btn-primary" data-magnetic>Get a Free Website Audit</a>
-            <a href="services.html" class="link-underline">All services ↗</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div data-parallax="8" style="position: absolute; inset: -12% 0; background: repeating-linear-gradient(135deg, #E7E0D1, #E7E0D1 14px, #DFD6C2 14px, #DFD6C2 28px); display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px;">site mockup</span>
-          </div>
-        </div>
+<!-- Mobile Menu Overlay -->
+<div id="navMobileOverlay">
+  <a href="../index.html" class="mob-link">HOME</a>
+  <a href="../services.html" class="mob-link">SERVICES</a>
+  <a href="../about.html" class="mob-link">ABOUT</a>
+  <a href="../contact.html" class="mob-link">CONTACT</a>
+  <div class="mob-subpages">
+    <a href="../services.html">Services Overview ↗</a>
+    <a href="../seo.html">SEO Optimization ↗</a>
+    <a href="../reputation-management.html">Reputation Mgmt ↗</a>
+  </div>
+  <a href="../contact.html" class="btn btn-lg" style="margin-top:10px;">Free website audit ↗</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="hero" data-screen-label="Redesign hero">
+    <div id="heroGrid" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div id="heroMeta" data-hero>
+        <span style="color:var(--violet)">(S.02) — WEBSITE DEVELOPMENT</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>NO RECURRING FEE TO STAY ONLINE</span>
       </div>
-    </section>
 
-    <!-- BEFORE / AFTER -->
-    <section class="section" style="padding-top: 110px;">
-      <div class="container-sm">
-        <div class="section-tag" style="color: var(--orange); margin-bottom: 20px;">(01) — BEFORE / AFTER</div>
-        <h2 data-word-reveal>Drag the handle. See the difference.</h2>
-
-        <div class="baf-container" data-baf>
-          <div class="baf-layer baf-before">
-            <div style="text-align: center;">
-              <div style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px; display: inline-block;">old site screenshot</div>
-              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #7A7060; margin-top: 14px;">BEFORE</div>
+      <div class="hero-cols">
+        <div>
+          <h1 class="display" data-hero>Your website. <em style="color:var(--violet)">Actually yours.</em></h1>
+          <div id="heroCopy" data-hero>
+            <p>Platforms like these lock your business into paying every month just to keep your own website turned on. Cancel, and your site — and everything you built — disappears with it. We build websites the way a real business asset should work: designed for conversion and SEO from the ground up, handed over fully owned, with no recurring fee required just to exist online.</p>
+            <div class="ctas">
+              <a href="../contact.html" class="btn" data-magnetic>Get a free website audit<span style="font-size:13px">→</span></a>
+              <a href="../services.html" class="link-under">All services →</a>
             </div>
           </div>
-          <div class="baf-layer baf-after" data-baf-after>
-            <div style="text-align: center;">
-              <div style="font-family: monospace; font-size: 13px; color: var(--lavender); background: rgba(205,185,246,0.12); padding: 8px 14px; border-radius: 6px; display: inline-block;">new site screenshot</div>
-              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--lavender); margin-top: 14px;">AFTER</div>
+        </div>
+
+        <div id="own" data-hero>
+          <div class="head">
+            <span>WHAT YOU ACTUALLY PAY FOR</span>
+            <span class="mo"><i></i>12 MONTHS</span>
+          </div>
+          <div class="body">
+            <div class="group">
+              <span class="label" style="color:var(--rust)">SUBSCRIPTION BUILDER</span>
+              <div class="track" id="subTrack"><span class="arrow">→</span></div>
+              <span class="note" style="color:#9A90A6">Twelve payments in, you own nothing. Stop paying and the site goes dark.</span>
+            </div>
+            <div class="divider"></div>
+            <div class="group">
+              <span class="label" style="color:var(--violet-lt)">BUILT WITH US</span>
+              <div class="track"><div id="ownBar"></div><div id="ownLine"></div></div>
+              <span class="note" style="color:#C7BFD1">One build. Then it's your asset — your domain, your hosting, indefinitely.</span>
             </div>
           </div>
-          <div class="baf-handle" data-baf-handle>
-            <div class="baf-handle-knob">⇄</div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- WHAT'S INCLUDED -->
-    <section class="section">
-      <div class="container">
-        <div class="section-tag" style="color: var(--purple); margin-bottom: 20px;">(02) — BUILT TO CONVERT, BUILT TO KEEP</div>
-        <h2 data-word-reveal>Design, build, and ownership — <em>handled.</em></h2>
-
-        <div class="feature-list" data-reveal-group>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num">01</div>
-            <h3 class="feature-title">Conversion-First Design</h3>
-            <p class="feature-desc">Clear paths to call, book, or inquire — not just a portfolio to scroll.</p>
-          </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num">02</div>
-            <h3 class="feature-title">SEO-Ready Architecture</h3>
-            <p class="feature-desc">Technical foundations in place from launch: clean structure, metadata, and schema — no retrofitting later.</p>
-          </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num" style="color: var(--purple);">03</div>
-            <h3 class="feature-title">Real Ownership</h3>
-            <p class="feature-desc">Your site, your domain, your hosting relationship — no platform holding your business online for ransom.</p>
-          </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num accent">04</div>
-            <h3 class="feature-title">Speed</h3>
-            <p class="feature-desc">A fast site that doesn't lose visitors before they see what you offer.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHO THIS IS FOR -->
-    <section class="section-dark">
-      <div class="container" style="max-width: 900px;">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 20px;">(03) — WHO THIS IS FOR</div>
-        <h2 data-word-reveal style="color: var(--bg); font-size: clamp(36px, 4vw, 56px); margin-bottom: 28px;">Stuck on a website you don't actually own?</h2>
-        <p data-reveal style="font-size: 17px; line-height: 1.7; color: var(--dark-muted); max-width: 680px;">If your business currently runs on a subscription website builder — the kind where the moment you stop paying, your site stops existing — this is your alternative. You get a comparable, often better, result, without paying indefinitely just to remain visible online.</p>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section">
-      <div class="container">
-        <div class="section-tag" style="color: var(--orange); margin-bottom: 20px;">(04) — HOW IT WORKS</div>
-        <h2 data-word-reveal>From audit to launch, owned outright.</h2>
-
-        <div data-cascade style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;">
-          <div data-cascade-item style="border-top: 1px solid var(--light-border); padding-top: 28px;">
-            <div style="font-family: var(--ff-serif); font-size: 56px; line-height: 1; color: var(--sand);">01</div>
-            <h4 style="font-family: var(--ff-serif); font-weight: 400; font-size: 22px; margin: 20px 0 12px;">Free audit</h4>
-            <p style="font-size: 14px; line-height: 1.65; color: var(--muted);">We review your current site and tell you exactly what's costing you conversions and rankings.</p>
-          </div>
-          <div data-cascade-item style="border-top: 1px solid var(--light-border); padding-top: 28px;">
-            <div style="font-family: var(--ff-serif); font-size: 56px; line-height: 1; color: var(--sand);">02</div>
-            <h4 style="font-family: var(--ff-serif); font-weight: 400; font-size: 22px; margin: 20px 0 12px;">Fixed-scope quote</h4>
-            <p style="font-size: 14px; line-height: 1.65; color: var(--muted);">A defined project cost, not an open-ended retainer.</p>
-          </div>
-          <div data-cascade-item style="border-top: 1px solid var(--light-border); padding-top: 28px;">
-            <div style="font-family: var(--ff-serif); font-size: 56px; line-height: 1; color: var(--sand);">03</div>
-            <h4 style="font-family: var(--ff-serif); font-weight: 400; font-size: 22px; margin: 20px 0 12px;">Build &amp; launch</h4>
-            <p style="font-size: 14px; line-height: 1.65; color: var(--muted);">A site you own outright from day one.</p>
-          </div>
-          <div data-cascade-item style="border-top: 1px solid var(--orange); padding-top: 28px;">
-            <div style="font-family: var(--ff-serif); font-size: 56px; line-height: 1; color: var(--orange);">04</div>
-            <h4 style="font-family: var(--ff-serif); font-weight: 400; font-size: 22px; margin: 20px 0 12px;">Optional ongoing SEO</h4>
-            <p style="font-size: 14px; line-height: 1.65; color: var(--muted);">Once live, we can grow the traffic that lands on it.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- A RECENT RESULT -->
-    <section class="result-band">
-      <div class="result-band-inner">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 32px;">(05) — A RECENT RESULT</div>
-        <div style="font-family: var(--ff-serif); font-size: clamp(40px, 5.6vw, 72px); line-height: 1.05; color: var(--lavender);">Ranch Realty</div>
-        <p style="max-width: 560px;">Ranch Realty's website was rebuilt from the ground up and now runs as the foundation for their ongoing SEO growth — a real estate site engineered to convert property searches into client relationships, not just look good in a portfolio.</p>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-band-inner">
-        <h2>Ready for a site you're <em>proud of?</em><span class="accent">*</span></h2>
-        <a href="contact.html" class="btn btn-dark-invert" data-magnetic>Get a Free Website Audit ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="footer-brand-logo">
-            <span class="footer-brand-name">OrganicReachSEO</span>
-          </a>
-          <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
-          <div class="footer-social">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">LINKEDIN</a>
-            <a href="#">X</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">SERVICES</div>
-          <div class="footer-col-links">
-            <a href="seo.html">SEO Optimization</a>
-            <a href="website-redesign.html">Website Redesign</a>
-            <a href="reputation-management.html">Reputation Management</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">COMPANY</div>
-          <div class="footer-col-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">STAY IN THE LOOP</div>
-          <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
-          <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
-            <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
-            <button type="submit" class="footer-newsletter-btn">Join</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-big-logo" data-reveal>
-        <div class="footer-big-logo-text">OrganicReachSEO</div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
-        <span>info@organicreachseo.com · +1 (218) 542-3683</span>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- (01) BEFORE / AFTER -->
+  <section id="baf" data-screen-label="Before / after">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — BEFORE / AFTER</div>
+          <h2 class="display">Drag the handle. See the <em style="color:var(--violet)">difference.</em></h2>
+        </div>
+        <span style="font-size:10px;font-weight:700;letter-spacing:0.16em;color:var(--mute);white-space:nowrap">⇄ DRAG</span>
+      </div>
+
+      <div id="bafBox">
+        <!-- BEFORE -->
+        <div class="baf-pane">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <div style="width:22%;height:14px;background:rgba(23,17,28,0.28)"></div>
+            <div style="display:flex;gap:10px">
+              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
+              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
+              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
+            </div>
+          </div>
+          <div style="flex:1;background:repeating-linear-gradient(135deg,#CFC3AC,#CFC3AC 12px,#C6B9A0 12px,#C6B9A0 24px);display:flex;align-items:center;justify-content:center">
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.16em;color:#7A7060">GENERIC STOCK HERO</span>
+          </div>
+          <div style="display:flex;gap:3%">
+            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
+            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
+            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:#7A7060">NO CLEAR NEXT STEP</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--paper);background:#8A7F6C;border-radius:100px;padding:6px 12px">$ / MONTH TO STAY ONLINE</span>
+          </div>
+          <span class="baf-stamp" style="left:6%;color:#7A7060">BEFORE</span>
+        </div>
+
+        <!-- AFTER -->
+        <div id="bafAfter">
+          <div class="baf-pane">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+              <div style="width:22%;height:14px;background:rgba(243,239,231,0.85)"></div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div style="width:46px;height:9px;background:rgba(243,239,231,0.32)"></div>
+                <div style="width:46px;height:9px;background:rgba(243,239,231,0.32)"></div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--ink);background:var(--violet-lt);border-radius:100px;padding:6px 12px">CALL NOW</div>
+              </div>
+            </div>
+            <div style="flex:1;display:flex;gap:3%">
+              <div style="flex:1.5;display:flex;flex-direction:column;justify-content:center;gap:12px">
+                <div style="width:88%;height:20px;background:rgba(243,239,231,0.9)"></div>
+                <div style="width:62%;height:20px;background:rgba(243,239,231,0.9)"></div>
+                <div style="width:40%;height:12px;background:rgba(243,239,231,0.3);margin-top:6px"></div>
+                <div style="align-self:flex-start;margin-top:8px;font-size:9px;font-weight:700;letter-spacing:0.12em;color:var(--paper);background:var(--violet);border-radius:100px;padding:8px 16px">BOOK A VISIT →</div>
+              </div>
+              <div style="flex:1;background:rgba(243,239,231,0.08);border:1px solid rgba(243,239,231,0.2)"></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+              <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--violet-lt)">ONE CLEAR ACTION PER SCREEN</span>
+              <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--ink);background:var(--violet-lt);border-radius:100px;padding:6px 12px">OWNED OUTRIGHT</span>
+            </div>
+            <span class="baf-stamp" style="right:6%;color:var(--violet-lt)">AFTER</span>
+          </div>
+        </div>
+
+        <div id="bafHandle"><div class="knob">⇄</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (02) BUILT TO CONVERT, BUILT TO KEEP -->
+  <section id="included" data-screen-label="What's included">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(02) — BUILT TO CONVERT, BUILT TO KEEP</div>
+      <h2 class="display">Design, build, and ownership — <em style="color:var(--violet)">handled.</em></h2>
+      <div style="display:flex;flex-direction:column">
+        <div class="feature" data-reveal>
+          <div class="n">01</div>
+          <h3>Conversion-First Design</h3>
+          <p>Clear paths to call, book, or inquire — not just a portfolio to scroll.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">02</div>
+          <h3>SEO-Ready Architecture</h3>
+          <p>Clean structure, metadata, and schema in place from launch — no retrofitting later.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">03</div>
+          <h3>Real Ownership</h3>
+          <p>Your site, your domain, your hosting relationship. No platform holding your business online for ransom.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">04</div>
+          <h3>Speed</h3>
+          <p>A fast site that doesn't lose visitors before they see what you offer.</p>
+        </div>
+        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (03) WHO THIS IS FOR -->
+  <section id="who" data-screen-label="Who this is for">
+    <div class="wrap cols">
+      <div>
+        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(03) — WHO THIS IS FOR</div>
+        <h2 class="display">Stuck on a website you don't <em style="color:var(--violet-lt)">actually own?</em></h2>
+        <p class="lede" data-reveal>If your business runs on a subscription website builder — the kind where the moment you stop paying, your site stops existing — this is your alternative. A comparable, often better, result, without paying indefinitely just to stay visible.</p>
+      </div>
+
+      <div id="compare" data-reveal>
+        <div class="col">
+          <span class="label" style="color:var(--rust)">SUBSCRIPTION</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Monthly fee just to stay online</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Stop paying, site disappears</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Template everyone else uses</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Their platform, their rules</span>
+        </div>
+        <div class="col">
+          <span class="label" style="color:var(--violet-lt)">OWNED</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>One fixed-scope build</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Yours indefinitely</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Designed around your business</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Your domain, your hosting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (04) HOW IT WORKS -->
+  <section id="how" data-screen-label="How it works">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(04) — HOW IT WORKS</div>
+      <h2 class="display">From audit to launch, <em style="color:var(--violet)">owned outright.</em></h2>
+      <div id="steps">
+        <div class="step" data-reveal><div class="n">01</div><h4>Free audit</h4><p>We review your current site and tell you exactly what's costing you conversions and rankings.</p></div>
+        <div class="step" data-reveal><div class="n">02</div><h4>Fixed-scope quote</h4><p>A defined project cost, not an open-ended retainer.</p></div>
+        <div class="step" data-reveal><div class="n">03</div><h4>Build &amp; launch</h4><p>A site you own outright from day one.</p></div>
+        <div class="step" data-reveal><div class="n">04</div><h4>Optional ongoing SEO</h4><p>Once live, we can grow the traffic that lands on it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (05) A RECENT RESULT -->
+  <section id="result" data-screen-label="Recent result">
+    <div class="wrap cols">
+      <div>
+        <div class="eyebrow" style="color:#7A7060;margin-bottom:24px">(05) — A RECENT RESULT</div>
+        <div id="resultName" data-reveal>Ranch Realty</div>
+        <div class="stamp"><i></i>REBUILT, THEN GROWN WITH SEO</div>
+      </div>
+      <p>Ranch Realty's website was rebuilt from the ground up and now runs as the foundation for their ongoing SEO growth — a real estate site engineered to convert property searches into client relationships, not just look good in a portfolio.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="audit" data-screen-label="CTA">
+    <div class="glyph" style="left:-3%;top:-14%;font-size:340px" aria-hidden="true">✳</div>
+    <div class="glyph" style="right:-2%;bottom:-22%;font-size:300px" aria-hidden="true">✳</div>
+    <div class="wrap" style="max-width:950px;position:relative">
+      <div class="eyebrow" style="color:#E4D8FB;margin-bottom:34px">FIXED-SCOPE QUOTE — NO OPEN-ENDED RETAINER</div>
+      <h2 class="display">Ready for a site you're <em>proud of?</em><span style="color:var(--violet-lt)">*</span></h2>
+      <a href="../contact.html" class="btn btn-lg" data-magnetic>Get a free website audit<span style="font-size:13px">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="../index.html" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReach<span style="color:var(--violet-lt)">*</span></a>
+        <p style="font-size:14px;line-height:1.66;max-width:290px;margin-bottom:28px">Websites you own, reputations that hold up, and search that brings in revenue.</p>
+        <div class="social"><a href="#">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">X</a></div>
+      </div>
+      <div>
+        <h5>SERVICES</h5>
+        <div class="col">
+          <a href="../services.html">Services Overview</a>
+          <a href="../seo.html">Local SEO</a>
+          <a href="../reputation-management.html">Reputation Management</a>
+        </div>
+      </div>
+      <div>
+        <h5>COMPANY</h5>
+        <div class="col">
+          <a href="../about.html">About Us</a>
+          <a href="../services.html">Services</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h5>STAY IN THE LOOP</h5>
+        <p style="font-size:13px;margin-bottom:18px;line-height:1.6">Monthly SEO tips, no spam.</p>
+        <form id="subscribe"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button></form>
+      </div>
+    </div>
+    <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true">OrganicReach<span style="color:#2E2340">*</span></div></div>
+    <div class="legal">
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
+      <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var lenis = null;
+
+  /* ---------- mobile menu ---------- */
+  function initMobileMenu() {
+    var burger = $('#navHamburger'), overlay = $('#navMobileOverlay');
+    if (!burger || !overlay) return;
+    burger.addEventListener('click', function() {
+      var isOpen = burger.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    $$('a', overlay).forEach(function(link) {
+      link.addEventListener('click', function() {
+        burger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  function buildStatic() {
+    var g = $('#heroGrid');
+    if (g) {
+      for (var i = 0; i < 12; i++) g.appendChild(document.createElement('div'));
+    }
+    var track = $('#subTrack');
+    if (track) {
+      for (var j = 0; j < 12; j++) {
+        var b = document.createElement('div');
+        b.className = 'sub-bar';
+        track.insertBefore(b, track.lastElementChild);
+      }
+    }
+  }
+
+  function initSlider() {
+    var box = $('#bafBox'), after = $('#bafAfter'), handle = $('#bafHandle');
+    if (!box || !after || !handle) return;
+    var dragging = false;
+    function setFrom(clientX) {
+      var r = box.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
+      after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      handle.style.left = pct + '%';
+    }
+    box.addEventListener('pointerdown', function (e) { dragging = true; setFrom(e.clientX); });
+    window.addEventListener('pointermove', function (e) { if (dragging) setFrom(e.clientX); });
+    window.addEventListener('pointerup', function () { dragging = false; });
+  }
+
+  function initLenis() {
+    if (!window.Lenis) return;
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 0.95 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 1.4 });
+    });
+  }
+
+  function heroIntro() {
+    var tl = gsap.timeline();
+    $$('[data-hero]').forEach(function (el, i) {
+      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
+    });
+    tl.add(runOwnership, 0.75);
+  }
+
+  function runOwnership() {
+    gsap.to('.sub-bar', { scaleY: 1, duration: 0.4, ease: 'power2.out', stagger: 0.07 });
+    gsap.to('#ownBar', { scaleY: 1, duration: 0.6, ease: 'expo.out', delay: 1.1 });
+    gsap.to('#ownLine', { scaleX: 1, duration: 1, ease: 'power2.out', delay: 1.4 });
+  }
+
+  function reveals() {
+    $$('[data-reveal]').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  }
+
+  function footerDrift() {
+    gsap.fromTo('#footWord', { xPercent: 6 }, {
+      xPercent: -6, ease: 'none',
+      scrollTrigger: { trigger: '#footWord', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+
+  function navHide() {
+    var nav = $('#nav'), last = 0;
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function (self) {
+        var y = self.scroll();
+        if (y < 120) gsap.to(nav, { yPercent: 0, duration: 0.4, overwrite: true });
+        else if (y > last + 6) gsap.to(nav, { yPercent: -180, duration: 0.5, ease: 'power3.out', overwrite: true });
+        else if (y < last - 6) gsap.to(nav, { yPercent: 0, duration: 0.5, ease: 'power3.out', overwrite: true });
+        last = y;
+      }
+    });
+  }
+
+  function initMagnetic() {
+    if (!window.matchMedia || !matchMedia('(pointer: fine)').matches) return;
+    $$('[data-magnetic]').forEach(function (btn) {
+      var xTo = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3.out' });
+      var yTo = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3.out' });
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width / 2)) * 0.32);
+        yTo((e.clientY - (r.top + r.height / 2)) * 0.42);
+      });
+      btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
+    });
+  }
+
+  function boot() {
+    if (!window.gsap) { setTimeout(boot, 120); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    buildStatic();
+    initMobileMenu();
+    initSlider();
+    initLenis();
+    initMagnetic();
+    heroIntro();
+    reveals();
+    footerDrift();
+    navHide();
+    ScrollTrigger.refresh();
+  }
+
+  var subForm = $('#subscribe');
+  if (subForm) subForm.addEventListener('submit', function (e) { e.preventDefault(); });
+  boot();
+})();
+</script>
 </body>
 </html>
