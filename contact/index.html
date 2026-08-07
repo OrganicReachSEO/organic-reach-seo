@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Organic Reach SEO</title>
+  <meta name="description" content="Tell us a bit about your business — we'll respond within one business day with next steps.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/nav.css?v=2">
+  <link rel="stylesheet" href="css/hero.css?v=2">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/liquid-shaders.js"></script>
+  <script src="js/liquid-input.js"></script>
+  <script src="js/liquid-engine.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div data-cursor-dot class="cursor-dot"></div>
+  <div data-cursor-ring class="cursor-ring"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">organic reach<span class="nav-logo-accent">*</span></span>
+      <span class="nav-logo-tag">SEO STUDIO</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="services.html" class="nav-link">SERVICES</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+      <a href="contact.html" class="nav-link" aria-current="page">CONTACT</a>
+    </div>
+    <a href="contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-mobile-overlay">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Start a project ↗</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-full" style="padding-bottom: 64px;">
+      <div class="hero-full-inner">
+        <div class="hero-tag">(GET IN TOUCH)</div>
+        <h1>Let's talk about <em>your growth.</em></h1>
+        <p class="hero-body" style="max-width: 520px;">Tell us a bit about your business — we'll respond within one business day with next steps.</p>
+      </div>
+    </section>
+
+    <!-- FORM + INFO -->
+    <section class="contact-section">
+      <div class="contact-inner">
+        <form class="contact-form" action="contact.php" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">FULL NAME</label>
+              <input type="text" name="fullname" class="form-input" placeholder="Jane Doe" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">PHONE</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+1 (___) ___-____">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">EMAIL</label>
+            <input type="email" name="email" class="form-input" placeholder="jane@company.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">I'M INTERESTED IN</label>
+            <select name="interest" class="form-input">
+              <option>SEO Optimization</option>
+              <option>Website Redesign</option>
+              <option>Reputation Management</option>
+              <option>Not sure — advise me</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">TELL US ABOUT YOUR BUSINESS</label>
+            <textarea name="message" class="form-input" rows="4" placeholder="What are you hoping to achieve?" required></textarea>
+          </div>
+          
+          <div>
+            <button type="submit" class="btn btn-primary" data-magnetic style="padding: 18px 40px;">Send message ↗</button>
+          </div>
+          
+          <div class="form-success">
+            Thanks — we'll be in touch within one business day.
+          </div>
+        </form>
+
+        <div class="contact-sidebar">
+          <div>
+            <div class="contact-info-label">EMAIL</div>
+            <div class="contact-info-value">info@organicreachseo.com</div>
+          </div>
+          <div>
+            <div class="contact-info-label">PHONE</div>
+            <div class="contact-info-value">+1 (218) 542-3683</div>
+          </div>
+          <div>
+            <div class="contact-info-label">HOURS</div>
+            <div class="contact-info-value">Mon–Fri, 9am–6pm EST</div>
+          </div>
+          <div style="overflow: hidden; aspect-ratio: 4/3; position: relative; margin-top: 8px;">
+            <div data-parallax="8" style="position: absolute; inset: -10% 0; background: repeating-linear-gradient(135deg, #E7E0D1, #E7E0D1 14px, #DFD6C2 14px, #DFD6C2 28px); display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px;">office / map</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-logo">
+            <span class="footer-brand-name">organic reach<span class="footer-brand-accent">*</span></span>
+            <span class="footer-brand-tag">SEO STUDIO</span>
+          </a>
+          <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
+          <div class="footer-social">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">LINKEDIN</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">SERVICES</div>
+          <div class="footer-col-links">
+            <a href="seo.html">SEO Optimization</a>
+            <a href="website-redesign.html">Website Redesign</a>
+            <a href="reputation-management.html">Reputation Management</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">COMPANY</div>
+          <div class="footer-col-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">STAY IN THE LOOP</div>
+          <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
+            <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-big-logo" data-reveal>
+        <div class="footer-big-logo-text">organic reach<span class="accent">*</span></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Organic Reach SEO. All rights reserved.</span>
+        <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

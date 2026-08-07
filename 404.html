@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting — OrganicReachSEO</title>
+<script>
+  (function() {
+    var path = window.location.pathname;
+    // Remove trailing slash if present
+    var cleanPath = path.replace(/\/$/, '');
+    
+    // Check if path doesn't end with .html
+    if (cleanPath && !cleanPath.endsWith('.html')) {
+      var target = cleanPath + '.html' + window.location.search + window.location.hash;
+      window.location.replace(target);
+    } else {
+      window.location.replace('/index.html');
+    }
+  })();
+</script>
+</head>
+<body>
+  <p style="font-family:sans-serif; text-align:center; margin-top:20vh;">Redirecting...</p>
+</body>
+</html>

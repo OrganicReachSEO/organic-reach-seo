@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — OrganicReachSEO</title>
+<meta name="description" content="Local SEO, websites you own outright, and removal of policy-violating Google and Yelp reviews. Direct access, full transparency, built to compound.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE7;
+    --paper-2: #EFE9DC;
+    --paper-3: #E7E0D1;
+    --ink: #17111C;
+    --ink-70: #4A4253;
+    --mute: #8B8194;
+    --violet: #6C3CE0;
+    --violet-lt: #CDB9F6;
+    --rust: #DC5427;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Schibsted Grotesk', system-ui, sans-serif;
+    --pad: 44px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--violet); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--violet); }
+  h1, h2, h3, p { margin: 0; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
+  .display em { font-style: italic; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
+  section { padding-left: var(--pad); padding-right: var(--pad); }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; background: var(--ink); color: var(--paper); white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; }
+  .btn:hover { color: var(--paper); background: #241B31; }
+  .btn-lg { padding: 19px 40px; font-size: 15.5px; letter-spacing: 0; background: var(--violet-lt); color: var(--ink); }
+  .btn-lg:hover { background: #DCCDFA; color: var(--ink); }
+  .arrow-link { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+  .arrow-link:hover { border-color: var(--violet); }
+
+  /* nav */
+  #nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 400; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 11px 14px 11px 26px; margin: 0 auto; max-width: 1180px; width: calc(100% - 36px); background: rgba(243,239,231,0.72); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(23,17,28,0.08); box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18); border-radius: 100px; }
+  #nav .brand { font-family: var(--serif); font-size: 23px; letter-spacing: -0.01em; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; }
+  #nav .links a.on { font-weight: 700; color: var(--violet); }
+
+  /* hamburger & mobile menu */
+  #navHamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 401;
+  }
+  #navHamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navHamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #navHamburger.open span:nth-child(2) { opacity: 0; }
+  #navHamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #navMobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  #navMobileOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #navMobileOverlay .mob-link {
+    font-family: var(--serif);
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  #navMobileOverlay .mob-subpages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    max-width: 320px;
+  }
+  #navMobileOverlay .mob-subpages a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-70);
+    padding: 6px 14px;
+    border: 1px solid rgba(23,17,28,0.15);
+    border-radius: 100px;
+  }
+
+  /* hero */
+  #hero { padding-top: 150px; padding-bottom: 80px; }
+  #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 44px; }
+  #hero h1 { font-size: clamp(46px, 6vw, 100px); line-height: 0.92; letter-spacing: -0.035em; max-width: 1150px; margin-bottom: 34px; }
+  #heroBody { font-size: 17px; line-height: 1.62; color: var(--ink-70); max-width: 660px; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); text-wrap: pretty; }
+  .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
+
+  /* service rows */
+  .svc-row { padding-top: 70px; padding-bottom: 70px; }
+  .svc-row .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .svc-viz { aspect-ratio: 4/3; position: relative; overflow: hidden; border: 1px solid rgba(23,17,28,0.14); }
+  .svc-viz .cap { position: absolute; top: 26px; left: 46px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.16em; color: var(--mute); }
+  .svc-num { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; color: var(--rust); margin-bottom: 18px; }
+  .svc-row h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; font-size: clamp(34px, 3.6vw, 54px); line-height: 1; margin-bottom: 22px; }
+  .svc-row p { font-size: 16px; line-height: 1.66; color: var(--ink-70); margin-bottom: 28px; max-width: 500px; text-wrap: pretty; }
+
+  .bars { background: var(--ink); display: flex; align-items: flex-end; gap: 2.4%; padding: 44px 46px; }
+  .bars div { flex: 1; transform-origin: bottom; animation: barLoop 3s ease-in-out infinite; }
+  .bars .cap { color: #9A90A6; }
+
+  .browser { background: var(--paper-3); padding: 32px 36px; display: flex; flex-direction: column; gap: 18px; }
+  .browser .chrome { display: flex; align-items: center; gap: 8px; }
+  .browser .chrome i { width: 8px; height: 8px; border-radius: 50%; background: #C9BFA9; }
+  .browser .bar { flex: 1; height: 22px; border-radius: 100px; background: var(--paper); margin-left: 10px; }
+  .browser .body { display: flex; gap: 16px; flex: 1; min-height: 0; }
+  .browser .hero-block { flex: 1.4; background: var(--paper); border: 1px solid rgba(23,17,28,0.1); }
+  .browser .lines { flex: 1; display: flex; flex-direction: column; gap: 11px; }
+  .browser .lines div { height: 12px; background: rgba(23,17,28,0.12); }
+  .browser .pill { margin-top: auto; align-self: flex-start; font-size: 9.5px; font-weight: 700; letter-spacing: 0.13em; color: var(--paper); background: var(--ink); border-radius: 100px; padding: 7px 14px; }
+
+  .rating { background: var(--paper-2); padding: 44px 46px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+  .rating .score { display: flex; align-items: baseline; gap: 18px; }
+  .rating .score b { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 5vw, 72px); line-height: 1; }
+  .rating .score span { font-size: 22px; letter-spacing: 4px; color: var(--rust); }
+  .rating .track { height: 6px; background: rgba(23,17,28,0.12); border-radius: 100px; overflow: hidden; }
+  #meter { height: 6px; width: 96%; background: var(--violet); border-radius: 100px; transform-origin: left; transform: scaleX(0); }
+  .rating .legend { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; letter-spacing: 0.13em; color: var(--mute); }
+
+  /* why different */
+  #different { padding-top: 120px; padding-bottom: 120px; background: var(--paper-2); border-top: 1px solid rgba(23,17,28,0.12); }
+  #different .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 44px; flex-wrap: wrap; margin-bottom: 62px; }
+  #different h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 720px; }
+  .diff { display: grid; grid-template-columns: 90px 1fr 1.4fr; gap: 44px; padding: 42px 0; border-top: 1px solid rgba(23,17,28,0.18); align-items: start; }
+  .diff .n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: #C9BFA9; }
+  .diff:nth-child(3) .n { color: var(--rust); }
+  .diff h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.02em; }
+  .diff p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 560px; text-wrap: pretty; }
+
+  /* cta */
+  #audit { background: var(--ink); padding-top: 150px; padding-bottom: 150px; text-align: center; }
+  #audit h2 { font-size: clamp(38px, 4.6vw, 72px); line-height: 1.02; color: var(--paper); margin-bottom: 44px; text-wrap: pretty; }
+
+  footer { background: var(--ink); color: #9A90A6; padding: 0 var(--pad); }
+  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 52px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
+  footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
+  footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+  footer form { display: flex; gap: 8px; }
+  footer input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(243,239,231,0.25); border-radius: 100px; padding: 13px 19px; color: var(--paper); font: inherit; font-size: 13px; outline: none; }
+  footer button { background: var(--violet-lt); color: var(--ink); border: none; border-radius: 100px; padding: 13px 22px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+  #footWord { font-family: var(--serif); font-size: clamp(84px, 13vw, 232px); line-height: 0.8; letter-spacing: -0.04em; color: #241B31; text-align: center; white-space: nowrap; }
+  footer .legal { display: flex; justify-content: space-between; padding: 32px 0; font-size: 11.5px; letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
+
+  [data-reveal] { opacity: 0; }
+
+  @keyframes barLoop { 0%, 100% { transform: scaleY(0.42); } 50% { transform: scaleY(1); } }
+  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.15; } }
+
+  @media (max-width: 1080px) {
+    :root { --pad: 28px; }
+    #nav .links { display: none; }
+    #navHamburger { display: flex; }
+    .svc-row .cols { grid-template-columns: 1fr; gap: 40px; }
+    .svc-row .cols > .txt { order: 2 !important; }
+    .svc-row .cols > .svc-viz { order: 1 !important; }
+    .diff { grid-template-columns: 60px 1fr; gap: 24px; }
+    .diff p { grid-column: 2; }
+    footer .top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    footer .top { grid-template-columns: 1fr; }
+    .svc-viz { aspect-ratio: 3/2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    [data-reveal] { opacity: 1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="brand">OrganicReach<span style="color:var(--violet)">*</span></a>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="services.html" class="on">SERVICES</a>
+    <a href="about.html">ABOUT</a>
+    <a href="#different">WHY US</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+  <a href="contact.html" class="btn" data-magnetic>Get a free audit ↗</a>
+  <button id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="navMobileOverlay">
+  <a href="index.html" class="mob-link">HOME</a>
+  <a href="services.html" class="mob-link">SERVICES</a>
+  <a href="about.html" class="mob-link">ABOUT</a>
+  <a href="#different" class="mob-link">WHY US</a>
+  <a href="contact.html" class="mob-link">CONTACT</a>
+  <div class="mob-subpages">
+    <a href="website-redesign.html">Web Development ↗</a>
+    <a href="reputation-management.html">Reputation Mgmt ↗</a>
+    <a href="seo.html">SEO Optimization ↗</a>
+  </div>
+  <a href="contact.html" class="btn btn-lg" style="margin-top:10px;">Get a free audit ↗</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="hero" data-screen-label="Services hero">
+    <div class="wrap">
+      <div id="heroMeta" data-hero>
+        <span style="color:var(--violet)">(SERVICES)</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>DIRECT ACCESS, ALWAYS</span>
+      </div>
+      <h1 class="display" data-hero>Everything you need to be found — <em style="color:var(--violet)">and trusted.</em></h1>
+      <p id="heroBody" data-hero>We don't sell tactics. We sell outcomes: more calls, more bookings, more revenue you can trace straight back to the work. Every engagement starts with a plan built around your business — not a package pulled off a shelf.</p>
+    </div>
+  </section>
+
+  <!-- S.01 LOCAL SEO -->
+  <section class="svc-row" data-screen-label="Local SEO">
+    <div class="wrap cols">
+      <div class="svc-viz bars" data-reveal>
+        <span class="cap">LOCAL PACK POSITIONS</span>
+        <div style="height:24%;background:rgba(205,185,246,0.32)"></div>
+        <div style="height:38%;background:rgba(205,185,246,0.44);animation-delay:.15s"></div>
+        <div style="height:31%;background:rgba(205,185,246,0.38);animation-delay:.3s"></div>
+        <div style="height:52%;background:#CDB9F6;animation-delay:.45s"></div>
+        <div style="height:68%;background:#8E63EA;animation-delay:.6s"></div>
+        <div style="height:86%;background:#6C3CE0;animation-delay:.75s"></div>
+        <div style="height:100%;background:#DC5427;animation-delay:.9s"></div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="svc-num">(S.01)</div>
+        <h2>Local SEO</h2>
+        <p>If you've paid for SEO before and gotten a report full of graphs but no more calls, you already know what's wrong with most SEO services. We run local SEO built for businesses that live and die by local search — from single-location practices to a 31-location network — and price it to pay for itself.</p>
+        <a href="seo.html" class="arrow-link">EXPLORE LOCAL SEO<span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S.02 WEBSITE DEVELOPMENT -->
+  <section class="svc-row" data-screen-label="Website Development">
+    <div class="wrap cols">
+      <div class="txt" style="order:1" data-reveal>
+        <div class="svc-num">(S.02)</div>
+        <h2>Website Development</h2>
+        <p>A site you own outright. No monthly fee just to stay online, no page-builder holding your business hostage — a fast, modern, SEO-ready website that's actually yours.</p>
+        <a href="website-redesign.html" class="arrow-link">EXPLORE WEBSITE DEVELOPMENT<span>→</span></a>
+      </div>
+      <div class="svc-viz browser" style="order:2" data-reveal>
+        <div class="chrome"><i></i><i></i><i></i><span class="bar"></span></div>
+        <div class="body">
+          <div class="hero-block"></div>
+          <div class="lines">
+            <div></div>
+            <div style="width:78%"></div>
+            <div style="width:54%"></div>
+            <div class="pill">YOURS TO KEEP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S.03 REPUTATION MANAGEMENT -->
+  <section class="svc-row" style="padding-bottom:110px" data-screen-label="Reputation Management">
+    <div class="wrap cols">
+      <div class="svc-viz rating" data-reveal>
+        <span class="cap">POLICY-VIOLATING REVIEWS</span>
+        <div class="score"><b>4.9</b><span>★★★★★</span></div>
+        <div class="track"><div id="meter"></div></div>
+        <div class="legend"><span>REPORTED THE RIGHT WAY</span><span style="color:var(--rust)">REMOVED FOR GOOD</span></div>
+      </div>
+      <div class="txt" data-reveal>
+        <div class="svc-num">(S.03)</div>
+        <h2>Reputation Management</h2>
+        <p>Google and Yelp reviews that violate platform policy get removed — permanently, the right way. No fake reviews generated, no mass-reporting, nothing that risks your listing. Ongoing retainer, ongoing protection.</p>
+        <a href="reputation-management.html" class="arrow-link">EXPLORE REPUTATION MANAGEMENT<span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT'S DIFFERENT -->
+  <section id="different" data-screen-label="Why it's different">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(04) — WHY IT'S DIFFERENT</div>
+          <h2 class="display">Not another agency <em style="color:var(--violet)">retainer.</em></h2>
+        </div>
+        <svg id="spark" viewBox="0 0 220 90" style="width:220px;height:90px;flex-shrink:0;overflow:visible" aria-hidden="true">
+          <path d="M 6 78 L 40 60 L 74 66 L 108 38 L 150 44 L 214 8" fill="none" stroke="#DC5427" stroke-width="1" stroke-dasharray="2 4" opacity="0.3"></path>
+          <path id="sparkDraw" d="M 6 78 L 40 60 L 74 66 L 108 38 L 150 44 L 214 8" fill="none" stroke="#6C3CE0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle id="sparkDot" cx="6" cy="78" r="5" fill="#DC5427"></circle>
+        </svg>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="diff" data-reveal>
+          <div class="n">01</div>
+          <h3>Direct access</h3>
+          <p>You work with the person running your account. Not a rotating point of contact. Always.</p>
+        </div>
+        <div class="diff" data-reveal>
+          <div class="n">02</div>
+          <h3>Full transparency</h3>
+          <p>We show you exactly what's being done and why, every month, in plain English.</p>
+        </div>
+        <div class="diff" data-reveal>
+          <div class="n">03</div>
+          <h3>Built to compound</h3>
+          <p>The work is designed to make next month better than this one, not just maintain what's already there.</p>
+        </div>
+        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="audit" data-screen-label="CTA">
+    <div class="wrap" style="max-width:1000px">
+      <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:32px">NOT SURE WHERE TO START?</div>
+      <h2 class="display">We'll audit your site, rankings, and reviews for free — then tell you exactly <em style="color:var(--violet-lt)">where the growth is.</em></h2>
+      <a href="contact.html" class="btn btn-lg" data-magnetic>Get a free audit<span style="font-size:13px">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="index.html" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReach<span style="color:var(--violet-lt)">*</span></a>
+        <p style="font-size:14px;line-height:1.66;max-width:290px;margin-bottom:28px">Websites you own, reputations that hold up, and search that brings in revenue.</p>
+        <div class="social"><a href="#">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">X</a></div>
+      </div>
+      <div>
+        <h5>SERVICES</h5>
+        <div class="col">
+          <a href="seo.html">Local SEO</a>
+          <a href="website-redesign.html">Website Development</a>
+          <a href="reputation-management.html">Reputation Management</a>
+        </div>
+      </div>
+      <div>
+        <h5>COMPANY</h5>
+        <div class="col">
+          <a href="about.html">About Us</a>
+          <a href="#different">Why us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h5>STAY IN THE LOOP</h5>
+        <p style="font-size:13px;margin-bottom:18px;line-height:1.6">Monthly SEO tips, no spam.</p>
+        <form id="subscribe"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button></form>
+      </div>
+    </div>
+    <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true">OrganicReach<span style="color:#2E2340">*</span></div></div>
+    <div class="legal">
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
+      <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var lenis = null;
+
+  /* ---------- mobile menu ---------- */
+  function initMobileMenu() {
+    var burger = $('#navHamburger'), overlay = $('#navMobileOverlay');
+    if (!burger || !overlay) return;
+    burger.addEventListener('click', function() {
+      var isOpen = burger.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    $$('a', overlay).forEach(function(link) {
+      link.addEventListener('click', function() {
+        burger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  function initLenis() {
+    if (!window.Lenis) return;
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 0.95 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 1.4 });
+    });
+  }
+
+  function heroIntro() {
+    var tl = gsap.timeline();
+    $$('[data-hero]').forEach(function (el, i) {
+      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
+    });
+  }
+
+  function reveals() {
+    $$('[data-reveal]').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  }
+
+  function meter() {
+    gsap.to('#meter', {
+      scaleX: 1, duration: 1.2, ease: 'expo.out',
+      scrollTrigger: { trigger: '#meter', start: 'top 88%', once: true }
+    });
+  }
+
+  function spark() {
+    var draw = $('#sparkDraw'), dot = $('#sparkDot');
+    if (!draw || !dot) return;
+    var len = draw.getTotalLength();
+    draw.style.strokeDasharray = len;
+    draw.style.strokeDashoffset = len;
+    function playOnce() {
+      draw.style.strokeDashoffset = len;
+      var state = { p: 0 };
+      gsap.to(state, {
+        p: 1, duration: 2.2, ease: 'power1.inOut',
+        onUpdate: function () {
+          draw.style.strokeDashoffset = len * (1 - state.p);
+          var pt = draw.getPointAtLength(len * state.p);
+          dot.setAttribute('cx', pt.x);
+          dot.setAttribute('cy', pt.y);
+        },
+        onComplete: function () { gsap.to({}, { duration: 0.8, onComplete: playOnce }); }
+      });
+    }
+    ScrollTrigger.create({ trigger: '#spark', start: 'top 90%', once: true, onEnter: playOnce });
+  }
+
+  function footerDrift() {
+    gsap.fromTo('#footWord', { xPercent: 6 }, {
+      xPercent: -6, ease: 'none',
+      scrollTrigger: { trigger: '#footWord', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+
+  function navHide() {
+    var nav = $('#nav'), last = 0;
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function (self) {
+        var y = self.scroll();
+        if (y < 120) gsap.to(nav, { yPercent: 0, duration: 0.4, overwrite: true });
+        else if (y > last + 6) gsap.to(nav, { yPercent: -180, duration: 0.5, ease: 'power3.out', overwrite: true });
+        else if (y < last - 6) gsap.to(nav, { yPercent: 0, duration: 0.5, ease: 'power3.out', overwrite: true });
+        last = y;
+      }
+    });
+  }
+
+  function initMagnetic() {
+    if (!window.matchMedia || !matchMedia('(pointer: fine)').matches) return;
+    $$('[data-magnetic]').forEach(function (btn) {
+      var xTo = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3.out' });
+      var yTo = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3.out' });
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width / 2)) * 0.32);
+        yTo((e.clientY - (r.top + r.height / 2)) * 0.42);
+      });
+      btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
+    });
+  }
+
+  function boot() {
+    if (!window.gsap) { setTimeout(boot, 120); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    initMobileMenu();
+    initLenis();
+    initMagnetic();
+    heroIntro();
+    reveals();
+    meter();
+    spark();
+    footerDrift();
+    navHide();
+    ScrollTrigger.refresh();
+  }
+
+  var subForm = $('#subscribe');
+  if (subForm) subForm.addEventListener('submit', function (e) { e.preventDefault(); });
+  boot();
+})();
+</script>
+</body>
+</html>
