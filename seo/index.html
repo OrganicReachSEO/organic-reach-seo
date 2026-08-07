@@ -1,237 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SEO Optimization | OrganicReachSEO</title>
-  <meta name="description" content="Technical fixes, content strategy, and local search dominance — a complete SEO engine tuned to the keywords your customers actually type.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Optimization — OrganicReachSEO</title>
+<meta name="description" content="Technical SEO, content strategy, and local search dominance — tuned to the keywords your customers actually type, reported in revenue, not vanity traffic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE7;
+    --ink: #17111C;
+    --ink-70: #4A4253;
+    --ink-50: #6E6579;
+    --mute: #8B8194;
+    --violet: #6C3CE0;
+    --violet-lt: #CDB9F6;
+    --rust: #DC5427;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Schibsted Grotesk', system-ui, sans-serif;
+    --pad: 44px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--violet); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--violet); }
+  h1, h2, h3, p { margin: 0; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
+  .display em { font-style: italic; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
+  section { padding-left: var(--pad); padding-right: var(--pad); }
 
-  <link rel="stylesheet" href="css/global.css?v=4">
-  <link rel="stylesheet" href="css/nav.css?v=4">
-  <link rel="stylesheet" href="css/hero.css?v=4">
-  <link rel="stylesheet" href="css/sections.css?v=4">
-  <link rel="stylesheet" href="css/footer.css?v=4">
-  <link rel="stylesheet" href="css/animations.css?v=4">
-  <link rel="stylesheet" href="css/scale-proof.css?v=4">
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; background: var(--ink); color: var(--paper); white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; }
+  .btn:hover { color: var(--paper); background: #241B31; }
+  .btn-sm { padding: 13px 24px; font-size: 12px; letter-spacing: 0.04em; }
+  .btn-lg { padding: 19px 40px; font-size: 15.5px; background: var(--violet-lt); color: var(--ink); }
+  .btn-lg:hover { background: #DCCDFA; color: var(--ink); }
+  .link-under { font-size: 14px; font-weight: 600; border-bottom: 1px solid rgba(23,17,28,0.35); padding-bottom: 3px; white-space: nowrap; }
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="js/animations.js?v=4"></script>
-  <script src="js/liquid-shaders.js"></script>
-  <script src="js/liquid-input.js"></script>
-  <script src="js/liquid-engine.js"></script>
-  <script src="js/main.js?v=4"></script>
-  <script src="js/scale-proof.js?v=4"></script>
+  /* nav */
+  #nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 400; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 11px 14px 11px 26px; margin: 0 auto; max-width: 1180px; width: calc(100% - 36px); background: rgba(243,239,231,0.72); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(23,17,28,0.08); box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18); border-radius: 100px; }
+  #nav .brand { font-family: var(--serif); font-size: 23px; letter-spacing: -0.01em; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; }
+  #nav .links a.on { font-weight: 700; color: var(--violet); }
+
+  /* hamburger & mobile menu */
+  #navHamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 401;
+  }
+  #navHamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navHamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #navHamburger.open span:nth-child(2) { opacity: 0; }
+  #navHamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #navMobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  #navMobileOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #navMobileOverlay .mob-link {
+    font-family: var(--serif);
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  #navMobileOverlay .mob-subpages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    max-width: 320px;
+  }
+  #navMobileOverlay .mob-subpages a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-70);
+    padding: 6px 14px;
+    border: 1px solid rgba(23,17,28,0.15);
+    border-radius: 100px;
+  }
+
+  /* hero */
+  #hero { padding-top: 138px; padding-bottom: 110px; position: relative; overflow: hidden; }
+  #heroGrid { position: absolute; top: 0; left: var(--pad); right: var(--pad); height: 100%; display: grid; grid-template-columns: repeat(12, 1fr); pointer-events: none; }
+  #heroGrid div { border-left: 1px solid rgba(23,17,28,0.045); }
+  #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 50px; }
+  .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
+  .hero-cols { display: grid; grid-template-columns: minmax(430px, 1.3fr) minmax(320px, 0.7fr); gap: 64px; align-items: end; }
+  #hero h1 { font-size: clamp(46px, 6.2vw, 108px); line-height: 0.9; letter-spacing: -0.038em; margin-bottom: 34px; }
+  #heroCopy { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); }
+  #heroCopy p { flex: 1 1 340px; min-width: 0; max-width: 560px; font-size: 16.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
+  #heroCopy .ctas { flex: 0 1 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  /* report panel */
+  #report { background: var(--ink); border: 1px solid rgba(23,17,28,0.14); display: flex; flex-direction: column; }
+  #report .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
+  #report .head .tagline { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
+  #report .head .tagline i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
+  #report .body { display: flex; flex-direction: column; padding: 26px 24px 28px; gap: 26px; }
+  #report .group { display: flex; flex-direction: column; gap: 13px; }
+  #report .group .label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+  .vanity { position: relative; align-self: flex-start; font-size: 15px; color: var(--ink-50); }
+  .vanity .strike { position: absolute; left: 0; top: 52%; height: 1px; width: 0%; background: var(--rust); }
+  .real { display: flex; align-items: center; gap: 11px; font-size: 15.5px; font-weight: 500; color: var(--paper); }
+  .real i { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); flex-shrink: 0; }
+  #report .divider { height: 1px; background: rgba(243,239,231,0.15); }
+
+  /* included */
+  #included { padding-bottom: 140px; }
+  #included h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 58px; }
+  .feature { display: grid; grid-template-columns: 90px 1fr 1.4fr; gap: 44px; padding: 42px 0; border-top: 1px solid rgba(23,17,28,0.18); align-items: start; }
+  .feature .n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: #C9BFA9; }
+  .feature:nth-child(4) .n { color: var(--rust); }
+  .feature h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.02em; }
+  .feature p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 560px; text-wrap: pretty; }
+
+  /* result */
+  #result { background: var(--ink); color: var(--paper); padding-top: 140px; padding-bottom: 140px; }
+  #result .cols { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: center; }
+  #result h2 { font-size: clamp(34px, 4vw, 62px); line-height: 1.02; margin-bottom: 30px; text-wrap: pretty; }
+  #result .lede { font-size: 16.5px; line-height: 1.66; color: #9A90A6; max-width: 560px; margin-bottom: 34px; text-wrap: pretty; }
+  #result .stamp { display: flex; align-items: center; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(243,239,231,0.18); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #9A90A6; }
+  #result .stamp i { width: 7px; height: 7px; border-radius: 50%; background: var(--rust); }
+
+  #density { border: 1px solid rgba(243,239,231,0.16); padding: 34px 36px 38px; }
+  #density .top { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  #agencyCount { font-family: var(--serif); font-size: 68px; line-height: 0.85; color: var(--paper); }
+  #density .top span { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: #9A90A6; line-height: 1.6; max-width: 170px; }
+  #density .sub { font-size: 13.5px; line-height: 1.6; color: var(--ink-50); margin-bottom: 30px; }
+  #dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 11px; margin-bottom: 30px; padding-top: 34px; }
+  #dots span[data-dot] { width: 100%; aspect-ratio: 1; border-radius: 50%; background: rgba(243,239,231,0.16); transform: scale(0); }
+  #mineDot { grid-column: 4; grid-row: 2; position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 5px rgba(108,60,224,0.22); transform: scale(0); }
+  #mineDot .stem { position: absolute; left: 50%; bottom: calc(100% + 9px); width: 1px; height: 20px; background: rgba(205,185,246,0.5); }
+  #mineDot .chip { position: absolute; left: 50%; bottom: calc(100% + 27px); transform: translateX(-50%); white-space: nowrap; font-size: 9px; font-weight: 700; letter-spacing: 0.13em; color: var(--ink); background: var(--violet-lt); border-radius: 100px; padding: 5px 11px; }
+  #density .legend { display: flex; align-items: center; gap: 11px; padding-top: 22px; border-top: 1px solid rgba(243,239,231,0.16); font-size: 10px; font-weight: 700; letter-spacing: 0.13em; color: var(--violet-lt); }
+  #density .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(108,60,224,0.25); }
+
+  /* faq */
+  #faq { padding-top: 140px; padding-bottom: 140px; }
+  #faq .cols { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 80px; align-items: start; }
+  #faq .sticky { position: sticky; top: 130px; }
+  #faq h2 { font-size: clamp(34px, 3.8vw, 58px); line-height: 1; }
+  #faq details { border-top: 1px solid rgba(23,17,28,0.18); padding: 28px 0; }
+  #faq summary { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; font-family: var(--serif); font-size: 26px; letter-spacing: -0.02em; cursor: pointer; list-style: none; }
+  #faq summary::-webkit-details-marker { display: none; }
+  #faq .plus { flex-shrink: 0; font-family: var(--sans); font-size: 20px; font-weight: 400; color: var(--violet); transition: transform 0.3s ease; }
+  #faq details[open] .plus { transform: rotate(45deg); }
+  #faq details p { font-size: 15.5px; line-height: 1.68; color: var(--ink-70); margin-top: 18px; max-width: 620px; text-wrap: pretty; }
+
+  /* cta */
+  #audit { background: var(--violet); padding-top: 160px; padding-bottom: 160px; text-align: center; position: relative; overflow: hidden; }
+  #audit .glyph { position: absolute; font-family: var(--serif); line-height: 1; color: rgba(243,239,231,0.09); pointer-events: none; }
+  #audit h2 { font-size: clamp(46px, 6vw, 100px); line-height: 0.94; color: var(--paper); margin-bottom: 46px; }
+
+  footer { background: var(--ink); color: #9A90A6; padding: 0 var(--pad); }
+  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 52px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
+  footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
+  footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+  footer form { display: flex; gap: 8px; }
+  footer input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(243,239,231,0.25); border-radius: 100px; padding: 13px 19px; color: var(--paper); font: inherit; font-size: 13px; outline: none; }
+  footer button { background: var(--violet-lt); color: var(--ink); border: none; border-radius: 100px; padding: 13px 22px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+  #footWord { font-family: var(--serif); font-size: clamp(84px, 13vw, 232px); line-height: 0.8; letter-spacing: -0.04em; color: #241B31; text-align: center; white-space: nowrap; }
+  footer .legal { display: flex; justify-content: space-between; padding: 32px 0; font-size: 11.5px; letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
+
+  [data-reveal], [data-hero] { opacity: 0; }
+
+  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.15; } }
+
+  @media (max-width: 1080px) {
+    :root { --pad: 28px; }
+    #nav .links { display: none; }
+    #navHamburger { display: flex; }
+    .hero-cols { grid-template-columns: 1fr; gap: 44px; }
+    #result .cols { grid-template-columns: 1fr; gap: 48px; }
+    #faq .cols { grid-template-columns: 1fr; gap: 40px; }
+    #faq .sticky { position: static; }
+    .feature { grid-template-columns: 60px 1fr; gap: 24px; }
+    .feature p { grid-column: 2; }
+    footer .top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    footer .top { grid-template-columns: 1fr; }
+    #faq summary { font-size: 21px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    [data-reveal], [data-hero] { opacity: 1 !important; }
+  }
+</style>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div data-cursor-dot class="cursor-dot"></div>
-  <div data-cursor-ring class="cursor-ring"></div>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="../index.html" class="nav-logo">
-      <span class="nav-logo-name">OrganicReachSEO</span>
-    </a>
-    <div class="nav-links">
-      <a href="../index.html" class="nav-link">HOME</a>
-      <a href="../services.html" class="nav-link" aria-current="page">SERVICES</a>
-      <a href="../about.html" class="nav-link">ABOUT</a>
-      <a href="../contact.html" class="nav-link">CONTACT</a>
-    </div>
-    <a href="../contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
-    <button class="nav-hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="nav-mobile-overlay">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="../services.html" class="nav-link">Services</a>
-    <a href="../about.html" class="nav-link">About</a>
-    <a href="../contact.html" class="nav-link">Contact</a>
-    <a href="../contact.html" class="btn btn-primary">Start a project ↗</a>
+<nav id="nav">
+  <a href="../index.html" class="brand">OrganicReach<span style="color:var(--violet)">*</span></a>
+  <div class="links">
+    <a href="../index.html">HOME</a>
+    <a href="../services.html" class="on">SERVICES</a>
+    <a href="../about.html">ABOUT</a>
+    <a href="../contact.html">CONTACT</a>
   </div>
+  <a href="../contact.html" class="btn btn-sm" data-magnetic>Get a free audit ↗</a>
+  <button id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">(S.01) — SEO OPTIMIZATION</div>
-          <h1>Rank for searches that turn into <em>revenue.</em></h1>
-          <p class="hero-body">Technical fixes, content strategy, and local search dominance — a complete SEO engine tuned to the keywords your customers actually type.</p>
-          <div class="hero-actions">
-            <a href="contact.html" class="btn btn-primary" data-magnetic>Get a free SEO audit</a>
-            <a href="services.html" class="link-underline">All services ↗</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div data-parallax="8" style="position: absolute; inset: -12% 0; background: repeating-linear-gradient(135deg, #E7E0D1, #E7E0D1 14px, #DFD6C2 14px, #DFD6C2 28px); display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px;">rankings graph</span>
-          </div>
-        </div>
+<!-- Mobile Menu Overlay -->
+<div id="navMobileOverlay">
+  <a href="../index.html" class="mob-link">HOME</a>
+  <a href="../services.html" class="mob-link">SERVICES</a>
+  <a href="../about.html" class="mob-link">ABOUT</a>
+  <a href="../contact.html" class="mob-link">CONTACT</a>
+  <div class="mob-subpages">
+    <a href="../services.html">Services Overview ↗</a>
+    <a href="../website-redesign.html">Web Development ↗</a>
+    <a href="../reputation-management.html">Reputation Mgmt ↗</a>
+  </div>
+  <a href="../contact.html" class="btn btn-lg" style="margin-top:10px;">Get a free audit ↗</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="hero" data-screen-label="SEO hero">
+    <div id="heroGrid" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div id="heroMeta" data-hero>
+        <span style="color:var(--violet)">(S.01) — SEO OPTIMIZATION</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>REPORTED IN REVENUE, NOT TRAFFIC</span>
       </div>
-    </section>
 
-    <!-- BUILT FOR REAL COMPLEXITY (new) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-tag" style="color: var(--orange); margin-bottom: 20px;">(01) — BUILT FOR REAL COMPLEXITY</div>
-        <h2 data-word-reveal style="max-width: 780px;">Built for real businesses, real complexity.</h2>
-
-        <div class="scale-proof-grid">
-          <p class="scale-proof-copy" data-reveal>Local SEO looks simple from the outside — until you're managing visibility for a business with locations, franchises, or multiple service areas competing against each other for the same map pack. We currently manage full-network local SEO for a national medical resort operator spanning 31 locations, coordinating Google Business Profiles, local landing pages, and location-specific ranking strategy at a scale most agencies have never operated at. That expertise scales down just as effectively for single-location businesses — you get enterprise-level rigor applied to your business specifically.</p>
-
-          <div class="scale-card" data-reveal>
-            <div class="scale-number">0</div>
-            <div class="scale-label">LOCATIONS, ONE COORDINATED STRATEGY</div>
-            <div class="scale-dots">
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span><span class="scale-dot"></span>
-              <span class="scale-dot is-accent"></span>
+      <div class="hero-cols">
+        <div>
+          <h1 class="display" data-hero>Rank for searches that turn into <em style="color:var(--violet)">revenue.</em></h1>
+          <div id="heroCopy" data-hero>
+            <p>If you've paid for SEO before and gotten a stack of graphs that never explained why the phone stopped ringing, this is built differently. Technical fixes, content strategy, and local search dominance — tuned to the keywords your customers actually type, and reported on in terms of revenue, not vanity traffic.</p>
+            <div class="ctas">
+              <a href="../contact.html" class="btn" data-magnetic>Get a free SEO audit<span style="font-size:13px">→</span></a>
+              <a href="../services.html" class="link-under">All services →</a>
             </div>
-            <div class="scale-sweep"></div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="section">
-      <div class="container">
-        <div class="section-tag" style="color: var(--purple); margin-bottom: 20px;">(02) — WHAT'S INCLUDED</div>
-        <h2 data-word-reveal>Every layer of search, handled.</h2>
-
-        <div class="feature-list" data-reveal-group>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num">01</div>
-            <h3 class="feature-title">Technical SEO</h3>
-            <p class="feature-desc">Site speed, crawlability, structured data, and mobile performance — the foundation Google rewards.</p>
+        <div id="report" data-hero>
+          <div class="head">
+            <span>THE MONTHLY REPORT</span>
+            <span class="tagline"><i></i>PLAIN ENGLISH</span>
           </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num">02</div>
-            <h3 class="feature-title">Content strategy</h3>
-            <p class="feature-desc">Keyword research and pages written to answer what your customers are actually searching for.</p>
-          </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num">03</div>
-            <h3 class="feature-title">Local SEO &amp; maps</h3>
-            <p class="feature-desc">Google Business Profile optimization, citations, and review signals that put you in the map pack.</p>
-          </div>
-          <div class="feature-row" data-reveal>
-            <div class="feature-num accent">04</div>
-            <h3 class="feature-title">Reporting &amp; iteration</h3>
-            <p class="feature-desc">Monthly plain-English reports on rankings, traffic, and leads — plus what we're doing next and why.</p>
+          <div class="body">
+            <div class="group">
+              <span class="label" style="color:var(--ink-50)">WHAT MOST AGENCIES SEND</span>
+              <span class="vanity">Impressions<span class="strike"></span></span>
+              <span class="vanity">Bounce rate<span class="strike"></span></span>
+              <span class="vanity">Sessions, up 14%<span class="strike"></span></span>
+              <span class="vanity">Domain authority<span class="strike"></span></span>
+            </div>
+            <div class="divider"></div>
+            <div class="group">
+              <span class="label" style="color:var(--violet-lt)">WHAT WE SEND</span>
+              <span class="real"><i></i>Calls from search</span>
+              <span class="real"><i></i>Form fills and bookings</span>
+              <span class="real"><i></i>Which keywords drove them</span>
+              <span class="real"><i></i>What we're doing next</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- RESULT BAND: dark -->
-    <section class="result-band">
-      <div class="result-band-inner">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 32px;">(03) — A RECENT RESULT</div>
-        <div class="result-number" style="font-family: var(--ff-serif); font-size: clamp(40px, 5.6vw, 72px); line-height: 1.05; color: var(--lavender);">Ranch Realty</div>
-        <p style="max-width: 600px;">Ranch Realty came to us for reviews. Two years later, they're a full SEO client with a redesigned website — a relationship that grew because the results held up, not because of a contract term.</p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section">
-      <div class="faq-inner">
-        <div class="faq-title">
-          <div class="section-tag" style="color: var(--purple); margin-bottom: 20px;">(04) — COMMON QUESTIONS</div>
-          <h2>Asked <em>often.</em></h2>
-        </div>
-        <div data-reveal-group>
-          <details data-reveal>
-            <summary>How long until we see results?</summary>
-            <p>Early movement typically shows in 6–8 weeks; meaningful ranking and traffic gains usually land in 3–6 months, depending on your market's competitiveness.</p>
-          </details>
-          <details data-reveal>
-            <summary>Do you guarantee #1 rankings?</summary>
-            <p>No one honest can. We guarantee the work, full transparency on progress, and no lock-in — you stay because it's working.</p>
-          </details>
-          <details data-reveal>
-            <summary>What does it cost?</summary>
-            <p>Engagements are scoped to your market and goals after the free audit — most local businesses land in a predictable monthly retainer.</p>
-          </details>
-          <details data-reveal>
-            <summary>Will this work with my existing website?</summary>
-            <p>Usually yes. If the site itself is holding rankings back, we'll tell you plainly — and our redesign team can fix it on an SEO-ready foundation.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-band-inner">
-        <h2>See where your rankings <em>could be.</em><span class="accent">*</span></h2>
-        <a href="contact.html" class="btn btn-dark-invert" data-magnetic>Get your free audit ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="footer-brand-logo">
-            <span class="footer-brand-name">OrganicReachSEO</span>
-          </a>
-          <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
-          <div class="footer-social">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">LINKEDIN</a>
-            <a href="#">X</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">SERVICES</div>
-          <div class="footer-col-links">
-            <a href="seo.html">SEO Optimization</a>
-            <a href="website-redesign.html">Website Redesign</a>
-            <a href="reputation-management.html">Reputation Management</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">COMPANY</div>
-          <div class="footer-col-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">STAY IN THE LOOP</div>
-          <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
-          <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
-            <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
-            <button type="submit" class="footer-newsletter-btn">Join</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-big-logo" data-reveal>
-        <div class="footer-big-logo-text">OrganicReachSEO</div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
-        <span>info@organicreachseo.com · +1 (218) 542-3683</span>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- (01) WHAT'S INCLUDED -->
+  <section id="included" data-screen-label="What's included">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — WHAT'S INCLUDED</div>
+      <h2 class="display">Every layer of search, <em style="color:var(--violet)">handled.</em></h2>
+      <div style="display:flex;flex-direction:column">
+        <div class="feature" data-reveal>
+          <div class="n">01</div>
+          <h3>Technical SEO</h3>
+          <p>Site speed, crawlability, structured data, mobile performance — the foundation Google rewards.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">02</div>
+          <h3>Content strategy</h3>
+          <p>Keyword research and pages written to answer what your customers are actually searching for.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">03</div>
+          <h3>Local SEO &amp; maps</h3>
+          <p>Google Business Profile optimization, citations, and review signals that put you in the map pack.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <div class="n">04</div>
+          <h3>Reporting &amp; iteration</h3>
+          <p>Monthly, plain-English reports on rankings, traffic, and leads — plus what's next and why.</p>
+        </div>
+        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (02) A RECENT RESULT -->
+  <section id="result" data-screen-label="Recent result">
+    <div class="wrap cols">
+      <div>
+        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(02) — A RECENT RESULT</div>
+        <h2 class="display">Scottsdale, AZ — one of the most competitive real estate markets <em style="color:var(--violet-lt)">in the US.</em></h2>
+        <p class="lede">We run SEO for Ranch Realty in a market where dozens of agencies compete for the same searches. The retainer isn't a line item — it pays for itself in closed deals generated organically, month after month.</p>
+        <div class="stamp"><i></i>RANCH REALTY — ACTIVE ENGAGEMENT</div>
+      </div>
+
+      <div id="density" data-reveal>
+        <div class="top">
+          <span id="agencyCount">0</span>
+          <span>AGENCIES CHASING THE SAME SCOTTSDALE SEARCHES</span>
+        </div>
+        <div class="sub">Every dot is a competitor bidding for the same customers.</div>
+        <div id="dots">
+          <span id="mineDot"><span class="stem"></span><span class="chip">RANCH REALTY</span></span>
+        </div>
+        <div class="legend"><i></i>THE ONE WE RUN SEO FOR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (03) FAQ -->
+  <section id="faq" data-screen-label="FAQ">
+    <div class="wrap cols">
+      <div class="sticky">
+        <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(03) — COMMON QUESTIONS</div>
+        <h2 class="display">Asked <em style="color:var(--violet)">often.</em></h2>
+      </div>
+      <div>
+        <details>
+          <summary><span>How long until we see results?</span><span class="plus">+</span></summary>
+          <p>Early movement typically shows in 6–8 weeks. Meaningful ranking and traffic gains usually land in 3–6 months, depending on how competitive your market is.</p>
+        </details>
+        <details>
+          <summary><span>Do you guarantee #1 rankings?</span><span class="plus">+</span></summary>
+          <p>No one honest can. We guarantee the work, full transparency on progress, and no lock-in — you stay because it's working.</p>
+        </details>
+        <details>
+          <summary><span>What does it cost?</span><span class="plus">+</span></summary>
+          <p>Scoped to your market and goals after a free audit. Priced so the retainer pays for itself — most local businesses see revenue back in multiples of what they spend.</p>
+        </details>
+        <details>
+          <summary><span>Will this work with my existing website?</span><span class="plus">+</span></summary>
+          <p>Usually. If the site itself is holding rankings back, we'll tell you plainly — and we can fix it on an SEO-ready foundation.</p>
+        </details>
+        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="audit" data-screen-label="CTA">
+    <div class="glyph" style="left:-3%;top:-14%;font-size:340px" aria-hidden="true">✳</div>
+    <div class="glyph" style="right:-2%;bottom:-22%;font-size:300px" aria-hidden="true">✳</div>
+    <div class="wrap" style="max-width:950px;position:relative">
+      <div class="eyebrow" style="color:#E4D8FB;margin-bottom:34px">FREE AUDIT — SITE, RANKINGS, AND REVIEWS</div>
+      <h2 class="display">See where your rankings <em>could be.</em><span style="color:var(--violet-lt)">*</span></h2>
+      <a href="../contact.html" class="btn btn-lg" data-magnetic>Get your free audit<span style="font-size:13px">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="../index.html" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReach<span style="color:var(--violet-lt)">*</span></a>
+        <p style="font-size:14px;line-height:1.66;max-width:290px;margin-bottom:28px">Websites you own, reputations that hold up, and search that brings in revenue.</p>
+        <div class="social"><a href="#">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">X</a></div>
+      </div>
+      <div>
+        <h5>SERVICES</h5>
+        <div class="col">
+          <a href="../services.html">Services Overview</a>
+          <a href="../website-redesign.html">Website Development</a>
+          <a href="../reputation-management.html">Reputation Management</a>
+        </div>
+      </div>
+      <div>
+        <h5>COMPANY</h5>
+        <div class="col">
+          <a href="../about.html">About Us</a>
+          <a href="../services.html">Services</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h5>STAY IN THE LOOP</h5>
+        <p style="font-size:13px;margin-bottom:18px;line-height:1.6">Monthly SEO tips, no spam.</p>
+        <form id="subscribe"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button></form>
+      </div>
+    </div>
+    <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true">OrganicReach<span style="color:#2E2340">*</span></div></div>
+    <div class="legal">
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
+      <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var lenis = null;
+
+  /* ---------- mobile menu ---------- */
+  function initMobileMenu() {
+    var burger = $('#navHamburger'), overlay = $('#navMobileOverlay');
+    if (!burger || !overlay) return;
+    burger.addEventListener('click', function() {
+      var isOpen = burger.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    $$('a', overlay).forEach(function(link) {
+      link.addEventListener('click', function() {
+        burger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  function buildStatic() {
+    var g = $('#heroGrid');
+    if (g) {
+      for (var i = 0; i < 12; i++) g.appendChild(document.createElement('div'));
+    }
+    var dots = $('#dots');
+    if (dots) {
+      for (var j = 0; j < 41; j++) {
+        var d = document.createElement('span');
+        d.setAttribute('data-dot', '');
+        dots.appendChild(d);
+      }
+    }
+  }
+
+  function initLenis() {
+    if (!window.Lenis) return;
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 0.95 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 1.4 });
+    });
+  }
+
+  function heroIntro() {
+    var tl = gsap.timeline();
+    $$('[data-hero]').forEach(function (el, i) {
+      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
+    });
+    tl.add(runReport, 0.7);
+  }
+
+  function runReport() {
+    gsap.from('.vanity', { opacity: 0, x: 16, duration: 0.6, ease: 'power3.out', stagger: 0.08 });
+    gsap.to('.vanity .strike', { width: '100%', duration: 0.45, ease: 'power2.inOut', stagger: 0.1, delay: 0.7 });
+    gsap.from('.real', { opacity: 0, x: 16, duration: 0.6, ease: 'power3.out', stagger: 0.09, delay: 1.4 });
+  }
+
+  function densityAnim() {
+    var dots = $$('#dots span[data-dot]');
+    var mine = $('#mineDot');
+    var count = $('#agencyCount');
+    if (!dots.length || !mine || !count) return;
+    ScrollTrigger.create({
+      trigger: '#dots', start: 'top 85%', once: true,
+      onEnter: function () {
+        gsap.to(dots, { scale: 1, duration: 0.45, ease: 'back.out(2)', stagger: { each: 0.014, from: 'random' } });
+        gsap.to(mine, { scale: 1, duration: 0.7, ease: 'back.out(2.4)', delay: 0.9 });
+        var c = { v: 0 };
+        gsap.to(c, { v: 42, duration: 1.4, ease: 'power2.out', onUpdate: function () { count.textContent = Math.round(c.v); } });
+      }
+    });
+  }
+
+  function reveals() {
+    $$('[data-reveal]').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  }
+
+  function footerDrift() {
+    gsap.fromTo('#footWord', { xPercent: 6 }, {
+      xPercent: -6, ease: 'none',
+      scrollTrigger: { trigger: '#footWord', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+
+  function navHide() {
+    var nav = $('#nav'), last = 0;
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function (self) {
+        var y = self.scroll();
+        if (y < 120) gsap.to(nav, { yPercent: 0, duration: 0.4, overwrite: true });
+        else if (y > last + 6) gsap.to(nav, { yPercent: -180, duration: 0.5, ease: 'power3.out', overwrite: true });
+        else if (y < last - 6) gsap.to(nav, { yPercent: 0, duration: 0.5, ease: 'power3.out', overwrite: true });
+        last = y;
+      }
+    });
+  }
+
+  function initMagnetic() {
+    if (!window.matchMedia || !matchMedia('(pointer: fine)').matches) return;
+    $$('[data-magnetic]').forEach(function (btn) {
+      var xTo = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3.out' });
+      var yTo = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3.out' });
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width / 2)) * 0.32);
+        yTo((e.clientY - (r.top + r.height / 2)) * 0.42);
+      });
+      btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
+    });
+  }
+
+  function boot() {
+    if (!window.gsap) { setTimeout(boot, 120); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    buildStatic();
+    initMobileMenu();
+    initLenis();
+    initMagnetic();
+    heroIntro();
+    reveals();
+    densityAnim();
+    footerDrift();
+    navHide();
+    ScrollTrigger.refresh();
+  }
+
+  var subForm = $('#subscribe');
+  if (subForm) subForm.addEventListener('submit', function (e) { e.preventDefault(); });
+  boot();
+})();
+</script>
 </body>
 </html>
