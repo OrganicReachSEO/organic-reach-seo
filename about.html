@@ -1,185 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us | OrganicReachSEO</title>
-  <meta name="description" content="OrganicReachSEO exists for one reason: too many small businesses were sold shortcuts that didn't last. We build growth the honest way.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — OrganicReachSEO</title>
+<meta name="description" content="We started this because agencies kept overpromising. White-hat work, plain-English reporting, direct founder access on every account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE7;
+    --paper-2: #EFE9DC;
+    --ink: #17111C;
+    --ink-70: #4A4253;
+    --mute: #8B8194;
+    --violet: #6C3CE0;
+    --violet-lt: #CDB9F6;
+    --rust: #DC5427;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Schibsted Grotesk', system-ui, sans-serif;
+    --pad: 44px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--violet); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--violet); }
+  h1, h2, h3, p { margin: 0; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
+  .display em { font-style: italic; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
+  section { padding-left: var(--pad); padding-right: var(--pad); }
 
-  <link rel="stylesheet" href="css/global.css?v=4">
-  <link rel="stylesheet" href="css/nav.css?v=4">
-  <link rel="stylesheet" href="css/hero.css?v=4">
-  <link rel="stylesheet" href="css/sections.css?v=4">
-  <link rel="stylesheet" href="css/footer.css?v=4">
-  <link rel="stylesheet" href="css/animations.css?v=4">
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; background: var(--ink); color: var(--paper); white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; }
+  .btn:hover { color: var(--paper); background: #241B31; }
+  .btn-lg { padding: 19px 40px; font-size: 15.5px; letter-spacing: 0; background: var(--violet-lt); color: var(--ink); }
+  .btn-lg:hover { background: #DCCDFA; color: var(--ink); }
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="js/animations.js?v=4"></script>
-  <script src="js/liquid-shaders.js"></script>
-  <script src="js/liquid-input.js"></script>
-  <script src="js/liquid-engine.js"></script>
-  <script src="js/main.js?v=4"></script>
+  /* nav */
+  #nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 400; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 11px 14px 11px 26px; margin: 0 auto; max-width: 1180px; width: calc(100% - 36px); background: rgba(243,239,231,0.72); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(23,17,28,0.08); box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18); border-radius: 100px; }
+  #nav .brand { font-family: var(--serif); font-size: 23px; letter-spacing: -0.01em; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; }
+  #nav .links a.on { font-weight: 700; color: var(--violet); }
+
+  /* hamburger & mobile menu */
+  #navHamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 401;
+  }
+  #navHamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navHamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #navHamburger.open span:nth-child(2) { opacity: 0; }
+  #navHamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #navMobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  #navMobileOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #navMobileOverlay .mob-link {
+    font-family: var(--serif);
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  #navMobileOverlay .mob-subpages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    max-width: 320px;
+  }
+  #navMobileOverlay .mob-subpages a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-70);
+    padding: 6px 14px;
+    border: 1px solid rgba(23,17,28,0.15);
+    border-radius: 100px;
+  }
+
+  /* hero */
+  #hero { padding-top: 138px; position: relative; overflow: hidden; }
+  #heroGrid { position: absolute; top: 0; left: var(--pad); right: var(--pad); height: 100%; display: grid; grid-template-columns: repeat(12, 1fr); pointer-events: none; }
+  #heroGrid div { border-left: 1px solid rgba(23,17,28,0.045); }
+  #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 52px; }
+  .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
+  .hero-cols { display: grid; grid-template-columns: minmax(440px, 1.32fr) minmax(300px, 0.68fr); gap: 64px; align-items: end; }
+  #hero h1 { font-size: clamp(46px, 6.6vw, 116px); line-height: 0.88; letter-spacing: -0.038em; }
+  #heroBody { font-size: 17px; line-height: 1.62; color: var(--ink-70); max-width: 720px; margin-top: 46px; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); text-wrap: pretty; }
+
+  #chartCard { background: var(--ink); border: 1px solid rgba(23,17,28,0.14); display: flex; flex-direction: column; height: min(46vh, 380px); min-height: 300px; }
+  #chartCard .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
+  #chartCard .head .mo { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
+  #chartCard .head .mo i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
+  #chartBox { position: relative; flex: 1; min-height: 0; padding: 22px 20px; }
+  #chartBox svg { position: absolute; inset: 22px 20px; width: calc(100% - 40px); height: calc(100% - 44px); overflow: visible; }
+  #promiseDot, #deliverDot { position: absolute; left: 0; top: 0; border-radius: 50%; opacity: 0; }
+  #promiseDot { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; background: var(--rust); }
+  #deliverDot { width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--violet); box-shadow: 0 0 0 4px rgba(108,60,224,0.25); }
+  #chartCard .legend { display: flex; flex-direction: column; gap: 9px; padding: 16px 20px 18px; border-top: 1px solid rgba(243,239,231,0.15); font-size: 10px; font-weight: 700; letter-spacing: 0.13em; }
+  #chartCard .legend span { display: flex; align-items: center; gap: 10px; }
+
+  /* numbers band */
+  #numbers { padding-top: 78px; padding-bottom: 120px; }
+  #numbersGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(23,17,28,0.18); border-top: 1px solid rgba(23,17,28,0.18); border-bottom: 1px solid rgba(23,17,28,0.18); }
+  #numbersGrid .cell { background: var(--paper); padding: 42px 40px 46px; display: flex; flex-direction: column; gap: 16px; }
+  #numbersGrid b { font-family: var(--serif); font-weight: 400; font-size: clamp(58px, 6vw, 92px); line-height: 0.86; letter-spacing: -0.035em; }
+  #numbersGrid span { font-size: 14px; line-height: 1.5; color: var(--ink-70); max-width: 260px; }
+
+  /* quote */
+  #quoteSec { padding-top: 20px; padding-bottom: 130px; }
+  #quote { background: var(--ink); color: var(--paper); padding: 72px 76px; display: grid; grid-template-columns: 64px 1fr; gap: 30px; align-items: start; }
+  #quote .mark { font-family: var(--serif); font-size: 110px; line-height: 0.56; color: var(--violet-lt); }
+  #quote p { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 52px); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 40px; text-wrap: pretty; }
+  #quote .by { display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(243,239,231,0.18); }
+  #quote .by i { width: 8px; height: 8px; border-radius: 50%; background: var(--rust); }
+  #quote .by .n { font-size: 15px; font-weight: 600; color: var(--paper); }
+  #quote .by .t { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #9A90A6; }
+
+  /* principles */
+  #think { padding-bottom: 140px; }
+  #think h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 820px; margin-bottom: 58px; }
+  .principle { display: grid; grid-template-columns: 90px 1fr 1.4fr; gap: 44px; padding: 42px 0; border-top: 1px solid rgba(23,17,28,0.18); align-items: start; }
+  .principle .n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: #C9BFA9; }
+  .principle:nth-child(3) .n { color: var(--rust); }
+  .principle h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.02em; }
+  .principle p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 560px; text-wrap: pretty; }
+
+  /* journey */
+  #journey { background: var(--ink); color: var(--paper); padding-top: 140px; padding-bottom: 140px; }
+  #journey h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 820px; margin-bottom: 72px; }
+  #journeyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(243,239,231,0.16); border-top: 1px solid rgba(243,239,231,0.16); border-bottom: 1px solid rgba(243,239,231,0.16); }
+  #journeyGrid .card { background: var(--ink); padding: 46px 38px 52px; display: flex; flex-direction: column; gap: 22px; }
+  #journeyGrid .tag { display: flex; align-items: center; gap: 11px; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: var(--violet-lt); }
+  #journeyGrid .tag i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  #journeyGrid .card:last-child .tag { color: var(--rust); }
+  #journeyGrid h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; }
+  #journeyGrid p { font-size: 15px; line-height: 1.66; color: #9A90A6; text-wrap: pretty; }
+
+  /* cta */
+  #hello { background: var(--violet); padding-top: 160px; padding-bottom: 160px; text-align: center; position: relative; overflow: hidden; }
+  #hello .glyph { position: absolute; font-family: var(--serif); line-height: 1; color: rgba(243,239,231,0.09); pointer-events: none; }
+  #hello h2 { font-size: clamp(46px, 6vw, 100px); line-height: 0.94; color: var(--paper); margin-bottom: 46px; }
+
+  footer { background: var(--ink); color: #9A90A6; padding: 0 var(--pad); }
+  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 52px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
+  footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
+  footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+  footer form { display: flex; gap: 8px; }
+  footer input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(243,239,231,0.25); border-radius: 100px; padding: 13px 19px; color: var(--paper); font: inherit; font-size: 13px; outline: none; }
+  footer button { background: var(--violet-lt); color: var(--ink); border: none; border-radius: 100px; padding: 13px 22px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+  #footWord { font-family: var(--serif); font-size: clamp(84px, 13vw, 232px); line-height: 0.8; letter-spacing: -0.04em; color: #241B31; text-align: center; white-space: nowrap; }
+  footer .legal { display: flex; justify-content: space-between; padding: 32px 0; font-size: 11.5px; letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
+
+  [data-reveal], [data-hero] { opacity: 0; }
+
+  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.15; } }
+
+  @media (max-width: 1080px) {
+    :root { --pad: 28px; }
+    #nav .links { display: none; }
+    #navHamburger { display: flex; }
+    .hero-cols { grid-template-columns: 1fr; gap: 44px; }
+    #numbersGrid { grid-template-columns: 1fr; }
+    #journeyGrid { grid-template-columns: 1fr; }
+    #quote { padding: 48px 36px; grid-template-columns: 1fr; gap: 12px; }
+    .principle { grid-template-columns: 60px 1fr; gap: 24px; }
+    .principle p { grid-column: 2; }
+    footer .top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    footer .top { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    [data-reveal], [data-hero] { opacity: 1 !important; }
+  }
+</style>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div data-cursor-dot class="cursor-dot"></div>
-  <div data-cursor-ring class="cursor-ring"></div>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">OrganicReachSEO</span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">HOME</a>
-      <a href="services.html" class="nav-link">SERVICES</a>
-      <a href="about.html" class="nav-link" aria-current="page">ABOUT</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
-    </div>
-    <a href="contact.html" class="btn btn-dark btn-sm" data-magnetic>Start a project ↗</a>
-    <button class="nav-hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="nav-mobile-overlay">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="contact.html" class="btn btn-primary">Start a project ↗</a>
+<nav id="nav">
+  <a href="index.html" class="brand">OrganicReach<span style="color:var(--violet)">*</span></a>
+  <div class="links">
+    <a href="index.html">HOME</a>
+    <a href="services.html">SERVICES</a>
+    <a href="about.html" class="on">ABOUT</a>
+    <a href="contact.html">CONTACT</a>
   </div>
+  <a href="contact.html" class="btn" data-magnetic>Say hello ↗</a>
+  <button id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">(ABOUT US)</div>
-          <h1>We built OrganicReachSEO because businesses <em>deserve better.</em></h1>
-          <p class="hero-body" style="max-width: 520px;">We built OrganicReachSEO because businesses deserve better than being a line item in someone else's portfolio. We keep our client roster deliberately small — because the alternative is what usually goes wrong in this industry: accounts get handed to junior staff, results get reported instead of achieved, and businesses get locked into fees for services that stopped delivering long ago.</p>
-        </div>
-        <div class="hero-portrait-wrap">
-          <div class="hero-portrait">
-            <div data-parallax="8" style="position: absolute; inset: -10% 0; background: repeating-linear-gradient(135deg, #E7E0D1, #E7E0D1 14px, #DFD6C2 14px, #DFD6C2 28px); display: flex; align-items: center; justify-content: center;">
-              <span style="font-family: monospace; font-size: 13px; color: #7A7060; background: var(--bg); padding: 8px 14px; border-radius: 6px;">founder photo</span>
-            </div>
+<!-- Mobile Menu Overlay -->
+<div id="navMobileOverlay">
+  <a href="index.html" class="mob-link">HOME</a>
+  <a href="services.html" class="mob-link">SERVICES</a>
+  <a href="about.html" class="mob-link">ABOUT</a>
+  <a href="contact.html" class="mob-link">CONTACT</a>
+  <div class="mob-subpages">
+    <a href="services.html">Services Overview ↗</a>
+    <a href="website-redesign.html">Web Development ↗</a>
+    <a href="reputation-management.html">Reputation Mgmt ↗</a>
+    <a href="seo.html">SEO Optimization ↗</a>
+  </div>
+  <a href="contact.html" class="btn btn-lg" style="margin-top:10px;">Say hello ↗</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section id="hero" data-screen-label="About hero">
+    <div id="heroGrid" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div id="heroMeta" data-hero>
+        <span style="color:var(--violet)">(ABOUT)</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>ONE FIRM, ONE STANDARD</span>
+      </div>
+
+      <div class="hero-cols">
+        <h1 class="display" data-hero>We started this because agencies kept <em style="color:var(--violet)">overpromising.</em></h1>
+
+        <div id="chartCard" data-hero>
+          <div class="head">
+            <span>THE PITCH VS. THE YEAR AFTER</span>
+            <span class="mo"><i></i>12 MO</span>
           </div>
-          <div class="hero-quote-card">
-            <p>"We measure ourselves the same way our clients do — in customers, not vanity metrics."</p>
+          <div id="chartBox">
+            <svg viewBox="0 0 340 200" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="0" y1="50" x2="340" y2="50" stroke="rgba(243,239,231,0.08)"></line>
+              <line x1="0" y1="100" x2="340" y2="100" stroke="rgba(243,239,231,0.08)"></line>
+              <line x1="0" y1="150" x2="340" y2="150" stroke="rgba(243,239,231,0.08)"></line>
+              <path id="promisePath" d="M0,182 C40,120 70,42 112,28 C152,15 172,62 212,112 C252,162 300,172 340,178" fill="none" stroke="#DC5427" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 6" vector-effect="non-scaling-stroke"></path>
+              <path id="deliverPath" d="M0,188 C60,180 100,162 150,140 C200,118 250,90 292,62 C316,46 330,38 340,30" fill="none" stroke="#6C3CE0" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+            </svg>
+            <div id="promiseDot"></div>
+            <div id="deliverDot"></div>
+          </div>
+          <div class="legend">
+            <span style="color:var(--rust)"><span style="width:16px;height:0;border-top:2px dashed var(--rust)"></span>WHAT THEY PROMISED</span>
+            <span style="color:var(--violet-lt)"><span style="width:16px;height:2px;background:var(--violet)"></span>WHAT WE ACTUALLY BUILD</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- HOW WE WORK -->
-    <section class="section" style="padding-top: 120px;">
-      <div class="container-sm">
-        <div class="section-tag" style="color: var(--orange); margin-bottom: 20px;">(01) — HOW WE WORK</div>
-        <h2 data-word-reveal>Three principles we don't compromise on.</h2>
+      <p id="heroBody" data-hero>This firm exists because too many small businesses were sold shortcuts that didn't last — spray-and-pray tactics, vague reporting, results that didn't hold up. We built it the opposite way: direct access, and work that holds up because we stand behind every account personally.</p>
+    </div>
+  </section>
 
-        <div style="display: flex; flex-direction: column;" data-reveal-group>
-          <div class="feature-row" data-reveal style="grid-template-columns: 100px 1fr 1.4fr; padding: 44px 0;">
-            <div class="feature-num">01</div>
-            <h3 style="font-family: var(--ff-serif); font-weight: 400; font-size: 30px; margin: 0;">Direct access, always</h3>
-            <p class="feature-desc" style="margin: 0;">You work with the person actually doing the work — not an account manager relaying updates.</p>
-          </div>
-          <div class="feature-row" data-reveal style="grid-template-columns: 100px 1fr 1.4fr; padding: 44px 0;">
-            <div class="feature-num">02</div>
-            <h3 style="font-family: var(--ff-serif); font-weight: 400; font-size: 30px; margin: 0;">Methodology you can question</h3>
-            <p class="feature-desc" style="margin: 0;">We explain exactly what we're doing and why. If a competitor's approach sounds too good to be true — mass review removal, guaranteed #1 rankings — it usually is, and we'll tell you that directly, even if it costs us the pitch.</p>
-          </div>
-          <div class="feature-row" data-reveal style="grid-template-columns: 100px 1fr 1.4fr; padding: 44px 0;">
-            <div class="feature-num accent">03</div>
-            <h3 style="font-family: var(--ff-serif); font-weight: 400; font-size: 30px; margin: 0;">Built for the long haul</h3>
-            <p class="feature-desc" style="margin: 0;">Our clients tend to stay.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOURNEY: dark -->
-    <section class="section-dark">
-      <div class="container">
-        <div class="section-tag" style="color: var(--lavender); margin-bottom: 20px;">(02) — THE JOURNEY SO FAR</div>
-        <h2>Built one client relationship <em>at a time.</em></h2>
-        <div class="process-grid" style="grid-template-columns: repeat(2, 1fr);" data-cascade>
-          <div class="process-card" data-cascade-item>
-            <div class="section-tag" style="color: var(--lavender); margin-bottom: 20px;">RANCH REALTY — SINCE MARCH 2024</div>
-            <p style="font-size: 15px; color: var(--dark-muted);">Started with reputation management, grew into a full website redesign and ongoing SEO partnership.</p>
-          </div>
-          <div class="process-card accent" data-cascade-item>
-            <div class="section-tag" style="color: var(--orange); margin-bottom: 20px;">OUR LARGEST CLIENT — SINCE OCTOBER 2025</div>
-            <p style="font-size: 15px; color: var(--dark-muted);">A national medical resort network: full-network SEO and reputation management across 31 locations.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-band-inner">
-        <h2>Want to work <em>with us?</em><span class="accent">*</span></h2>
-        <a href="contact.html" class="btn btn-dark-invert" data-magnetic>Say hello ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="footer-brand-logo">
-            <span class="footer-brand-name">OrganicReachSEO</span>
-          </a>
-          <p class="footer-brand-desc">Digital marketing for businesses that want to be found — and remembered.</p>
-          <div class="footer-social">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">LINKEDIN</a>
-            <a href="#">X</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">SERVICES</div>
-          <div class="footer-col-links">
-            <a href="seo.html">SEO Optimization</a>
-            <a href="website-redesign.html">Website Redesign</a>
-            <a href="reputation-management.html">Reputation Management</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">COMPANY</div>
-          <div class="footer-col-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">STAY IN THE LOOP</div>
-          <p class="footer-newsletter-text">Monthly SEO tips, no spam.</p>
-          <form class="footer-newsletter-form" onsubmit="event.preventDefault()">
-            <input type="email" placeholder="Email address" class="footer-newsletter-input" required>
-            <button type="submit" class="footer-newsletter-btn">Join</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-big-logo" data-reveal>
-        <div class="footer-big-logo-text">OrganicReachSEO</div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
-        <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+  <!-- REAL NUMBERS -->
+  <section id="numbers" data-screen-label="Real numbers">
+    <div class="wrap">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:0.18em;color:var(--mute);margin-bottom:26px">REAL NUMBERS, NOT INFLATED ONES</div>
+      <div id="numbersGrid" data-reveal>
+        <div class="cell"><b>31</b><span>locations under one program</span></div>
+        <div class="cell"><b style="color:var(--violet)">1:1</b><span>direct founder access, every account</span></div>
+        <div class="cell"><b style="color:var(--rust)">100%</b><span>white-hat, always</span></div>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- FOUNDER QUOTE -->
+  <section id="quoteSec" data-screen-label="Founder quote">
+    <div id="quote" class="wrap" data-reveal>
+      <div class="mark" aria-hidden="true">&ldquo;</div>
+      <figure style="margin:0">
+        <blockquote style="margin:0"><p>We measure this the same way our clients do — in customers, not <em style="font-style:italic;color:var(--violet-lt)">vanity metrics.</em></p></blockquote>
+        <figcaption class="by"><i></i><span class="n">Nirav</span><span class="t">FOUNDER</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- (01) HOW WE THINK -->
+  <section id="think" data-screen-label="How we think">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — HOW WE THINK</div>
+      <h2 class="display">Three principles we don't <em style="color:var(--violet)">compromise on.</em></h2>
+      <div style="display:flex;flex-direction:column">
+        <div class="principle" data-reveal>
+          <div class="n">01</div>
+          <h3>White-hat, always</h3>
+          <p>Only techniques that build lasting rankings. Never link farms, cloaking, or shortcuts that put your business at risk of a penalty.</p>
+        </div>
+        <div class="principle" data-reveal>
+          <div class="n">02</div>
+          <h3>Plain-English reporting</h3>
+          <p>No jargon-filled decks. You'll always know exactly what we did, why, and what it moved.</p>
+        </div>
+        <div class="principle" data-reveal>
+          <div class="n">03</div>
+          <h3>Accountable to results</h3>
+          <p>Month-to-month, no lock-in contracts. We earn every renewal with the work itself.</p>
+        </div>
+        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (02) THE JOURNEY SO FAR -->
+  <section id="journey" data-screen-label="Journey">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:20px">(02) — THE JOURNEY SO FAR</div>
+      <h2 class="display">Built one client relationship <em style="color:var(--violet-lt)">at a time.</em></h2>
+      <div id="journeyGrid">
+        <div class="card" data-reveal>
+          <div class="tag"><i></i>STARTED</div>
+          <h3>One belief</h3>
+          <p>Growth marketing should be honest, and results should be provable.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="tag"><i></i>THE TRIAL THAT CHANGED THINGS</div>
+          <h3>Two locations became thirty-one</h3>
+          <p>A two-location trial for a healthcare network turned into trust across all 31 locations.</p>
+        </div>
+        <div class="card" data-reveal>
+          <div class="tag"><i></i>TODAY</div>
+          <h3>Earned in a hard market</h3>
+          <p>Trust built in one of the toughest real estate markets in the US, and a firm that still puts direct founder access on every account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="hello" data-screen-label="CTA">
+    <div class="glyph" style="left:-3%;top:-14%;font-size:340px" aria-hidden="true">✳</div>
+    <div class="glyph" style="right:-2%;bottom:-22%;font-size:300px" aria-hidden="true">✳</div>
+    <div class="wrap" style="max-width:900px;position:relative">
+      <div class="eyebrow" style="color:#E4D8FB;margin-bottom:34px">NO PITCH DECK, NO ACCOUNT MANAGER — JUST A CONVERSATION</div>
+      <h2 class="display">Want to work <em>with us?</em><span style="color:var(--violet-lt)">*</span></h2>
+      <a href="contact.html" class="btn btn-lg" data-magnetic>Say hello<span style="font-size:13px">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a href="index.html" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReach<span style="color:var(--violet-lt)">*</span></a>
+        <p style="font-size:14px;line-height:1.66;max-width:290px;margin-bottom:28px">Websites you own, reputations that hold up, and search that brings in revenue.</p>
+        <div class="social"><a href="#">INSTAGRAM</a><a href="#">LINKEDIN</a><a href="#">X</a></div>
+      </div>
+      <div>
+        <h5>SERVICES</h5>
+        <div class="col">
+          <a href="services.html">Services Overview</a>
+          <a href="seo.html">Local SEO</a>
+          <a href="website-redesign.html">Website Development</a>
+          <a href="reputation-management.html">Reputation Management</a>
+        </div>
+      </div>
+      <div>
+        <h5>COMPANY</h5>
+        <div class="col">
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h5>STAY IN THE LOOP</h5>
+        <p style="font-size:13px;margin-bottom:18px;line-height:1.6">Monthly SEO tips, no spam.</p>
+        <form id="subscribe"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button></form>
+      </div>
+    </div>
+    <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true">OrganicReach<span style="color:#2E2340">*</span></div></div>
+    <div class="legal">
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
+      <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var lenis = null;
+
+  /* ---------- mobile menu ---------- */
+  function initMobileMenu() {
+    var burger = $('#navHamburger'), overlay = $('#navMobileOverlay');
+    if (!burger || !overlay) return;
+    burger.addEventListener('click', function() {
+      var isOpen = burger.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    $$('a', overlay).forEach(function(link) {
+      link.addEventListener('click', function() {
+        burger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  function buildStatic() {
+    var g = $('#heroGrid');
+    if (g) {
+      for (var i = 0; i < 12; i++) g.appendChild(document.createElement('div'));
+    }
+  }
+
+  function initLenis() {
+    if (!window.Lenis) return;
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 0.95 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -20, duration: 1.4 });
+    });
+  }
+
+  function heroIntro() {
+    var tl = gsap.timeline();
+    $$('[data-hero]').forEach(function (el, i) {
+      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
+    });
+    tl.add(runChart, 0.5);
+  }
+
+  function drawLine(path, dot, delay, dur, restoreDash) {
+    if (!path || !dot) return;
+    var len = path.getTotalLength();
+    var svg = path.ownerSVGElement;
+    gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+    var st = { p: 0 };
+    gsap.to(st, {
+      p: 1, duration: dur, ease: 'power1.inOut', delay: delay,
+      onStart: function () { gsap.to(dot, { opacity: 1, duration: 0.3 }); },
+      onUpdate: function () {
+        path.style.strokeDashoffset = len * (1 - st.p);
+        var pt = path.getPointAtLength(len * st.p);
+        var r = svg.getBoundingClientRect();
+        var host = dot.parentElement.getBoundingClientRect();
+        gsap.set(dot, { x: (pt.x / 340) * r.width + (r.left - host.left), y: (pt.y / 200) * r.height + (r.top - host.top) });
+      },
+      onComplete: function () { if (restoreDash) path.style.strokeDasharray = '5 6'; }
+    });
+  }
+
+  function runChart() {
+    drawLine($('#promisePath'), $('#promiseDot'), 0, 2.1, true);
+    drawLine($('#deliverPath'), $('#deliverDot'), 0.5, 2.4, false);
+  }
+
+  function reveals() {
+    $$('[data-reveal]').forEach(function (el) {
+      gsap.fromTo(el, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  }
+
+  function footerDrift() {
+    gsap.fromTo('#footWord', { xPercent: 6 }, {
+      xPercent: -6, ease: 'none',
+      scrollTrigger: { trigger: '#footWord', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
+
+  function navHide() {
+    var nav = $('#nav'), last = 0;
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function (self) {
+        var y = self.scroll();
+        if (y < 120) gsap.to(nav, { yPercent: 0, duration: 0.4, overwrite: true });
+        else if (y > last + 6) gsap.to(nav, { yPercent: -180, duration: 0.5, ease: 'power3.out', overwrite: true });
+        else if (y < last - 6) gsap.to(nav, { yPercent: 0, duration: 0.5, ease: 'power3.out', overwrite: true });
+        last = y;
+      }
+    });
+  }
+
+  function initMagnetic() {
+    if (!window.matchMedia || !matchMedia('(pointer: fine)').matches) return;
+    $$('[data-magnetic]').forEach(function (btn) {
+      var xTo = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3.out' });
+      var yTo = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3.out' });
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width / 2)) * 0.32);
+        yTo((e.clientY - (r.top + r.height / 2)) * 0.42);
+      });
+      btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
+    });
+  }
+
+  function boot() {
+    if (!window.gsap) { setTimeout(boot, 120); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    buildStatic();
+    initMobileMenu();
+    initLenis();
+    initMagnetic();
+    heroIntro();
+    reveals();
+    footerDrift();
+    navHide();
+    ScrollTrigger.refresh();
+  }
+
+  var subForm = $('#subscribe');
+  if (subForm) subForm.addEventListener('submit', function (e) { e.preventDefault(); });
+  boot();
+})();
+</script>
 </body>
 </html>
