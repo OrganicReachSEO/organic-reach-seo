@@ -171,7 +171,7 @@
   #audit h2 { font-size: clamp(38px, 4.6vw, 72px); line-height: 1.02; color: var(--paper); margin-bottom: 44px; text-wrap: pretty; }
 
   footer { background: var(--ink); color: #9A90A6; padding: 0 var(--pad); }
-  footer .top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 52px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  footer .top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding: 96px 0 68px; border-bottom: 1px solid rgba(243,239,231,0.13); }
   footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
   footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
   footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
@@ -387,11 +387,6 @@
           <a href="contact.html">Contact</a>
         </div>
       </div>
-      <div>
-        <h5>STAY IN THE LOOP</h5>
-        <p style="font-size:13px;margin-bottom:18px;line-height:1.6">Monthly SEO tips, no spam.</p>
-        <form id="subscribe"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join</button></form>
-      </div>
     </div>
     <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true">OrganicReachSEO<span style="color:#2E2340">*</span></div></div>
     <div class="legal">
@@ -540,9 +535,6 @@
     navHide();
     ScrollTrigger.refresh();
   }
-
-  var subForm = $('#subscribe');
-  if (subForm) subForm.addEventListener('submit', function (e) { e.preventDefault(); });
   boot();
 })();
 </script>
