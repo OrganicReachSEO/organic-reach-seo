@@ -476,54 +476,9 @@
     });
   }
 
-  // ─── Custom cursor ──────────────────────────────────────────
+  // ─── Custom cursor (disabled) ──────────────────────────────────
   function initCursor() {
-    if (!window.matchMedia || !window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
-    var dot = document.querySelector('[data-cursor-dot]');
-    var ring = document.querySelector('[data-cursor-ring]');
-    if (!dot || !ring) return;
-
-    document.documentElement.style.cursor = 'none';
-    var styleTag = document.createElement('style');
-    styleTag.textContent = '@media (pointer: fine) and (hover: hover) { * { cursor: none !important; } }';
-    document.head.appendChild(styleTag);
-
-    gsap.set([dot, ring], { opacity: 0 });
-    var started = false;
-    var dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
-    var dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
-    var ringX = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
-    var ringY = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
-
-    var onMouseMove = function (e) {
-      if (!started) {
-        started = true;
-        gsap.set([dot, ring], { x: e.clientX, y: e.clientY });
-        gsap.to([dot, ring], { opacity: 1, duration: 0.25 });
-      }
-      dotX(e.clientX); dotY(e.clientY);
-      ringX(e.clientX); ringY(e.clientY);
-    };
-
-    var grow = function () { gsap.to(ring, { scale: 2.2, opacity: 0.5, duration: 0.35, ease: 'power3.out' }); };
-    var shrink = function () { gsap.to(ring, { scale: 1, opacity: 1, duration: 0.35, ease: 'power3.out' }); };
-
-    var onMouseOver = function (e) {
-      if (e.target.closest('a, button, [data-magnetic], [data-marquee-track]')) grow();
-    };
-    var onMouseOut = function (e) {
-      if (e.target.closest('a, button, [data-magnetic], [data-marquee-track]')) shrink();
-    };
-
-    window.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseover', onMouseOver);
-    document.addEventListener('mouseout', onMouseOut);
-
-    cleanups.push(function () {
-      window.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseover', onMouseOver);
-      document.removeEventListener('mouseout', onMouseOut);
-    });
+    // Keep normal browser cursor
   }
 
   // ─── Magnetic buttons ───────────────────────────────────────

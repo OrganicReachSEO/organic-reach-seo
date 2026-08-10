@@ -240,43 +240,7 @@ function initScrollCascade() {
 }
 
 function initCursor() {
-  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
-  var dot = document.querySelector('[data-cursor-dot]');
-  var ring = document.querySelector('[data-cursor-ring]');
-  if (!dot || !ring) return;
-
-  document.documentElement.style.cursor = 'none';
-  var styleTag = document.createElement('style');
-  styleTag.textContent = '@media (pointer: fine) and (hover: hover) { * { cursor: none !important; } }';
-  document.head.appendChild(styleTag);
-
-  whenScrollReady(function() {
-    gsap.set([dot, ring], { opacity: 0 });
-    var started = false;
-    var dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
-    var dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
-    var ringX = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
-    var ringY = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
-
-    window.addEventListener('mousemove', function(e) {
-      if (!started) {
-        started = true;
-        gsap.set([dot, ring], { x: e.clientX, y: e.clientY });
-        gsap.to([dot, ring], { opacity: 1, duration: 0.25 });
-      }
-      dotX(e.clientX); dotY(e.clientY);
-      ringX(e.clientX); ringY(e.clientY);
-    });
-
-    var grow = function() { gsap.to(ring, { scale: 2.2, opacity: 0.5, duration: 0.35, ease: 'power3.out' }); };
-    var shrink = function() { gsap.to(ring, { scale: 1, opacity: 1, duration: 0.35, ease: 'power3.out' }); };
-    document.addEventListener('mouseover', function(e) {
-      if (e.target.closest('a, button, [data-magnetic], [data-baf-handle], [data-marquee]')) grow();
-    });
-    document.addEventListener('mouseout', function(e) {
-      if (e.target.closest('a, button, [data-magnetic], [data-baf-handle], [data-marquee]')) shrink();
-    });
-  });
+  // Disabled - keep normal browser cursor
 }
 
 // Scrub-reveals a headline word by word as it scrolls into view, preserving child HTML tags & styles (e.g. <em>).
