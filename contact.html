@@ -239,11 +239,14 @@
           <p>Tell us about your business. We'll get back to you personally, usually within a day.</p>
         </div>
 
-        <form id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/xbgrgqey" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New inquiry from OrganicReachSEO contact form">
+
           <div class="pair">
             <div class="field">
               <label for="fullname">FULL NAME</label>
-              <input id="fullname" type="text" name="fullname" placeholder="Jane Doe" required>
+              <input id="fullname" type="text" name="name" placeholder="Jane Doe" required>
             </div>
             <div class="field">
               <label for="business">BUSINESS NAME</label>
@@ -264,7 +267,7 @@
 
           <div class="field">
             <label for="interest">WHAT ARE YOU LOOKING FOR?</label>
-            <select id="interest" name="interest">
+            <select id="interest" name="service">
               <option>Local SEO</option>
               <option>Website Development</option>
               <option>Reputation Management</option>
@@ -277,7 +280,8 @@
             <textarea id="message" name="message" rows="5" placeholder="What are you hoping to achieve?" required></textarea>
           </div>
 
-          <div><button type="submit" class="btn" data-magnetic>Send message<span style="font-size:13px">→</span></button></div>
+          <div><button type="submit" id="contactSubmit" class="btn" data-magnetic>Send message<span style="font-size:13px">→</span></button></div>
+          <div id="contactStatus" style="margin-top:16px"></div>
           <p id="formNote">Prefer email? <a href="mailto:info@organicreachseo.com" style="border-bottom:1px solid rgba(23,17,28,0.35)">info@organicreachseo.com</a></p>
         </form>
       </div>
@@ -451,9 +455,38 @@
     ScrollTrigger.refresh();
   }
 
-  /* Replace with your real endpoint / form handler. */
+  /* Formspree AJAX handler */
   var cf = $('#contactForm');
-  if (cf) cf.addEventListener('submit', function (e) { e.preventDefault(); });
+  if (cf) {
+    cf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = $('#contactSubmit');
+      var status = $('#contactStatus');
+      if (btn) btn.disabled = true;
+      if (status) status.innerHTML = '<span style="font-size:14px;color:var(--ink-70)">Sending message...</span>';
+
+      var data = new FormData(cf);
+      fetch(cf.action, {
+        method: cf.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          cf.innerHTML = '<div style="padding:40px 32px;background:rgba(108,60,224,0.06);border:1px solid rgba(108,60,224,0.3);border-radius:20px;margin-bottom:24px"><h3 style="font-family:var(--serif);font-size:32px;color:var(--ink);margin-bottom:12px;line-height:1.1">Thanks — we&apos;ll be in touch within one business day.</h3><p style="font-size:15.5px;color:var(--ink-70);line-height:1.6;margin:0">We&apos;ve received your message and will review your site before reaching back out.</p></div><p style="font-size:14px;color:var(--ink-70)">Prefer direct email? <a href="mailto:info@organicreachseo.com" style="border-bottom:1px solid var(--ink)">info@organicreachseo.com</a></p>';
+        } else {
+          response.json().then(function (data) {
+            if (btn) btn.disabled = false;
+            var msg = (data && data.errors && data.errors.map(function(err){ return err.message; }).join(', ')) || 'There was a problem submitting your form. Please try again.';
+            if (status) status.innerHTML = '<p style="color:var(--rust);font-size:14px;font-weight:600;margin:0">' + msg + '</p>';
+          });
+        }
+      }).catch(function (err) {
+        if (btn) btn.disabled = false;
+        if (status) status.innerHTML = '<p style="color:var(--rust);font-size:14px;font-weight:600;margin:0">Unable to submit form. Please check your internet connection or email us directly at info@organicreachseo.com.</p>';
+      });
+    });
+  }
+
   var sf = $('#subscribe');
   if (sf) sf.addEventListener('submit', function (e) { e.preventDefault(); });
   boot();
