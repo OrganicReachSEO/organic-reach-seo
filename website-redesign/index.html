@@ -144,17 +144,6 @@
   #own .note { font-size: 13px; line-height: 1.5; }
   #own .divider { height: 1px; background: rgba(243,239,231,0.15); }
 
-  /* before / after */
-  #baf { padding-bottom: 140px; }
-  #baf .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 46px; }
-  #baf h2 { font-size: clamp(36px, 4.2vw, 62px); line-height: 0.98; max-width: 720px; }
-  #bafBox { position: relative; aspect-ratio: 16/9; overflow: hidden; user-select: none; border: 1px solid rgba(23,17,28,0.16); cursor: ew-resize; background: #D8CDB8; max-width: 1240px; margin: 0 auto; }
-  .baf-pane { position: absolute; inset: 0; padding: 5% 6%; display: flex; flex-direction: column; gap: 3%; }
-  #bafAfter { position: absolute; inset: 0; background: var(--ink); clip-path: inset(0 50% 0 0); }
-  #bafHandle { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); pointer-events: none; left: 50%; }
-  #bafHandle .knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: var(--violet); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 10px 30px rgba(23,17,28,0.35); }
-  .baf-stamp { position: absolute; bottom: 5%; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
-
   /* features */
   #included { padding-bottom: 140px; }
   #included h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 58px; }
@@ -313,75 +302,7 @@
     </div>
   </section>
 
-  <!-- (01) BEFORE / AFTER -->
-  <section id="baf" data-screen-label="Before / after">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — BEFORE / AFTER</div>
-          <h2 class="display">Drag the handle. See the <em style="color:var(--violet)">difference.</em></h2>
-        </div>
-        <span style="font-size:10px;font-weight:700;letter-spacing:0.16em;color:var(--mute);white-space:nowrap">⇄ DRAG</span>
-      </div>
 
-      <div id="bafBox">
-        <!-- BEFORE -->
-        <div class="baf-pane">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-            <div style="width:22%;height:14px;background:rgba(23,17,28,0.28)"></div>
-            <div style="display:flex;gap:10px">
-              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
-              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
-              <div style="width:46px;height:9px;background:rgba(23,17,28,0.2)"></div>
-            </div>
-          </div>
-          <div style="flex:1;background:repeating-linear-gradient(135deg,#CFC3AC,#CFC3AC 12px,#C6B9A0 12px,#C6B9A0 24px);display:flex;align-items:center;justify-content:center">
-            <span style="font-size:10px;font-weight:700;letter-spacing:0.16em;color:#7A7060">GENERIC STOCK HERO</span>
-          </div>
-          <div style="display:flex;gap:3%">
-            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
-            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
-            <div style="flex:1;height:44px;background:rgba(23,17,28,0.12)"></div>
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-            <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:#7A7060">NO CLEAR NEXT STEP</span>
-            <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--paper);background:#8A7F6C;border-radius:100px;padding:6px 12px">$ / MONTH TO STAY ONLINE</span>
-          </div>
-          <span class="baf-stamp" style="left:6%;color:#7A7060">BEFORE</span>
-        </div>
-
-        <!-- AFTER -->
-        <div id="bafAfter">
-          <div class="baf-pane">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-              <div style="width:22%;height:14px;background:rgba(243,239,231,0.85)"></div>
-              <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:46px;height:9px;background:rgba(243,239,231,0.32)"></div>
-                <div style="width:46px;height:9px;background:rgba(243,239,231,0.32)"></div>
-                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--ink);background:var(--violet-lt);border-radius:100px;padding:6px 12px">CALL NOW</div>
-              </div>
-            </div>
-            <div style="flex:1;display:flex;gap:3%">
-              <div style="flex:1.5;display:flex;flex-direction:column;justify-content:center;gap:12px">
-                <div style="width:88%;height:20px;background:rgba(243,239,231,0.9)"></div>
-                <div style="width:62%;height:20px;background:rgba(243,239,231,0.9)"></div>
-                <div style="width:40%;height:12px;background:rgba(243,239,231,0.3);margin-top:6px"></div>
-                <div style="align-self:flex-start;margin-top:8px;font-size:9px;font-weight:700;letter-spacing:0.12em;color:var(--paper);background:var(--violet);border-radius:100px;padding:8px 16px">BOOK A VISIT →</div>
-              </div>
-              <div style="flex:1;background:rgba(243,239,231,0.08);border:1px solid rgba(243,239,231,0.2)"></div>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-              <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--violet-lt)">ONE CLEAR ACTION PER SCREEN</span>
-              <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--ink);background:var(--violet-lt);border-radius:100px;padding:6px 12px">OWNED OUTRIGHT</span>
-            </div>
-            <span class="baf-stamp" style="right:6%;color:var(--violet-lt)">AFTER</span>
-          </div>
-        </div>
-
-        <div id="bafHandle"><div class="knob">⇄</div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- (02) BUILT TO CONVERT, BUILT TO KEEP -->
   <section id="included" data-screen-label="What's included">
@@ -560,102 +481,11 @@
     }
   }
 
-  function initSlider() {
-    var box = $('#bafBox'), after = $('#bafAfter'), handle = $('#bafHandle');
-    if (!box || !after || !handle) return;
-    var dragging = false;
-    function setFrom(clientX) {
-      var r = box.getBoundingClientRect();
-      var pct = Math.max(0, Math.min(100, ((clientX - r.left) / r.width) * 100));
-      after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
-      handle.style.left = pct + '%';
-    }
-    box.addEventListener('pointerdown', function (e) { dragging = true; setFrom(e.clientX); });
-    window.addEventListener('pointermove', function (e) { if (dragging) setFrom(e.clientX); });
-    window.addEventListener('pointerup', function () { dragging = false; });
-  }
-
-  function initLenis() {
-    if (!window.Lenis) return;
-    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 0.95 });
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-    gsap.ticker.lagSmoothing(0);
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href^="#"]');
-      if (!a) return;
-      var id = a.getAttribute('href').slice(1);
-      var target = id && document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: -20, duration: 1.4 });
-    });
-  }
-
-  function heroIntro() {
-    var tl = gsap.timeline();
-    $$('[data-hero]').forEach(function (el, i) {
-      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
-    });
-    tl.add(runOwnership, 0.75);
-  }
-
-  function runOwnership() {
-    gsap.to('.sub-bar', { scaleY: 1, duration: 0.4, ease: 'power2.out', stagger: 0.07 });
-    gsap.to('#ownBar', { scaleY: 1, duration: 0.6, ease: 'expo.out', delay: 1.1 });
-    gsap.to('#ownLine', { scaleX: 1, duration: 1, ease: 'power2.out', delay: 1.4 });
-  }
-
-  function reveals() {
-    $$('[data-reveal]').forEach(function (el) {
-      gsap.fromTo(el, { opacity: 0, y: 26 }, {
-        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-      });
-    });
-  }
-
-  function footerDrift() {
-    gsap.fromTo('#footWord', { xPercent: 6 }, {
-      xPercent: -6, ease: 'none',
-      scrollTrigger: { trigger: '#footWord', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-  }
-
-  function navHide() {
-    var nav = $('#nav'), last = 0;
-    ScrollTrigger.create({
-      start: 0, end: 'max',
-      onUpdate: function (self) {
-        var y = self.scroll();
-        if (y < 120) gsap.to(nav, { yPercent: 0, duration: 0.4, overwrite: true });
-        else if (y > last + 6) gsap.to(nav, { yPercent: -180, duration: 0.5, ease: 'power3.out', overwrite: true });
-        else if (y < last - 6) gsap.to(nav, { yPercent: 0, duration: 0.5, ease: 'power3.out', overwrite: true });
-        last = y;
-      }
-    });
-  }
-
-  function initMagnetic() {
-    if (!window.matchMedia || !matchMedia('(pointer: fine)').matches) return;
-    $$('[data-magnetic]').forEach(function (btn) {
-      var xTo = gsap.quickTo(btn, 'x', { duration: 0.5, ease: 'power3.out' });
-      var yTo = gsap.quickTo(btn, 'y', { duration: 0.5, ease: 'power3.out' });
-      btn.addEventListener('pointermove', function (e) {
-        var r = btn.getBoundingClientRect();
-        xTo((e.clientX - (r.left + r.width / 2)) * 0.32);
-        yTo((e.clientY - (r.top + r.height / 2)) * 0.42);
-      });
-      btn.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
-    });
-  }
-
   function boot() {
     if (!window.gsap) { setTimeout(boot, 120); return; }
     gsap.registerPlugin(ScrollTrigger);
     buildStatic();
     initMobileMenu();
-    initSlider();
     initLenis();
     initMagnetic();
     heroIntro();
