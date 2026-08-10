@@ -35,7 +35,7 @@
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
   /* type */
-  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; }
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 1.12; }
   .display em { font-style: italic; }
   .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
   .lede { font-size: 16.5px; line-height: 1.6; color: var(--ink-70); text-wrap: pretty; }
@@ -206,20 +206,21 @@
   #statement span { display: inline-block; }
 
   /* services */
-  #services { height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 38px; background: var(--paper-2); border-top: 1px solid rgba(23,17,28,0.12); padding-left: 0; padding-right: 0; }
+  #services { height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 36px; background: var(--paper-2); border-top: 1px solid rgba(23,17,28,0.12); padding-left: 0; padding-right: 0; }
   #services .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; padding: 0 var(--pad); max-width: 1400px; margin: 0 auto; width: 100%; }
-  #services h2 { font-size: clamp(32px, 3.6vw, 54px); line-height: 0.98; max-width: 780px; }
-  #svcTrack { display: flex; gap: 32px; padding-left: max(var(--pad), calc((100vw - 1400px) / 2 + var(--pad))); padding-right: max(var(--pad), calc((100vw - 1400px) / 2 + 120px)); width: max-content; }
-  .svc { display: flex; flex-direction: column; width: 480px; min-width: 320px; max-width: 480px; flex-shrink: 0; background: var(--paper); border: 1px solid rgba(23,17,28,0.14); color: inherit; }
+  #services h2 { font-size: clamp(32px, 3.6vw, 54px); line-height: 1.04; max-width: 780px; }
+  #svcTrack { display: flex; gap: 40px; padding-left: max(var(--pad), calc((100vw - 1400px) / 2 + var(--pad))); padding-right: max(var(--pad), calc((100vw - 1400px) / 2 + 180px)); width: max-content; align-items: stretch; }
+  .svc { display: flex; flex-direction: column; width: min(620px, 44vw); min-width: 460px; max-width: 640px; flex-shrink: 0; background: var(--paper); border: 1px solid rgba(23,17,28,0.14); color: inherit; }
   .svc:hover { color: inherit; }
-  .svc .viz { position: relative; height: 17vh; min-height: 140px; border-bottom: 1px solid rgba(23,17,28,0.14); }
+  .svc .viz { position: relative; height: 19vh; min-height: 155px; border-bottom: 1px solid rgba(23,17,28,0.14); }
   .svc .viz .cap { position: absolute; top: 18px; left: 28px; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: var(--mute); }
-  .svc .txt { padding: 26px 30px 30px; display: flex; flex-direction: column; gap: 14px; }
+  .svc .txt { padding: 28px 34px 34px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
   .svc .idx { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; color: var(--mute); }
   .svc .idx b { font-size: 20px; color: var(--violet); font-weight: 400; }
-  .svc h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(25px, 2.2vw, 34px); line-height: 1.04; letter-spacing: -0.02em; }
-  .svc p { font-size: 14.5px; line-height: 1.6; color: var(--ink-70); max-width: 460px; text-wrap: pretty; }
-  .svc .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+  .svc h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 2.4vw, 36px); line-height: 1.06; letter-spacing: -0.02em; }
+  .svc p { font-size: 15px; line-height: 1.62; color: var(--ink-70); max-width: 520px; text-wrap: pretty; }
+  .svc .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+  .svc-cta { display: flex; flex-direction: column; justify-content: center; width: min(480px, 36vw); min-width: 380px; background: var(--ink); color: var(--paper); padding: 48px 44px; border: 1px solid rgba(23,17,28,0.14); flex-shrink: 0; }
 
   /* method */
   #method { padding-top: 150px; padding-bottom: 160px; border-top: 1px solid rgba(23,17,28,0.12); }
@@ -590,8 +591,11 @@
           </div>
         </a>
 
-        <div style="display:flex;align-items:center;padding:0 40px 0 14px">
-          <a href="contact.html" class="btn" style="padding:19px 36px" data-magnetic>Start a project ↗</a>
+        <div class="svc-cta">
+          <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:16px">(START A PROJECT)</div>
+          <h3 class="display" style="color:var(--paper);font-size:clamp(30px, 2.8vw, 42px);line-height:1.06;margin-bottom:20px">Ready to grow your business?</h3>
+          <p style="color:#C7BFD1;font-size:14.5px;line-height:1.6;margin-bottom:32px">No account manager hand-offs, no generic checklists — just a direct conversation about your business.</p>
+          <a href="contact.html" class="btn btn-light" data-magnetic style="align-self:flex-start">Start a project ↗</a>
         </div>
       </div>
     </section>
@@ -822,9 +826,9 @@
     out.forEach(function (tok) {
       if (tok.space) { node.appendChild(document.createTextNode(' ')); return; }
       var mask = document.createElement('span');
-      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding-top:0.18em;margin-top:-0.18em;padding-bottom:0.14em;margin-bottom:-0.14em;padding-right:0.06em;margin-right:-0.06em;';
+      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:bottom;padding-top:0.25em;margin-top:-0.25em;padding-bottom:0.35em;margin-bottom:-0.35em;padding-right:0.1em;margin-right:-0.1em;';
       var inner = document.createElement('span');
-      inner.style.cssText = 'display:inline-block;will-change:transform;' + (tok.style || '');
+      inner.style.cssText = 'display:inline-block;will-change:transform;padding-top:0.25em;margin-top:-0.25em;padding-bottom:0.35em;margin-bottom:-0.35em;padding-right:0.1em;margin-right:-0.1em;' + (tok.style || '');
       inner.textContent = tok.word;
       mask.appendChild(inner);
       node.appendChild(mask);
@@ -997,10 +1001,11 @@
 
   function servicesTrack() {
     var sec = $('#services'), track = $('#svcTrack');
+    if (!sec || !track || window.innerWidth < 1080) return;
     var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
     gsap.to(track, {
       x: function () { return -dist(); }, ease: 'none',
-      scrollTrigger: { trigger: sec, start: 'top top', end: function () { return '+=' + Math.max(1400, dist() * 1.5); }, pin: true, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1 }
+      scrollTrigger: { trigger: sec, start: 'top top', end: function () { return '+=' + Math.max(2200, dist() * 1.8); }, pin: true, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1 }
     });
     ScrollTrigger.create({
       trigger: sec, start: 'top 70%', once: true,
