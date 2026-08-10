@@ -35,7 +35,7 @@
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
   /* type */
-  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 0.96; }
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; }
   .display em { font-style: italic; }
   .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
   .lede { font-size: 16.5px; line-height: 1.6; color: var(--ink-70); text-wrap: pretty; }
@@ -146,7 +146,7 @@
   #heroGrid div { border-left: 1px solid rgba(23,17,28,0.045); }
   #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 40px; }
   .hero-cols { display: grid; grid-template-columns: minmax(430px, 1.4fr) minmax(280px, 0.6fr); gap: 60px; align-items: end; }
-  #hero h1 { font-size: clamp(44px, 6.2vw, 104px); line-height: 0.92; letter-spacing: -0.035em; margin-bottom: 34px; }
+  #hero h1 { font-size: clamp(44px, 6.2vw, 104px); line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 34px; }
   #heroCopy { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); }
   #heroCopy .copy { flex: 1 1 340px; min-width: 0; max-width: 560px; display: flex; flex-direction: column; gap: 14px; }
   #heroCopy .ctas { flex: 0 1 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
@@ -209,8 +209,8 @@
   #services { height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 38px; background: var(--paper-2); border-top: 1px solid rgba(23,17,28,0.12); padding-left: 0; padding-right: 0; }
   #services .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; padding: 0 var(--pad); max-width: 1400px; margin: 0 auto; width: 100%; }
   #services h2 { font-size: clamp(32px, 3.6vw, 54px); line-height: 0.98; max-width: 780px; }
-  #svcTrack { display: flex; gap: 26px; padding: 0 var(--pad); width: max-content; }
-  .svc { display: flex; flex-direction: column; width: 40vw; min-width: 430px; max-width: 560px; background: var(--paper); border: 1px solid rgba(23,17,28,0.14); color: inherit; }
+  #svcTrack { display: flex; gap: 32px; padding-left: max(var(--pad), calc((100vw - 1400px) / 2 + var(--pad))); padding-right: max(var(--pad), calc((100vw - 1400px) / 2 + 120px)); width: max-content; }
+  .svc { display: flex; flex-direction: column; width: 480px; min-width: 320px; max-width: 480px; flex-shrink: 0; background: var(--paper); border: 1px solid rgba(23,17,28,0.14); color: inherit; }
   .svc:hover { color: inherit; }
   .svc .viz { position: relative; height: 17vh; min-height: 140px; border-bottom: 1px solid rgba(23,17,28,0.14); }
   .svc .viz .cap { position: absolute; top: 18px; left: 28px; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: var(--mute); }
@@ -822,7 +822,7 @@
     out.forEach(function (tok) {
       if (tok.space) { node.appendChild(document.createTextNode(' ')); return; }
       var mask = document.createElement('span');
-      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:0.06em;';
+      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding-top:0.18em;margin-top:-0.18em;padding-bottom:0.14em;margin-bottom:-0.14em;padding-right:0.06em;margin-right:-0.06em;';
       var inner = document.createElement('span');
       inner.style.cssText = 'display:inline-block;will-change:transform;' + (tok.style || '');
       inner.textContent = tok.word;
@@ -997,10 +997,10 @@
 
   function servicesTrack() {
     var sec = $('#services'), track = $('#svcTrack');
-    var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 44); };
+    var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
     gsap.to(track, {
       x: function () { return -dist(); }, ease: 'none',
-      scrollTrigger: { trigger: sec, start: 'top top', end: function () { return '+=' + dist() * 1.15; }, pin: true, scrub: 0.9, invalidateOnRefresh: true, anticipatePin: 1 }
+      scrollTrigger: { trigger: sec, start: 'top top', end: function () { return '+=' + Math.max(1400, dist() * 1.5); }, pin: true, scrub: 0.8, invalidateOnRefresh: true, anticipatePin: 1 }
     });
     ScrollTrigger.create({
       trigger: sec, start: 'top 70%', once: true,
