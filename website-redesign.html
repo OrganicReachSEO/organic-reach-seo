@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SEO Optimization — OrganicReachSEO</title>
-<meta name="description" content="Technical SEO, content strategy, and local search dominance — tuned to the keywords your customers actually type, reported in revenue, not vanity traffic.">
+<title>Website Development — OrganicReachSEO</title>
+<meta name="description" content="Fast, modern, conversion-ready websites you own outright — your domain, your hosting, no monthly fee just to stay online.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #F3EFE7;
+    --sand: #DFD6C2;
     --ink: #17111C;
     --ink-70: #4A4253;
-    --ink-50: #6E6579;
     --mute: #8B8194;
     --violet: #6C3CE0;
     --violet-lt: #CDB9F6;
@@ -27,7 +27,7 @@
   ::selection { background: var(--violet); color: var(--paper); }
   a { color: inherit; text-decoration: none; }
   a:hover { color: var(--violet); }
-  h1, h2, h3, p { margin: 0; }
+  h1, h2, h3, h4, p { margin: 0; }
   html.lenis, html.lenis body { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
@@ -123,66 +123,76 @@
   #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 50px; }
   .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
   .hero-cols { display: grid; grid-template-columns: minmax(430px, 1.3fr) minmax(320px, 0.7fr); gap: 64px; align-items: end; }
-  #hero h1 { font-size: clamp(46px, 6.2vw, 108px); line-height: 1.02; letter-spacing: -0.038em; margin-bottom: 34px; }
+  #hero h1 { font-size: clamp(46px, 6.6vw, 114px); line-height: 1.02; letter-spacing: -0.038em; margin-bottom: 34px; }
   #heroCopy { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); }
   #heroCopy p { flex: 1 1 340px; min-width: 0; max-width: 560px; font-size: 16.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
   #heroCopy .ctas { flex: 0 1 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 
-  /* report panel */
-  #report { background: var(--ink); border: 1px solid rgba(23,17,28,0.14); display: flex; flex-direction: column; }
-  #report .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
-  #report .head .tagline { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
-  #report .head .tagline i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
-  #report .body { display: flex; flex-direction: column; padding: 26px 24px 28px; gap: 26px; }
-  #report .group { display: flex; flex-direction: column; gap: 13px; }
-  #report .group .label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
-  .vanity { position: relative; align-self: flex-start; font-size: 15px; color: var(--ink-50); }
-  .vanity .strike { position: absolute; left: 0; top: 52%; height: 1px; width: 0%; background: var(--rust); }
-  .real { display: flex; align-items: center; gap: 11px; font-size: 15.5px; font-weight: 500; color: var(--paper); }
-  .real i { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); flex-shrink: 0; }
-  #report .divider { height: 1px; background: rgba(243,239,231,0.15); }
+  /* ownership panel */
+  #own { background: var(--ink); border: 1px solid rgba(23,17,28,0.14); display: flex; flex-direction: column; }
+  #own .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
+  #own .head .mo { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
+  #own .head .mo i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
+  #own .body { display: flex; flex-direction: column; gap: 30px; padding: 28px 24px 30px; }
+  #own .group { display: flex; flex-direction: column; gap: 14px; }
+  #own .label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+  #own .track { display: flex; align-items: flex-end; gap: 5px; height: 46px; }
+  #own .track .sub-bar { flex: 1; height: 100%; background: rgba(220,84,39,0.55); transform-origin: bottom; transform: scaleY(0); }
+  #own .track .arrow { font-size: 16px; color: var(--rust); padding-left: 4px; line-height: 1; }
+  #ownBar { width: 30px; height: 100%; background: var(--violet); transform-origin: bottom; transform: scaleY(0); }
+  #ownLine { flex: 1; height: 3px; background: rgba(205,185,246,0.45); transform-origin: left; transform: scaleX(0); }
+  #own .note { font-size: 13px; line-height: 1.5; }
+  #own .divider { height: 1px; background: rgba(243,239,231,0.15); }
 
-  /* included */
+  /* before / after */
+  #baf { padding-bottom: 140px; }
+  #baf .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 46px; }
+  #baf h2 { font-size: clamp(36px, 4.2vw, 62px); line-height: 0.98; max-width: 720px; }
+  #bafBox { position: relative; aspect-ratio: 16/9; overflow: hidden; user-select: none; border: 1px solid rgba(23,17,28,0.16); cursor: ew-resize; background: #D8CDB8; max-width: 1240px; margin: 0 auto; }
+  .baf-pane { position: absolute; inset: 0; padding: 5% 6%; display: flex; flex-direction: column; gap: 3%; }
+  #bafAfter { position: absolute; inset: 0; background: var(--ink); clip-path: inset(0 50% 0 0); }
+  #bafHandle { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); pointer-events: none; left: 50%; }
+  #bafHandle .knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: var(--violet); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 10px 30px rgba(23,17,28,0.35); }
+  .baf-stamp { position: absolute; bottom: 5%; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+
+  /* features */
   #included { padding-bottom: 140px; }
   #included h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 58px; }
   .feature { display: grid; grid-template-columns: 90px 1fr 1.4fr; gap: 44px; padding: 42px 0; border-top: 1px solid rgba(23,17,28,0.18); align-items: start; }
   .feature .n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: #C9BFA9; }
+  .feature:nth-child(3) .n { color: var(--violet); }
   .feature:nth-child(4) .n { color: var(--rust); }
   .feature h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.02em; }
   .feature p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 560px; text-wrap: pretty; }
 
+  /* who */
+  #who { background: var(--ink); color: var(--paper); padding-top: 140px; padding-bottom: 140px; }
+  #who .cols { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+  #who h2 { font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin-bottom: 30px; text-wrap: pretty; }
+  #who p.lede { font-size: 16.5px; line-height: 1.68; color: #9A90A6; max-width: 620px; text-wrap: pretty; }
+  #compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(243,239,231,0.16); border: 1px solid rgba(243,239,231,0.16); }
+  #compare .col { background: var(--ink); padding: 30px 26px 34px; display: flex; flex-direction: column; gap: 18px; }
+  #compare .label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; }
+  #compare .row { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.5; }
+
+  /* how */
+  #how { padding-top: 140px; padding-bottom: 140px; }
+  #how h2 { font-size: clamp(38px, 4.4vw, 66px); line-height: 0.98; max-width: 780px; margin-bottom: 62px; }
+  #steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(23,17,28,0.18); border-top: 1px solid rgba(23,17,28,0.18); border-bottom: 1px solid rgba(23,17,28,0.18); }
+  #steps .step { background: var(--paper); padding: 40px 32px 46px; }
+  #steps .n { font-family: var(--serif); font-size: 56px; line-height: 0.9; color: #C9BFA9; margin-bottom: 26px; }
+  #steps .step:nth-child(3) .n { color: var(--violet); }
+  #steps .step:nth-child(4) .n { color: var(--rust); }
+  #steps h4 { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: -0.02em; margin-bottom: 13px; }
+  #steps p { font-size: 14.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
+
   /* result */
-  #result { background: var(--ink); color: var(--paper); padding-top: 140px; padding-bottom: 140px; }
-  #result .cols { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: center; }
-  #result h2 { font-size: clamp(34px, 4vw, 62px); line-height: 1.02; margin-bottom: 30px; text-wrap: pretty; }
-  #result .lede { font-size: 16.5px; line-height: 1.66; color: #9A90A6; max-width: 560px; margin-bottom: 34px; text-wrap: pretty; }
-  #result .stamp { display: flex; align-items: center; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(243,239,231,0.18); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #9A90A6; }
+  #result { background: var(--sand); padding-top: 140px; padding-bottom: 140px; }
+  #result .cols { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center; }
+  #resultName { font-family: var(--serif); font-size: clamp(52px, 6.4vw, 104px); line-height: 0.9; letter-spacing: -0.035em; }
+  #result .stamp { display: flex; align-items: center; gap: 12px; margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(23,17,28,0.25); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #7A7060; }
   #result .stamp i { width: 7px; height: 7px; border-radius: 50%; background: var(--rust); }
-
-  #density { border: 1px solid rgba(243,239,231,0.16); padding: 34px 36px 38px; }
-  #density .top { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
-  #agencyCount { font-family: var(--serif); font-size: 68px; line-height: 0.85; color: var(--paper); }
-  #density .top span { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: #9A90A6; line-height: 1.6; max-width: 170px; }
-  #density .sub { font-size: 13.5px; line-height: 1.6; color: var(--ink-50); margin-bottom: 30px; }
-  #dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 11px; margin-bottom: 30px; padding-top: 34px; }
-  #dots span[data-dot] { width: 100%; aspect-ratio: 1; border-radius: 50%; background: rgba(243,239,231,0.16); transform: scale(0); }
-  #mineDot { grid-column: 4; grid-row: 2; position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 5px rgba(108,60,224,0.22); transform: scale(0); }
-  #mineDot .stem { position: absolute; left: 50%; bottom: calc(100% + 9px); width: 1px; height: 20px; background: rgba(205,185,246,0.5); }
-  #mineDot .chip { position: absolute; left: 50%; bottom: calc(100% + 27px); transform: translateX(-50%); white-space: nowrap; font-size: 9px; font-weight: 700; letter-spacing: 0.13em; color: var(--ink); background: var(--violet-lt); border-radius: 100px; padding: 5px 11px; }
-  #density .legend { display: flex; align-items: center; gap: 11px; padding-top: 22px; border-top: 1px solid rgba(243,239,231,0.16); font-size: 10px; font-weight: 700; letter-spacing: 0.13em; color: var(--violet-lt); }
-  #density .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(108,60,224,0.25); }
-
-  /* faq */
-  #faq { padding-top: 140px; padding-bottom: 140px; }
-  #faq .cols { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 80px; align-items: start; }
-  #faq .sticky { position: sticky; top: 130px; }
-  #faq h2 { font-size: clamp(34px, 3.8vw, 58px); line-height: 1; }
-  #faq details { border-top: 1px solid rgba(23,17,28,0.18); padding: 28px 0; }
-  #faq summary { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; font-family: var(--serif); font-size: 26px; letter-spacing: -0.02em; cursor: pointer; list-style: none; }
-  #faq summary::-webkit-details-marker { display: none; }
-  #faq .plus { flex-shrink: 0; font-family: var(--sans); font-size: 20px; font-weight: 400; color: var(--violet); transition: transform 0.3s ease; }
-  #faq details[open] .plus { transform: rotate(45deg); }
-  #faq details p { font-size: 15.5px; line-height: 1.68; color: var(--ink-70); margin-top: 18px; max-width: 620px; text-wrap: pretty; }
+  #result p { font-size: 17px; line-height: 1.68; color: #3E3648; max-width: 620px; text-wrap: pretty; }
 
   /* cta */
   #audit { background: var(--violet); padding-top: 160px; padding-bottom: 160px; text-align: center; position: relative; overflow: hidden; }
@@ -210,35 +220,36 @@
     #nav .links { display: none; }
     #navHamburger { display: flex; }
     .hero-cols { grid-template-columns: 1fr; gap: 44px; }
-    #result .cols { grid-template-columns: 1fr; gap: 48px; }
-    #faq .cols { grid-template-columns: 1fr; gap: 40px; }
-    #faq .sticky { position: static; }
+    #who .cols { grid-template-columns: 1fr; gap: 48px; }
+    #result .cols { grid-template-columns: 1fr; gap: 40px; }
+    #steps { grid-template-columns: repeat(2, 1fr); }
     .feature { grid-template-columns: 60px 1fr; gap: 24px; }
     .feature p { grid-column: 2; }
     footer .top { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 640px) {
+    #steps { grid-template-columns: 1fr; }
+    #compare { grid-template-columns: 1fr; }
     footer .top { grid-template-columns: 1fr; }
-    #faq summary { font-size: 21px; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
     [data-reveal], [data-hero] { opacity: 1 !important; }
   }
 </style>
-<link rel="canonical" href="https://organicreachseo.com/seo/">
+<link rel="canonical" href="https://organicreachseo.com/website-redesign/">
 </head>
 <body>
 
 <nav id="nav">
-  <a href="../" class="brand">OrganicReachSEO<span style="color:var(--violet)">*</span></a>
+  <a href="" class="brand">OrganicReachSEO<span style="color:var(--violet)">*</span></a>
   <div class="links">
-    <a href="../">HOME</a>
-    <a href="../services/" class="on">SERVICES</a>
-    <a href="../about/">ABOUT</a>
-    <a href="../contact/">CONTACT</a>
+    <a href="">HOME</a>
+    <a href="services/" class="on">SERVICES</a>
+    <a href="about/">ABOUT</a>
+    <a href="contact/">CONTACT</a>
   </div>
-  <a href="../contact/" class="btn btn-sm" data-magnetic>Get a free audit ↗</a>
+  <a href="contact/" class="btn btn-sm" data-magnetic>Free website audit ↗</a>
   <button id="navHamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -246,60 +257,56 @@
 
 <!-- Mobile Menu Overlay -->
 <div id="navMobileOverlay">
-  <a href="../" class="mob-link">HOME</a>
-  <a href="../services/" class="mob-link">SERVICES</a>
-  <a href="../about/" class="mob-link">ABOUT</a>
-  <a href="../contact/" class="mob-link">CONTACT</a>
+  <a href="" class="mob-link">HOME</a>
+  <a href="services/" class="mob-link">SERVICES</a>
+  <a href="about/" class="mob-link">ABOUT</a>
+  <a href="contact/" class="mob-link">CONTACT</a>
   <div class="mob-subpages">
-    <a href="../services/">Services Overview ↗</a>
-    <a href="../website-redesign/">Web Development ↗</a>
-    <a href="../reputation-management/">Reputation Mgmt ↗</a>
+    <a href="services/">Services Overview ↗</a>
+    <a href="seo/">SEO Optimization ↗</a>
+    <a href="reputation-management/">Reputation Mgmt ↗</a>
   </div>
-  <a href="../contact/" class="btn btn-lg" style="margin-top:10px;">Get a free audit ↗</a>
+  <a href="contact/" class="btn btn-lg" style="margin-top:10px;">Free website audit ↗</a>
 </div>
 
 <main>
   <!-- HERO -->
-  <section id="hero" data-screen-label="SEO hero">
+  <section id="hero" data-screen-label="Redesign hero">
     <div id="heroGrid" aria-hidden="true"></div>
     <div class="wrap" style="position:relative">
       <div id="heroMeta" data-hero>
-        <span style="color:var(--violet)">(S.01) — SEO OPTIMIZATION</span>
-        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>REPORTED IN REVENUE, NOT TRAFFIC</span>
+        <span style="color:var(--violet)">(S.02) — WEBSITE DEVELOPMENT</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot-blink"></span>NO RECURRING FEE TO STAY ONLINE</span>
       </div>
 
       <div class="hero-cols">
         <div>
-          <h1 class="display" data-hero>Rank for searches that turn into <em style="color:var(--violet)">revenue.</em></h1>
+          <h1 class="display" data-hero>Your website. <em style="color:var(--violet)">Actually yours.</em></h1>
           <div id="heroCopy" data-hero>
-            <p>If you've paid for SEO before and gotten a stack of graphs that never explained why the phone stopped ringing, this is built differently. Technical fixes, content strategy, and local search dominance — tuned to the keywords your customers actually type, and reported on in terms of revenue, not vanity traffic.</p>
+            <p>Platforms like these lock your business into paying every month just to keep your own website turned on. Cancel, and your site — and everything you built — disappears with it. We build websites the way a real business asset should work: designed for conversion and SEO from the ground up, handed over fully owned, with no recurring fee required just to exist online.</p>
             <div class="ctas">
-              <a href="../contact/" class="btn" data-magnetic>Get a free SEO audit<span style="font-size:13px">→</span></a>
-              <a href="../services/" class="link-under">All services →</a>
+              <a href="contact/" class="btn" data-magnetic>Get a free website audit<span style="font-size:13px">→</span></a>
+              <a href="services/" class="link-under">All services →</a>
             </div>
           </div>
         </div>
 
-        <div id="report" data-hero>
+        <div id="own" data-hero>
           <div class="head">
-            <span>THE MONTHLY REPORT</span>
-            <span class="tagline"><i></i>PLAIN ENGLISH</span>
+            <span>WHAT YOU ACTUALLY PAY FOR</span>
+            <span class="mo"><i></i>12 MONTHS</span>
           </div>
           <div class="body">
             <div class="group">
-              <span class="label" style="color:var(--ink-50)">WHAT MOST AGENCIES SEND</span>
-              <span class="vanity">Impressions<span class="strike"></span></span>
-              <span class="vanity">Bounce rate<span class="strike"></span></span>
-              <span class="vanity">Sessions, up 14%<span class="strike"></span></span>
-              <span class="vanity">Domain authority<span class="strike"></span></span>
+              <span class="label" style="color:var(--rust)">SUBSCRIPTION BUILDER</span>
+              <div class="track" id="subTrack"><span class="arrow">→</span></div>
+              <span class="note" style="color:#9A90A6">Twelve payments in, you own nothing. Stop paying and the site goes dark.</span>
             </div>
             <div class="divider"></div>
             <div class="group">
-              <span class="label" style="color:var(--violet-lt)">WHAT WE SEND</span>
-              <span class="real"><i></i>Calls from search</span>
-              <span class="real"><i></i>Form fills and bookings</span>
-              <span class="real"><i></i>Which keywords drove them</span>
-              <span class="real"><i></i>What we're doing next</span>
+              <span class="label" style="color:var(--violet-lt)">BUILT WITH US</span>
+              <div class="track"><div id="ownBar"></div><div id="ownLine"></div></div>
+              <span class="note" style="color:#C7BFD1">One build. Then it's your asset — your domain, your hosting, indefinitely.</span>
             </div>
           </div>
         </div>
@@ -307,87 +314,90 @@
     </div>
   </section>
 
-  <!-- (01) WHAT'S INCLUDED -->
+
+
+  <!-- (01) BUILT TO CONVERT, BUILT TO KEEP -->
   <section id="included" data-screen-label="What's included">
     <div class="wrap">
-      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — WHAT'S INCLUDED</div>
-      <h2 class="display">Every layer of search, <em style="color:var(--violet)">handled.</em></h2>
+      <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(01) — BUILT TO CONVERT, BUILT TO KEEP</div>
+      <h2 class="display">Design, build, and ownership — <em style="color:var(--violet)">handled.</em></h2>
       <div style="display:flex;flex-direction:column">
         <div class="feature" data-reveal>
           <div class="n">01</div>
-          <h3>Technical SEO</h3>
-          <p>Site speed, crawlability, structured data, mobile performance — the foundation Google rewards.</p>
+          <h3>Conversion-First Design</h3>
+          <p>Clear paths to call, book, or inquire — not just a portfolio to scroll.</p>
         </div>
         <div class="feature" data-reveal>
           <div class="n">02</div>
-          <h3>Content strategy</h3>
-          <p>Keyword research and pages written to answer what your customers are actually searching for.</p>
+          <h3>SEO-Ready Architecture</h3>
+          <p>Clean structure, metadata, and schema in place from launch — no retrofitting later.</p>
         </div>
         <div class="feature" data-reveal>
           <div class="n">03</div>
-          <h3>Local SEO &amp; maps</h3>
-          <p>Google Business Profile optimization, citations, and review signals that put you in the map pack.</p>
+          <h3>Real Ownership</h3>
+          <p>Your site, your domain, your hosting relationship. No platform holding your business online for ransom.</p>
         </div>
         <div class="feature" data-reveal>
           <div class="n">04</div>
-          <h3>Reporting &amp; iteration</h3>
-          <p>Monthly, plain-English reports on rankings, traffic, and leads — plus what's next and why.</p>
+          <h3>Speed</h3>
+          <p>A fast site that doesn't lose visitors before they see what you offer.</p>
         </div>
         <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
       </div>
     </div>
   </section>
 
-  <!-- (02) A RECENT RESULT -->
+  <!-- (02) WHO THIS IS FOR -->
+  <section id="who" data-screen-label="Who this is for">
+    <div class="wrap cols">
+      <div>
+        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(02) — WHO THIS IS FOR</div>
+        <h2 class="display">Stuck on a website you don't <em style="color:var(--violet-lt)">actually own?</em></h2>
+        <p class="lede" data-reveal>If your business runs on a subscription website builder — the kind where the moment you stop paying, your site stops existing — this is your alternative. A comparable, often better, result, without paying indefinitely just to stay visible.</p>
+      </div>
+
+      <div id="compare" data-reveal>
+        <div class="col">
+          <span class="label" style="color:var(--rust)">SUBSCRIPTION</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Monthly fee just to stay online</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Stop paying, site disappears</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Template everyone else uses</span>
+          <span class="row" style="color:#9A90A6"><span style="color:var(--rust)">×</span>Their platform, their rules</span>
+        </div>
+        <div class="col">
+          <span class="label" style="color:var(--violet-lt)">OWNED</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>One fixed-scope build</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Yours indefinitely</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Designed around your business</span>
+          <span class="row" style="color:var(--paper)"><span style="color:var(--violet)">✳</span>Your domain, your hosting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (03) HOW IT WORKS -->
+  <section id="how" data-screen-label="How it works">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(03) — HOW IT WORKS</div>
+      <h2 class="display">From audit to launch, <em style="color:var(--violet)">owned outright.</em></h2>
+      <div id="steps">
+        <div class="step" data-reveal><div class="n">01</div><h4>Free audit</h4><p>We review your current site and tell you exactly what's costing you conversions and rankings.</p></div>
+        <div class="step" data-reveal><div class="n">02</div><h4>Fixed-scope quote</h4><p>A defined project cost, not an open-ended retainer.</p></div>
+        <div class="step" data-reveal><div class="n">03</div><h4>Build &amp; launch</h4><p>A site you own outright from day one.</p></div>
+        <div class="step" data-reveal><div class="n">04</div><h4>Optional ongoing SEO</h4><p>Once live, we can grow the traffic that lands on it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (04) A RECENT RESULT -->
   <section id="result" data-screen-label="Recent result">
     <div class="wrap cols">
       <div>
-        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(02) — A RECENT RESULT</div>
-        <h2 class="display">Scottsdale, AZ — one of the most competitive real estate markets <em style="color:var(--violet-lt)">in the US.</em></h2>
-        <p class="lede">We run SEO for Ranch Realty in a market where dozens of real estate brokerages compete for the same searches. The retainer isn't a line item — it pays for itself in closed deals generated organically, month after month.</p>
-        <div class="stamp"><i></i>RANCH REALTY — ACTIVE ENGAGEMENT</div>
+        <div class="eyebrow" style="color:#7A7060;margin-bottom:24px">(04) — A RECENT RESULT</div>
+        <div id="resultName" data-reveal>Ranch Realty</div>
+        <div class="stamp"><i></i>REBUILT, THEN GROWN WITH SEO</div>
       </div>
-
-      <div id="density" data-reveal>
-        <div class="top">
-          <span id="agencyCount">0</span>
-          <span>BROKERAGES CHASING THE SAME SCOTTSDALE SEARCHES</span>
-        </div>
-        <div class="sub">Every dot is a competing real estate brokerage bidding for the same customers.</div>
-        <div id="dots">
-          <span id="mineDot"><span class="stem"></span><span class="chip">RANCH REALTY</span></span>
-        </div>
-        <div class="legend"><i></i>THE ONE WE RUN SEO FOR</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- (03) FAQ -->
-  <section id="faq" data-screen-label="FAQ">
-    <div class="wrap cols">
-      <div class="sticky">
-        <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(03) — COMMON QUESTIONS</div>
-        <h2 class="display">Asked <em style="color:var(--violet)">often.</em></h2>
-      </div>
-      <div>
-        <details>
-          <summary><span>How long until we see results?</span><span class="plus">+</span></summary>
-          <p>Early movement typically shows in 6–8 weeks. Meaningful ranking and traffic gains usually land in 3–6 months, depending on how competitive your market is.</p>
-        </details>
-        <details>
-          <summary><span>Do you guarantee #1 rankings?</span><span class="plus">+</span></summary>
-          <p>No one honest can. We guarantee the work, full transparency on progress, and no lock-in — you stay because it's working.</p>
-        </details>
-        <details>
-          <summary><span>What does it cost?</span><span class="plus">+</span></summary>
-          <p>Scoped to your market and goals after a free audit. Priced so the retainer pays for itself — most local businesses see revenue back in multiples of what they spend.</p>
-        </details>
-        <details>
-          <summary><span>Will this work with my existing website?</span><span class="plus">+</span></summary>
-          <p>Usually. If the site itself is holding rankings back, we'll tell you plainly — and we can fix it on an SEO-ready foundation.</p>
-        </details>
-        <div style="border-top:1px solid rgba(23,17,28,0.18)"></div>
-      </div>
+      <p>Ranch Realty's website was rebuilt from the ground up and now runs as the foundation for their ongoing SEO growth — a real estate site engineered to convert property searches into client relationships, not just look good in a portfolio.</p>
     </div>
   </section>
 
@@ -396,9 +406,9 @@
     <div class="glyph" style="left:-3%;top:-14%;font-size:340px" aria-hidden="true">✳</div>
     <div class="glyph" style="right:-2%;bottom:-22%;font-size:300px" aria-hidden="true">✳</div>
     <div class="wrap" style="max-width:950px;position:relative">
-      <div class="eyebrow" style="color:#E4D8FB;margin-bottom:34px">FREE AUDIT — SITE, RANKINGS, AND REVIEWS</div>
-      <h2 class="display">See where your rankings <em>could be.</em><span style="color:var(--violet-lt)">*</span></h2>
-      <a href="../contact/" class="btn btn-lg" data-magnetic>Get your free audit<span style="font-size:13px">→</span></a>
+      <div class="eyebrow" style="color:#E4D8FB;margin-bottom:34px">FIXED-SCOPE QUOTE — NO OPEN-ENDED RETAINER</div>
+      <h2 class="display">Ready for a site you're <em>proud of?</em><span style="color:var(--violet-lt)">*</span></h2>
+      <a href="contact/" class="btn btn-lg" data-magnetic>Get a free website audit<span style="font-size:13px">→</span></a>
     </div>
   </section>
 </main>
@@ -407,24 +417,24 @@
   <div class="wrap">
     <div class="top">
       <div>
-        <a href="../" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReachSEO<span style="color:var(--violet-lt)">*</span></a>
+        <a href="" style="display:inline-block;font-family:var(--serif);font-size:27px;color:var(--paper);margin-bottom:20px">OrganicReachSEO<span style="color:var(--violet-lt)">*</span></a>
         <p style="font-size:14px;line-height:1.66;max-width:290px;margin-bottom:28px">Websites you own, reputations that hold up, and search that brings in revenue.</p>
         <div class="social"><a href="#">LINKEDIN</a></div>
       </div>
       <div>
         <h5>SERVICES</h5>
         <div class="col">
-          <a href="../services/">Services Overview</a>
-          <a href="../website-redesign/">Website Development</a>
-          <a href="../reputation-management/">Reputation Management</a>
+          <a href="services/">Services Overview</a>
+          <a href="seo/">Local SEO</a>
+          <a href="reputation-management/">Reputation Management</a>
         </div>
       </div>
       <div>
         <h5>COMPANY</h5>
         <div class="col">
-          <a href="../about/">About Us</a>
-          <a href="../services/">Services</a>
-          <a href="../contact/">Contact</a>
+          <a href="about/">About Us</a>
+          <a href="services/">Services</a>
+          <a href="contact/">Contact</a>
         </div>
       </div>
     </div>
@@ -468,15 +478,17 @@
     if (g) {
       for (var i = 0; i < 12; i++) g.appendChild(document.createElement('div'));
     }
-    var dots = $('#dots');
-    if (dots) {
-      for (var j = 0; j < 41; j++) {
-        var d = document.createElement('span');
-        d.setAttribute('data-dot', '');
-        dots.appendChild(d);
+    var track = $('#subTrack');
+    if (track) {
+      for (var j = 0; j < 12; j++) {
+        var b = document.createElement('div');
+        b.className = 'sub-bar';
+        track.insertBefore(b, track.lastElementChild);
       }
     }
   }
+
+
 
   function initLenis() {
     if (!window.Lenis) return;
@@ -500,29 +512,13 @@
     $$('[data-hero]').forEach(function (el, i) {
       tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, i * 0.12);
     });
-    tl.add(runReport, 0.7);
+    tl.add(runOwnership, 0.75);
   }
 
-  function runReport() {
-    gsap.from('.vanity', { opacity: 0, x: 16, duration: 0.6, ease: 'power3.out', stagger: 0.08 });
-    gsap.to('.vanity .strike', { width: '100%', duration: 0.45, ease: 'power2.inOut', stagger: 0.1, delay: 0.7 });
-    gsap.from('.real', { opacity: 0, x: 16, duration: 0.6, ease: 'power3.out', stagger: 0.09, delay: 1.4 });
-  }
-
-  function densityAnim() {
-    var dots = $$('#dots span[data-dot]');
-    var mine = $('#mineDot');
-    var count = $('#agencyCount');
-    if (!dots.length || !mine || !count) return;
-    ScrollTrigger.create({
-      trigger: '#dots', start: 'top 85%', once: true,
-      onEnter: function () {
-        gsap.to(dots, { scale: 1, duration: 0.45, ease: 'back.out(2)', stagger: { each: 0.014, from: 'random' } });
-        gsap.to(mine, { scale: 1, duration: 0.7, ease: 'back.out(2.4)', delay: 0.9 });
-        var c = { v: 0 };
-        gsap.to(c, { v: 42, duration: 1.4, ease: 'power2.out', onUpdate: function () { count.textContent = Math.round(c.v); } });
-      }
-    });
+  function runOwnership() {
+    gsap.to('.sub-bar', { scaleY: 1, duration: 0.4, ease: 'power2.out', stagger: 0.07 });
+    gsap.to('#ownBar', { scaleY: 1, duration: 0.6, ease: 'expo.out', delay: 1.1 });
+    gsap.to('#ownLine', { scaleX: 1, duration: 1, ease: 'power2.out', delay: 1.4 });
   }
 
   function reveals() {
@@ -578,7 +574,6 @@
     initMagnetic();
     heroIntro();
     reveals();
-    densityAnim();
     footerDrift();
     navHide();
     ScrollTrigger.refresh();
