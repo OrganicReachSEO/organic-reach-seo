@@ -294,6 +294,10 @@
     .hero-cols { grid-template-columns: 1fr; gap: 44px; }
     #serp { height: auto; padding-top: 110px; padding-bottom: 110px; }
     #serp .cols { grid-template-columns: 1fr; gap: 48px; }
+    #services { height: auto; padding-top: 80px; padding-bottom: 80px; overflow-x: hidden; }
+    #svcTrack { overflow-x: auto; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; padding-left: var(--pad); padding-right: var(--pad); padding-bottom: 24px; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; max-width: 100vw; box-sizing: border-box; }
+    #svcTrack::-webkit-scrollbar { display: none; }
+    .svc, .svc-cta { scroll-snap-align: start; }
     #method .cols { grid-template-columns: 1fr; gap: 48px; }
     #method .sticky { position: static; }
     #proof .panels { grid-template-columns: 1fr; }
@@ -335,9 +339,7 @@
     <a href="#serp"><span class="lbl">DEMO</span><span class="mark"></span></a>
     <a href="#statementSec"><span class="lbl">POINT</span><span class="mark"></span></a>
     <a href="#services"><span class="lbl">SERVICES</span><span class="mark"></span></a>
-    <a href="#method"><span class="lbl">METHOD</span><span class="mark"></span></a>
     <a href="#proof"><span class="lbl">PROOF</span><span class="mark"></span></a>
-    <a href="#process"><span class="lbl">PROCESS</span><span class="mark"></span></a>
     <a href="#testimonial"><span class="lbl">VOICE</span><span class="mark"></span></a>
     <a href="#contact"><span class="lbl">CONTACT</span><span class="mark"></span></a>
   </nav>
@@ -348,8 +350,6 @@
       <a href="./" class="on">HOME</a>
       <a href="services/">SERVICES</a>
       <a href="about/">ABOUT</a>
-      <a href="#method">METHOD</a>
-      <a href="#process">PROCESS</a>
       <a href="contact/">CONTACT</a>
     </div>
     <a href="contact/" class="btn btn-sm" data-magnetic>Start a project ↗</a>
@@ -363,8 +363,6 @@
     <a href="./" class="mob-link">HOME</a>
     <a href="services/" class="mob-link">SERVICES</a>
     <a href="about/" class="mob-link">ABOUT</a>
-    <a href="#method" class="mob-link">METHOD</a>
-    <a href="#process" class="mob-link">PROCESS</a>
     <a href="contact/" class="mob-link">CONTACT</a>
     <div class="mob-subpages">
       <a href="services/">Services Overview ↗</a>
@@ -601,7 +599,7 @@
     </section>
 
     <!-- METHOD -->
-    <section id="method" data-sec data-screen-label="Method">
+    <section id="method" data-screen-label="Method">
       <div class="wrap cols">
         <div class="sticky">
           <div class="eyebrow" style="color:var(--violet);margin-bottom:22px">(HOW WE'RE DIFFERENT)</div>
@@ -674,7 +672,7 @@
     </section>
 
     <!-- (04) PROCESS -->
-    <section id="process" data-sec data-screen-label="Process">
+    <section id="process" data-screen-label="Process">
       <div class="wrap">
         <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:22px">(04) — HOW WE WORK</div>
         <h2 class="display" data-split>A straightforward process, built for <em style="color:var(--violet-lt)">real results.</em></h2>
@@ -734,7 +732,6 @@
           <h5>COMPANY</h5>
           <div class="col">
             <a href="about/">About Us</a>
-            <a href="#method">Our method</a>
             <a href="#proof">Proof</a>
             <a href="contact/">Contact</a>
           </div>
@@ -996,7 +993,11 @@
 
   function servicesTrack() {
     var sec = $('#services'), track = $('#svcTrack');
-    if (!sec || !track || window.innerWidth < 1080) return;
+    if (!sec || !track) return;
+    if (window.innerWidth < 1080) {
+      initDragScroll(track);
+      return;
+    }
     var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
     gsap.to(track, {
       x: function () { return -dist(); }, ease: 'none',
@@ -1006,6 +1007,36 @@
       trigger: sec, start: 'top 70%', once: true,
       onEnter: function () { gsap.fromTo(track.children, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.09 }); }
     });
+  }
+
+  function initDragScroll(el) {
+    if (!el || el._dragInited) return;
+    el._dragInited = true;
+    var isDown = false, startX, scrollLeft, pointerId;
+    var start = function(e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      isDown = true;
+      pointerId = e.pointerId;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      el.setPointerCapture(pointerId);
+    };
+    var end = function() {
+      if (!isDown) return;
+      isDown = false;
+      if (el.hasPointerCapture(pointerId)) el.releasePointerCapture(pointerId);
+    };
+    var move = function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - el.offsetLeft;
+      var walk = (x - startX) * 1.5;
+      el.scrollLeft = scrollLeft - walk;
+    };
+    el.addEventListener('pointerdown', start);
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+    el.addEventListener('pointermove', move);
   }
 
   function proof() {
