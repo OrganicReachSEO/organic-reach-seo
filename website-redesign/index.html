@@ -366,17 +366,17 @@
         <div class="bars">
           <div class="cost-row">
             <div class="top">
-              <span class="who">Subscription agency <small>— $3,500 every month, forever</small></span>
-              <span class="amt" id="costAmtSub" style="color:var(--rust)">$126,000</span>
-            </div>
-            <div class="track"><div id="costBarSub" style="right:0;background:var(--rust)"></div></div>
-          </div>
-          <div class="cost-row">
-            <div class="top">
               <span class="who">Built with us <small>— one build, then hosting &amp; upkeep</small></span>
               <span class="amt" id="costAmtOwn" style="color:var(--violet)">A fraction of it</span>
             </div>
             <div class="track"><div id="costBarOwn" style="width:12%;background:var(--violet)"></div></div>
+          </div>
+          <div class="cost-row">
+            <div class="top">
+              <span class="who">Subscription agency <small>— $3,500 every month, forever</small></span>
+              <span class="amt" id="costAmtSub" style="color:var(--rust)">$126,000</span>
+            </div>
+            <div class="track"><div id="costBarSub" style="right:0;background:var(--rust)"></div></div>
           </div>
         </div>
         <div id="costNote">By <strong>month two</strong>, a subscription agency has already billed more than your entire build costs — and they keep billing for another thirty-four.</div>
@@ -595,11 +595,11 @@
     var box = $('#costBox');
     if (!box) return;
     var tl = gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 76%', once: true } });
-    tl.to('#costBarSub', { scaleX: 1, duration: 1.5, ease: 'power2.inOut' })
-      .to('#costAmtSub', { opacity: 1, duration: 0.5 }, 1.1)
-      .to('#costBarOwn', { scaleX: 1, duration: 0.55, ease: 'expo.out' }, 1.35)
-      .to('#costAmtOwn', { opacity: 1, duration: 0.5 }, 1.6)
-      .to('#costNote', { opacity: 1, duration: 0.6 }, 1.85);
+    tl.to('#costBarOwn', { scaleX: 1, duration: 0.55, ease: 'expo.out' })
+      .to('#costAmtOwn', { opacity: 1, duration: 0.5 }, 0.35)
+      .to('#costBarSub', { scaleX: 1, duration: 1.5, ease: 'power2.inOut' }, 0.6)
+      .to('#costAmtSub', { opacity: 1, duration: 0.5 }, 1.7)
+      .to('#costNote', { opacity: 1, duration: 0.6 }, 2.0);
   }
 
   function initLenis() {
