@@ -31,7 +31,7 @@
   html.lenis, html.lenis body { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
-  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; }
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; }
   .display em { font-style: italic; }
   .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
   .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
@@ -123,7 +123,7 @@
   #heroMeta { display: flex; justify-content: space-between; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--mute); padding-bottom: 26px; border-bottom: 1px solid rgba(23,17,28,0.12); margin-bottom: 50px; }
   .dot-blink { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); animation: blink 2.4s ease-in-out infinite; }
   .hero-cols { display: grid; grid-template-columns: minmax(430px, 1.3fr) minmax(320px, 0.7fr); gap: 64px; align-items: end; }
-  #hero h1 { font-size: clamp(46px, 6.6vw, 114px); line-height: 1.02; letter-spacing: -0.038em; margin-bottom: 34px; }
+  #hero h1 { font-size: clamp(46px, 6.6vw, 114px); line-height: 0.9; letter-spacing: -0.038em; margin-bottom: 34px; }
   #heroCopy { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(23,17,28,0.12); }
   #heroCopy p { flex: 1 1 340px; min-width: 0; max-width: 560px; font-size: 16.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
   #heroCopy .ctas { flex: 0 1 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
@@ -133,27 +133,54 @@
   #own .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(243,239,231,0.15); font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: #9A90A6; }
   #own .head .mo { display: flex; align-items: center; gap: 7px; color: var(--violet-lt); }
   #own .head .mo i { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-lt); animation: blink 2.4s ease-in-out infinite; }
-  #own .body { display: flex; flex-direction: column; gap: 30px; padding: 28px 24px 30px; }
-  #own .group { display: flex; flex-direction: column; gap: 14px; }
-  #own .label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
-  #own .track { display: flex; align-items: flex-end; gap: 5px; height: 46px; }
-  #own .track .sub-bar { flex: 1; height: 100%; background: rgba(220,84,39,0.55); transform-origin: bottom; transform: scaleY(0); }
-  #own .track .arrow { font-size: 16px; color: var(--rust); padding-left: 4px; line-height: 1; }
-  #ownBar { width: 30px; height: 100%; background: var(--violet); transform-origin: bottom; transform: scaleY(0); }
-  #ownLine { flex: 1; height: 3px; background: rgba(205,185,246,0.45); transform-origin: left; transform: scaleX(0); }
-  #own .note { font-size: 13px; line-height: 1.5; }
-  #own .divider { height: 1px; background: rgba(243,239,231,0.15); }
+  #own .body { display: flex; flex-direction: column; gap: 26px; padding: 30px 24px 26px; }
+  #own .deed-title { display: flex; flex-direction: column; gap: 6px; }
+  #own .deed-title strong { font-family: var(--serif); font-weight: 400; font-size: 34px; line-height: 1.05; color: var(--paper); }
+  #own .deed-title span { font-size: 13px; line-height: 1.5; color: #9A90A6; }
+  #ownList { display: flex; flex-direction: column; border-bottom: 1px solid rgba(243,239,231,0.13); }
+  .deed-row { opacity: 0; display: flex; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid rgba(243,239,231,0.13); }
+  .deed-row i { width: 18px; height: 18px; flex: none; border: 1px solid var(--violet); background: rgba(108,60,224,0.28); display: flex; align-items: center; justify-content: center; font-size: 10px; font-style: normal; color: var(--violet-lt); }
+  .deed-row b { flex: 1; font-size: 14.5px; font-weight: 400; color: var(--paper); }
+  .deed-row em { font-size: 9px; font-style: normal; font-weight: 700; letter-spacing: 0.14em; color: #9A90A6; }
+  #ownStamp { opacity: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border: 1px solid rgba(205,185,246,0.45); background: rgba(108,60,224,0.14); }
+  #ownStamp span { font-size: 13.5px; line-height: 1.45; color: #C7BFD1; }
+  #ownStamp b { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; color: var(--violet-lt); white-space: nowrap; }
 
-  /* before / after */
-  #baf { padding-bottom: 140px; }
-  #baf .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 46px; }
-  #baf h2 { font-size: clamp(36px, 4.2vw, 62px); line-height: 0.98; max-width: 720px; }
-  #bafBox { position: relative; aspect-ratio: 16/9; overflow: hidden; user-select: none; border: 1px solid rgba(23,17,28,0.16); cursor: ew-resize; background: #D8CDB8; max-width: 1240px; margin: 0 auto; }
-  .baf-pane { position: absolute; inset: 0; padding: 5% 6%; display: flex; flex-direction: column; gap: 3%; }
-  #bafAfter { position: absolute; inset: 0; background: var(--ink); clip-path: inset(0 50% 0 0); }
-  #bafHandle { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); pointer-events: none; left: 50%; }
-  #bafHandle .knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: var(--violet); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 10px 30px rgba(23,17,28,0.35); }
-  .baf-stamp { position: absolute; bottom: 5%; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  /* cost comparison */
+  #cost { padding-bottom: 140px; }
+  #cost .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 46px; }
+  #cost h2 { font-size: clamp(36px, 4.2vw, 62px); line-height: 0.98; max-width: 780px; }
+  #cost .head p { font-size: 15.5px; line-height: 1.66; color: var(--ink-70); max-width: 400px; text-wrap: pretty; }
+  #costBox { border: 1px solid rgba(23,17,28,0.16); background: #EDE7DA; padding: 38px 34px 30px; }
+  #costBox .cap { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 46px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  #costBox .cap .r { letter-spacing: 0.14em; color: var(--mute); }
+  #costBox .bars { display: flex; flex-direction: column; gap: 40px; }
+  .cost-row { display: flex; flex-direction: column; gap: 14px; }
+  .cost-row .top { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .cost-row .who { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .cost-row .who small { font-size: 15px; font-weight: 400; color: var(--mute); }
+  .cost-row .amt { opacity: 0; font-family: var(--serif); font-size: clamp(34px, 3.6vw, 52px); line-height: 1; }
+  .cost-row .track { position: relative; height: 46px; background: rgba(23,17,28,0.07); }
+  .cost-row .track div { position: absolute; top: 0; bottom: 0; left: 0; transform-origin: left; transform: scaleX(0); }
+  #costNote { opacity: 0; margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(23,17,28,0.16); font-size: 16px; line-height: 1.6; color: var(--ink-70); text-wrap: pretty; }
+  #costNote strong { font-weight: 600; color: var(--ink); }
+  #costEnds { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(23,17,28,0.16); border: 1px solid rgba(23,17,28,0.16); margin-top: 34px; }
+  #costEnds .col { background: #EDE7DA; padding: 26px 24px; display: flex; flex-direction: column; gap: 8px; }
+  #costEnds .label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; }
+  #costEnds p { font-size: 15.5px; line-height: 1.6; color: var(--ink-70); }
+  #costWhy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(23,17,28,0.16); border: 1px solid rgba(23,17,28,0.16); border-top: none; }
+  #costWhy .col { background: var(--paper); padding: 34px 28px 38px; display: flex; flex-direction: column; gap: 14px; }
+  #costWhy .n { font-family: var(--serif); font-size: 38px; line-height: 0.9; color: #C9BFA9; }
+  #costWhy .col:nth-child(2) .n { color: var(--violet); }
+  #costWhy .col:nth-child(3) .n { color: var(--rust); }
+  #costWhy h3 { font-family: var(--serif); font-weight: 400; font-size: 25px; letter-spacing: -0.02em; }
+  #costWhy p { font-size: 14.5px; line-height: 1.62; color: var(--ink-70); text-wrap: pretty; }
+  #bundle { margin-top: 34px; background: var(--ink); color: var(--paper); padding: 40px 38px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 46px; align-items: center; }
+  #bundle h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; text-wrap: pretty; }
+  #bundle p { font-size: 15.5px; line-height: 1.66; color: #9A90A6; max-width: 560px; text-wrap: pretty; }
+  #bundleRows { display: flex; flex-direction: column; gap: 1px; background: rgba(243,239,231,0.16); border: 1px solid rgba(243,239,231,0.16); }
+  #bundleRows .row { background: var(--ink); padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13.5px; color: #C7BFD1; }
+  #bundleRows .row b { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--violet-lt); }
 
   /* features */
   #included { padding-bottom: 140px; }
@@ -204,9 +231,6 @@
   footer h5 { color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; margin: 0 0 24px; }
   footer .col { display: flex; flex-direction: column; gap: 15px; font-size: 14px; }
   footer .social { display: flex; gap: 22px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
-  footer form { display: flex; gap: 8px; }
-  footer input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(243,239,231,0.25); border-radius: 100px; padding: 13px 19px; color: var(--paper); font: inherit; font-size: 13px; outline: none; }
-  footer button { background: var(--violet-lt); color: var(--ink); border: none; border-radius: 100px; padding: 13px 22px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
   footer button:hover { background: var(--violet); color: var(--paper); }
   #footWord { font-family: var(--serif); font-size: clamp(60px, 9.5vw, 180px); line-height: 0.8; letter-spacing: -0.04em; color: #241B31; text-align: center; white-space: nowrap; }
   footer .legal { display: flex; justify-content: space-between; padding: 32px 0; font-size: 11.5px; letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
@@ -223,6 +247,8 @@
     #who .cols { grid-template-columns: 1fr; gap: 48px; }
     #result .cols { grid-template-columns: 1fr; gap: 40px; }
     #steps { grid-template-columns: repeat(2, 1fr); }
+    #costWhy { grid-template-columns: 1fr; }
+    #bundle { grid-template-columns: 1fr; gap: 32px; padding: 32px 26px; }
     .feature { grid-template-columns: 60px 1fr; gap: 24px; }
     .feature p { grid-column: 2; }
     footer .top { grid-template-columns: 1fr 1fr; }
@@ -230,11 +256,14 @@
   @media (max-width: 640px) {
     #steps { grid-template-columns: 1fr; }
     #compare { grid-template-columns: 1fr; }
+    #costEnds { grid-template-columns: 1fr; }
+    #costBox { padding: 28px 20px 24px; }
     footer .top { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-    [data-reveal], [data-hero] { opacity: 1 !important; }
+    [data-reveal], [data-hero], .deed-row, #ownStamp, .cost-row .amt, #costNote { opacity: 1 !important; }
+    .cost-row .track div { transform: scaleX(1) !important; }
   }
 </style>
 <link rel="canonical" href="https://organicreachseo.com/website-redesign/">
@@ -293,20 +322,24 @@
 
         <div id="own" data-hero>
           <div class="head">
-            <span>WHAT YOU ACTUALLY PAY FOR</span>
-            <span class="mo"><i></i>12 MONTHS</span>
+            <span>HANDED OVER AT LAUNCH</span>
+            <span class="mo"><i></i>IN YOUR NAME</span>
           </div>
           <div class="body">
-            <div class="group">
-              <span class="label" style="color:var(--rust)">SUBSCRIPTION BUILDER</span>
-              <div class="track" id="subTrack"><span class="arrow">→</span></div>
-              <span class="note" style="color:#9A90A6">Twelve payments in, you own nothing. Stop paying and the site goes dark.</span>
+            <div class="deed-title">
+              <strong>Everything that <em style="color:var(--violet-lt)">makes the site</em></strong>
+              <span>Not a login to someone else's platform. The actual assets, in your accounts.</span>
             </div>
-            <div class="divider"></div>
-            <div class="group">
-              <span class="label" style="color:var(--violet-lt)">BUILT WITH US</span>
-              <div class="track"><div id="ownBar"></div><div id="ownLine"></div></div>
-              <span class="note" style="color:#C7BFD1">One build. Then it's your asset — your domain, your hosting, indefinitely.</span>
+            <div id="ownList">
+              <div class="deed-row"><i>✳</i><b>Your domain</b><em>REGISTRAR ACCESS</em></div>
+              <div class="deed-row"><i>✳</i><b>Your hosting account</b><em>IN YOUR NAME</em></div>
+              <div class="deed-row"><i>✳</i><b>The site files and database</b><em>FULL EXPORT</em></div>
+              <div class="deed-row"><i>✳</i><b>Design, copy and images</b><em>OWNED OUTRIGHT</em></div>
+              <div class="deed-row"><i>✳</i><b>Analytics and search console</b><em>YOUR DATA</em></div>
+            </div>
+            <div id="ownStamp">
+              <span>No expiry date. No monthly fee to stay online.</span>
+              <b>YOURS ✳</b>
             </div>
           </div>
         </div>
@@ -314,12 +347,90 @@
     </div>
   </section>
 
+  <!-- (01) THE MATH OF OWNERSHIP -->
+  <section id="cost" data-screen-label="Own vs rent">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(01) — THE MATH OF OWNERSHIP</div>
+          <h2 class="display">Rent it forever, or <em style="color:var(--violet)">own it once.</em></h2>
+        </div>
+        <p>Subscription agencies charge $3,000–$4,000 every month, indefinitely. We charge once to build it — after that you're paying for hosting, plugins, and upkeep. Little else.</p>
+      </div>
 
+      <div id="costBox">
+        <div class="cap">
+          <span>WHAT A WEBSITE COSTS OVER 3 YEARS</span>
+          <span class="r">SAME SITE. SAME 36 MONTHS.</span>
+        </div>
+        <div class="bars">
+          <div class="cost-row">
+            <div class="top">
+              <span class="who">Subscription agency <small>— $3,500 every month, forever</small></span>
+              <span class="amt" id="costAmtSub" style="color:var(--rust)">$126,000</span>
+            </div>
+            <div class="track"><div id="costBarSub" style="right:0;background:var(--rust)"></div></div>
+          </div>
+          <div class="cost-row">
+            <div class="top">
+              <span class="who">Built with us <small>— one build, then hosting &amp; upkeep</small></span>
+              <span class="amt" id="costAmtOwn" style="color:var(--violet)">A fraction of it</span>
+            </div>
+            <div class="track"><div id="costBarOwn" style="width:12%;background:var(--violet)"></div></div>
+          </div>
+        </div>
+        <div id="costNote">By <strong>month two</strong>, a subscription agency has already billed more than your entire build costs — and they keep billing for another thirty-four.</div>
 
-  <!-- (01) BUILT TO CONVERT, BUILT TO KEEP -->
+        <div id="costEnds">
+          <div class="col">
+            <span class="label" style="color:var(--rust)">AT THE END OF IT</span>
+            <p>You still don't own the site. Stop paying and it goes dark — three years of spend, nothing to keep.</p>
+          </div>
+          <div class="col">
+            <span class="label" style="color:var(--violet)">AT THE END OF IT</span>
+            <p>The site is yours — domain, hosting, files. Your only running costs are hosting, plugins, and occasional maintenance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="costWhy">
+        <div class="col" data-reveal>
+          <span class="n">01</span>
+          <h3>You stop renting your own front door</h3>
+          <p>A subscription site is leased. Miss a payment and your business vanishes from the web. An owned site sits on your domain and your hosting — nobody can switch it off but you.</p>
+        </div>
+        <div class="col" data-reveal>
+          <span class="n">02</span>
+          <h3>The monthly bill drops to near nothing</h3>
+          <p>After launch you're covering hosting, a few plugin licences, and occasional maintenance. That's the running cost — not a four-figure retainer for the privilege of staying online.</p>
+        </div>
+        <div class="col" data-reveal>
+          <span class="n">03</span>
+          <h3>Every month after break-even is money kept</h3>
+          <p>By month two, a $3,500/mo agency has already spent more than your entire build. Year three, the gap is six figures — and only one of you owns something at the end of it.</p>
+        </div>
+      </div>
+
+      <div id="bundle" data-reveal>
+        <div>
+          <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:18px">ADD SEO — ALL-INCLUSIVE</div>
+          <h3>Take the site and the search work together, and it's one package — not two invoices.</h3>
+          <p>Agencies quoting $3,000–$4,000 a month typically bill the build and the SEO separately, on top of the platform fee. We bundle them at a rate built for small businesses — you own the site, and the traffic work compounds on an asset that's actually yours.</p>
+        </div>
+        <div id="bundleRows">
+          <div class="row"><span>Website build</span><b>ONE-TIME</b></div>
+          <div class="row"><span>Hosting, plugins, upkeep</span><b style="color:#C7BFD1">MINOR MONTHLY</b></div>
+          <div class="row"><span>SEO added on</span><b>BUNDLED RATE</b></div>
+          <div class="row"><span>Typical agency equivalent</span><b style="color:var(--rust)">$3–4K / MONTH</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (02) BUILT TO CONVERT, BUILT TO KEEP -->
   <section id="included" data-screen-label="What's included">
     <div class="wrap">
-      <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(01) — BUILT TO CONVERT, BUILT TO KEEP</div>
+      <div class="eyebrow" style="color:var(--violet);margin-bottom:20px">(02) — BUILT TO CONVERT, BUILT TO KEEP</div>
       <h2 class="display">Design, build, and ownership — <em style="color:var(--violet)">handled.</em></h2>
       <div style="display:flex;flex-direction:column">
         <div class="feature" data-reveal>
@@ -347,11 +458,11 @@
     </div>
   </section>
 
-  <!-- (02) WHO THIS IS FOR -->
+  <!-- (03) WHO THIS IS FOR -->
   <section id="who" data-screen-label="Who this is for">
     <div class="wrap cols">
       <div>
-        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(02) — WHO THIS IS FOR</div>
+        <div class="eyebrow" style="color:var(--violet-lt);margin-bottom:24px">(03) — WHO THIS IS FOR</div>
         <h2 class="display">Stuck on a website you don't <em style="color:var(--violet-lt)">actually own?</em></h2>
         <p class="lede" data-reveal>If your business runs on a subscription website builder — the kind where the moment you stop paying, your site stops existing — this is your alternative. A comparable, often better, result, without paying indefinitely just to stay visible.</p>
       </div>
@@ -375,10 +486,10 @@
     </div>
   </section>
 
-  <!-- (03) HOW IT WORKS -->
+  <!-- (04) HOW IT WORKS -->
   <section id="how" data-screen-label="How it works">
     <div class="wrap">
-      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(03) — HOW IT WORKS</div>
+      <div class="eyebrow" style="color:var(--rust);margin-bottom:20px">(04) — HOW IT WORKS</div>
       <h2 class="display">From audit to launch, <em style="color:var(--violet)">owned outright.</em></h2>
       <div id="steps">
         <div class="step" data-reveal><div class="n">01</div><h4>Free audit</h4><p>We review your current site and tell you exactly what's costing you conversions and rankings.</p></div>
@@ -389,11 +500,11 @@
     </div>
   </section>
 
-  <!-- (04) A RECENT RESULT -->
+  <!-- (05) A RECENT RESULT -->
   <section id="result" data-screen-label="Recent result">
     <div class="wrap cols">
       <div>
-        <div class="eyebrow" style="color:#7A7060;margin-bottom:24px">(04) — A RECENT RESULT</div>
+        <div class="eyebrow" style="color:#7A7060;margin-bottom:24px">(05) — A RECENT RESULT</div>
         <div id="resultName" data-reveal>Ranch Realty</div>
         <div class="stamp"><i></i>REBUILT, THEN GROWN WITH SEO</div>
       </div>
@@ -478,17 +589,18 @@
     if (g) {
       for (var i = 0; i < 12; i++) g.appendChild(document.createElement('div'));
     }
-    var track = $('#subTrack');
-    if (track) {
-      for (var j = 0; j < 12; j++) {
-        var b = document.createElement('div');
-        b.className = 'sub-bar';
-        track.insertBefore(b, track.lastElementChild);
-      }
-    }
   }
 
-
+  function initCostChart() {
+    var box = $('#costBox');
+    if (!box) return;
+    var tl = gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 76%', once: true } });
+    tl.to('#costBarSub', { scaleX: 1, duration: 1.5, ease: 'power2.inOut' })
+      .to('#costAmtSub', { opacity: 1, duration: 0.5 }, 1.1)
+      .to('#costBarOwn', { scaleX: 1, duration: 0.55, ease: 'expo.out' }, 1.35)
+      .to('#costAmtOwn', { opacity: 1, duration: 0.5 }, 1.6)
+      .to('#costNote', { opacity: 1, duration: 0.6 }, 1.85);
+  }
 
   function initLenis() {
     if (!window.Lenis) return;
@@ -516,9 +628,8 @@
   }
 
   function runOwnership() {
-    gsap.to('.sub-bar', { scaleY: 1, duration: 0.4, ease: 'power2.out', stagger: 0.07 });
-    gsap.to('#ownBar', { scaleY: 1, duration: 0.6, ease: 'expo.out', delay: 1.1 });
-    gsap.to('#ownLine', { scaleX: 1, duration: 1, ease: 'power2.out', delay: 1.4 });
+    gsap.to('.deed-row', { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1, startAt: { x: -12 } });
+    gsap.to('#ownStamp', { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 0.75 });
   }
 
   function reveals() {
@@ -570,6 +681,7 @@
     gsap.registerPlugin(ScrollTrigger);
     buildStatic();
     initMobileMenu();
+    initCostChart();
     initLenis();
     initMagnetic();
     heroIntro();
@@ -583,4 +695,3 @@
 </script>
 </body>
 </html>
-
