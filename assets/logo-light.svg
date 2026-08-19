@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" fill="none">
+  <!-- Magnifying glass body -->
+  <circle cx="38" cy="40" r="24" stroke="#F3EFE7" stroke-width="5" fill="none"/>
+  <!-- Magnifying glass handle -->
+  <line x1="55" y1="57" x2="68" y2="75" stroke="#F3EFE7" stroke-width="5" stroke-linecap="round"/>
+  <!-- Trend line inside magnifying glass -->
+  <polyline points="22,52 32,42 40,48 52,30" stroke="#CDB9F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arrow head on trend line -->
+  <polyline points="46,28 53,29 51,36" stroke="#CDB9F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Text: OrganicReachSEO -->
+  <text x="90" y="60" font-family="'Instrument Serif', Georgia, serif" font-size="50" font-weight="400" fill="#F3EFE7" letter-spacing="-1">OrganicReachSEO</text>
+</svg>
