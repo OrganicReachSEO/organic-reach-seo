@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Magnifying glass circle -->
+  <circle cx="26" cy="26" r="16" stroke="#17111C" stroke-width="3.5" fill="none"/>
+  <!-- Magnifying glass handle -->
+  <rect x="36" y="38" width="3.5" height="16" rx="1.75" fill="#17111C" transform="rotate(-45 38 38)"/>
+  <!-- Trend arrow -->
+  <polyline points="14,38 20,30 26,34 38,18" stroke="#6C3CE0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polyline points="32,17 39,17 38,24" stroke="#6C3CE0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
