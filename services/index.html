@@ -139,15 +139,37 @@
   .bars div { flex: 1; transform-origin: bottom; animation: barLoop 3s ease-in-out infinite; }
   .bars .cap { color: #9A90A6; }
 
-  .browser { background: var(--paper-3); padding: 32px 36px; display: flex; flex-direction: column; gap: 18px; }
-  .browser .chrome { display: flex; align-items: center; gap: 8px; }
-  .browser .chrome i { width: 8px; height: 8px; border-radius: 50%; background: #C9BFA9; }
-  .browser .bar { flex: 1; height: 22px; border-radius: 100px; background: var(--paper); margin-left: 10px; }
-  .browser .body { display: flex; gap: 16px; flex: 1; min-height: 0; }
-  .browser .hero-block { flex: 1.4; background: var(--paper); border: 1px solid rgba(23,17,28,0.1); }
-  .browser .lines { flex: 1; display: flex; flex-direction: column; gap: 11px; }
-  .browser .lines div { height: 12px; background: rgba(23,17,28,0.12); }
-  .browser .pill { margin-top: auto; align-self: flex-start; font-size: 9.5px; font-weight: 700; letter-spacing: 0.13em; color: var(--paper); background: var(--ink); border-radius: 100px; padding: 7px 14px; }
+  .own { container-type: inline-size; background: #5A2FD0; }
+  .own .glow { position: absolute; inset: 0; background: radial-gradient(80% 70% at 78% 8%, rgba(205,185,246,0.45) 0%, rgba(205,185,246,0) 60%), radial-gradient(90% 80% at 8% 106%, rgba(23,17,28,0.5) 0%, rgba(23,17,28,0) 62%); pointer-events: none; }
+  .own .space { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 74% 34%; }
+  .own .space > .layers { position: absolute; inset: 0; transform-style: preserve-3d; }
+  .own .card { position: absolute; transform-style: preserve-3d; opacity: 0; }
+  .own .card > .face { width: 100%; height: 100%; box-shadow: 0 3cqw 5cqw -2cqw rgba(23,17,28,0.4); }
+  .own .card.c0 { left: 54cqw; top: 5cqw; width: 42cqw; height: 29cqw; }
+  .own .card.c0 > .face { background: rgba(243,239,231,0.16); border: 1px solid rgba(243,239,231,0.3); transform: rotateX(9deg) rotateY(-20deg) translateZ(-14cqw); }
+  .own .card.c1 { left: 47cqw; top: 10cqw; width: 46cqw; height: 32cqw; }
+  .own .card.c1 > .face { background: rgba(243,239,231,0.4); border: 1px solid rgba(243,239,231,0.45); transform: rotateX(9deg) rotateY(-20deg) translateZ(-7cqw); }
+  .own .card.c2 { left: 37cqw; top: 15cqw; width: 57cqw; height: 39cqw; }
+  .own .card.c2 > .face { background: #F3EFE7; border: 1px solid rgba(23,17,28,0.2); transform: rotateX(9deg) rotateY(-20deg); box-shadow: 0 5cqw 7cqw -2.5cqw rgba(23,17,28,0.55); overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; }
+  .own .mock-nav { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 2cqw; padding: 1.5cqw 2.2cqw; border-bottom: 1px solid rgba(23,17,28,0.12); }
+  .own .mock-nav b { font-family: var(--serif); font-weight: 400; font-size: 2cqw; color: var(--ink); }
+  .own .mock-nav .links { display: flex; gap: 1.2cqw; }
+  .own .mock-nav .links i { width: 3cqw; height: 0.5cqw; background: rgba(23,17,28,0.25); }
+  .own .mock-nav .links i:nth-child(2) { width: 2.4cqw; }
+  .own .mock-nav .links i:nth-child(3) { width: 3.4cqw; background: var(--rust); }
+  .own .mock-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 1.6cqw; padding: 2.2cqw; }
+  .own .mock-body h4 { font-family: var(--serif); font-weight: 400; font-size: 3.9cqw; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin: 0; }
+  .own .mock-body .cta { align-self: flex-start; font-size: 1.2cqw; font-weight: 700; letter-spacing: 0.14em; color: var(--paper); background: var(--ink); border-radius: 100px; padding: 1cqw 2cqw; }
+  .own .mock-body .tiles { display: flex; gap: 1.4cqw; margin-top: 0.6cqw; }
+  .own .mock-body .tiles div { flex: 1; height: 8cqw; background: var(--paper-3); }
+  .own .mock-body .tiles div:nth-child(2) { background: var(--violet-lt); }
+  .own .mock-body .revs { display: flex; align-items: center; gap: 1.2cqw; }
+  .own .mock-body .revs span:first-child { font-size: 1.6cqw; letter-spacing: 0.2cqw; color: var(--rust); }
+  .own .mock-body .revs span:last-child { font-size: 1.2cqw; color: var(--ink-70); }
+  .own .tag { position: absolute; z-index: 5; top: 4.6cqw; right: 5cqw; font-size: 1.6cqw; font-weight: 700; letter-spacing: 0.18em; color: rgba(243,239,231,0.5); }
+  .own .claim { position: absolute; z-index: 5; bottom: 4.4cqw; left: 5cqw; display: flex; flex-direction: column; gap: 1cqw; }
+  .own .claim b { font-family: var(--serif); font-weight: 400; font-size: 5.6cqw; line-height: 0.95; color: var(--paper); }
+  .own .claim span { font-size: 1.5cqw; font-weight: 700; letter-spacing: 0.16em; color: var(--violet-lt); }
 
   .rating { background: var(--paper-2); padding: 44px 46px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
   .rating .score { display: flex; align-items: baseline; gap: 18px; }
@@ -294,16 +316,32 @@
         <p>A site you own outright. No monthly fee just to stay online, no page-builder holding your business hostage — a fast, modern, SEO-ready website that's actually yours.</p>
         <a href="../website-redesign/" class="arrow-link">EXPLORE WEBSITE DEVELOPMENT<span>→</span></a>
       </div>
-      <div class="svc-viz browser" style="order:2" data-reveal>
-        <div class="chrome"><i></i><i></i><i></i><span class="bar"></span></div>
-        <div class="body">
-          <div class="hero-block"></div>
-          <div class="lines">
-            <div></div>
-            <div style="width:78%"></div>
-            <div style="width:54%"></div>
-            <div class="pill">YOURS TO KEEP</div>
+      <div class="svc-viz own" style="order:2" data-reveal>
+        <div class="glow"></div>
+        <div class="space">
+          <div class="layers">
+            <div class="card c0"><div class="face"></div></div>
+            <div class="card c1"><div class="face"></div></div>
+            <div class="card c2">
+              <div class="face">
+                <div class="mock-nav">
+                  <b>Northside Dental</b>
+                  <span class="links"><i></i><i></i><i></i></span>
+                </div>
+                <div class="mock-body">
+                  <h4>Same-day<br>appointments<br>in Fairview.</h4>
+                  <span class="cta">BOOK NOW</span>
+                  <div class="tiles"><div></div><div></div><div></div></div>
+                  <div class="revs"><span>★★★★★</span><span>412 reviews</span></div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <span class="tag">(S.02)</span>
+        <div class="claim">
+          <b>Handed over,<br>not rented.</b>
+          <span>DOMAIN · CODE · HOSTING</span>
         </div>
       </div>
     </div>
@@ -532,6 +570,22 @@
     });
   }
 
+  function pageStack() {
+    var cards = [$('.own .card.c0'), $('.own .card.c1'), $('.own .card.c2')];
+    if (!cards[0] || !cards[1] || !cards[2]) return;
+    function play() {
+      var tl = gsap.timeline();
+      tl.fromTo(cards[2], { opacity: 0, x: 26, y: 46 }, { opacity: 1, x: 0, y: 0, duration: 0.85, ease: 'power3.out' }, 0);
+      tl.fromTo(cards[1], { opacity: 0, x: -22, y: 34 }, { opacity: 1, x: 0, y: 0, duration: 0.8, ease: 'power3.out' }, 0.14);
+      tl.fromTo(cards[0], { opacity: 0, x: -34, y: 26 }, { opacity: 1, x: 0, y: 0, duration: 0.8, ease: 'power3.out' }, 0.26);
+      tl.add(function () {
+        [{ el: cards[2], y: -16, d: 5.2 }, { el: cards[1], y: -10, d: 6.1 }, { el: cards[0], y: -6, d: 7.0 }]
+          .forEach(function (c, i) { gsap.to(c.el, { y: c.y, duration: c.d, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.35 }); });
+      });
+    }
+    ScrollTrigger.create({ trigger: cards[2], start: 'top 92%', once: true, onEnter: play });
+  }
+
   function boot() {
     if (!window.gsap) { setTimeout(boot, 120); return; }
     gsap.registerPlugin(ScrollTrigger);
@@ -540,6 +594,7 @@
     initMagnetic();
     heroIntro();
     reveals();
+    pageStack();
     meter();
     spark();
     footerDrift();
