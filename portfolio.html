@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4LRCN6X6TD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4LRCN6X6TD');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio — OrganicReachSEO</title>
+<meta name="description" content="Every site here was designed, built, and shipped by OrganicReachSEO — then grown with search. Preview client work across desktop, tablet, and mobile.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=3">
+<link rel="canonical" href="https://organicreachseo.com/portfolio/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17111C; --ink-2:#1E1626; --ink-3:#241A2E; --well:#0E0A12; --chrome:#181121;
+    --paper:#F3EFE7; --paper-2:#EDE7DA; --paper-ink:#574F42;
+    --violet:#CDB9F6; --orange:#DC5427;
+    --muted:#8B8194; --muted-2:#9A90A6; --body:#C7BFD1;
+    --line:rgba(243,239,231,0.12); --line-soft:rgba(243,239,231,0.09);
+    --gut:40px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--ink);color:var(--paper);font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--paper);text-decoration:none}
+  a:hover{color:var(--violet)}
+  button{font-family:inherit}
+  .pad{padding-left:var(--gut);padding-right:var(--gut)}
+  .micro{font-size:9.5px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
+  .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.05em}
+
+  /* nav */
+  .nav{position:fixed;inset:0 0 auto;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:32px;
+       padding:20px var(--gut);border-bottom:1px solid rgba(243,239,231,.1);
+       background:rgba(23,17,28,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .nav img{height:26px;width:auto;display:block}
+  .nav nav{display:flex;align-items:center;gap:34px}
+  .nav nav a{font-size:10px;font-weight:700;letter-spacing:.18em;transition:color .25s ease}
+  .nav .on{color:var(--violet)}
+  .nav .cta{color:var(--violet);border-bottom:1px solid rgba(205,185,246,.4);padding-bottom:3px}
+
+  /* header */
+  .head{position:relative;padding:150px var(--gut) 0}
+  .rail{position:absolute;top:0;bottom:0;left:var(--gut);width:1px;pointer-events:none;
+        background:linear-gradient(180deg,rgba(205,185,246,0) 0%,rgba(205,185,246,.42) 18%,rgba(205,185,246,.42) 82%,rgba(205,185,246,0) 100%)}
+  .eyebrow{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+  .tick{position:relative}
+  .tick::before{content:'';position:absolute;left:-26px;top:50%;width:26px;height:1px;background:rgba(205,185,246,.42)}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--orange);animation:blink 2.4s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  h1{margin:clamp(26px,4vh,52px) 0 0;font-size:clamp(52px,10.5vw,176px);line-height:.84}
+  h1 span{display:block;margin-left:-.03em}
+  h1 em{font-style:italic;color:var(--orange)}
+  .headfoot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:end;
+            margin-top:clamp(34px,5vh,64px);padding-top:24px;border-top:1px solid var(--line)}
+  .lede{position:relative;margin:0;font-size:16px;line-height:1.55;color:var(--body);max-width:46ch;text-wrap:pretty}
+  .lede::before{content:'';position:absolute;left:-26px;top:.72em;width:26px;height:1px;background:rgba(205,185,246,.42)}
+  .facts{display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--muted-2)}
+  .facts span{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .facts span:not(:last-child){padding-bottom:8px;border-bottom:1px solid var(--line-soft)}
+  .facts b{font-weight:400;color:var(--paper)}
+
+  /* stage */
+  .index{padding:clamp(70px,9vh,130px) var(--gut) 0}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start}
+  .stagebar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;
+            padding-bottom:18px;border-bottom:1px solid rgba(243,239,231,.14)}
+  .stagebar h2{margin:0;font-size:clamp(30px,3.4vw,48px);line-height:1;letter-spacing:-.03em}
+  .now{display:flex;flex-direction:column;gap:7px}
+  .devs{display:flex;align-items:center;gap:6px;padding:5px;border:1px solid rgba(243,239,231,.16);border-radius:100px}
+  .devs button{padding:9px 17px;border:0;border-radius:100px;background:transparent;color:var(--muted-2);
+               font-size:10px;font-weight:700;letter-spacing:.16em;cursor:pointer;transition:background .3s,color .3s}
+  .devs button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+  .stage{position:relative;display:flex;align-items:flex-start;justify-content:center;
+         height:clamp(520px,74vh,780px);margin-top:34px;overflow:hidden}
+  .stage::before{content:'';position:absolute;inset:0;pointer-events:none;
+         background:radial-gradient(120% 90% at 50% 0%,rgba(205,185,246,.09) 0%,rgba(205,185,246,0) 62%)}
+  .frame{position:relative;flex-shrink:0;transform-origin:top center;overflow:hidden;background:var(--well);
+         border:1px solid rgba(243,239,231,.2);border-radius:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.75);
+         transition:transform .62s cubic-bezier(.16,1,.3,1),border-radius .3s}
+  .frame[data-dev="mobile"]{border-radius:34px}
+  .chrome{display:flex;align-items:center;gap:10px;height:38px;padding:0 14px;background:var(--chrome);
+          border-bottom:1px solid var(--line)}
+  .frame[data-dev="mobile"] .chrome{display:none}
+  .lights{display:flex;gap:6px;flex-shrink:0}
+  .lights i{width:9px;height:9px;border-radius:50%;background:#3A3241}
+  .url{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 12px;
+       border-radius:100px;background:rgba(243,239,231,.06);font-size:11px;color:var(--muted-2)}
+  .viewport{position:relative;background:var(--paper);overflow:hidden;transition:opacity .5s}
+  .viewport iframe{display:block;width:100%;height:100%;border:0}
+  .slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+        width:100%;height:100%;padding:40px;background:var(--paper-2);color:var(--paper-ink);text-align:center}
+  .slot .micro{color:var(--paper-ink)}
+  .slot h3{margin:0;font-size:clamp(26px,3vw,42px);line-height:1.06;letter-spacing:-.03em;color:var(--ink);max-width:22ch}
+  .slot p{margin:0;font-size:13px;line-height:1.5;max-width:34ch}
+
+  /* readout */
+  .meta{position:sticky;top:110px;display:flex;flex-direction:column;padding:26px;
+        border:1px solid rgba(243,239,231,.14);border-radius:4px;background:rgba(243,239,231,.03)}
+  .meta > .micro{padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .row{display:flex;flex-direction:column;gap:5px;padding:15px 0}
+  .row:not(:last-of-type){border-bottom:1px solid var(--line-soft)}
+  .row k{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted)}
+  .row v{font-size:15px;line-height:1.45;color:var(--paper);text-wrap:pretty}
+  .row v.accent{color:var(--violet)}
+  .open{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;
+        padding:15px 20px;border-radius:100px;background:var(--violet);color:var(--ink);
+        font-size:12px;font-weight:700;letter-spacing:.1em;transition:background .25s ease, color .25s ease}
+  .open:hover{background:var(--paper);color:var(--ink)}
+  .open.off{background:transparent;color:var(--muted-2);border:1px dashed rgba(243,239,231,.28);cursor:default}
+
+  /* grid */
+  .all{padding:clamp(70px,9vh,120px) var(--gut) 0}
+  .allbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:18px;
+          border-bottom:1px solid rgba(243,239,231,.14)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;margin-top:1px;
+        background:var(--line)}
+  .card{display:flex;flex-direction:column;align-items:stretch;padding:0;border:0;background:var(--ink);
+        color:var(--paper);text-align:left;cursor:pointer;transition:background .35s,opacity .8s,transform .8s}
+  .card:hover{background:var(--ink-2)}
+  .card[aria-current="true"]{background:var(--ink-3)}
+  .card.pre{opacity:0;transform:translateY(34px)}
+  .shot{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--well);
+        border-bottom:1px solid rgba(243,239,231,.1)}
+  .wire{position:absolute;inset:26px 26px auto;display:flex;flex-direction:column;gap:9px}
+  .wire i{display:block;border-radius:2px}
+  .wire .bar{height:14px;border-radius:100px;background:rgba(243,239,231,.07)}
+  .wire .t1{width:78%;height:22px;background:rgba(205,185,246,.26)}
+  .wire .t2{width:52%;height:22px;background:rgba(205,185,246,.14)}
+  .wire .cols{display:flex;gap:9px;margin-top:8px}
+  .wire .cols i{flex:1;height:44px;background:rgba(243,239,231,.06)}
+  .tag{position:absolute;bottom:16px;left:26px;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+  .card[aria-current="true"] .tag{color:var(--violet)}
+  .cardbody{display:flex;flex-direction:column;gap:9px;padding:22px 26px 26px}
+  .cardtop{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+  .cardtop h3{margin:0;font-size:26px;line-height:1.05;letter-spacing:-.03em}
+  .cardtop span{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted);flex-shrink:0}
+  .sector{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted)}
+  .result{font-size:13.5px;line-height:1.5;color:var(--body);text-wrap:pretty}
+
+  /* cta */
+  .cta{margin-top:clamp(80px,11vh,150px);padding:clamp(70px,9vh,120px) var(--gut);background:var(--violet);color:var(--ink)}
+  .cta .micro{color:#4B3F5C}
+  .cta h2{margin:26px 0 44px;font-size:clamp(44px,8.4vw,140px);line-height:.86}
+  .ctafoot{display:flex;flex-wrap:wrap;gap:36px;align-items:end;justify-content:space-between;
+           padding-top:30px;border-top:1px solid rgba(23,17,28,.25)}
+  .ctafoot a{display:inline-flex;align-items:center;gap:12px;padding:20px 40px;border-radius:100px;
+             background:var(--ink);color:var(--paper);font-size:15px;font-weight:600;transition:background .25s ease, color .25s ease}
+  .ctafoot a:hover{background:var(--orange);color:var(--paper)}
+  .ctafoot div{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3C3348}
+
+  @media (max-width:1100px){
+    .layout{grid-template-columns:minmax(0,1fr);gap:40px}
+    .meta{position:static}
+  }
+  @media (max-width:900px){
+    .grid{grid-template-columns:minmax(0,1fr)}
+    .headfoot{grid-template-columns:minmax(0,1fr);gap:24px}
+    .nav nav a:not(.cta){display:none}
+  }
+  @media (max-width:640px){
+    :root{--gut:20px}
+    .stage{height:460px}
+    .tick::before,.lede::before{left:-13px;width:13px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .card,.frame,.viewport{transition:none}
+    .card.pre{opacity:1;transform:none}
+    .dot{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html"><img src="assets/logo-light.svg" alt="OrganicReachSEO"></a>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="services.html">SERVICES</a>
+    <a href="#index" class="on">WORK</a>
+    <a href="contact.html" class="cta">BOOK A CALL ↗</a>
+  </nav>
+</header>
+
+<main>
+  <section class="head">
+    <div class="rail" aria-hidden="true"></div>
+    <div class="eyebrow micro">
+      <span class="tick">SELECTED WORK</span>
+      <span style="display:flex;align-items:center;gap:9px"><span class="dot"></span>DESIGNED &amp; DEVELOPED IN-HOUSE</span>
+    </div>
+    <h1 class="serif"><span>Sites we own</span><span><em>the</em> outcome of.</span></h1>
+    <div class="headfoot">
+      <p class="lede">Every site here was designed, built, and shipped by us — then grown with search. Open any one of them below and check it at desktop, tablet, or phone width.</p>
+      <div class="facts">
+        <span>Projects shown <b id="total">05</b></span>
+        <span>Built responsive-first <b>Every one</b></span>
+        <span>Ownership <b>Client keeps it</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="index pad" id="index">
+    <div class="layout">
+      <div>
+        <div class="stagebar">
+          <div class="now">
+            <span class="micro">NOW VIEWING — <span id="activeNum">01</span></span>
+            <h2 class="serif" id="activeName">—</h2>
+          </div>
+          <div class="devs" role="group" aria-label="Preview width">
+            <button type="button" data-dev="desktop" aria-pressed="true">DESKTOP</button>
+            <button type="button" data-dev="tablet" aria-pressed="false">TABLET</button>
+            <button type="button" data-dev="mobile" aria-pressed="false">PHONE</button>
+          </div>
+        </div>
+
+        <div class="stage" id="stage">
+          <div class="frame" id="frame" data-dev="desktop">
+            <div class="chrome">
+              <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="url" id="chromeUrl">—</span>
+            </div>
+            <div class="viewport" id="viewport"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="meta">
+        <span class="micro">PROJECT READOUT</span>
+        <div class="row"><k>CLIENT</k><v id="mClient">—</v></div>
+        <div class="row"><k>SECTOR</k><v id="mSector">—</v></div>
+        <div class="row"><k>OUTCOME</k><v class="accent" id="mResult">—</v></div>
+        <div class="row"><k>VIEWING AT</k><v id="mDevice">Desktop · 1440px</v></div>
+        <a class="open" id="mOpen" href="#index">OPEN LIVE SITE<span>↗</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="all pad">
+    <div class="allbar micro"><span>ALL PROJECTS</span><span>SELECT TO PREVIEW</span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="cta pad" id="cta">
+    <span class="micro">YOUR SITE, NEXT</span>
+    <h2 class="serif">Let's build one you keep.</h2>
+    <div class="ctafoot">
+      <a href="contact.html">Book a 30-min call <span>↗</span></a>
+      <div><span>info@organicreachseo.com</span><span>Scottsdale, Arizona</span></div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ── EDIT HERE ───────────────────────────────────────────────────────────────
+   Add a project per entry. `src` is the live URL loaded in the frame — leave
+   it empty ('') and the slot renders the "add a URL" placeholder instead.
+   Note: sites sending X-Frame-Options / frame-ancestors cannot be embedded;
+   those need a screenshot fallback (swap the iframe for an <img>).
+   ────────────────────────────────────────────────────────────────────────── */
+var PROJECTS = [
+  { name:'Ranch Realty',  sector:'Real estate · Scottsdale, AZ', result:'Rebuilt from the ground up, now the foundation for ongoing search growth.', url:'ranchrealty.com', src:'https://ranchrealty.com', tag:'LIVE SITE' },
+  { name:'Project Two',   sector:'Sector · City, ST', result:'One-line outcome goes here — what the rebuild actually changed for them.', url:'add-a-url.com', src:'', tag:'PLACEHOLDER' },
+  { name:'Project Three', sector:'Sector · City, ST', result:'One-line outcome goes here — what the rebuild actually changed for them.', url:'add-a-url.com', src:'', tag:'PLACEHOLDER' },
+  { name:'Project Four',  sector:'Sector · City, ST', result:'One-line outcome goes here — what the rebuild actually changed for them.', url:'add-a-url.com', src:'', tag:'PLACEHOLDER' },
+  { name:'Project Five',  sector:'Sector · City, ST', result:'One-line outcome goes here — what the rebuild actually changed for them.', url:'add-a-url.com', src:'', tag:'PLACEHOLDER' }
+];
+
+var DEVICES = {
+  desktop:{ w:1440, h:900,  label:'Desktop · 1440px', chrome:true  },
+  tablet: { w:834,  h:1024, label:'Tablet · 834px',   chrome:true  },
+  mobile: { w:390,  h:780,  label:'Phone · 390px',    chrome:false }
+};
+
+var $ = function (s) { return document.querySelector(s); };
+var stage = $('#stage'), frame = $('#frame'), viewport = $('#viewport');
+var active = 0, device = 'desktop';
+var pad = function (i) { return String(i + 1).padStart(2, '0'); };
+
+$('#total').textContent = pad(PROJECTS.length - 1);
+
+/* grid */
+var grid = $('#grid');
+PROJECTS.forEach(function (p, i) {
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'card pre';
+  b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+  b.innerHTML =
+    '<span class="shot"><span class="wire" aria-hidden="true">' +
+      '<i class="bar"></i><i class="t1"></i><i class="t2"></i>' +
+      '<span class="cols"><i></i><i></i><i></i></span>' +
+    '</span><span class="tag"></span></span>' +
+    '<span class="cardbody"><span class="cardtop"><h3 class="serif"></h3><span></span></span>' +
+    '<span class="sector"></span><span class="result"></span></span>';
+  b.querySelector('.tag').textContent = p.tag;
+  b.querySelector('h3').textContent = p.name;
+  b.querySelector('.cardtop span').textContent = pad(i);
+  b.querySelector('.sector').textContent = p.sector;
+  b.querySelector('.result').textContent = p.result;
+  b.addEventListener('click', function () { select(i); });
+  grid.appendChild(b);
+});
+var cards = Array.prototype.slice.call(grid.children);
+
+function select(i) {
+  if (i === active) return;
+  active = i;
+  viewport.style.opacity = '.25';
+  setTimeout(function () { viewport.style.opacity = '1'; }, 60);
+  paint();
+}
+
+function setDevice(key) {
+  device = key;
+  paint();
+}
+
+function paint() {
+  var p = PROJECTS[active], d = DEVICES[device];
+
+  frame.setAttribute('data-dev', device);
+  frame.style.width = d.w + 'px';
+  viewport.style.width = d.w + 'px';
+  viewport.style.height = d.h + 'px';
+
+  $('#chromeUrl').textContent = p.url;
+  $('#activeNum').textContent = pad(active);
+  $('#activeName').textContent = p.name;
+  $('#mClient').textContent = p.name;
+  $('#mSector').textContent = p.sector;
+  $('#mResult').textContent = p.result;
+  $('#mDevice').textContent = d.label;
+
+  var open = $('#mOpen');
+  if (p.src) {
+    open.className = 'open';
+    open.href = p.src;
+    open.target = '_blank';
+    open.rel = 'noopener';
+    open.innerHTML = 'OPEN LIVE SITE<span>↗</span>';
+  } else {
+    open.className = 'open off';
+    open.removeAttribute('href');
+    open.removeAttribute('target');
+    open.innerHTML = 'URL NOT SET<span>—</span>';
+  }
+
+  /* rebuild the viewport only when the project changes, not on device switch */
+  if (viewport.getAttribute('data-for') !== String(active)) {
+    viewport.setAttribute('data-for', String(active));
+    if (p.src) {
+      var f = document.createElement('iframe');
+      f.src = p.src;
+      f.title = p.name;
+      f.loading = 'lazy';
+      f.referrerPolicy = 'no-referrer';
+      viewport.replaceChildren(f);
+    } else {
+      var s = document.createElement('div');
+      s.className = 'slot';
+      s.innerHTML =
+        '<span class="micro">SLOT OPEN</span>' +
+        '<h3 class="serif">Drop this project\u2019s live URL in and it loads right here.</h3>' +
+        '<p>Desktop, tablet, and phone widths all render the real site — no screenshots to keep up to date.</p>';
+      viewport.replaceChildren(s);
+    }
+  }
+
+  document.querySelectorAll('.devs button').forEach(function (b) {
+    b.setAttribute('aria-pressed', b.getAttribute('data-dev') === device ? 'true' : 'false');
+  });
+  cards.forEach(function (c, i) {
+    c.setAttribute('aria-current', i === active ? 'true' : 'false');
+  });
+
+  fit();
+}
+
+/* scale the real-width frame down to fit the stage */
+function fit() {
+  var d = DEVICES[device];
+  var fh = d.h + (d.chrome ? 38 : 0);
+  var k = Math.min((stage.clientWidth - 24) / d.w, (stage.clientHeight - 24) / fh, 1);
+  frame.style.transform = 'scale(' + k + ')';
+}
+
+document.querySelectorAll('.devs button').forEach(function (b) {
+  b.addEventListener('click', function () { setDevice(b.getAttribute('data-dev')); });
+});
+addEventListener('resize', fit);
+
+/* reveal cards on scroll */
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = cards.indexOf(e.target);
+      e.target.style.transitionDelay = (i % 3) * 0.07 + 's';
+      e.target.classList.remove('pre');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  cards.forEach(function (c) { io.observe(c); });
+} else {
+  cards.forEach(function (c) { c.classList.remove('pre'); });
+}
+
+paint();
+</script>
+</body>
+</html>

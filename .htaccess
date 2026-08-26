@@ -7,6 +7,7 @@ RewriteRule ^seo\.html$ /seo/ [R=301,L]
 RewriteRule ^services\.html$ /services/ [R=301,L]
 RewriteRule ^website-redesign\.html$ /website-redesign/ [R=301,L]
 RewriteRule ^reputation-management\.html$ /reputation-management/ [R=301,L]
+RewriteRule ^portfolio\.html$ /portfolio/ [R=301,L]
 
 # 301 Redirect legacy GitHub Pages subpath if indexed
 RewriteRule ^organic-reach-seo/(.*)$ /$1 [R=301,L]
