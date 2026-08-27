@@ -131,6 +131,10 @@
   .card.pre{opacity:0;transform:translateY(28px)}
   .shot{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--well);
         border-bottom:1px solid rgba(243,239,231,.1)}
+  .shot iframe{position:absolute;top:0;left:0;width:400%;height:400%;transform:scale(0.25);transform-origin:top left;
+               border:0;pointer-events:none;background:#fff;opacity:.88;transition:opacity .3s ease,transform .3s ease}
+  .card:hover .shot iframe{opacity:1;transform:scale(0.255)}
+  .card[aria-current="true"] .shot iframe{opacity:1}
   .wire{position:absolute;inset:22px 22px auto;display:flex;flex-direction:column;gap:8px}
   .wire i{display:block;border-radius:2px}
   .wire .bar{height:12px;border-radius:100px;background:rgba(243,239,231,.07)}
@@ -138,7 +142,8 @@
   .wire .t2{width:52%;height:18px;background:rgba(205,185,246,.12)}
   .wire .cols{display:flex;gap:8px;margin-top:6px}
   .wire .cols i{flex:1;height:36px;background:rgba(243,239,231,.06)}
-  .tag{position:absolute;bottom:14px;left:22px;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+  .tag{position:absolute;bottom:14px;left:22px;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--muted);
+       z-index:2;background:rgba(23,17,28,.82);backdrop-filter:blur(6px);padding:3px 8px;border-radius:4px}
   .card[aria-current="true"] .tag{color:var(--violet)}
   .cardbody{display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px}
   .cardtop{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
@@ -328,11 +333,16 @@ PROJECTS.forEach(function (p, i) {
   b.type = 'button';
   b.className = 'card pre';
   b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+
+  var shotInner = p.src 
+    ? '<iframe src="' + p.src + '" loading="lazy" tabindex="-1" aria-hidden="true" title="' + p.name + '"></iframe>'
+    : '<span class="wire" aria-hidden="true"><i class="bar"></i><i class="t1"></i><i class="t2"></i><span class="cols"><i></i><i></i><i></i></span></span>';
+
   b.innerHTML =
-    '<span class="shot"><span class="wire" aria-hidden="true">' +
-      '<i class="bar"></i><i class="t1"></i><i class="t2"></i>' +
-      '<span class="cols"><i></i><i></i><i></i></span>' +
-    '</span><span class="tag"></span></span>' +
+    '<span class="shot">' +
+      shotInner +
+      '<span class="tag"></span>' +
+    '</span>' +
     '<span class="cardbody"><span class="cardtop"><h3 class="serif"></h3><span></span></span>' +
     '<span class="sector"></span><span class="result"></span></span>';
   b.querySelector('.tag').textContent = p.tag;
