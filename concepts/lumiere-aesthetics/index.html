@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumière Medical Aesthetics | Scottsdale & Paradise Valley</title>
+<meta name="description" content="Scottsdale's premier physician-led medical aesthetics and regenerative longevity clinic. Bespoke facial contouring, advanced lasers, and undetectable results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0A0E;
+    --card-bg: #141117;
+    --card-hover: #1A1720;
+    --paper: #F6F3EE;
+    --champagne: #D4AF37;
+    --rose-gold: #D8B5A2;
+    --muted: #8E8695;
+    --line: rgba(246, 243, 238, 0.1);
+    --gut: clamp(20px, 5vw, 64px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px var(--gut);
+    background: rgba(12, 10, 14, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    font-size: 22px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .logo span { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; color: var(--rose-gold); text-transform: none; font-size: 26px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+  .nav-links a { color: var(--muted); transition: color 0.25s; }
+  .nav-links a:hover { color: var(--paper); }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 100px;
+    background: var(--rose-gold);
+    color: #17111A;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary:hover {
+    background: var(--paper);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(216, 181, 162, 0.25);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 160px var(--gut) 80px;
+    background: radial-gradient(circle at 75% 30%, rgba(216, 181, 162, 0.12) 0%, rgba(12, 10, 14, 0) 65%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-gold);
+    margin-bottom: 24px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--rose-gold);
+  }
+  .hero-title {
+    font-size: clamp(48px, 9vw, 136px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    max-width: 16ch;
+    margin-bottom: 40px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose-gold);
+    padding-right: 0.05em;
+  }
+  .hero-foot {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: flex-end;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-sub {
+    font-size: clamp(16px, 1.4vw, 20px);
+    color: var(--muted);
+    max-width: 44ch;
+    line-height: 1.6;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .stat-num {
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-family: 'Instrument Serif', Georgia, serif;
+    color: var(--paper);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* Philosophy */
+  .section {
+    padding: clamp(80px, 12vh, 160px) var(--gut);
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .sec-title {
+    font-size: clamp(36px, 5.5vw, 76px);
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+  }
+
+  /* Treatment Grid */
+  .treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  .t-card {
+    background: var(--bg);
+    padding: clamp(32px, 4vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+    transition: background 0.3s ease;
+  }
+  .t-card:hover {
+    background: var(--card-bg);
+  }
+  .t-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--rose-gold);
+    margin-bottom: 48px;
+  }
+  .t-title {
+    font-size: clamp(24px, 2.5vw, 36px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .t-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .t-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* Doctor Feature */
+  .doctor-sec {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .doc-info h3 {
+    font-size: clamp(32px, 4.5vw, 64px);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .doc-info p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+  .cred-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--paper);
+  }
+  .cred-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--rose-gold);
+  }
+
+  /* Consultation Booking */
+  .cta-box {
+    background: linear-gradient(135deg, #1A1520 0%, #100D14 100%);
+    border: 1px solid rgba(216, 181, 162, 0.25);
+    border-radius: 20px;
+    padding: clamp(48px, 7vw, 96px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box h2 {
+    font-size: clamp(36px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    max-width: 18ch;
+  }
+  .cta-box p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 48ch;
+    margin-bottom: 40px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 60px var(--gut);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-foot { grid-template-columns: 1fr; gap: 32px; }
+    .treatment-grid { grid-template-columns: 1fr; }
+    .doctor-sec { grid-template-columns: 1fr; gap: 40px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">Lumière <span>Aesthetics</span></div>
+  <nav class="nav-links">
+    <a href="#treatments">Treatments</a>
+    <a href="#philosophy">Physicians</a>
+    <a href="#results">Results</a>
+    <a href="#location">Scottsdale</a>
+  </nav>
+  <a href="#consultation" class="btn-primary">Reserve Consultation ↗</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-tag">Physician-Led Facial &amp; Regenerative Medicine</div>
+    <h1 class="serif hero-title">Precision aesthetics. <em>Undetectable</em> artistry.</h1>
+    <div class="hero-foot">
+      <p class="hero-sub">Specializing in facial harmonizing, regenerative laser protocols, and structural rejuvenation. Crafted exclusively for subtle elegance.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years of Surgical &amp; Aesthetic Excellence</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Physician Administered Protocols</div>
+        </div>
+        <div>
+          <div class="stat-num">98.6%</div>
+          <div class="stat-label">Client Retention &amp; Referral Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="treatments">
+    <div class="sec-header">
+      <h2 class="serif sec-title">Curated Clinical Offerings</h2>
+      <span style="font-size:11px;letter-spacing:0.18em;color:var(--rose-gold);font-weight:700;text-transform:uppercase;">SCOTTSDALE CLINIC</span>
+    </div>
+
+    <div class="treatment-grid">
+      <div class="t-card">
+        <div>
+          <div class="t-num">01 / ARCHITECTURE</div>
+          <h3 class="serif t-title">Facial Balancing &amp; Sculpting</h3>
+          <p class="t-desc">Restoring natural bone support and structural harmony using ultrasound-guided micro-aliquot hyaluronic protocols.</p>
+        </div>
+        <div class="t-meta">
+          <span>60 MIN APPOINTMENT</span>
+          <span>FROM $950</span>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div>
+          <div class="t-num">02 / REGENERATION</div>
+          <h3 class="serif t-title">Hybrid Fractional Laser</h3>
+          <p class="t-desc">Synergistic dual-wavelength resurfacing to eliminate dyschromia, pore density, and photodamage with minimal social downtime.</p>
+        </div>
+        <div class="t-meta">
+          <span>90 MIN APPOINTMENT</span>
+          <span>FROM $1,400</span>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div>
+          <div class="t-num">03 / LONGEVITY</div>
+          <h3 class="serif t-title">Exosome &amp; Peptide Infusion</h3>
+          <p class="t-desc">Clinical cellular rejuvenation combining high-purity exosome therapies with micro-channeling for long-term dermal thickness.</p>
+        </div>
+        <div class="t-meta">
+          <span>45 MIN APPOINTMENT</span>
+          <span>FROM $750</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="philosophy">
+    <div class="doctor-sec">
+      <div class="doc-info">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--rose-gold);text-transform:uppercase;display:block;margin-bottom:16px;">MEDICAL DIRECTOR</span>
+        <h3 class="serif">Dr. Genevieve Vance, MD</h3>
+        <p>“The most sophisticated aesthetic work is never recognized as medical intervention. Our focus is preserving individual character, bone geometry, and skin health without distortion.”</p>
+        <div class="credentials">
+          <div class="cred-item"><span class="cred-dot"></span> Double Board-Certified Facial Plastic Surgeon</div>
+          <div class="cred-item"><span class="cred-dot"></span> Harvard Medical School Fellowship Alumna</div>
+          <div class="cred-item"><span class="cred-dot"></span> Clinical Research Lead in Regenerative Dermal Therapeutics</div>
+        </div>
+      </div>
+      <div class="doc-quote" style="background:var(--card-bg);padding: clamp(32px,5vw,64px);border-radius:16px;border:1px solid var(--line);">
+        <span class="serif" style="font-size: clamp(24px,3vw,42px);line-height:1.2;display:block;margin-bottom:24px;color:var(--rose-gold);">
+          “Our patients don't look like they've had work done. They simply look like the most radiant, rested version of themselves.”
+        </span>
+        <p style="font-size:13px;color:var(--muted);letter-spacing:0.04em;">PRIVATE PRACTICE · SCOTTSDALE ROAD &amp; LINCOLN DR</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="consultation" style="border-bottom:none;">
+    <div class="cta-box">
+      <span style="font-size:10.5px;font-weight:700;letter-spacing:0.2em;color:var(--rose-gold);text-transform:uppercase;margin-bottom:18px;">PRIVATE CONSULTATION</span>
+      <h2 class="serif">Experience the new standard in medical aesthetics.</h2>
+      <p>Consultations include 3D facial volume analysis, clinical imaging, and a comprehensive treatment blueprint tailored exclusively to you.</p>
+      <a href="mailto:concierge@lumiereaesthetics.com" class="btn-primary" style="padding: 16px 36px; font-size: 12px;">Reserve Scottsdale Consultation ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>© 2026 Lumière Medical Aesthetics LLC. All Rights Reserved.</div>
+  <div>Scottsdale &amp; Paradise Valley, Arizona · (480) 597-2800</div>
+</footer>
+
+</body>
+</html>
