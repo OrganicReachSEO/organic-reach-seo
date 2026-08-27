@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio — OrganicReachSEO</title>
-<meta name="description" content="Every site here was designed, built, and shipped by OrganicReachSEO — then grown with search. Preview client work across desktop, tablet, and mobile.">
+<meta name="description" content="Real client work and concept builds designed, developed, and shipped by OrganicReachSEO. Preview live sites across desktop, tablet, and mobile.">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=3">
 <link rel="canonical" href="https://organicreachseo.com/portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,7 @@
                 transition:background .25s ease, color .25s ease, transform .25s ease}
   .nav .nav-cta:hover{background:var(--paper);color:var(--ink);transform:translateY(-1px)}
 
-  /* header (clean, line-free hero) */
+  /* Section 1: Real Client Work */
   .head{position:relative;padding:130px var(--gut) 0}
   .eyebrow{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
   .dot{width:5px;height:5px;border-radius:50%;background:var(--orange);animation:blink 2.4s ease-in-out infinite}
@@ -68,7 +68,7 @@
   .facts b{font-weight:400;color:var(--paper)}
 
   /* stage */
-  .index{padding:clamp(70px,9vh,120px) var(--gut) 0}
+  .index{padding:clamp(60px,8vh,100px) var(--gut) 0}
   .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start}
   .stage-wrap{min-width:0;width:100%}
   .stagebar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;
@@ -118,17 +118,23 @@
   .open:hover{background:var(--paper);color:var(--ink);transform:translateY(-1px)}
   .open.off{background:transparent;color:var(--muted-2);border:1px dashed rgba(243,239,231,.28);cursor:default;transform:none}
 
-  /* grid */
-  .all{padding:clamp(70px,9vh,120px) var(--gut) 0}
+  /* Section 2: Template Gallery / Concepts */
+  .gallery-sec{padding:clamp(80px,11vh,140px) var(--gut) 0}
+  .gallery-head{max-width:820px;margin-bottom:44px}
+  .gallery-head .eyebrow{padding-bottom:16px;margin-bottom:28px}
+  .gallery-head h2{margin:0 0 18px;font-size:clamp(38px,5.8vw,82px);line-height:.92;letter-spacing:-.03em}
+  .gallery-head .lede{max-width:58ch}
   .allbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:18px;
           border-bottom:1px solid rgba(243,239,231,.14)}
-  .grid{display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:1px;margin-top:1px;
+  .grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:1px;margin-top:1px;
         background:var(--line)}
   .card{display:flex;flex-direction:column;align-items:stretch;padding:0;border:0;background:var(--ink);
         color:var(--paper);text-align:left;cursor:pointer;transition:background .3s,opacity .7s,transform .7s}
   .card:hover{background:var(--ink-2)}
   .card[aria-current="true"]{background:var(--ink-3);box-shadow:inset 0 0 0 1px rgba(205,185,246,.3)}
   .card.pre{opacity:0;transform:translateY(28px)}
+  .card.placeholder-card{cursor:default}
+  .card.placeholder-card:hover{background:var(--ink)}
   .shot{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--well);
         border-bottom:1px solid rgba(243,239,231,.1)}
   .shot iframe{position:absolute;top:0;left:0;width:400%;height:400%;transform:scale(0.25);transform-origin:top left;
@@ -145,7 +151,7 @@
   .tag{position:absolute;bottom:14px;left:22px;font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--muted);
        z-index:2;background:rgba(23,17,28,.82);backdrop-filter:blur(6px);padding:3px 8px;border-radius:4px}
   .card[aria-current="true"] .tag{color:var(--violet)}
-  .cardbody{display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px}
+  .cardbody{display:flex;flex-direction:column;gap:8px;padding:22px 24px 26px}
   .cardtop{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
   .cardtop h3{margin:0;font-size:24px;line-height:1.05;letter-spacing:-.03em}
   .cardtop span{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted);flex-shrink:0}
@@ -163,19 +169,16 @@
   .ctafoot a:hover{background:var(--orange);color:var(--paper);transform:translateY(-1px)}
   .ctafoot div{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3C3348}
 
-  @media (max-width:1200px){
-    .grid{grid-template-columns:repeat(3, minmax(0, 1fr))}
-  }
   @media (max-width:1024px){
     .layout{grid-template-columns:minmax(0,1fr);gap:40px}
     .meta{position:static}
+    .grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
   }
   @media (max-width:768px){
-    .grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
     .headfoot{grid-template-columns:minmax(0,1fr);gap:24px}
     .nav nav a:not(.nav-cta){display:none}
   }
-  @media (max-width:540px){
+  @media (max-width:580px){
     :root{--gut:20px}
     .grid{grid-template-columns:minmax(0, 1fr)}
     .stage{height:460px}
@@ -201,18 +204,19 @@
 </header>
 
 <main>
-  <section class="head">
+  <!-- SECTION A: REAL CLIENT WORK -->
+  <section class="head" id="client-work">
     <div class="eyebrow micro">
-      <span>SELECTED WORK</span>
+      <span>REAL CLIENT WORK</span>
       <span style="display:flex;align-items:center;gap:9px"><span class="dot"></span>DESIGNED &amp; DEVELOPED IN-HOUSE</span>
     </div>
     <h1 class="serif"><span>Sites we own</span><span><em>the</em> outcome of.</span></h1>
     <div class="headfoot">
-      <p class="lede">Every site here was designed, built, and shipped by us — then grown with search. Open any one of them below and check it at desktop, tablet, or phone width.</p>
+      <p class="lede">Ranch Realty came to us for a rebuild. We designed it, built it, and shipped it — it's theirs, and it's still growing.</p>
       <div class="facts">
-        <span>Projects shown <b id="total">05</b></span>
-        <span>Built responsive-first <b>Every one</b></span>
-        <span>Ownership <b>Client keeps it</b></span>
+        <span>Industry <b>Real estate · Scottsdale, AZ</b></span>
+        <span>Scope <b>Rebuilt from the ground up</b></span>
+        <span>Status <b>Live since [date] — still theirs</b></span>
       </div>
     </div>
   </section>
@@ -223,7 +227,7 @@
         <div class="stagebar">
           <div class="now">
             <span class="micro">NOW VIEWING — <span id="activeNum">01</span></span>
-            <h2 class="serif" id="activeName">—</h2>
+            <h2 class="serif" id="activeName">Ranch Realty</h2>
           </div>
           <div class="devs" role="group" aria-label="Preview width">
             <button type="button" data-dev="desktop" aria-pressed="true">DESKTOP</button>
@@ -236,7 +240,7 @@
           <div class="frame" id="frame" data-dev="desktop">
             <div class="chrome">
               <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="url" id="chromeUrl">—</span>
+              <span class="url" id="chromeUrl">ranchrealty.com</span>
             </div>
             <div class="viewport" id="viewport"></div>
           </div>
@@ -245,17 +249,27 @@
 
       <aside class="meta">
         <span class="micro">PROJECT READOUT</span>
-        <div class="row"><k>CLIENT</k><v id="mClient">—</v></div>
-        <div class="row"><k>SECTOR</k><v id="mSector">—</v></div>
-        <div class="row"><k>OUTCOME</k><v class="accent" id="mResult">—</v></div>
+        <div class="row"><k>CLIENT</k><v id="mClient">Ranch Realty</v></div>
+        <div class="row"><k>SECTOR</k><v id="mSector">Real estate · Scottsdale, AZ</v></div>
+        <div class="row"><k>OUTCOME</k><v class="accent" id="mResult">Rebuilt from the ground up, now the foundation for ongoing search growth.</v></div>
         <div class="row"><k>VIEWING AT</k><v id="mDevice">Desktop · 1440px</v></div>
-        <a class="open" id="mOpen" href="#index">OPEN LIVE SITE<span>↗</span></a>
+        <a class="open" id="mOpen" href="https://ranchrealty.com" target="_blank" rel="noopener">OPEN LIVE SITE<span>↗</span></a>
       </aside>
     </div>
   </section>
 
-  <section class="all pad">
-    <div class="allbar micro"><span>ALL PROJECTS</span><span>SELECT TO PREVIEW</span></div>
+  <!-- SECTION B: TEMPLATE GALLERY (PICK A STARTING POINT) -->
+  <section class="gallery-sec pad" id="gallery">
+    <div class="gallery-head">
+      <div class="eyebrow micro">
+        <span>PICK A STARTING POINT</span>
+        <span style="display:flex;align-items:center;gap:9px"><span class="dot" style="background:var(--violet)"></span>CONCEPT GALLERY</span>
+      </div>
+      <h2 class="serif">See it in your industry.</h2>
+      <p class="lede">These are concept builds — different industries, different styles. Pick the one closest to your vibe and we'll build yours from there.</p>
+    </div>
+    
+    <div class="allbar micro"><span>CONCEPT BUILDS</span><span>SELECT TO PREVIEW ABOVE</span></div>
     <div class="grid" id="grid"></div>
   </section>
 
@@ -277,39 +291,32 @@ var PROJECTS = [
     result:'Rebuilt from the ground up, now the foundation for ongoing search growth.',
     url:'ranchrealty.com',
     src:'https://ranchrealty.com',
-    tag:'LIVE SITE'
+    tag:'LIVE CLIENT SITE'
   },
   { 
     name:'Chic Real Estate',
     sector:'Luxury Real Estate · Boutique Agency',
-    result:'Modern luxury property showcase engineered for visual impact and high-intent buyer inquiries.',
+    result:'A luxury real estate look — built to let the property sell itself before the pitch.',
     url:'chic-real-estate.lovable.app',
     src:'https://chic-real-estate.lovable.app/',
-    tag:'LIVE SITE'
+    tag:'CONCEPT BUILD'
   },
   { 
     name:'Ignite St. Peters',
-    sector:'Fitness & Studio · St. Peters, MO',
-    result:'High-conversion fitness studio platform designed to turn local searchers into active members.',
+    sector:'Medical Resort · St. Peters, MO',
+    result:'A calm, premium concept for a medical resort — built to turn tours and calls into bookings, not just page views.',
     url:'ignite-st-peters.vercel.app',
     src:'https://ignite-st-peters.vercel.app/',
-    tag:'LIVE SITE'
+    tag:'CONCEPT BUILD'
   },
   { 
-    name:'Project Four',
-    sector:'Sector · City, ST',
-    result:'One-line outcome goes here — what the rebuild actually changed for them.',
-    url:'add-a-url.com',
+    name:'More Directions',
+    sector:'In development',
+    result:'More directions coming soon',
+    url:'coming-soon',
     src:'',
-    tag:'PLACEHOLDER'
-  },
-  { 
-    name:'Project Five',
-    sector:'Sector · City, ST',
-    result:'One-line outcome goes here — what the rebuild actually changed for them.',
-    url:'add-a-url.com',
-    src:'',
-    tag:'PLACEHOLDER'
+    tag:'COMING SOON',
+    isPlaceholder:true
   }
 ];
 
@@ -324,19 +331,20 @@ var stage = $('#stage'), frame = $('#frame'), viewport = $('#viewport');
 var active = 0, device = 'desktop';
 var pad = function (i) { return String(i + 1).padStart(2, '0'); };
 
-$('#total').textContent = pad(PROJECTS.length - 1);
-
 /* grid */
 var grid = $('#grid');
 PROJECTS.forEach(function (p, i) {
   var b = document.createElement('button');
   b.type = 'button';
-  b.className = 'card pre';
+  b.className = 'card pre' + (p.isPlaceholder ? ' placeholder-card' : '');
   b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
 
-  var shotInner = p.src 
-    ? '<iframe src="' + p.src + '" loading="lazy" tabindex="-1" aria-hidden="true" title="' + p.name + '"></iframe>'
-    : '<span class="wire" aria-hidden="true"><i class="bar"></i><i class="t1"></i><i class="t2"></i><span class="cols"><i></i><i></i><i></i></span></span>';
+  var shotInner = '';
+  if (p.src) {
+    shotInner = '<iframe src="' + p.src + '" loading="lazy" tabindex="-1" aria-hidden="true" title="' + p.name + '"></iframe>';
+  } else {
+    shotInner = '<span class="wire" aria-hidden="true"><i class="bar"></i><i class="t1"></i><i class="t2"></i><span class="cols"><i></i><i></i><i></i></span></span>';
+  }
 
   b.innerHTML =
     '<span class="shot">' +
@@ -347,10 +355,19 @@ PROJECTS.forEach(function (p, i) {
     '<span class="sector"></span><span class="result"></span></span>';
   b.querySelector('.tag').textContent = p.tag;
   b.querySelector('h3').textContent = p.name;
-  b.querySelector('.cardtop span').textContent = pad(i);
+  b.querySelector('.cardtop span').textContent = p.isPlaceholder ? '—' : pad(i);
   b.querySelector('.sector').textContent = p.sector;
   b.querySelector('.result').textContent = p.result;
-  b.addEventListener('click', function () { select(i); });
+  
+  if (!p.isPlaceholder) {
+    b.addEventListener('click', function () { 
+      select(i);
+      var stageEl = document.getElementById('index');
+      if (stageEl && window.scrollY > stageEl.offsetTop + 200) {
+        stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
   grid.appendChild(b);
 });
 var cards = Array.prototype.slice.call(grid.children);
@@ -448,7 +465,7 @@ if ('IntersectionObserver' in window) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       var i = cards.indexOf(e.target);
-      e.target.style.transitionDelay = (i % 5) * 0.06 + 's';
+      e.target.style.transitionDelay = (i % 3) * 0.08 + 's';
       e.target.classList.remove('pre');
       io.unobserve(e.target);
     });
