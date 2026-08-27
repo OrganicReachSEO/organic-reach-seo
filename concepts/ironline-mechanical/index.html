@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ironline Mechanical | Commercial HVAC &amp; Refrigeration · Phoenix, AZ</title>
+<meta name="description" content="Commercial HVAC, refrigeration, chillers, and building controls for mission-critical facilities across the Phoenix metro area. 24/7 emergency dispatch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #101211; color: #EDEDE8; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: #EDEDE8; text-decoration: none; }
+  a:hover { color: #F0A526; }
+  * { box-sizing: border-box; }
+  @keyframes ilBlink { 0%, 100% { opacity: 1 } 50% { opacity: 0.2 } }
+  @media (max-width: 1080px) {
+    #ilHero { grid-template-columns: minmax(0,1fr) !important; gap: 40px !important; }
+    #ilPanel { max-width: 460px !important; }
+    #ilSvc { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    #ilFootGrid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  }
+  @media (max-width: 860px) {
+    #ilNav, #ilBarRight { display: none !important; }
+    #ilSvc, #ilStats { grid-template-columns: minmax(0,1fr) !important; }
+    [data-il-job] { grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
+    [data-il-job] > span:last-child { text-align: left !important; }
+  }
+  @media (max-width: 640px) {
+    [data-il-pad] { padding-left: 20px !important; padding-right: 20px !important; }
+    #ilFootGrid { grid-template-columns: minmax(0,1fr) !important; }
+  }
+</style>
+</head>
+<body>
+
+<div style="position:relative;background:#101211;min-height:100vh">
+
+  <div data-il-pad style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 40px;background:#F0A526;color:#181A17;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">
+    <span style="display:flex;align-items:center;gap:9px"><span style="width:6px;height:6px;background:#181A17;animation:ilBlink 1.8s steps(2,end) infinite"></span>24/7 emergency dispatch</span>
+    <span id="ilBarRight" style="display:flex;gap:24px"><span>Phoenix metro · 60 mi radius</span><a href="#ilReq" style="color:#181A17;font-weight:500">(480) 555-0142</a></span>
+  </div>
+
+  <header data-il-pad style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:22px 40px;border-bottom:1px solid rgba(237,237,232,0.14)">
+    <a href="#ilTop" style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <span style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:#F0A526;color:#101211;font-family:'Archivo Black',sans-serif;font-size:15px">I</span>
+      <span style="display:flex;flex-direction:column;gap:1px">
+        <span style="font-family:'Archivo Black',sans-serif;font-size:15px;letter-spacing:0.02em;text-transform:uppercase">Ironline</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.24em;text-transform:uppercase;color:#8A8F88">Mechanical</span>
+      </span>
+    </a>
+    <nav id="ilNav" style="display:flex;align-items:center;gap:30px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase">
+      <a href="#ilSvc">Services</a>
+      <a href="#ilSectors">Sectors</a>
+      <a href="#ilJobs">Recent jobs</a>
+      <a href="#ilPlan">Maintenance</a>
+      <a href="#ilReq" style="padding:11px 22px;background:#F0A526;color:#101211;font-weight:500">Request service</a>
+    </nav>
+  </header>
+
+  <section id="ilTop" data-il-pad style="padding:clamp(48px,7vh,88px) 40px clamp(44px,6vh,76px)">
+    <div id="ilHero" style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,0.85fr);gap:clamp(36px,5vw,72px);align-items:start">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A8F88">Commercial HVAC &amp; refrigeration<span style="width:40px;height:1px;background:rgba(237,237,232,0.3)"></span>Lic. ROC 318442</span>
+        <h1 style="margin:24px 0 0;font-family:'Archivo Black',sans-serif;font-size:clamp(44px,8.2vw,124px);line-height:0.87;letter-spacing:-0.035em;text-transform:uppercase;max-width:13ch">Keep the building running.</h1>
+        <p style="margin:26px 0 0;font-size:17px;line-height:1.6;color:#B6BBB3;max-width:50ch;text-wrap:pretty">Rooftop units, chillers, and walk-in refrigeration for facilities that can't afford a warm afternoon. Licensed techs, stocked trucks, one number.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+          <a href="#ilReq" style="display:inline-flex;align-items:center;gap:12px;padding:18px 32px;background:#F0A526;color:#101211;font-size:14px;font-weight:600;letter-spacing:0.02em">Request service <span>→</span></a>
+          <a href="#ilPlan" style="display:inline-flex;align-items:center;gap:12px;padding:18px 32px;border:1px solid rgba(237,237,232,0.3);font-size:14px;font-weight:500">See maintenance plans</a>
+        </div>
+      </div>
+
+      <aside id="ilPanel" style="display:flex;flex-direction:column;border:1px solid rgba(237,237,232,0.16);background:#1A1D1B">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 22px;border-bottom:1px solid rgba(237,237,232,0.14);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:#8A8F88">
+          <span>Dispatch board</span>
+          <span style="display:flex;align-items:center;gap:7px;color:#F0A526"><span style="width:6px;height:6px;border-radius:50%;background:#F0A526;animation:ilBlink 2.2s ease-in-out infinite"></span>Live</span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:17px 22px;border-bottom:1px solid rgba(237,237,232,0.08)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8A8F88">Avg response</span>
+          <span style="font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.02em;color:#EDEDE8">47 min</span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:17px 22px;border-bottom:1px solid rgba(237,237,232,0.08)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8A8F88">Techs on shift</span>
+          <span style="font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.02em;color:#EDEDE8">14</span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:17px 22px;border-bottom:1px solid rgba(237,237,232,0.08)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8A8F88">Open tickets</span>
+          <span style="font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.02em;color:#EDEDE8">6</span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:17px 22px;border-bottom:1px solid rgba(237,237,232,0.08)">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8A8F88">Service radius</span>
+          <span style="font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.02em;color:#EDEDE8">60 mi</span>
+        </div>
+        <a href="#ilReq" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F0A526">Open a ticket<span>→</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="ilSectors" data-il-pad style="display:flex;flex-wrap:wrap;gap:0;padding:0 40px;border-top:1px solid rgba(237,237,232,0.14);border-bottom:1px solid rgba(237,237,232,0.14)">
+    <span style="flex:1 1 180px;padding:20px 4px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88;white-space:nowrap">Data centers</span>
+    <span style="flex:1 1 180px;padding:20px 4px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88;white-space:nowrap">Grocery &amp; cold storage</span>
+    <span style="flex:1 1 180px;padding:20px 4px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88;white-space:nowrap">Multifamily</span>
+    <span style="flex:1 1 180px;padding:20px 4px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88;white-space:nowrap">Light manufacturing</span>
+    <span style="flex:1 1 180px;padding:20px 4px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88;white-space:nowrap">Healthcare</span>
+  </section>
+
+  <section data-il-pad style="padding:clamp(56px,8vh,100px) 40px 0">
+    <div style="display:flex;align-items:end;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid rgba(237,237,232,0.18)">
+      <h2 style="margin:0;font-family:'Archivo Black',sans-serif;font-size:clamp(30px,4.4vw,60px);line-height:0.95;letter-spacing:-0.03em;text-transform:uppercase">What we cover</h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8A8F88">Four crews · 14 techs</span>
+    </div>
+    <div id="ilSvc" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:1px;background:rgba(237,237,232,0.14)">
+      <div style="display:flex;flex-direction:column;gap:14px;padding:30px 26px 34px;background:#101211;transition:background 0.35s ease">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#F0A526">01</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1.06;letter-spacing:-0.02em;text-transform:uppercase">Rooftop units</span>
+        <span style="font-size:14px;line-height:1.6;color:#B6BBB3;text-wrap:pretty">Repair, replacement, and curb adaptation on packaged RTUs up to 50 tons.</span>
+        <span style="margin-top:auto;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">All major OEMs</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:30px 26px 34px;background:#101211;transition:background 0.35s ease">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#F0A526">02</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1.06;letter-spacing:-0.02em;text-transform:uppercase">Refrigeration</span>
+        <span style="font-size:14px;line-height:1.6;color:#B6BBB3;text-wrap:pretty">Walk-ins, reach-ins, and rack systems. Leak detection and EPA-compliant recovery.</span>
+        <span style="margin-top:auto;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">CFC / HFC / CO₂</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:30px 26px 34px;background:#101211;transition:background 0.35s ease">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#F0A526">03</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1.06;letter-spacing:-0.02em;text-transform:uppercase">Chillers &amp; boilers</span>
+        <span style="font-size:14px;line-height:1.6;color:#B6BBB3;text-wrap:pretty">Air- and water-cooled chiller service, pump replacement, hydronic troubleshooting.</span>
+        <span style="margin-top:auto;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">Up to 400 tons</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:30px 26px 34px;background:#101211;transition:background 0.35s ease">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#F0A526">04</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1.06;letter-spacing:-0.02em;text-transform:uppercase">Controls &amp; BAS</span>
+        <span style="font-size:14px;line-height:1.6;color:#B6BBB3;text-wrap:pretty">Sequence repair, sensor calibration, and scheduling that actually matches occupancy.</span>
+        <span style="margin-top:auto;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">BACnet / Modbus</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="ilStats" data-il-pad style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:clamp(60px,8vh,100px);background:rgba(237,237,232,0.14)">
+    <div style="display:flex;flex-direction:column;gap:10px;padding:clamp(36px,5vh,60px) 40px;background:#F0A526;color:#181A17">
+      <span style="font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.4vw,74px);line-height:0.9;letter-spacing:-0.04em">47<span style="font-size:0.42em"> min</span></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase">Median emergency response</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;padding:clamp(36px,5vh,60px) 40px;background:#101211">
+      <span style="font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.4vw,74px);line-height:0.9;letter-spacing:-0.04em">1.4M<span style="font-size:0.42em"> sq ft</span></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88">Under maintenance contract</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;padding:clamp(36px,5vh,60px) 40px;background:#101211">
+      <span style="font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.4vw,74px);line-height:0.9;letter-spacing:-0.04em">92<span style="font-size:0.42em">%</span></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88">First-visit repair rate</span>
+    </div>
+  </section>
+
+  <section id="ilJobs" data-il-pad style="padding:clamp(56px,8vh,100px) 40px 0">
+    <div style="display:flex;align-items:end;justify-content:space-between;gap:28px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid rgba(237,237,232,0.18)">
+      <h2 style="margin:0;font-family:'Archivo Black',sans-serif;font-size:clamp(30px,4.4vw,60px);line-height:0.95;letter-spacing:-0.03em;text-transform:uppercase">Recent jobs</h2>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8A8F88">Last 90 days</span>
+    </div>
+    <div data-il-job style="display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,0.9fr) 190px;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(237,237,232,0.1);transition:background 0.35s ease">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">Cold storage</span>
+      <span style="font-size:19px;font-weight:600;letter-spacing:-0.01em">Valley Produce Co.</span>
+      <span style="font-size:14px;line-height:1.55;color:#B6BBB3;text-wrap:pretty">Rack retrofit and EC fan conversion across four walk-ins.</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.06em;color:#F0A526;text-align:right">−22% energy load</span>
+    </div>
+    <div data-il-job style="display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,0.9fr) 190px;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(237,237,232,0.1);transition:background 0.35s ease">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">Data center</span>
+      <span style="font-size:19px;font-weight:600;letter-spacing:-0.01em">Copper Ridge DC2</span>
+      <span style="font-size:14px;line-height:1.55;color:#B6BBB3;text-wrap:pretty">CRAC unit failure, temporary cooling within 90 minutes.</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.06em;color:#F0A526;text-align:right">Zero downtime</span>
+    </div>
+    <div data-il-job style="display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,0.9fr) 190px;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(237,237,232,0.1);transition:background 0.35s ease">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">Multifamily</span>
+      <span style="font-size:19px;font-weight:600;letter-spacing:-0.01em">Osborn Flats, 214 units</span>
+      <span style="font-size:14px;line-height:1.55;color:#B6BBB3;text-wrap:pretty">Full RTU replacement staged over eight weekends.</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.06em;color:#F0A526;text-align:right">No tenant days lost</span>
+    </div>
+    <div data-il-job style="display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,0.9fr) 190px;gap:24px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(237,237,232,0.1);transition:background 0.35s ease">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A8F88">Healthcare</span>
+      <span style="font-size:19px;font-weight:600;letter-spacing:-0.01em">Desert Vista Surgical</span>
+      <span style="font-size:14px;line-height:1.55;color:#B6BBB3;text-wrap:pretty">OR pressurization correction and BAS sequence rewrite.</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.06em;color:#F0A526;text-align:right">Passed re-inspection</span>
+    </div>
+  </section>
+
+  <section id="ilPlan" data-il-pad style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:clamp(36px,5vw,72px);margin-top:clamp(70px,9vh,120px);padding:clamp(56px,8vh,100px) 40px;background:#1A1D1B;border-top:1px solid rgba(237,237,232,0.14)">
+    <div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:#F0A526">Maintenance</span>
+      <h2 style="margin:20px 0 0;font-family:'Archivo Black',sans-serif;font-size:clamp(30px,4.2vw,58px);line-height:0.95;letter-spacing:-0.03em;text-transform:uppercase;max-width:15ch">Planned beats panicked.</h2>
+      <p style="margin:22px 0 0;font-size:15.5px;line-height:1.62;color:#B6BBB3;max-width:42ch;text-wrap:pretty">Quarterly PMs, filter and belt inventory kept on our shelf, and a written condition report per unit. Contract customers jump the emergency queue.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(237,237,232,0.14)">
+      <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:#1A1D1B">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88">Essential</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:26px;letter-spacing:-0.03em">$0.09</span>
+        <span style="font-size:13.5px;line-height:1.55;color:#B6BBB3">Per sq ft / yr. Two PMs, priority scheduling, condition report.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:#1A1D1B">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88">Standard</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:26px;letter-spacing:-0.03em">$0.14</span>
+        <span style="font-size:13.5px;line-height:1.55;color:#B6BBB3">Four PMs, filters and belts included, 4-hour emergency SLA.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;padding:26px 22px;background:#1A1D1B">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8A8F88">Critical</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:26px;letter-spacing:-0.03em">Quoted</span>
+        <span style="font-size:13.5px;line-height:1.55;color:#B6BBB3">Monthly PMs, spare-part hold, 2-hour SLA, named lead tech.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="ilReq" data-il-pad style="padding:clamp(56px,8vh,100px) 40px;background:#EDEDE8;color:#101211">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:#40453F">Dispatch</span>
+    <h2 style="margin:22px 0 38px;font-family:'Archivo Black',sans-serif;font-size:clamp(38px,7.6vw,116px);line-height:0.86;letter-spacing:-0.04em;text-transform:uppercase;max-width:16ch">Tell us what's down.</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:end;justify-content:space-between;padding-top:26px;border-top:1px solid rgba(16,18,17,0.25)">
+      <a href="#ilTop" style="display:inline-flex;align-items:center;gap:12px;padding:19px 36px;background:#101211;color:#EDEDE8;font-size:15px;font-weight:600">Request service <span>→</span></a>
+      <div style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#40453F">
+        <span>(480) 555-0142</span>
+        <span>dispatch@ironlinemech.com</span>
+      </div>
+    </div>
+  </section>
+
+  <footer data-il-pad style="padding:clamp(44px,6vh,74px) 40px 36px;background:#101211;color:#8A8F88;border-top:1px solid rgba(237,237,232,0.14)">
+    <div id="ilFootGrid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Archivo Black',sans-serif;font-size:16px;text-transform:uppercase;color:#EDEDE8">Ironline Mechanical</span>
+        <span style="font-size:13px;line-height:1.6">Commercial HVAC, refrigeration, and controls. Phoenix metro since 2009.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding-bottom:6px;color:#8A8F88">Shop</span>
+        <span>2841 W Lincoln St</span>
+        <span>Phoenix, AZ 85009</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding-bottom:6px;color:#8A8F88">Hours</span>
+        <span>Office Mon–Fri 7–5</span>
+        <span>Dispatch 24/7/365</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding-bottom:6px;color:#8A8F88">More</span>
+        <a href="#ilSvc" style="color:#8A8F88">Services</a>
+        <a href="#ilJobs" style="color:#8A8F88">Recent jobs</a>
+        <a href="#ilReq" style="color:#8A8F88">Careers</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;margin-top:40px;padding-top:20px;border-top:1px solid rgba(237,237,232,0.12);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#8A8F88">
+      <span>© 2026 Ironline Mechanical · ROC 318442</span>
+      <span>Concept build — OrganicReachSEO</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
