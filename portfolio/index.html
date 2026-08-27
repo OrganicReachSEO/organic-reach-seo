@@ -284,15 +284,16 @@
 </main>
 
 <script>
-var PROJECTS = [
-  { 
-    name:'Ranch Realty',
-    sector:'Real estate · Scottsdale, AZ',
-    result:'Rebuilt from the ground up, now the foundation for ongoing search growth.',
-    url:'ranchrealty.com',
-    src:'https://ranchrealty.com',
-    tag:'LIVE CLIENT SITE'
-  },
+var CLIENT_WORK = { 
+  name:'Ranch Realty',
+  sector:'Real estate · Scottsdale, AZ',
+  result:'Rebuilt from the ground up, now the foundation for ongoing search growth.',
+  url:'ranchrealty.com',
+  src:'https://ranchrealty.com',
+  tag:'LIVE CLIENT SITE'
+};
+
+var CONCEPTS = [
   { 
     name:'Chic Real Estate',
     sector:'Luxury Real Estate · Boutique Agency',
@@ -328,16 +329,18 @@ var DEVICES = {
 
 var $ = function (s) { return document.querySelector(s); };
 var stage = $('#stage'), frame = $('#frame'), viewport = $('#viewport');
-var active = 0, device = 'desktop';
+var currentProject = CLIENT_WORK;
+var activeConceptIndex = -1; // -1 = viewing client work (Ranch Realty)
+var device = 'desktop';
 var pad = function (i) { return String(i + 1).padStart(2, '0'); };
 
-/* grid */
+/* grid - only concept builds */
 var grid = $('#grid');
-PROJECTS.forEach(function (p, i) {
+CONCEPTS.forEach(function (p, i) {
   var b = document.createElement('button');
   b.type = 'button';
   b.className = 'card pre' + (p.isPlaceholder ? ' placeholder-card' : '');
-  b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+  b.setAttribute('aria-current', 'false');
 
   var shotInner = '';
   if (p.src) {
@@ -361,7 +364,7 @@ PROJECTS.forEach(function (p, i) {
   
   if (!p.isPlaceholder) {
     b.addEventListener('click', function () { 
-      select(i);
+      selectConcept(i);
       var stageEl = document.getElementById('index');
       if (stageEl && window.scrollY > stageEl.offsetTop + 200) {
         stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -372,9 +375,19 @@ PROJECTS.forEach(function (p, i) {
 });
 var cards = Array.prototype.slice.call(grid.children);
 
-function select(i) {
-  if (i === active) return;
-  active = i;
+function selectConcept(i) {
+  if (activeConceptIndex === i) return;
+  activeConceptIndex = i;
+  currentProject = CONCEPTS[i];
+  viewport.style.opacity = '.25';
+  setTimeout(function () { viewport.style.opacity = '1'; }, 60);
+  paint();
+}
+
+function selectClientWork() {
+  if (activeConceptIndex === -1) return;
+  activeConceptIndex = -1;
+  currentProject = CLIENT_WORK;
   viewport.style.opacity = '.25';
   setTimeout(function () { viewport.style.opacity = '1'; }, 60);
   paint();
@@ -386,7 +399,7 @@ function setDevice(key) {
 }
 
 function paint() {
-  var p = PROJECTS[active], d = DEVICES[device];
+  var p = currentProject, d = DEVICES[device];
 
   frame.setAttribute('data-dev', device);
   frame.style.width = d.w + 'px';
@@ -394,7 +407,7 @@ function paint() {
   viewport.style.height = d.h + 'px';
 
   $('#chromeUrl').textContent = p.url;
-  $('#activeNum').textContent = pad(active);
+  $('#activeNum').textContent = activeConceptIndex === -1 ? '01' : pad(activeConceptIndex);
   $('#activeName').textContent = p.name;
   $('#mClient').textContent = p.name;
   $('#mSector').textContent = p.sector;
@@ -415,8 +428,8 @@ function paint() {
     open.innerHTML = 'URL NOT SET<span>—</span>';
   }
 
-  if (viewport.getAttribute('data-for') !== String(active)) {
-    viewport.setAttribute('data-for', String(active));
+  if (viewport.getAttribute('data-for') !== p.url) {
+    viewport.setAttribute('data-for', p.url);
     if (p.src) {
       var f = document.createElement('iframe');
       f.src = p.src;
@@ -439,7 +452,7 @@ function paint() {
     b.setAttribute('aria-pressed', b.getAttribute('data-dev') === device ? 'true' : 'false');
   });
   cards.forEach(function (c, i) {
-    c.setAttribute('aria-current', i === active ? 'true' : 'false');
+    c.setAttribute('aria-current', i === activeConceptIndex ? 'true' : 'false');
   });
 
   fit();
