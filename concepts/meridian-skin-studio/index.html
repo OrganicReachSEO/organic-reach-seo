@@ -7,209 +7,664 @@
 <meta name="description" content="Nurse-practitioner led medical aesthetics, injectables, and clinical skin care in Scottsdale and Paradise Valley. Transparent pricing and conservative artistry.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; }
-  body { background: #F2EDE6; color: #232019; font-family: 'Jost', system-ui, sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  a { color: #232019; text-decoration: none; }
-  a:hover { color: #9A5A33; }
-  * { box-sizing: border-box; }
-  @keyframes mrPulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.3 } }
+  :root {
+    --bg: #F5EFEB;
+    --paper: #FAF6F0;
+    --card: #ECE4D8;
+    --card-dark: #373C30;
+    --card-dark-text: #E5DBD0;
+    --ink: #201D17;
+    --muted: #666050;
+    --terracotta: #B36846;
+    --terracotta-dark: #8F4C2D;
+    --sage: #505747;
+    --border: rgba(32, 29, 23, 0.12);
+    --border-strong: rgba(32, 29, 23, 0.22);
+    --gut: clamp(22px, 5vw, 68px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: 0; background: transparent; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+  .pad { padding-left: var(--gut); padding-right: var(--gut); }
+
+  /* Animations */
+  @keyframes mrPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.8); } }
+  @keyframes floatSoft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+  /* Top Notice Bar */
+  .notice-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 11px var(--gut);
+    background: var(--card-dark);
+    color: var(--card-dark-text);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .pulse-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    animation: mrPulse 2.4s ease-in-out infinite;
+  }
+
+  /* Nav */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px var(--gut);
+    background: rgba(245, 239, 235, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; flex-direction: column; gap: 1px; }
+  .brand-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .brand-sub {
+    font-size: 8.5px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .nav-links { display: flex; align-items: center; gap: 32px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .nav-links a { color: var(--muted); transition: color 0.25s; }
+  .nav-links a:hover { color: var(--terracotta); }
+  .btn-consult {
+    padding: 12px 26px;
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: all 0.3s ease;
+  }
+  .btn-consult:hover { background: var(--ink); color: var(--bg); transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    padding: clamp(56px, 9vh, 104px) var(--gut) clamp(48px, 7vh, 84px);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.9fr);
+    gap: clamp(40px, 6vw, 84px);
+    align-items: start;
+  }
+  .hero-h1 {
+    font-size: clamp(48px, 7.8vw, 116px);
+    line-height: 0.93;
+    letter-spacing: -0.03em;
+    margin: 24px 0 28px;
+    max-width: 15ch;
+    text-wrap: balance;
+  }
+  .hero-h1 em { font-style: italic; color: var(--terracotta); font-weight: 300; }
+  .hero-sub {
+    font-size: 17.5px;
+    line-height: 1.65;
+    color: #4A4438;
+    max-width: 48ch;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 36px;
+    border-radius: 100px;
+    background: var(--ink);
+    color: #FAF6F0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: var(--terracotta); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(179, 104, 70, 0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 36px;
+    border-radius: 100px;
+    border: 1px solid rgba(32, 29, 23, 0.3);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover { border-color: var(--ink); background: rgba(32, 29, 23, 0.03); }
+
+  /* Booking Card Aside */
+  .book-card {
+    background: var(--card);
+    border: 1px solid rgba(32, 29, 23, 0.16);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Proof Bar */
+  .proof-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-top: clamp(48px, 7vh, 84px);
+  }
+  .proof-item {
+    padding: 26px 20px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .proof-num { font-size: clamp(34px, 4vw, 50px); line-height: 1; letter-spacing: -0.02em; }
+  .proof-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+  /* Section Styles */
+  .section {
+    padding: clamp(60px, 9vh, 120px) var(--gut);
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-strong);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .sec-h2 {
+    font-size: clamp(34px, 5vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+
+  /* Treatment Menu Table */
+  .menu-row {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1.2fr) minmax(0, 1.2fr) 160px;
+    gap: 24px;
+    align-items: baseline;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease, padding 0.3s ease;
+  }
+  .menu-row:hover { background: rgba(236, 228, 216, 0.6); padding-left: 16px; padding-right: 16px; }
+
+  /* 2D Dermal Architecture Graphic Section */
+  .anatomy-sec {
+    background: #2D3227;
+    color: #E6DCDE;
+    padding: clamp(60px, 8vh, 110px) var(--gut);
+    border-bottom: 1px solid rgba(245, 239, 235, 0.14);
+  }
+  .anatomy-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  /* Visit Protocol (Dark Sage Box) */
+  .visit-sec {
+    background: var(--card-dark);
+    color: var(--card-dark-text);
+    padding: clamp(60px, 8vh, 110px) var(--gut);
+  }
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(40px, 6vw, 84px);
+    align-items: start;
+  }
+  .step-row {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 20px;
+    padding: 26px 0;
+    border-top: 1px solid rgba(229, 219, 208, 0.2);
+  }
+
+  /* Provider Spotlight */
+  .provider-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .provider-card {
+    background: var(--card);
+    border: 1px solid rgba(32, 29, 23, 0.16);
+    padding: clamp(32px, 5vw, 60px);
+    border-radius: 4px;
+  }
+
+  /* Aesthetic FAQ Section */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 36px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 26px 0;
+  }
+  .faq-q {
+    font-size: 20px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .faq-a {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #555042;
+    max-width: 68ch;
+  }
+
+  /* Booking CTA */
+  .booking-cta {
+    background: var(--terracotta-dark);
+    color: #FAF5EE;
+    padding: clamp(60px, 8vh, 120px) var(--gut);
+  }
+  .booking-h2 {
+    font-size: clamp(40px, 7.5vw, 108px);
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    margin: 22px 0 36px;
+    max-width: 18ch;
+  }
+
+  /* Footer */
+  .footer {
+    padding: clamp(48px, 6vh, 80px) var(--gut) 40px;
+    background: #1C1914;
+    color: #A9A293;
+    border-top: 1px solid rgba(245, 239, 235, 0.1);
+    font-size: 13px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    margin-bottom: 48px;
+  }
+
   @media (max-width: 1080px) {
-    #mrHero { grid-template-columns: minmax(0,1fr) !important; gap: 48px !important; }
-    #mrCard { max-width: 420px !important; }
-    #mrSteps, #mrProof { grid-template-columns: minmax(0,1fr) !important; }
-    #mrFootGrid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    .hero-layout { grid-template-columns: 1fr; }
+    .visit-grid { grid-template-columns: 1fr; }
+    .anatomy-layout { grid-template-columns: 1fr; }
+    .provider-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 860px) {
-    #mrNav, #mrBarRight { display: none !important; }
-    [data-mr-row] { grid-template-columns: 40px minmax(0,1fr) !important; }
-    [data-mr-row] > [data-mr-cell] { display: none !important; }
-  }
-  @media (max-width: 640px) {
-    [data-mr-pad] { padding-left: 22px !important; padding-right: 22px !important; }
-    #mrFootGrid { grid-template-columns: minmax(0,1fr) !important; }
+  @media (max-width: 768px) {
+    .nav-links, .btn-consult { display: none; }
+    .menu-row { grid-template-columns: 40px 1fr; }
+    .menu-row > .desktop-cell { display: none; }
+    .foot-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div style="position:relative;background:#F2EDE6;min-height:100vh">
-
-  <div data-mr-pad style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:11px 44px;background:#3B4034;color:#E4DACD;font-size:11px;letter-spacing:0.12em;text-transform:uppercase">
-    <span style="display:flex;align-items:center;gap:9px"><span style="width:5px;height:5px;border-radius:50%;background:#B5744F;animation:mrPulse 2.6s ease-in-out infinite"></span>September openings — new patients welcome</span>
-    <span id="mrBarRight" style="display:flex;gap:26px"><span>Scottsdale &amp; Paradise Valley</span><a href="#mrBook" style="color:#E4DACD">(480) 555-0117</a></span>
+  <!-- Top Alert Bar -->
+  <div class="notice-bar">
+    <span style="display:flex;align-items:center;gap:10px">
+      <span class="pulse-dot"></span> September Openings — New Patients Welcome
+    </span>
+    <span style="display:flex;gap:24px">
+      <span>Scottsdale &amp; Paradise Valley</span>
+      <a href="tel:4805550117" style="font-weight:500;color:var(--card-dark-text)">(480) 555-0117</a>
+    </span>
   </div>
 
-  <header data-mr-pad style="display:flex;align-items:center;justify-content:space-between;gap:32px;padding:26px 44px;border-bottom:1px solid rgba(35,32,25,0.14)">
-    <a href="#mrTop" style="display:flex;flex-direction:column;gap:2px;flex-shrink:0">
-      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;letter-spacing:0.26em;text-transform:uppercase">Meridian</span>
-      <span style="font-size:8.5px;letter-spacing:0.34em;text-transform:uppercase;color:#605A4A">Skin Studio</span>
+  <!-- Header -->
+  <header class="nav">
+    <a href="#top" class="brand">
+      <span class="brand-title">Meridian</span>
+      <span class="brand-sub">Skin Studio</span>
     </a>
-    <nav id="mrNav" style="display:flex;align-items:center;gap:34px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase">
-      <a href="#mrMenu">Treatments</a>
-      <a href="#mrSteps">Your visit</a>
-      <a href="#mrVoice">Patients</a>
-      <a href="#mrBook" style="padding:11px 24px;border:1px solid #232019;border-radius:100px;letter-spacing:0.14em">Book a consult</a>
+    <nav class="nav-links">
+      <a href="#treatments">Treatments</a>
+      <a href="#anatomy">Philosophy</a>
+      <a href="#visit">Your Visit</a>
+      <a href="#provider">Provider</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <a href="#book" class="btn-consult">Book a Consult ↗</a>
   </header>
 
-  <section id="mrTop" data-mr-pad style="padding:clamp(56px,9vh,104px) 44px clamp(48px,7vh,84px)">
-    <div id="mrHero" style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,0.9fr);gap:clamp(40px,6vw,88px);align-items:start">
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-layout">
+        <div>
+          <span style="display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--muted)">
+            Medical Aesthetics <span style="width:40px;height:1px;background:var(--border-strong)"></span> Est. 2016
+          </span>
+          <h1 class="serif hero-h1">Skin that looks like you, <em>only rested</em>.</h1>
+          <p class="hero-sub">Nurse-practitioner led injectables, bio-regenerative stimulation, and clinical skin care planned one face at a time. No packages you don't need, no results that announce themselves.</p>
+          <div class="hero-actions">
+            <a href="#book" class="btn-primary">Reserve Your Consultation <span>→</span></a>
+            <a href="#treatments" class="btn-secondary">View Treatment Menu</a>
+          </div>
+
+          <div class="proof-bar">
+            <div class="proof-item">
+              <span class="serif proof-num">4.9</span>
+              <span class="proof-label">312 Verified Reviews</span>
+            </div>
+            <div class="proof-item">
+              <span class="serif proof-num">1,900+</span>
+              <span class="proof-label">Treatments Performed</span>
+            </div>
+            <div class="proof-item">
+              <span class="serif proof-num">2</span>
+              <span class="proof-label">Valley Sanctuaries</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Available Appointment Card -->
+        <aside class="book-card">
+          <span style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);padding-bottom:16px;border-bottom:1px solid var(--border)">
+            Next Immediate Opening
+          </span>
+          <span class="serif" style="font-size:36px;line-height:1.1;padding:18px 0 6px">Thursday, 2:30 pm</span>
+          <p style="font-size:13.5px;line-height:1.55;color:var(--muted);padding-bottom:20px;border-bottom:1px solid var(--border)">
+            45-minute facial balancing consultation with Dana Reyes, NP-C. Comprehensive imaging, no cost, no obligation.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0;padding:8px 0;">
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:13.5px">
+              <span style="color:var(--muted)">Consultation</span>
+              <span style="font-weight:400">Complimentary</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:13.5px">
+              <span style="color:var(--muted)">Average Wait</span>
+              <span style="font-weight:400">Under 2 Weeks</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:13.5px">
+              <span style="color:var(--muted)">Financing</span>
+              <span style="font-weight:400">Cherry, 0% APR</span>
+            </div>
+          </div>
+          <a href="#book" style="display:inline-flex;align-items:center;justify-content:space-between;margin-top:18px;padding:16px 24px;border-radius:100px;background:var(--card-dark);color:var(--card-dark-text);font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase">
+            Reserve This Time <span>→</span>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Curated Treatment Menu -->
+    <section id="treatments" class="section">
+      <div class="sec-head">
+        <h2 class="serif sec-h2">The Treatment Menu</h2>
+        <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted)">Transparent Pricing · Starting Rates</span>
+      </div>
+
       <div>
-        <span style="display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:#605A4A">Medical aesthetics<span style="width:44px;height:1px;background:rgba(35,32,25,0.28)"></span>Est. 2016</span>
-        <h1 style="margin:26px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(48px,7.6vw,112px);line-height:0.94;letter-spacing:-0.028em;max-width:15ch;text-wrap:balance">Skin that looks like you, <em style="font-style:italic;color:#B5744F">only rested</em>.</h1>
-        <p style="margin:30px 0 0;font-size:17px;line-height:1.62;color:#4B463B;max-width:48ch;text-wrap:pretty">Nurse-practitioner led injectables and clinical skin care, planned one face at a time. No packages you don't need, no results that announce themselves.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
-          <a href="#mrBook" style="display:inline-flex;align-items:center;gap:12px;padding:18px 34px;border-radius:100px;background:#232019;color:#F2EDE6;font-size:14px;letter-spacing:0.06em">Book a consult <span>→</span></a>
-          <a href="#mrMenu" style="display:inline-flex;align-items:center;gap:12px;padding:18px 34px;border-radius:100px;border:1px solid rgba(35,32,25,0.3);font-size:14px;letter-spacing:0.06em">View treatment menu</a>
+        <div class="menu-row">
+          <span style="font-size:12px;letter-spacing:0.18em;color:var(--terracotta)">01</span>
+          <span class="serif" style="font-size:clamp(26px, 2.8vw, 40px);line-height:1.05">Neuromodulators &amp; Wrinkle Relaxers</span>
+          <span class="desktop-cell" style="font-size:14.5px;line-height:1.6;color:var(--muted)">Botox, Dysport, and Daxxify placed in conservative micro-units. Softens expression lines while preserving natural brow mobility.</span>
+          <span class="desktop-cell" style="text-align:right">
+            <span style="font-size:17px;font-weight:400;display:block">from $12 / unit</span>
+            <span style="font-size:11px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase">30 min visit</span>
+          </span>
         </div>
-        <div id="mrProof" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:clamp(48px,7vh,84px);background:rgba(35,32,25,0.14)">
-          <div style="display:flex;flex-direction:column;gap:8px;padding:26px 24px 26px 0;background:#F2EDE6">
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;line-height:1;letter-spacing:-0.02em">4.9</span>
-            <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#605A4A">312 Google reviews</span>
+
+        <div class="menu-row">
+          <span style="font-size:12px;letter-spacing:0.18em;color:var(--terracotta)">02</span>
+          <span class="serif" style="font-size:clamp(26px, 2.8vw, 40px);line-height:1.05">Facial Architecture &amp; Contour</span>
+          <span class="desktop-cell" style="font-size:14.5px;line-height:1.6;color:var(--muted)">Structural hyaluronic support placed with micro-cannula for tear troughs, temples, and jawline definition with undetectable transitions.</span>
+          <span class="desktop-cell" style="text-align:right">
+            <span style="font-size:17px;font-weight:400;display:block">from $750 / syringe</span>
+            <span style="font-size:11px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase">60 min visit</span>
+          </span>
+        </div>
+
+        <div class="menu-row">
+          <span style="font-size:12px;letter-spacing:0.18em;color:var(--terracotta)">03</span>
+          <span class="serif" style="font-size:clamp(26px, 2.8vw, 40px);line-height:1.05">Sculptra® Regenerative Collagen</span>
+          <span class="desktop-cell" style="font-size:14.5px;line-height:1.6;color:var(--muted)">Poly-L-lactic acid biostimulator that triggers your body’s natural type-1 collagen synthesis over 4 to 6 months for lasting global density.</span>
+          <span class="desktop-cell" style="text-align:right">
+            <span style="font-size:17px;font-weight:400;display:block">from $850 / vial</span>
+            <span style="font-size:11px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase">45 min visit</span>
+          </span>
+        </div>
+
+        <div class="menu-row">
+          <span style="font-size:12px;letter-spacing:0.18em;color:var(--terracotta)">04</span>
+          <span class="serif" style="font-size:clamp(26px, 2.8vw, 40px);line-height:1.05">Hybrid Laser Resurfacing &amp; IPL</span>
+          <span class="desktop-cell" style="font-size:14.5px;line-height:1.6;color:var(--muted)">Customized dual-wavelength fractional resurfacing for Arizona sun damage, redness, and pore refinement with minimal social downtime.</span>
+          <span class="desktop-cell" style="text-align:right">
+            <span style="font-size:17px;font-weight:400;display:block">from $420</span>
+            <span style="font-size:11px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase">50 min visit</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2D Facial Mapping & Philosophy Section -->
+    <section id="anatomy" class="anatomy-sec">
+      <div class="anatomy-layout">
+        <div>
+          <span style="font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:#D8A891;display:block;margin-bottom:16px;">CLINICAL MAPPING</span>
+          <h2 class="serif" style="font-size:clamp(32px, 4.4vw, 56px);line-height:1.02;margin-bottom:22px;">Preserving motion, honoring bone structure.</h2>
+          <p style="font-size:16px;line-height:1.7;color:#D2C8BE;margin-bottom:28px;">
+            Aesthetic distortion happens when practitioners chase isolated lines rather than understanding deep structural volume loss. We evaluate your face in natural motion, treating only the key supporting pillars.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(245,239,235,0.18);padding-top:20px;font-size:13.5px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#D8A891">✓</span> Micro-droplet aliquots for natural facial expression
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#D8A891">✓</span> Ultrasound-assisted vascular mapping for safety
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="color:#D8A891">✓</span> Two-week complimentary adjustment review included
+            </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding:26px 24px;background:#F2EDE6">
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;line-height:1;letter-spacing:-0.02em">1,900+</span>
-            <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#605A4A">Treatments performed</span>
+        </div>
+
+        <!-- 2D Facial Mapping Graphic -->
+        <div style="background:#20251B;padding:36px;border:1px solid rgba(245,239,235,0.16);border-radius:4px;">
+          <div style="font-size:11px;letter-spacing:0.18em;color:#D8A891;text-transform:uppercase;margin-bottom:20px;display:flex;justify-content:space-between;">
+            <span>VECTOR PROTOCOL</span>
+            <span>SCOTTSDALE CLINIC</span>
           </div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding:26px 0 26px 24px;background:#F2EDE6">
-            <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;line-height:1;letter-spacing:-0.02em">2</span>
-            <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#605A4A">Valley locations</span>
+          <svg viewBox="0 0 320 220" style="width:100%;height:auto;display:block;">
+            <circle cx="160" cy="110" r="85" fill="none" stroke="rgba(245,239,235,0.18)" stroke-width="1.5" stroke-dasharray="4,4" />
+            <circle cx="160" cy="110" r="55" fill="none" stroke="#D8A891" stroke-width="1" />
+            
+            <!-- Facial Vector Pillars -->
+            <circle cx="115" cy="85" r="4" fill="#D8A891" />
+            <text x="50" y="80" fill="#E6DCDE" font-family="'Jost',sans-serif" font-size="9" letter-spacing="1">TEMPLE SUPPORT</text>
+            <line x1="115" y1="85" x2="95" y2="80" stroke="#D8A891" stroke-width="1" />
+
+            <circle cx="205" cy="85" r="4" fill="#D8A891" />
+            <text x="215" y="80" fill="#E6DCDE" font-family="'Jost',sans-serif" font-size="9" letter-spacing="1">ZYGOMA ARCH</text>
+
+            <circle cx="160" cy="140" r="4" fill="#D8A891" />
+            <text x="165" y="165" fill="#E6DCDE" font-family="'Jost',sans-serif" font-size="9" letter-spacing="1">PYRIFORM APERTURE</text>
+
+            <circle cx="120" cy="170" r="4" fill="#D8A891" />
+            <circle cx="200" cy="170" r="4" fill="#D8A891" />
+            <text x="110" y="195" fill="#D8A891" font-family="'Jost',sans-serif" font-size="9" letter-spacing="1">GONIAL ANGLE CONTOUR</text>
+          </svg>
+          <div style="font-size:11.5px;color:#B9B0A5;margin-top:16px;text-align:center;letter-spacing:0.06em;">
+            Multi-planar restoration across periosteal, deep fat, and dermal layers.
           </div>
         </div>
       </div>
+    </section>
 
-      <aside id="mrCard" style="display:flex;flex-direction:column;padding:30px;border:1px solid rgba(35,32,25,0.18);border-radius:3px;background:#E4DACD">
-        <span style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#5A5346;padding-bottom:18px;border-bottom:1px solid rgba(35,32,25,0.18)">Next available</span>
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;line-height:1.08;letter-spacing:-0.02em;padding:20px 0 4px">Thursday, 2:30 pm</span>
-        <span style="font-size:13.5px;line-height:1.55;color:#5A5346;padding-bottom:22px;border-bottom:1px solid rgba(35,32,25,0.18)">45-minute consult with Dana Reyes, NP-C. No cost, no obligation.</span>
-        <div style="display:flex;flex-direction:column;gap:0;padding-top:6px">
-          <span style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(35,32,25,0.12);font-size:13.5px"><span style="color:#5A5346">Consult</span><span>Complimentary</span></span>
-          <span style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(35,32,25,0.12);font-size:13.5px"><span style="color:#5A5346">Wait time</span><span>Under 2 weeks</span></span>
-          <span style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;font-size:13.5px"><span style="color:#5A5346">Financing</span><span>Cherry, 0% APR</span></span>
+    <!-- Visit Protocol Section -->
+    <section id="visit" class="visit-sec">
+      <div class="visit-grid">
+        <div>
+          <span style="font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:#B4BAA8">Your Visit</span>
+          <h2 class="serif" style="font-size:clamp(34px, 4.5vw, 60px);line-height:1.02;margin:20px 0 24px;color:#F2EDE6">
+            Three appointments, not a subscription.
+          </h2>
+          <p style="font-size:16px;line-height:1.65;color:#C3C8B9;max-width:40ch">
+            We map the face, treat conservatively, then reassess in two weeks. Most patients settle comfortably into two relaxed maintenance visits per year.
+          </p>
         </div>
-        <a href="#mrBook" style="display:inline-flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding:16px 24px;border-radius:100px;background:#3B4034;color:#F2EDE6;font-size:13px;letter-spacing:0.1em;text-transform:uppercase">Reserve it<span>→</span></a>
-      </aside>
-    </div>
-  </section>
 
-  <section id="mrMenu" data-mr-pad style="padding:clamp(60px,8vh,110px) 44px 0">
-    <div style="display:flex;align-items:end;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid rgba(35,32,25,0.22)">
-      <h2 style="margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1;letter-spacing:-0.025em">The treatment menu</h2>
-      <span style="font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:#605A4A">Pricing shown as starting from</span>
-    </div>
-    <div data-mr-row style="display:grid;grid-template-columns:64px minmax(0,1.15fr) minmax(0,1.25fr) 150px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid rgba(35,32,25,0.14);transition:background 0.4s ease,padding 0.4s ease">
-      <span style="font-size:11px;letter-spacing:0.18em;color:#6E6857">01</span>
-      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-0.02em">Injectables</span>
-      <span data-mr-cell style="font-size:14.5px;line-height:1.58;color:#4B463B;text-wrap:pretty">Neuromodulators and filler placed in small, reversible increments. Mapped, photographed, reviewed at two weeks.</span>
-      <span data-mr-cell style="display:flex;flex-direction:column;gap:5px;text-align:right">
-        <span style="font-size:16px">from $12/unit</span>
-        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#605A4A">30 min</span>
-      </span>
-    </div>
-    <div data-mr-row style="display:grid;grid-template-columns:64px minmax(0,1.15fr) minmax(0,1.25fr) 150px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid rgba(35,32,25,0.14);transition:background 0.4s ease,padding 0.4s ease">
-      <span style="font-size:11px;letter-spacing:0.18em;color:#6E6857">02</span>
-      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-0.02em">Clinical facials</span>
-      <span data-mr-cell style="font-size:14.5px;line-height:1.58;color:#4B463B;text-wrap:pretty">Medical-grade resurfacing built around your barrier, not a menu name. Dermaplane, peels, hydrating protocols.</span>
-      <span data-mr-cell style="display:flex;flex-direction:column;gap:5px;text-align:right">
-        <span style="font-size:16px">from $185</span>
-        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#605A4A">60 min</span>
-      </span>
-    </div>
-    <div data-mr-row style="display:grid;grid-template-columns:64px minmax(0,1.15fr) minmax(0,1.25fr) 150px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid rgba(35,32,25,0.14);transition:background 0.4s ease,padding 0.4s ease">
-      <span style="font-size:11px;letter-spacing:0.18em;color:#6E6857">03</span>
-      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-0.02em">Laser &amp; tone</span>
-      <span data-mr-cell style="font-size:14.5px;line-height:1.58;color:#4B463B;text-wrap:pretty">IPL and fractional resurfacing for sun damage, redness, and texture. Fitzpatrick-appropriate settings only.</span>
-      <span data-mr-cell style="display:flex;flex-direction:column;gap:5px;text-align:right">
-        <span style="font-size:16px">from $340</span>
-        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#605A4A">45 min</span>
-      </span>
-    </div>
-    <div data-mr-row style="display:grid;grid-template-columns:64px minmax(0,1.15fr) minmax(0,1.25fr) 150px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid rgba(35,32,25,0.14);transition:background 0.4s ease,padding 0.4s ease">
-      <span style="font-size:11px;letter-spacing:0.18em;color:#6E6857">04</span>
-      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-0.02em">Skin health plans</span>
-      <span data-mr-cell style="font-size:14.5px;line-height:1.58;color:#4B463B;text-wrap:pretty">A twelve-month plan with a real budget attached — what to treat now, what can wait, what to skip.</span>
-      <span data-mr-cell style="display:flex;flex-direction:column;gap:5px;text-align:right">
-        <span style="font-size:16px">from $95/mo</span>
-        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#605A4A">Ongoing</span>
-      </span>
-    </div>
-  </section>
+        <div style="display:flex;flex-direction:column;">
+          <div class="step-row">
+            <span class="serif" style="font-size:32px;color:#E0A277">01</span>
+            <div>
+              <h3 style="font-size:19px;font-weight:400;color:#F2EDE6;margin-bottom:6px">Consult &amp; Face Mapping</h3>
+              <p style="font-size:14.5px;line-height:1.6;color:#A8AE9C">45 minutes with Dana Reyes, NP-C — reviewing your facial priorities, budget, and what we deliberately choose to leave alone.</p>
+            </div>
+          </div>
+          <div class="step-row">
+            <span class="serif" style="font-size:32px;color:#E0A277">02</span>
+            <div>
+              <h3 style="font-size:19px;font-weight:400;color:#F2EDE6;margin-bottom:6px">Treatment Day</h3>
+              <p style="font-size:14.5px;line-height:1.6;color:#A8AE9C">Topical numbing, standardized clinical photos, treatment, and complimentary aftercare kit. The same provider treats you every single time.</p>
+            </div>
+          </div>
+          <div class="step-row" style="border-bottom:1px solid rgba(229,219,208,0.2)">
+            <span class="serif" style="font-size:32px;color:#E0A277">03</span>
+            <div>
+              <h3 style="font-size:19px;font-weight:400;color:#F2EDE6;margin-bottom:6px">Two-Week Review</h3>
+              <p style="font-size:14.5px;line-height:1.6;color:#A8AE9C">Always included. We evaluate full settling, document updated photos, and plan your next visit only if clinically indicated.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="mrSteps" data-mr-pad style="display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(40px,6vw,80px);margin-top:clamp(70px,9vh,120px);padding:clamp(60px,8vh,104px) 44px;background:#3B4034;color:#E4DACD">
-    <div>
-      <span style="font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:#B4BAA8">Your visit</span>
-      <h2 style="margin:22px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(34px,4.4vw,60px);line-height:1.02;letter-spacing:-0.025em;color:#F2EDE6;max-width:16ch">Three appointments, not a subscription.</h2>
-      <p style="margin:24px 0 0;font-size:16px;line-height:1.65;color:#C3C8B9;max-width:40ch;text-wrap:pretty">We map the face, treat conservatively, then reassess in two weeks. Most patients settle into two visits a year.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:0">
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(228,218,205,0.22)">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:#E0A277">01</span>
-        <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:19px;color:#F2EDE6">Consult &amp; face mapping</span><span style="font-size:14.5px;line-height:1.6;color:#A8AE9C">45 minutes with your provider — priorities, budget, and what we'd deliberately leave alone.</span></span>
+    <!-- Provider Spotlight -->
+    <section id="provider" class="section">
+      <div class="provider-grid">
+        <div>
+          <span style="font-size:11px;letter-spacing:0.24em;color:var(--terracotta);text-transform:uppercase;display:block;margin-bottom:16px;">CLINICAL DIRECTOR</span>
+          <h2 class="serif" style="font-size:clamp(34px, 4.8vw, 64px);line-height:1.02;margin-bottom:24px;">Dana Reyes, MSN, FNP-C</h2>
+          <p style="font-size:16.5px;line-height:1.7;color:#4B463B;margin-bottom:28px;">
+            “The highest compliment a patient can receive after visiting us isn't 'who did your filler?' It's someone asking if they just got back from a great vacation.”
+          </p>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#2B2720;">
+            <div>• Master Certified Cosmetic Injector (10+ Years Experience)</div>
+            <div>• Board Certified Family Nurse Practitioner (AANP)</div>
+            <div>• Advanced Anatomical Cadaveric Dissection Fellow</div>
+          </div>
+        </div>
+        <div class="provider-card">
+          <blockquote class="serif" style="font-size:clamp(24px, 3.2vw, 42px);line-height:1.18;color:var(--terracotta-dark);margin-bottom:24px;">
+            “I went in asking for a full package. Dana talked me down to one syringe and she was completely right — nobody can tell, everybody notices.”
+          </blockquote>
+          <div style="font-size:13px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;">
+            Kara M. · Scottsdale Resident &amp; Patient Since 2021
+          </div>
+        </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(228,218,205,0.22)">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:#E0A277">02</span>
-        <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:19px;color:#F2EDE6">Treatment day</span><span style="font-size:14.5px;line-height:1.6;color:#A8AE9C">Numbing, photos, treatment, aftercare kit. Same provider every time — you're never handed off.</span></span>
-      </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(228,218,205,0.22);border-bottom:1px solid rgba(228,218,205,0.22)">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:#E0A277">03</span>
-        <span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:19px;color:#F2EDE6">Two-week review</span><span style="font-size:14.5px;line-height:1.6;color:#A8AE9C">Included. We adjust, document, and set the next date only if you need one.</span></span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="mrVoice" data-mr-pad style="padding:clamp(64px,9vh,120px) 44px">
-    <div style="max-width:24ch;font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:#605A4A">Patients</div>
-    <blockquote style="margin:28px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(28px,4vw,56px);line-height:1.14;letter-spacing:-0.024em;max-width:32ch;text-wrap:pretty">"I went in asking for a lot. Dana talked me down to one syringe and she was right — nobody can tell, everybody notices."</blockquote>
-    <div style="display:flex;align-items:center;gap:16px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(35,32,25,0.18);max-width:520px">
-      <span style="font-size:14px">Kara M.</span>
-      <span style="width:5px;height:5px;border-radius:50%;background:#B5744F"></span>
-      <span style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#605A4A">Patient since 2021</span>
-    </div>
-  </section>
+    <!-- Aesthetic FAQ Section -->
+    <section id="faq" class="section">
+      <div class="sec-head">
+        <h2 class="serif sec-h2">Frequently Asked Questions</h2>
+        <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted)">Patient Care Guide</span>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Will my consultation require any upfront payment or commitment? <span>+</span></div>
+          <div class="faq-a">No. All initial 45-minute consultations at Meridian Skin Studio are completely complimentary with zero treatment obligation. We provide a written treatment roadmap and let you take all the time you need to decide.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do you prevent the unnatural or 'overfilled' appearance? <span>+</span></div>
+          <div class="faq-a">We use conservative dosing, micro-droplet technique, and high-cohesivity hyaluronic formulations matched to bone density rather than soft tissue superficial layers. If a treatment does not serve your facial harmony, we will openly advise against it.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the typical recovery or social downtime after injectables? <span>+</span></div>
+          <div class="faq-a">Most patients resume everyday social activities immediately. Neuromodulators carry zero downtime; contouring treatments may involve mild localized swelling for 24 to 48 hours, which resolves fully before your two-week review.</div>
+        </div>
+      </div>
+    </section>
 
-  <section id="mrBook" data-mr-pad style="padding:clamp(60px,8vh,110px) 44px;background:#8E4F2C;color:#FBF7F1">
-    <span style="font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:#F6E3D5">Booking now</span>
-    <h2 style="margin:24px 0 40px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(40px,7vw,104px);line-height:0.94;letter-spacing:-0.03em;max-width:18ch">Start with the consult. Decide after.</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:end;justify-content:space-between;padding-top:28px;border-top:1px solid rgba(251,247,241,0.35)">
-      <a href="#mrTop" style="display:inline-flex;align-items:center;gap:12px;padding:19px 38px;border-radius:100px;background:#232019;color:#F2EDE6;font-size:15px">Book a consult <span>→</span></a>
-      <div style="display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:#F6E3D5">
-        <span>hello@meridianskin.co</span>
-        <span>(480) 555-0117</span>
+    <!-- Booking CTA Section -->
+    <section id="book" class="booking-cta">
+      <span style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:#F6E0D2">CONSULTATIONS &amp; APPOINTMENTS</span>
+      <h2 class="serif booking-h2">Start with the consult. Decide after.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:end;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(250,245,238,0.3)">
+        <a href="tel:4805550117" class="btn-primary" style="background:#201D17;color:#FAF6F0;padding:20px 42px;font-size:15px">
+          Book Scottsdale Consultation <span>→</span>
+        </a>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:#F6E0D2">
+          <span>Concierge: hello@meridianskin.co</span>
+          <span>Telephone: (480) 555-0117</span>
+          <span>Locations: Scottsdale Old Town &amp; Paradise Valley</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer data-mr-pad style="padding:clamp(48px,6vh,80px) 44px 40px;background:#232019;color:#B7B1A3">
-    <div id="mrFootGrid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px">
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;letter-spacing:0.24em;text-transform:uppercase;color:#F2EDE6">Meridian</span>
-        <span style="font-size:13px;line-height:1.6">Medical aesthetics for the Valley. Nurse-practitioner owned.</span>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="foot-grid">
+      <div>
+        <div class="serif" style="font-size:24px;letter-spacing:0.18em;color:#FAF6F0;margin-bottom:12px;text-transform:uppercase">Meridian</div>
+        <p style="line-height:1.6;font-size:13px;">Medical aesthetics for the Valley. Nurse-practitioner owned, patient-centered facial care.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
-        <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#9E9787;padding-bottom:6px">Scottsdale</span>
-        <span>7120 E Main St, Ste 4</span>
-        <span>Mon–Fri 9–6 · Sat 10–3</span>
+      <div>
+        <div style="font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9B9484;margin-bottom:12px">Scottsdale Studio</div>
+        <p style="line-height:1.6;font-size:13px">7120 E Main St, Suite 4<br>Scottsdale, AZ 85251<br>Mon–Fri 9–6 · Sat 10–3</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
-        <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#9E9787;padding-bottom:6px">Paradise Valley</span>
-        <span>4405 N Tatum Blvd</span>
-        <span>Tue–Sat 9–5</span>
+      <div>
+        <div style="font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9B9484;margin-bottom:12px">Paradise Valley</div>
+        <p style="line-height:1.6;font-size:13px">4405 N Tatum Blvd<br>Paradise Valley, AZ 85253<br>Tue–Sat 9–5</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:13px">
-        <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#9E9787;padding-bottom:6px">More</span>
-        <a href="#mrMenu" style="color:#B7B1A3">Treatments</a>
-        <a href="#mrSteps" style="color:#B7B1A3">Your visit</a>
-        <a href="#mrBook" style="color:#B7B1A3">Book</a>
+      <div>
+        <div style="font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9B9484;margin-bottom:12px">Quick Links</div>
+        <p style="line-height:1.8;font-size:13px">
+          <a href="#treatments">Treatments</a> · <a href="#anatomy">Philosophy</a><br>
+          <a href="#visit">Your Visit</a> · <a href="#provider">Provider Bio</a><br>
+          <a href="#book">Book Consultation</a>
+        </p>
       </div>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;margin-top:44px;padding-top:20px;border-top:1px solid rgba(183,177,163,0.2);font-size:11.5px;letter-spacing:0.08em;color:#9E9787">
-      <span>© 2026 Meridian Skin Studio</span>
-      <span>Concept build — OrganicReachSEO</span>
+    <div style="display:flex;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(245,239,235,0.1);font-size:11.5px;flex-wrap:wrap;gap:12px">
+      <span>© 2026 Meridian Skin Studio LLC</span>
+      <span>Concept Build — OrganicReachSEO</span>
     </div>
   </footer>
-</div>
 
 </body>
 </html>
