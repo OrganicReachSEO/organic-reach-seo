@@ -1,5 +1,12 @@
 RewriteEngine On
 
+# https + non-www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://organicreachseo.com/$1 [R=301,L]
+
+ErrorDocument 404 /404.html
+
 # 301 Redirect old flat .html URLs to pretty directory URLs
 RewriteRule ^about\.html$ /about/ [R=301,L]
 RewriteRule ^contact\.html$ /contact/ [R=301,L]
