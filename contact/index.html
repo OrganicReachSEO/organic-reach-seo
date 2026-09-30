@@ -12,7 +12,7 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — OrganicReachSEO</title>
+<title>Contact OrganicReachSEO — US & India</title>
 <meta name="description" content="A direct line to the person doing the work. Tell us about your business and we'll get back to you personally, usually within three days.">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,6 +282,11 @@
         <div id="formIntro">
           <h2 class="display">You'll always have a direct line <em style="color:var(--violet)">to the founder.</em></h2>
           <p>Direct founder access — not just for this conversation, but for as long as you're a client. No account manager hand-offs, ever.</p>
+          <div style="margin-top:16px;font-size:14.5px;line-height:1.7;color:var(--ink-70);">
+            <div><strong>Email:</strong> <a href="mailto:info@organicreachseo.com" style="color:inherit;text-decoration:underline;">info@organicreachseo.com</a></div>
+            <div><strong>US:</strong> <a href="tel:+12185423683" style="color:inherit;">+1 (218) 542-3683</a></div>
+            <div><strong>Office:</strong> Mumbai, India</div>
+          </div>
         </div>
 
         <p style="font-size:15.5px;line-height:1.65;color:var(--ink-70);margin-bottom:28px;text-wrap:pretty">Tell us about your business — you'll hear back directly from me, usually within three days.</p>
@@ -308,19 +313,56 @@
             </div>
             <div class="field">
               <label for="phone">PHONE (OPTIONAL)</label>
-              <input id="phone" type="tel" name="phone" placeholder="+1 (___) ___-____">
+              <input id="phone" type="tel" name="phone" placeholder="Include country code.">
             </div>
           </div>
 
-          <div class="field">
-            <label for="interest">WHAT ARE YOU LOOKING FOR?</label>
-            <select id="interest" name="service">
-              <option>Local SEO</option>
-              <option>Website Development</option>
-              <option>Reputation Management</option>
-              <option>Not sure — advise me</option>
-            </select>
+          <div class="pair">
+            <div class="field">
+              <label for="based">WHERE IS YOUR BUSINESS BASED?</label>
+              <select id="based" name="based" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="United States">United States</option>
+                <option value="India">India</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="interest">WHAT DO YOU NEED?</label>
+              <select id="interest" name="service" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Website ownership">A website I own (leaving a subscription platform)</option>
+                <option value="Website design or rebuild">Website design or rebuild</option>
+                <option value="SEO">SEO</option>
+                <option value="Export SEO">Export SEO — reach international buyers</option>
+                <option value="Reputation management">Reputation management</option>
+                <option value="Not sure">Not sure — advise me</option>
+              </select>
+            </div>
           </div>
+          <div id="indiaFields" hidden>
+            <div class="pair">
+              <div class="field">
+                <label for="website">COMPANY WEBSITE</label>
+                <input id="website" type="url" name="website" placeholder="https://">
+              </div>
+              <div class="field">
+                <label for="markets">KEY EXPORT MARKETS</label>
+                <input id="markets" type="text" name="export_markets" placeholder="e.g. USA, Germany, UAE">
+              </div>
+            </div>
+            <div class="field">
+              <label for="products">MAIN PRODUCTS</label>
+              <input id="products" type="text" name="products" placeholder="e.g. stainless steel flanges">
+            </div>
+          </div>
+          <div id="platformField" hidden>
+            <div class="field">
+              <label for="platform">CURRENT WEBSITE PLATFORM</label>
+              <input id="platform" type="text" name="current_platform" placeholder="e.g. Luxury Presence, Wix, Squarespace">
+            </div>
+          </div>
+          <input type="hidden" name="source" id="leadSource">
 
           <div class="field">
             <label for="message">TELL US ABOUT YOUR BUSINESS</label>
@@ -364,6 +406,7 @@
           <a href="../seo/">Local SEO</a>
           <a href="../website-redesign/">Website Development</a>
           <a href="../reputation-management/">Reputation Management</a>
+          <a href="/india/">Export SEO (India) &rarr;</a>
         </div>
       </div>
       <div>
@@ -377,8 +420,8 @@
     </div>
     <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true"><img src="../assets/logo-light.svg?v=3" alt="" style="max-width:90vw;height:clamp(26px,7vw,130px);width:auto;opacity:0.35;object-fit:contain"></div></div>
     <div class="legal">
-      <span>&copy; 2026 OrganicReachSEO. All rights reserved.</span>
-      <span>info@organicreachseo.com · +1 (218) 542-3683</span>
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved. · Based in Mumbai, India</span>
+      <span>info@organicreachseo.com · US +1 (218) 542-3683</span>
     </div>
   </div>
 </footer>
@@ -497,6 +540,26 @@
     ScrollTrigger.refresh();
   }
 
+  /* Contact Form logic & preselection */
+  var qs = new URLSearchParams(location.search);
+  var based = $('#based'), need = $('#interest');
+  var NEED = { export:'Export SEO', ownership:'Website ownership',
+    website:'Website design or rebuild', seo:'SEO', reputation:'Reputation management' };
+  if (qs.get('from') === 'india' && based) based.value = 'India';
+  if (qs.get('need') && NEED[qs.get('need')] && need) need.value = NEED[qs.get('need')];
+  var src = $('#leadSource');
+  if (src) src.value = qs.get('from') || document.referrer || 'direct';
+  function toggleFields() {
+    var india = (based && based.value === 'India') || (need && need.value === 'Export SEO');
+    var site = need && (need.value === 'Website ownership' || need.value === 'Website design or rebuild');
+    var indEl = $('#indiaFields'), platEl = $('#platformField');
+    if (indEl) indEl.hidden = !india;
+    if (platEl) platEl.hidden = !site || india;
+  }
+  if (based) based.addEventListener('change', toggleFields);
+  if (need) need.addEventListener('change', toggleFields);
+  toggleFields();
+
   /* Formspree AJAX handler */
   var cf = $('#contactForm');
   if (cf) {
@@ -508,13 +571,17 @@
       if (status) status.innerHTML = '<span style="font-size:14px;color:var(--ink-70)">Sending message...</span>';
 
       var data = new FormData(cf);
+      data.set('_subject', 'New inquiry — ' + (based ? based.value : '') + ' — ' + (need ? need.value : ''));
       fetch(cf.action, {
         method: cf.method,
         body: data,
         headers: { 'Accept': 'application/json' }
       }).then(function (response) {
         if (response.ok) {
-          cf.innerHTML = '<div style="padding:40px 32px;background:rgba(108,60,224,0.06);border:1px solid rgba(108,60,224,0.3);border-radius:20px;margin-bottom:24px"><h3 style="font-family:var(--serif);font-size:32px;color:var(--ink);margin-bottom:12px;line-height:1.1">Thanks — we&apos;ll be in touch within one business day.</h3><p style="font-size:15.5px;color:var(--ink-70);line-height:1.6;margin:0">We&apos;ve received your message and will review your site before reaching back out.</p></div><p style="font-size:14px;color:var(--ink-70)">Prefer direct email? <a href="mailto:info@organicreachseo.com" style="border-bottom:1px solid var(--ink)">info@organicreachseo.com</a></p>';
+          if (typeof gtag === 'function') gtag('event', 'generate_lead', {
+            lead_market: based ? based.value : '', service_interest: need ? need.value : ''
+          });
+          cf.innerHTML = '<div style="padding:40px 32px;background:rgba(108,60,224,0.06);border:1px solid rgba(108,60,224,0.3);border-radius:20px;margin-bottom:24px"><h3 style="font-family:var(--serif);font-size:32px;color:var(--ink);margin-bottom:12px;line-height:1.1">Thanks — you&apos;ll hear back from me directly, usually within three days.</h3><p style="font-size:15.5px;color:var(--ink-70);line-height:1.6;margin:0">We&apos;ve received your message and will review your site before reaching back out.</p></div><p style="font-size:14px;color:var(--ink-70)">Prefer direct email? <a href="mailto:info@organicreachseo.com" style="border-bottom:1px solid var(--ink)">info@organicreachseo.com</a></p>';
         } else {
           response.json().then(function (data) {
             if (btn) btn.disabled = false;
