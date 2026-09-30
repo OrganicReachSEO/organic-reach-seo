@@ -8,12 +8,26 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4LRCN6X6TD');
+  gtag('config', 'G-4LRCN6X6TD', {
+    content_group: location.pathname.indexOf('/india/') === 0 ? 'india'
+      : location.pathname.indexOf('/concepts/') === 0 ? 'concept'
+      : 'us'
+  });
 </script>
+<script src="/assets/js/analytics.js" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SEO for Real Estate &amp; Multi-Location Businesses | OrganicReachSEO</title>
 <meta name="description" content="SEO built around your business, not a checklist — technical fixes, content and local search, reported in plain English. Free consultation, no lock-in.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrganicReachSEO">
+<meta property="og:title" content="SEO for Real Estate &amp; Multi-Location Businesses">
+<meta property="og:description" content="SEO built around your business, not a checklist — technical fixes, content and local search, reported in plain English. Free consultation, no lock-in.">
+<meta property="og:url" content="https://organicreachseo.com/seo/">
+<meta property="og:image" content="https://organicreachseo.com/assets/logo.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,43 +277,6 @@
       "name": "Local SEO Services",
       "provider": {"@id": "https://organicreachseo.com/#organization"},
       "areaServed": {"@type": "Country", "name": "United States"}
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How long until we see results?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Early movement typically shows in 6–8 weeks. Meaningful ranking and traffic gains usually land in 3–6 months, depending on how competitive your market is."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you guarantee #1 rankings?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No one honest can. We guarantee the work, full transparency on progress, and no lock-in — you stay because it's working."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does it cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We start with a free call. If there's a fit, the next step is a paid diagnostic — a fixed-price review of your site, rankings and competition, quoted upfront. The ongoing retainer is scoped from what the diagnostic finds, month-to-month with no lock-in."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Will this work with my existing website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Usually. If the site itself is holding rankings back, we'll tell you plainly — and we can fix it on an SEO-ready foundation."
-          }
-        }
-      ]
     },
     {
       "@type": "BreadcrumbList",

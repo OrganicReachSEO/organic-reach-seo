@@ -8,12 +8,26 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4LRCN6X6TD');
+  gtag('config', 'G-4LRCN6X6TD', {
+    content_group: location.pathname.indexOf('/india/') === 0 ? 'india'
+      : location.pathname.indexOf('/concepts/') === 0 ? 'concept'
+      : 'us'
+  });
 </script>
+<script src="/assets/js/analytics.js" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About OrganicReachSEO — Founder-Led SEO Firm in Mumbai</title>
 <meta name="description" content="Founder-led SEO and web firm in Mumbai, working with companies in the US and India since 2024. White-hat only, plain-English reporting, direct founder access.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrganicReachSEO">
+<meta property="og:title" content="About OrganicReachSEO — Founder-Led SEO Firm in Mumbai">
+<meta property="og:description" content="Founder-led SEO and web firm in Mumbai, working with companies in the US and India since 2024. White-hat only, plain-English reporting, direct founder access.">
+<meta property="og:url" content="https://organicreachseo.com/about/">
+<meta property="og:image" content="https://organicreachseo.com/assets/logo.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,6 +252,13 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://organicreachseo.com/about/#founder",
+      "name": "Nirav",
+      "jobTitle": "Founder",
+      "worksFor": {"@id": "https://organicreachseo.com/#organization"}
+    },
     {
       "@type": "WebPage",
       "@id": "https://organicreachseo.com/about/#webpage",

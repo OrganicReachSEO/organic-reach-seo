@@ -8,16 +8,264 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4LRCN6X6TD');
+  gtag('config', 'G-4LRCN6X6TD', {
+    content_group: location.pathname.indexOf('/india/') === 0 ? 'india'
+      : location.pathname.indexOf('/concepts/') === 0 ? 'concept'
+      : 'us'
+  });
 </script>
+<script src="/assets/js/analytics.js" defer></script>
 <meta charset="utf-8">
-<title>OrganicReachSEO — Page Not Found</title>
-<meta http-equiv="refresh" content="0; url=/">
-<script>
-  window.location.replace('/');
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found | OrganicReachSEO</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE7;
+    --paper-2: #EFE9DC;
+    --ink: #17111C;
+    --ink-70: #4A4253;
+    --mute: #8B8194;
+    --violet: #6C3CE0;
+    --violet-lt: #CDB9F6;
+    --rust: #DC5427;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Schibsted Grotesk', system-ui, sans-serif;
+    --pad: 44px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--violet); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--violet); }
+  h1, h2, h3, p { margin: 0; }
+
+  .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; }
+  .display em { font-style: italic; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
+  .wrap { max-width: 1400px; margin: 0 auto; width: 100%; }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; background: var(--ink); color: var(--paper); white-space: nowrap; transition: background 0.25s ease, color 0.25s ease; }
+  .btn:hover { color: var(--paper); background: var(--violet); }
+  .btn-lg { padding: 19px 40px; font-size: 15.5px; letter-spacing: 0; background: var(--violet-lt); color: var(--ink); }
+  .btn-lg:hover { background: #DCCDFA; color: var(--ink); }
+  .btn-pill { background: var(--paper-2); color: var(--ink); border: 1px solid rgba(23,17,28,0.12); padding: 12px 22px; font-size: 14px; font-weight: 500; }
+  .btn-pill:hover { background: var(--violet); color: var(--paper); border-color: var(--violet); }
+
+  /* nav */
+  #nav { position: fixed; top: 18px; left: 0; right: 0; z-index: 400; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 11px 14px 11px 26px; margin: 0 auto; max-width: 1180px; width: calc(100% - 36px); background: rgba(243,239,231,0.72); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(23,17,28,0.08); box-shadow: 0 10px 40px -12px rgba(23,17,28,0.18); border-radius: 100px; }
+  #nav .brand { display: flex; align-items: center; }
+  #nav .brand img { height: 38px; width: auto; }
+  #nav .links { display: flex; align-items: center; gap: 30px; }
+  #nav .links a { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; }
+
+  /* hamburger & mobile menu */
+  #navHamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 401;
+  }
+  #navHamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #navHamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #navHamburger.open span:nth-child(2) { opacity: 0; }
+  #navHamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  #navMobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 399;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  #navMobileOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #navMobileOverlay .mob-link {
+    font-size: 24px;
+    font-family: var(--serif);
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  #navMobileOverlay .mob-link:hover { color: var(--violet); }
+  #navMobileOverlay .mob-subpages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(23,17,28,0.1);
+    width: 100%;
+    max-width: 260px;
+  }
+  #navMobileOverlay .mob-subpages a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-70);
+    letter-spacing: 0.04em;
+  }
+
+  /* footer */
+  footer { background: var(--ink); color: var(--paper); padding: 90px var(--pad) 40px; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; }
+  .foot-grid .brand img { height: 38px; width: auto; margin-bottom: 24px; }
+  .foot-grid p { font-size: 14.5px; line-height: 1.6; color: rgba(243,239,231,0.6); max-width: 320px; }
+  .foot-col-title { font-size: 9.5px; font-weight: 700; letter-spacing: 0.2em; color: rgba(243,239,231,0.4); margin-bottom: 22px; display: block; }
+  .foot-links { display: flex; flex-direction: column; gap: 14px; }
+  .foot-links a { font-size: 14px; color: rgba(243,239,231,0.78); transition: color 0.2s ease; }
+  .foot-links a:hover { color: var(--paper); }
+  .legal { display: flex; justify-content: space-between; align-items: center; padding-top: 36px; border-top: 1px solid rgba(243,239,231,0.12); margin-top: 50px; font-size: 12px; color: rgba(243,239,231,0.45); flex-wrap: wrap; gap: 16px; }
+
+  @media (max-width: 900px) {
+    :root { --pad: 22px; }
+    #nav .links, #nav .btn { display: none; }
+    #navHamburger { display: flex; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 580px) {
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <p style="font-family:sans-serif; text-align:center; margin-top:20vh;">Redirecting to home page...</p>
+
+<nav id="nav">
+  <a href="/" class="brand"><img src="/assets/logo.svg?v=3" alt="OrganicReachSEO" height="40"></a>
+  <div class="links">
+    <a href="/">HOME</a>
+    <a href="/services/">SERVICES</a>
+    <a href="/portfolio/">PORTFOLIO</a>
+    <a href="/about/">ABOUT</a>
+    <a href="/contact/">CONTACT</a>
+  </div>
+  <a href="/contact/" class="btn">Say hello ↗</a>
+  <button id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="navMobileOverlay">
+  <a href="/" class="mob-link">HOME</a>
+  <a href="/services/" class="mob-link">SERVICES</a>
+  <a href="/portfolio/" class="mob-link">PORTFOLIO</a>
+  <a href="/about/" class="mob-link">ABOUT</a>
+  <a href="/contact/" class="mob-link">CONTACT</a>
+  <div class="mob-subpages">
+    <a href="/services/">Services Overview ↗</a>
+    <a href="/website-redesign/">Web Development ↗</a>
+    <a href="/portfolio/">Portfolio & Work ↗</a>
+    <a href="/reputation-management/">Reputation Mgmt ↗</a>
+    <a href="/seo/">SEO Optimization ↗</a>
+  </div>
+  <a href="/contact/" class="btn btn-lg" style="margin-top:10px;">Say hello ↗</a>
+</div>
+
+<main style="padding-top: clamp(140px, 18vh, 220px); padding-bottom: clamp(80px, 12vh, 140px); min-height: 65vh;">
+  <div class="wrap" style="padding-left: var(--pad); padding-right: var(--pad); max-width: 900px;">
+    <span class="eyebrow" style="color:var(--violet);display:block;margin-bottom:20px">(404) — PAGE NOT FOUND</span>
+    <h1 class="display" style="font-size: clamp(38px, 6vw, 72px); margin-bottom: 24px;">This page doesn't exist.</h1>
+    <p style="font-size: 18px; line-height: 1.6; color: var(--ink-70); margin-bottom: 36px; max-width: 600px;">The link may be old or mistyped. These will get you back on track:</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px;">
+      <a href="/" class="btn btn-pill">Home &rarr;</a>
+      <a href="/services/" class="btn btn-pill">Services &rarr;</a>
+      <a href="/website-redesign/" class="btn btn-pill">Websites you own &rarr;</a>
+      <a href="/seo/" class="btn btn-pill">SEO &rarr;</a>
+      <a href="/reputation-management/" class="btn btn-pill">Reputation management &rarr;</a>
+      <a href="/contact/" class="btn btn-pill">Contact &rarr;</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><img src="/assets/logo.svg?v=3" alt="OrganicReachSEO" height="38"></div>
+        <p>SEO and owned websites for mid-market companies in the US and India. Built to compound, handed over fully owned.</p>
+      </div>
+      <div>
+        <span class="foot-col-title">NAVIGATION</span>
+        <div class="foot-links">
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+      <div>
+        <span class="foot-col-title">SERVICES</span>
+        <div class="foot-links">
+          <a href="/seo/">Local SEO</a>
+          <a href="/website-redesign/">Website Development</a>
+          <a href="/reputation-management/">Reputation Management</a>
+          <a href="/india/">Export SEO (India) &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <span class="foot-col-title">CONTACT</span>
+        <div class="foot-links">
+          <a href="mailto:info@organicreachseo.com">info@organicreachseo.com</a>
+          <a href="tel:+12185423683">+1 (218) 542-3683</a>
+          <span style="font-size:12px;color:var(--mute);line-height:1.5;margin-top:4px">Scottsdale · Phoenix · Mumbai</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:92px 0 0;overflow:hidden"><div id="footWord" aria-hidden="true"><img src="/assets/logo-light.svg?v=3" alt="" style="max-width:90vw;height:clamp(26px,7vw,130px);width:auto;opacity:0.35;object-fit:contain"></div></div>
+    <div class="legal">
+      <span>&copy; 2026 OrganicReachSEO. All rights reserved. · Based in Mumbai, India</span>
+      <span>info@organicreachseo.com · US +1 (218) 542-3683</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var burger = document.getElementById('navHamburger');
+  var overlay = document.getElementById('navMobileOverlay');
+  if (burger && overlay) {
+    burger.addEventListener('click', function() {
+      var isOpen = burger.classList.toggle('open');
+      overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    var links = overlay.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        burger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  }
+})();
+</script>
 </body>
 </html>

@@ -8,12 +8,26 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4LRCN6X6TD');
+  gtag('config', 'G-4LRCN6X6TD', {
+    content_group: location.pathname.indexOf('/india/') === 0 ? 'india'
+      : location.pathname.indexOf('/concepts/') === 0 ? 'concept'
+      : 'us'
+  });
 </script>
+<script src="/assets/js/analytics.js" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Own Your Website — No Monthly Platform Fee | OrganicReachSEO</title>
 <meta name="description" content="Fast, conversion-ready websites you own outright — your domain, your hosting, no monthly fee to stay online. Fixed-scope quote, no retainer.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrganicReachSEO">
+<meta property="og:title" content="Own Your Website — No Monthly Platform Fee">
+<meta property="og:description" content="Fast, conversion-ready websites you own outright — your domain, your hosting, no monthly fee to stay online. Fixed-scope quote, no retainer.">
+<meta property="og:url" content="https://organicreachseo.com/website-redesign/">
+<meta property="og:image" content="https://organicreachseo.com/assets/logo.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
